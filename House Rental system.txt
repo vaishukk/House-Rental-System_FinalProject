@@ -1,0 +1,7 @@
+House Rental system
+----------------------------------------------------
+Name 				NUID
+----------------------------------------------------
+Vaishnavi Khismatrao		001523415
+Nirmayee Dighe			002984202
+Sanika Patne			001099125	
