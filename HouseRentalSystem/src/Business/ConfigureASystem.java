@@ -5,13 +5,21 @@
  */
 package Business;
 
+import Business.Employee.Employee;
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author Kiran
  */
 public class ConfigureASystem {
+    EcoSystem system = EcoSystem.getInstance();
     
     
     
-    
+        Employee employee = system.getEmployeeDirectory().createEmployee("admin");
+        
+        //UserAccount ua = system.getUserAccountDirectory().createUserAccount("admin", "admin", employee, new SystemAdminRole());
+        
+        //return system;
 }
