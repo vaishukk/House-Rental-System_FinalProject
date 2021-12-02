@@ -13,6 +13,7 @@ import Business.UserAccount.UserAccount;
  * @author Kiran
  */
 public class ConfigureASystem {
+    public static EcoSystem configure(){
     EcoSystem system = EcoSystem.getInstance();
     
     
@@ -21,5 +22,7 @@ public class ConfigureASystem {
         
         //UserAccount ua = system.getUserAccountDirectory().createUserAccount("admin", "admin", employee, new SystemAdminRole());
         
-        //return system;
+        return system;
+    }
 }
+
