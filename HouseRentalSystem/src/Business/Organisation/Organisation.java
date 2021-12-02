@@ -36,7 +36,8 @@ public class Organisation {
         MoneyContractor("MoneyContractor Organization"),
         Photographer("Photographer Organization"),
         Customer("Customer Organization"),
-        Dealer("Dealer Organization");
+        Dealer("Dealer Organization"),
+        Merchant("Merchant Organisation");
 
         private String value;
 
@@ -52,6 +53,16 @@ public class Organisation {
         public String toString() {
             return value;
         }
+    }
+    
+    public Organisation(String name) {
+        this.name = name;
+        workQueue = new WorkQueue();
+        employeeDirectory = new EmployeeDirectory();
+        userAccountDirectory = new UserAccountDirectory();
+        organizationID = counter;
+        roles = new ArrayList<>();
+        ++counter;
     }
 
     public String getName() {
@@ -110,6 +121,11 @@ public class Organisation {
         this.type = type;
     }
     
+    
+    @Override
+    public String toString() {
+        return name;
+    }
     
     
 }
