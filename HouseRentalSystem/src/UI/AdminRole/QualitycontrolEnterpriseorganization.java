@@ -9,12 +9,12 @@ package UI.AdminRole;
  *
  * @author nemod
  */
-public class BrokerEnterpriseorganization extends javax.swing.JPanel {
+public class QualitycontrolEnterpriseorganization extends javax.swing.JPanel {
 
     /**
-     * Creates new form BrokerEnterpriseorganization
+     * Creates new form QualitycontrolEnterpriseorganization
      */
-    public BrokerEnterpriseorganization() {
+    public QualitycontrolEnterpriseorganization() {
         initComponents();
     }
 
@@ -43,7 +43,7 @@ public class BrokerEnterpriseorganization extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         btnlogout = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        brokerorganizationtable = new javax.swing.JTable();
+        qualitycontrolorganizationtable = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(44, 68, 80));
@@ -139,8 +139,8 @@ public class BrokerEnterpriseorganization extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("BROKER ENTERPRISE - ADD ORGANIZATION");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 430, -1));
+        jLabel6.setText("QUALITY CONTROL ENTERPRISE - ADD ORGANIZATION");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 460, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -183,7 +183,7 @@ public class BrokerEnterpriseorganization extends javax.swing.JPanel {
 
         jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, -1));
 
-        brokerorganizationtable.setModel(new javax.swing.table.DefaultTableModel(
+        qualitycontrolorganizationtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -194,9 +194,9 @@ public class BrokerEnterpriseorganization extends javax.swing.JPanel {
                 "Organization Name", "Organization Type"
             }
         ));
-        jScrollPane1.setViewportView(brokerorganizationtable);
+        jScrollPane1.setViewportView(qualitycontrolorganizationtable);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 480, 90));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 530, 90));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-organization-64.png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 72, 75));
@@ -250,7 +250,6 @@ public class BrokerEnterpriseorganization extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable brokerorganizationtable;
     private javax.swing.JButton btnaddorganization;
     private javax.swing.JButton btnlogout;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -268,5 +267,6 @@ public class BrokerEnterpriseorganization extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField organizationname;
+    private javax.swing.JTable qualitycontrolorganizationtable;
     // End of variables declaration//GEN-END:variables
 }
