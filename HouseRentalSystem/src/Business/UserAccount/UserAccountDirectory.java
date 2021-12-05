@@ -22,6 +22,13 @@ public class UserAccountDirectory {
         return userAccountList;
     }
     
-    
+    public UserAccount authenticateUser(String username, String password) {
+        for (UserAccount ua : userAccountList) {
+            if (ua.getUsername().toLowerCase().equals(username.toLowerCase()) && ua.getPassword().equals(password)) {
+                return ua;
+            }
+        }
+        return null;
+    }
     
 }
