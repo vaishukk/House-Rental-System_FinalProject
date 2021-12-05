@@ -5,11 +5,18 @@
  */
 package Business.Role;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Kiran
  */
-public class Role {
+public abstract class Role {
     
         public enum RoleType{
         Admin("Admin"),
@@ -42,7 +49,17 @@ public class Role {
         public String toString() {
             return value;
         }
+        
+        
     }
+     
+   public abstract JPanel createWorkArea(JPanel userProcessContainer, 
+            UserAccount account, 
+            Organisation organisation, 
+            Enterprise enterprise,
+            Network network,
+            EcoSystem business);
+         
         
     @Override
     public String toString() {
