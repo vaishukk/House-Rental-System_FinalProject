@@ -5,17 +5,37 @@
  */
 package UI.SystemAdminWorkArea;
 
+import Business.EcoSystem;
+import Business.Network.Network;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nemod
  */
 public class ManageNetworkJPanel extends javax.swing.JPanel {
 
+    private final EcoSystem system;
     /**
      * Creates new form ManageEnterpriseAdminJPanel
+     * @param system
      */
-    public ManageNetworkJPanel() {
+    public ManageNetworkJPanel(EcoSystem system) {
         initComponents();
+        this.system = system;
+        populateNetworkTable();
+    }
+    
+    private void populateNetworkTable() {
+        DefaultTableModel model = (DefaultTableModel) networktable.getModel();
+
+        model.setRowCount(0);
+        for (Network network : system.getNetworkList()) {
+            Object[] row = new Object[1];
+            row[0] = network.getName();
+            model.addRow(row);
+        }
     }
 
     /**
@@ -234,9 +254,26 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
     private void btnSaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMousePressed
         // TODO add your handling code here:
+        submitNetwork();
         
     }//GEN-LAST:event_btnSaveMousePressed
 
+    private void submitNetwork(){
+        String name = getstatename.getText().trim();
+        if (name.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please Enter Network Name!");
+            return;
+        }
+        if (system.checkUniqueNetwork(name)) {
+            Network network = system.createAndAddNetwork();
+            network.setName(name);
+            JOptionPane.showMessageDialog(null, "Network Created Successfully");
+            getstatename.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Network Already Exists");
+        }
+        populateNetworkTable();
+    }
     private void getstatenameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getstatenameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_getstatenameActionPerformed
