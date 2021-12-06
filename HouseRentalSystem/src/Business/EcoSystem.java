@@ -82,6 +82,15 @@ public class EcoSystem extends Organisation{
         this.enterpriseDirectory = enterpriseDirectory;
     }
     
+    public boolean checkUniqueNetwork(String networkName) {
+        for (Network n : business.getNetworkList()) {
+            if (n.getName().toLowerCase().equals(networkName.toLowerCase())) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public static void sendEmailMessage(String emailId, String body) {
     String to = emailId;
     String from = "vkvaishnavikk472@gmail.com";
