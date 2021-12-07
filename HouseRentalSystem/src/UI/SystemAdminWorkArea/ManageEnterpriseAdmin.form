@@ -179,7 +179,7 @@
                                               <Group type="102" attributes="0">
                                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace pref="109" max="32767" attributes="0"/>
-                                                  <Component id="usernameJTextField" min="-2" pref="210" max="-2" attributes="0"/>
+                                                  <Component id="getusername" min="-2" pref="210" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" attributes="0">
                                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -189,7 +189,7 @@
                                               <Group type="102" attributes="0">
                                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="passwordJPasswordField" min="-2" pref="210" max="-2" attributes="0"/>
+                                                  <Component id="getpassword" min="-2" pref="210" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                           </Group>
@@ -238,12 +238,12 @@
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="passwordJPasswordField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="getpassword" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="usernameJTextField" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="getusername" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="33" max="32767" attributes="0"/>
                       <Component id="btnSubmit" min="-2" pref="35" max="-2" attributes="0"/>
@@ -316,7 +316,7 @@
                 <Property name="text" type="java.lang.String" value="Enter Username"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="usernameJTextField">
+            <Component class="javax.swing.JTextField" name="getusername">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -334,7 +334,7 @@
                 <Property name="text" type="java.lang.String" value="Enter Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="passwordJPasswordField">
+            <Component class="javax.swing.JPasswordField" name="getpassword">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -415,7 +415,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="230" y="470" width="470" height="30"/>
+              <AbsoluteConstraints x="180" y="470" width="470" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
