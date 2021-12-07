@@ -10,17 +10,17 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
+import UI.AdminRole.MaintenanceProviderAdminWorkAreaPanel;
 import javax.swing.JPanel;
 
 /**
  *
  * @author nemod
  */
-public class MaintenanceProviderAdmin{
-//        extends Role{
-//    @Override
-//    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
-//        return new MaintenanceProviderAdminWorkAreaPanel(userProcessContainer, account, organisation, enterprise, network, business);
-//    }
+public class MaintenanceProviderAdmin extends Role{
+    @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
+        return new MaintenanceProviderAdminWorkAreaPanel(userProcessContainer, account, organisation, enterprise, network, business);
+    }
     
 }
