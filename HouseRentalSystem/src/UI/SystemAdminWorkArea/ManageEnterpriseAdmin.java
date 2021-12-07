@@ -9,7 +9,10 @@ import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
+import Business.Role.AssetAdmin;
 import Business.Role.BrokerAdmin;
+import Business.Role.MaintenanceProviderAdmin;
+import Business.Role.QualityControlAdmin;
 import Business.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -351,18 +354,18 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
         UserAccount account = null;
         if (null != enterprise.getEnterpriseType()) {
             switch (enterprise.getEnterpriseType()) {
-//                case ServiceProvider:
-//                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ServiceProviderAdmin());
-//                    break;
-//                case Property:
-//                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new PropertyAdmin());
-//                    break;
-//                case QualityAssurance:
-//                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new QAadmin());
-//                    break;
-//                case Broker:
-//                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new BrokerAdmin());
-                    //break;
+                case MaintenanceProvider:
+                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new MaintenanceProviderAdmin());
+                    break;
+                case Asset:
+                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new AssetAdmin());
+                    break;
+                case QualityControl:
+                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new QualityControlAdmin());
+                    break;
+                case Broker:
+                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new BrokerAdmin());
+                    break;
                 default:
                     break;
             }
