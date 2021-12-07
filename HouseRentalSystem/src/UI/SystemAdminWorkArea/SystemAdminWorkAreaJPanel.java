@@ -92,7 +92,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     private void manageEnterpriseAdmin(){
-        UI.SystemAdminWorkArea.ManageEnterpriseAdminJPanel manageEnterpriseAdmin = new UI.SystemAdminWorkArea.ManageEnterpriseAdminJPanel(ecosystem);
+        UI.SystemAdminWorkArea.ManageEnterpriseAdmin manageEnterpriseAdmin = new UI.SystemAdminWorkArea.ManageEnterpriseAdmin(ecosystem);
         rightSystemAdminPanel.add("ManageEnterpriseAdminJPanel",manageEnterpriseAdmin);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
