@@ -11,6 +11,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
+import UI.UserRegistration.UserRegistrationPanel;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.BorderFactory;
@@ -409,7 +410,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnRegisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMousePressed
         // TODO add your handling code here:
-        //UserRegistrationJPanel panel = new UserRegistrationJPanel(container, system);
+        UserRegistrationPanel panel = new UserRegistrationPanel(container, system);
         greetingUserLabel.setText("WELCOME TO NEW HOUSE RENTAL ORGANIZATION REGISTRATION!!!");
         loginJPanel.setVisible(false);
         container.setVisible(true);
@@ -418,13 +419,70 @@ public class MainFrame extends javax.swing.JFrame {
         btnBackLabel.setVisible(true);
         getusername.setText("");
         getpassword.setText("");
-        //container.add("workArea", panel);
+        container.add("workArea", panel);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
     }//GEN-LAST:event_btnRegisterMousePressed
 
     private void loginButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButton1MousePressed
         // TODO add your handling code here:
+        String userName = getusername.getText();
+        char[] passwordCharArray = getpassword.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        if (userName.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Enter valid user credentials to login!");
+        } else {
+            userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
+            inEnterprise = null;
+            inOrganisation = null;
+            networkEmergency = null;
+
+            if (userAccount == null) {
+                for (Network network : system.getNetworkList()) {
+                    //Step 2.a: check against each enterprise
+                    for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                        userAccount = enterprise.getUserAccountDirectory().authenticateUser(userName, password);
+                        networkEmergency = network;
+                        if (userAccount == null) {
+                            //Step 3:check against each organization for each enterprise
+                            for (Organisation organization : enterprise.getOrganisationDirectory().getOrganisationList()) {
+                                userAccount = organization.getUserAccountDirectory().authenticateUser(userName, password);
+                                if (userAccount != null) {
+                                    inEnterprise = enterprise;
+                                    inOrganisation = organization;
+                                    networkEmergency = network;
+                                    break;
+                                }
+                            }
+
+                        } else {
+                            inEnterprise = enterprise;
+                            break;
+                        }
+                        if (inOrganisation != null) {
+                            break;
+                        }
+                    }
+                    if (inEnterprise != null) {
+                        break;
+                    }
+                }
+            }
+            if (userAccount == null) {
+                JOptionPane.showMessageDialog(null, "Invalid user credentials,Try again!");
+                return;
+            } else {
+                loginJPanel.setVisible(false);
+                container.setVisible(true);
+                leftPanel.setVisible(true);
+                btnLogoutLabel.setVisible(true);
+                btnBackLabel.setVisible(false);
+                getusername.setText("");
+                getpassword.setText("");
+                changePanel1(userAccount);
+            }
+        }
+           
     }//GEN-LAST:event_loginButton1MousePressed
 
     private void loginButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButton2MousePressed

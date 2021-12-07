@@ -26,4 +26,32 @@ public class EnterpriseDirectory {
         enterpriseList = new ArrayList<Enterprise>();
     }
     
+    //Create New Enterprise
+    public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type) {
+        Enterprise enterprise = null;
+        if (null != type) {
+            switch (type) {
+                case MaintenanceProvider:
+                    enterprise = new MaintenanceProviderEnterprise(name);
+                    enterpriseList.add(enterprise);
+                    break;
+                case Asset:
+                    enterprise = new AssetEnterprise(name);
+                    enterpriseList.add(enterprise);
+                    break;
+                case Broker:
+                    enterprise = new BrokerEnterprise(name);
+                    enterpriseList.add(enterprise);
+                    break;
+                case QualityControl:
+                    enterprise = new QualityControlEnterprise(name);
+                    enterpriseList.add(enterprise);
+                    break;
+                default:
+                    break;
+            }
+        }
+        return enterprise;
+    }
+    
 }

@@ -9,13 +9,93 @@ package UI.SystemAdminWorkArea;
  *
  * @author nemod
  */
-public class SystemAdminWorkArea extends javax.swing.JPanel {
+
+
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
+public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form SystemAdminWorkArea
+     * Creates new form SystemAdminWorkAreaJPanel
      */
-    public SystemAdminWorkArea() {
+    JPanel userProcessContainer;
+    EcoSystem ecosystem;
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;        
+        this.ecosystem=ecosystem;
+        manageNetwork();
+        populateTree();
+    }
+    
+    public void populateTree(){
+        DefaultTreeModel model=(DefaultTreeModel)jTree1.getModel();
+        ArrayList<Network> networkList=ecosystem.getNetworkList();
+        ArrayList<Enterprise> enterpriseList;
+        ArrayList<Organisation> organisationList;
+        
+        Network network;
+        Enterprise enterprise;
+        Organisation organization;
+        
+        DefaultMutableTreeNode networks=new DefaultMutableTreeNode("Networks");
+        DefaultMutableTreeNode root=(DefaultMutableTreeNode)model.getRoot();
+        root.removeAllChildren();
+        root.insert(networks, 0);
+        
+        DefaultMutableTreeNode networkNode;
+        DefaultMutableTreeNode enterpriseNode;
+        DefaultMutableTreeNode organizationNode;
+        
+        for(int i=0;i<networkList.size();i++){
+            network=networkList.get(i);
+            networkNode=new DefaultMutableTreeNode(network.getName());
+            networks.insert(networkNode, i);
+            
+            enterpriseList=network.getEnterpriseDirectory().getEnterpriseList();
+            for(int j=0; j<enterpriseList.size();j++){
+                enterprise=enterpriseList.get(j);
+                enterpriseNode=new DefaultMutableTreeNode(enterprise.getName());
+                networkNode.insert(enterpriseNode, j);
+                
+                organisationList=enterprise.getOrganisationDirectory().getOrganisationList();
+                for(int k=0;k<organisationList.size();k++){
+                    organization=organisationList.get(k);
+                    organizationNode=new DefaultMutableTreeNode(organization.getName());
+                    enterpriseNode.insert(organizationNode, k);
+                }
+            }
+        }
+        model.reload();
+    }
+    
+    private void manageNetwork(){
+        UI.SystemAdminWorkArea.ManageNetworkJPanel manageNetworkPanel = new UI.SystemAdminWorkArea.ManageNetworkJPanel(ecosystem);
+        rightSystemAdminPanel.add("ManageNetworkJPanel",manageNetworkPanel);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+     }
+    
+    private void manageEnterprise(){
+        UI.SystemAdminWorkArea.ManageEnterprise manageEnterprise = new UI.SystemAdminWorkArea.ManageEnterprise(ecosystem);
+        rightSystemAdminPanel.add("ManageEnterpriseJPanel",manageEnterprise);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+    
+    private void manageEnterpriseAdmin(){
+        UI.SystemAdminWorkArea.ManageEnterpriseAdminJPanel manageEnterpriseAdmin = new UI.SystemAdminWorkArea.ManageEnterpriseAdminJPanel(ecosystem);
+        rightSystemAdminPanel.add("ManageEnterpriseAdminJPanel",manageEnterpriseAdmin);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
     }
 
     /**
@@ -214,30 +294,33 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageNetworkMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageNetworkMousePressed
-       
+       manageNetwork();
     }//GEN-LAST:event_manageNetworkMousePressed
 
     private void manageNetworkPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageNetworkPanelMousePressed
         // TODO add your handling code here:
-        
+         manageNetwork();
     }//GEN-LAST:event_manageNetworkPanelMousePressed
 
     private void manageEnterpriseLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEnterpriseLabelMousePressed
-        
+        manageEnterprise();
     }//GEN-LAST:event_manageEnterpriseLabelMousePressed
 
     private void manageEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEnterpriseMousePressed
         // TODO add your handling code here:
-       
+       manageEnterprise();
     }//GEN-LAST:event_manageEnterpriseMousePressed
 
     private void manageEnterpriseAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEnterpriseAdminMousePressed
-        
+        manageEnterpriseAdmin();
     }//GEN-LAST:event_manageEnterpriseAdminMousePressed
 
     private void jTree1ValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTree1ValueChanged
         // TODO add your handling code here:
-        
+        DefaultMutableTreeNode selectedNode= (DefaultMutableTreeNode)jTree1.getLastSelectedPathComponent();
+        if(selectedNode!=null){
+            lblSelectedNode1.setText(selectedNode.toString());
+        }
     }//GEN-LAST:event_jTree1ValueChanged
 
 

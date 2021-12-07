@@ -5,6 +5,12 @@
  */
 package UI.SystemAdminWorkArea;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nemod
@@ -14,8 +20,42 @@ public class ManageEnterprise extends javax.swing.JPanel {
     /**
      * Creates new form ManageEnterprise
      */
-    public ManageEnterprise() {
+    private final EcoSystem system;
+    public ManageEnterprise(EcoSystem system) {
         initComponents();
+        this.system = system;
+        populateTable();
+        populateComboBox();
+    }
+    
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) enterprisenetworktable.getModel();
+
+        model.setRowCount(0);
+        for (Network network : system.getNetworkList()) {
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                Object[] row = new Object[3];
+                row[0] = enterprise.getName();
+                row[1] = network.getName();
+                row[2] = enterprise.getEnterpriseType().getValue();
+
+                model.addRow(row);
+            }
+        }
+    }
+
+    private void populateComboBox() {
+        networkbox.removeAllItems();
+        enterprisebox.removeAllItems();
+
+        for (Network network : system.getNetworkList()) {
+            networkbox.addItem(network);
+        }
+
+        for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
+            enterprisebox.addItem(type);
+        }
+
     }
 
     /**
@@ -259,6 +299,23 @@ public class ManageEnterprise extends javax.swing.JPanel {
 
     private void btnSaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMousePressed
         // TODO add your handling code here:
+        Network network = (Network) networkbox.getSelectedItem();
+        Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterprisebox.getSelectedItem();
+        String name = getname.getText();
+
+        if (network == null || type == null || name.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please Enter All Fields to Proceed!");
+            return;
+        }
+        if (system.checkIfEnterpriseIsUnique(name)) {
+            Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
+            JOptionPane.showMessageDialog(null, "Enterprise created sucessfully!");
+            getname.setText("");
+            populateTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Enterprise name already exists in system!", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
+
         
     }//GEN-LAST:event_btnSaveMousePressed
 
