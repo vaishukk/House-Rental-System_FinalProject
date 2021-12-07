@@ -6,6 +6,7 @@
 package Business;
 
 import Business.Asset.AssetDirectory;
+import Business.Enterprise.Enterprise;
 import Business.Enterprise.EnterpriseDirectory;
 import Business.MoneyContractor.MoneyContractorEmployeeDirectory;
 import Business.Network.Network;
@@ -86,6 +87,17 @@ public class EcoSystem extends Organisation{
         for (Network n : business.getNetworkList()) {
             if (n.getName().toLowerCase().equals(networkName.toLowerCase())) {
                 return false;
+            }
+        }
+        return true;
+    }
+    
+    public boolean checkIfEnterpriseIsUnique(String entName) {
+        for (Network n : business.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                if (e.getName().toLowerCase().equals(entName.toLowerCase())) {
+                    return false;
+                }
             }
         }
         return true;
