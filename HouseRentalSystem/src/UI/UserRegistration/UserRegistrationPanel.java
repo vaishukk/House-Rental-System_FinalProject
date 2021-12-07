@@ -5,6 +5,9 @@
  */
 package UI.UserRegistration;
 
+import Business.EcoSystem;
+import javax.swing.JPanel;
+
 /**
  *
  * @author nemod
@@ -14,7 +17,7 @@ public class UserRegistrationPanel extends javax.swing.JPanel {
     /**
      * Creates new form userRegistration
      */
-    public UserRegistrationPanel() {
+    public UserRegistrationPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
     }
 
