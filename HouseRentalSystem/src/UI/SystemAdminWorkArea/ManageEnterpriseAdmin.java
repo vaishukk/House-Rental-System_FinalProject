@@ -59,9 +59,9 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         networkbox = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
-        usernameJTextField = new javax.swing.JTextField();
+        getusername = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        passwordJPasswordField = new javax.swing.JPasswordField();
+        getpassword = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         getname = new javax.swing.JTextField();
         enterprisebox1 = new javax.swing.JComboBox();
@@ -152,14 +152,14 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Enter Username");
 
-        usernameJTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        usernameJTextField.setForeground(new java.awt.Color(25, 56, 82));
+        getusername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getusername.setForeground(new java.awt.Color(25, 56, 82));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Enter Password");
 
-        passwordJPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        passwordJPasswordField.setForeground(new java.awt.Color(25, 56, 82));
+        getpassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getpassword.setForeground(new java.awt.Color(25, 56, 82));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Enter Name");
@@ -199,7 +199,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                             .addComponent(jLabel2)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
-                                            .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(getusername, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                             .addComponent(jLabel5)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -207,7 +207,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                             .addComponent(jLabel4)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(passwordJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(getpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(jLabel3))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel1)
@@ -241,11 +241,11 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(passwordJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(getpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(getusername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
@@ -262,7 +262,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("VIEW ENTERPRISES AND THEIR NETWORKS ");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, 470, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 470, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -335,8 +335,8 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
     private void btnSubmitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMousePressed
         // TODO add your handling code here:
          Enterprise enterprise = (Enterprise) enterprisebox1.getSelectedItem();
-        String username = usernameJTextField.getText();
-        String password = String.valueOf(passwordJPasswordField.getPassword());
+        String username = getusername.getText();
+        String password = String.valueOf(getpassword.getPassword());
         String name = getname.getText();
         if (username.isEmpty() || password.isEmpty() || name.isEmpty()
                 || enterprisebox1.getSelectedItem() == null || networkbox.getSelectedItem() == null) {
@@ -370,8 +370,8 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
                     break;
             }
         }
-        usernameJTextField.setText("");
-        passwordJPasswordField.setText("");
+        getusername.setText("");
+        getpassword.setText("");
         getname.setText("");
         JOptionPane.showMessageDialog(null, "User Account created sucessfully");
         populateTable();
@@ -383,6 +383,8 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
     private javax.swing.JTable enterpriseTable;
     private javax.swing.JComboBox enterprisebox1;
     private javax.swing.JTextField getname;
+    private javax.swing.JPasswordField getpassword;
+    private javax.swing.JTextField getusername;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -398,8 +400,6 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox networkbox;
-    private javax.swing.JPasswordField passwordJPasswordField;
-    private javax.swing.JTextField usernameJTextField;
     // End of variables declaration//GEN-END:variables
 
     
