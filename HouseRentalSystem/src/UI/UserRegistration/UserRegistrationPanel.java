@@ -5,17 +5,26 @@
  */
 package UI.UserRegistration;
 
+import Business.EcoSystem;
+import javax.swing.JPanel;
+
 /**
  *
  * @author nemod
  */
-public class UserRegistration extends javax.swing.JPanel {
+public class UserRegistrationPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form UserRegistration
      */
-    public UserRegistration() {
+     private final EcoSystem system;
+    private boolean flag = false;
+    public UserRegistrationPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
+        this.system = system;
+//        populateNetworkComboBox();
+//        populateOrgTypes();
+//        pleaseWait.setVisible(false);
     }
 
     /**

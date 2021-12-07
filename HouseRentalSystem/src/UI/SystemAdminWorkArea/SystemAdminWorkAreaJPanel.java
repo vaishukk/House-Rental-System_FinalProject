@@ -9,13 +9,93 @@ package UI.SystemAdminWorkArea;
  *
  * @author nemod
  */
+
+
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form SystemAdminWorkAreaJPanel
      */
-    public SystemAdminWorkAreaJPanel() {
+    JPanel userProcessContainer;
+    EcoSystem ecosystem;
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;        
+        this.ecosystem=ecosystem;
+        manageNetwork();
+        populateTree();
+    }
+    
+    public void populateTree(){
+        DefaultTreeModel model=(DefaultTreeModel)jTree1.getModel();
+        ArrayList<Network> networkList=ecosystem.getNetworkList();
+        ArrayList<Enterprise> enterpriseList;
+        ArrayList<Organisation> organisationList;
+        
+        Network network;
+        Enterprise enterprise;
+        Organisation organization;
+        
+        DefaultMutableTreeNode networks=new DefaultMutableTreeNode("Networks");
+        DefaultMutableTreeNode root=(DefaultMutableTreeNode)model.getRoot();
+        root.removeAllChildren();
+        root.insert(networks, 0);
+        
+        DefaultMutableTreeNode networkNode;
+        DefaultMutableTreeNode enterpriseNode;
+        DefaultMutableTreeNode organizationNode;
+        
+        for(int i=0;i<networkList.size();i++){
+            network=networkList.get(i);
+            networkNode=new DefaultMutableTreeNode(network.getName());
+            networks.insert(networkNode, i);
+            
+            enterpriseList=network.getEnterpriseDirectory().getEnterpriseList();
+            for(int j=0; j<enterpriseList.size();j++){
+                enterprise=enterpriseList.get(j);
+                enterpriseNode=new DefaultMutableTreeNode(enterprise.getName());
+                networkNode.insert(enterpriseNode, j);
+                
+                organisationList=enterprise.getOrganisationDirectory().getOrganisationList();
+                for(int k=0;k<organisationList.size();k++){
+                    organization=organisationList.get(k);
+                    organizationNode=new DefaultMutableTreeNode(organization.getName());
+                    enterpriseNode.insert(organizationNode, k);
+                }
+            }
+        }
+        model.reload();
+    }
+    
+    private void manageNetwork(){
+        UI.SystemAdminWorkArea.ManageNetworkJPanel manageNetworkPanel = new UI.SystemAdminWorkArea.ManageNetworkJPanel(ecosystem);
+        rightSystemAdminPanel.add("ManageNetworkJPanel",manageNetworkPanel);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+     }
+    
+    private void manageEnterprise(){
+        UI.SystemAdminWorkArea.ManageEnterprise manageEnterprise = new UI.SystemAdminWorkArea.ManageEnterprise(ecosystem);
+        rightSystemAdminPanel.add("ManageEnterpriseJPanel",manageEnterprise);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+    
+    private void manageEnterpriseAdmin(){
+        UI.SystemAdminWorkArea.ManageEnterpriseAdmin manageEnterpriseAdmin = new UI.SystemAdminWorkArea.ManageEnterpriseAdmin(ecosystem);
+        rightSystemAdminPanel.add("ManageEnterpriseAdminJPanel",manageEnterpriseAdmin);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
     }
 
     /**
@@ -41,9 +121,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
         jSeparator2 = new javax.swing.JSeparator();
-        viewWorkRequests = new javax.swing.JLabel();
-        manageUserTraffic = new javax.swing.JLabel();
-        viewSoldHouses = new javax.swing.JLabel();
         rightSystemAdminPanel = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(255, 229, 180));
@@ -59,14 +136,15 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageNetworkPanel.setBackground(new java.awt.Color(255, 255, 255));
+        manageNetworkPanel.setToolTipText("");
         manageNetworkPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageNetworkPanelMousePressed(evt);
             }
         });
 
-        manageNetwork.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        manageNetwork.setText("Manage Network");
+        manageNetwork.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        manageNetwork.setText("MANAGE NETWORK");
         manageNetwork.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageNetworkMousePressed(evt);
@@ -77,17 +155,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageNetworkPanel.setLayout(manageNetworkPanelLayout);
         manageNetworkPanelLayout.setHorizontalGroup(
             manageNetworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageNetworkPanelLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(manageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageNetworkPanelLayout.createSequentialGroup()
+                .addContainerGap(107, Short.MAX_VALUE)
+                .addComponent(manageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
         manageNetworkPanelLayout.setVerticalGroup(
             manageNetworkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageNetworkPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(manageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(manageNetwork, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         jPanel3.add(manageNetworkPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 280, 50));
@@ -100,8 +175,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageEnterpriseLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        manageEnterpriseLabel.setText("Manage Enterprise");
+        manageEnterpriseLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        manageEnterpriseLabel.setText("MANAGE ENTERPRISE");
         manageEnterpriseLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageEnterpriseLabelMousePressed(evt);
@@ -112,14 +187,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageEnterprise.setLayout(manageEnterpriseLayout);
         manageEnterpriseLayout.setHorizontalGroup(
             manageEnterpriseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageEnterpriseLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(manageEnterpriseLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageEnterpriseLayout.createSequentialGroup()
+                .addContainerGap(100, Short.MAX_VALUE)
+                .addComponent(manageEnterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         manageEnterpriseLayout.setVerticalGroup(
             manageEnterpriseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(manageEnterpriseLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(manageEnterpriseLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel3.add(manageEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 48, 280, 50));
@@ -131,22 +206,24 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageEnterpriseAdminLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        manageEnterpriseAdminLabel1.setText("Manage Enterprise Admin");
+        manageEnterpriseAdminLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        manageEnterpriseAdminLabel1.setText("MANAGE ENTERPRISE ADMIN");
         manageEnterpriseAdminLabel1.setPreferredSize(new java.awt.Dimension(115, 16));
 
         javax.swing.GroupLayout manageEnterpriseAdminLayout = new javax.swing.GroupLayout(manageEnterpriseAdmin);
         manageEnterpriseAdmin.setLayout(manageEnterpriseAdminLayout);
         manageEnterpriseAdminLayout.setHorizontalGroup(
             manageEnterpriseAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageEnterpriseAdminLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(manageEnterpriseAdminLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                .addGap(32, 32, 32))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageEnterpriseAdminLayout.createSequentialGroup()
+                .addContainerGap(69, Short.MAX_VALUE)
+                .addComponent(manageEnterpriseAdminLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         manageEnterpriseAdminLayout.setVerticalGroup(
             manageEnterpriseAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(manageEnterpriseAdminLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageEnterpriseAdminLayout.createSequentialGroup()
+                .addGap(0, 11, Short.MAX_VALUE)
+                .addComponent(manageEnterpriseAdminLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.add(manageEnterpriseAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 88, 280, 40));
@@ -154,7 +231,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblSelectedNode1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jPanel3.add(lblSelectedNode1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 230, 30));
 
-        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Selected Node:");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 140, 30));
 
@@ -173,36 +250,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 280, -1));
 
-        viewWorkRequests.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        viewWorkRequests.setText("View Work Requests");
-        viewWorkRequests.setPreferredSize(new java.awt.Dimension(115, 16));
-        viewWorkRequests.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                viewWorkRequestsMousePressed(evt);
-            }
-        });
-        jPanel3.add(viewWorkRequests, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 209, 37));
-
-        manageUserTraffic.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        manageUserTraffic.setText("View User Traffic");
-        manageUserTraffic.setPreferredSize(new java.awt.Dimension(115, 16));
-        manageUserTraffic.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageUserTrafficMousePressed(evt);
-            }
-        });
-        jPanel3.add(manageUserTraffic, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 209, 37));
-
-        viewSoldHouses.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        viewSoldHouses.setText(" View House Sell Data");
-        viewSoldHouses.setPreferredSize(new java.awt.Dimension(115, 16));
-        viewSoldHouses.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                viewSoldHousesMousePressed(evt);
-            }
-        });
-        jPanel3.add(viewSoldHouses, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 209, 37));
-
         rightSystemAdminPanel.setBackground(new java.awt.Color(241, 241, 242));
         rightSystemAdminPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
         rightSystemAdminPanel.setLayout(new java.awt.CardLayout());
@@ -212,7 +259,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         systemAdminPanelLayout.setHorizontalGroup(
             systemAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(systemAdminPanelLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(rightSystemAdminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -247,47 +294,34 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageNetworkMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageNetworkMousePressed
-        
+       manageNetwork();
     }//GEN-LAST:event_manageNetworkMousePressed
 
     private void manageNetworkPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageNetworkPanelMousePressed
         // TODO add your handling code here:
-       
+         manageNetwork();
     }//GEN-LAST:event_manageNetworkPanelMousePressed
 
     private void manageEnterpriseLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEnterpriseLabelMousePressed
-        
+        manageEnterprise();
     }//GEN-LAST:event_manageEnterpriseLabelMousePressed
 
     private void manageEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEnterpriseMousePressed
         // TODO add your handling code here:
-        
+       manageEnterprise();
     }//GEN-LAST:event_manageEnterpriseMousePressed
 
     private void manageEnterpriseAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEnterpriseAdminMousePressed
-        
+        manageEnterpriseAdmin();
     }//GEN-LAST:event_manageEnterpriseAdminMousePressed
 
     private void jTree1ValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTree1ValueChanged
         // TODO add your handling code here:
-        
+        DefaultMutableTreeNode selectedNode= (DefaultMutableTreeNode)jTree1.getLastSelectedPathComponent();
+        if(selectedNode!=null){
+            lblSelectedNode1.setText(selectedNode.toString());
+        }
     }//GEN-LAST:event_jTree1ValueChanged
-
-    private void viewWorkRequestsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewWorkRequestsMousePressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_viewWorkRequestsMousePressed
-
-    private void manageUserTrafficMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageUserTrafficMousePressed
-        // TODO add your handling code here:
-        
-
-    }//GEN-LAST:event_manageUserTrafficMousePressed
-
-    private void viewSoldHousesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewSoldHousesMousePressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_viewSoldHousesMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -304,10 +338,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel manageEnterpriseLabel;
     private javax.swing.JLabel manageNetwork;
     private javax.swing.JPanel manageNetworkPanel;
-    private javax.swing.JLabel manageUserTraffic;
     private javax.swing.JPanel rightSystemAdminPanel;
     private javax.swing.JPanel systemAdminPanel;
-    private javax.swing.JLabel viewSoldHouses;
-    private javax.swing.JLabel viewWorkRequests;
     // End of variables declaration//GEN-END:variables
 }
