@@ -13,8 +13,11 @@ import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.Organisation.OrganisationDirectory;
 import Business.Role.Role;
+import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -102,6 +105,53 @@ public class EcoSystem extends Organisation{
         }
         return true;
     }
+    
+    public Boolean checkValidPasswordFormat(String password) {
+        Pattern p1;
+        p1 = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$");
+        Matcher m1 = p1.matcher(password);
+        boolean b1 = m1.matches();
+        if (!b1) {
+            JOptionPane.showMessageDialog(null, "Please enter valid password  format!\nPassword must contain at least one digit [0-9].\n"
+                    + "Password must contain at least one lowercase Latin character [a-z].\n"
+                    + "Password must contain at least one uppercase Latin character [A-Z].\n"
+                    + "Password must contain at least one special character like ! @ # & ( ).\n"
+                    + "Password must contain a length of at least 8 characters and a maximum of 20 characters.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    public boolean checkIfUserIsUnique(String userName) {
+        boolean flag = true;
+        for (Network n : business.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (UserAccount u : e.getUserAccountDirectory().getUserAccountList()) {
+                    if (u.getUsername().toLowerCase().equals(userName.toLowerCase())) {
+                        flag = false;
+                    }
+                }
+                for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
+                    for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
+                        if (u.getUsername().toLowerCase().equals(userName.toLowerCase())) {
+                            flag = false;
+                        }
+                    }
+                }
+            }
+        }
+        if ("admin".equals(userName.toLowerCase())) {
+            flag = false;
+        }
+        if (!flag) {
+            JOptionPane.showMessageDialog(null, "Sorry! " + userName + " already exists in the system!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     
     public static void sendEmailMessage(String emailId, String body) {
     String to = emailId;
