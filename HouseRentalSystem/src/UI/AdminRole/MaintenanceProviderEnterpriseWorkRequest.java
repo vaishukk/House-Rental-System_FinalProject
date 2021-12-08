@@ -31,11 +31,11 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblicon = new javax.swing.JLabel();
+        lbltitle = new javax.swing.JLabel();
         btnlogout = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        lblbroker = new javax.swing.JLabel();
+        lblmaintenance = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblworkrequest = new javax.swing.JTable();
         btndecline = new javax.swing.JButton();
@@ -48,8 +48,8 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel8.setText("HOUSE RENTAL SYSTEM");
+        lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lbltitle.setText("HOUSE RENTAL SYSTEM");
 
         btnlogout.setBackground(new java.awt.Color(255, 255, 255));
         btnlogout.addActionListener(new java.awt.event.ActionListener() {
@@ -64,10 +64,10 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 509, Short.MAX_VALUE)
+                .addComponent(lbltitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 529, Short.MAX_VALUE)
                 .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -76,23 +76,23 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                    .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                     .addComponent(btnlogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
-        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 80));
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 80));
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
-        lblbroker.setBackground(new java.awt.Color(0, 0, 0));
-        lblbroker.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblbroker.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblbroker.setText("MAINTENANCE PROVIDER ENTERPRISE SIGNUP REQUESTS");
-        lblbroker.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblmaintenance.setBackground(new java.awt.Color(0, 0, 0));
+        lblmaintenance.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblmaintenance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblmaintenance.setText("MAINTENANCE PROVIDER ENTERPRISE SIGNUP REQUESTS");
+        lblmaintenance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        tblworkrequest.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        tblworkrequest.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tblworkrequest.setForeground(new java.awt.Color(25, 56, 82));
         tblworkrequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -124,7 +124,7 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
         jScrollPane1.setViewportView(tblworkrequest);
 
         btndecline.setBackground(new java.awt.Color(255, 255, 255));
-        btndecline.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btndecline.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btndecline.setText("DECLINE");
         btndecline.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btndecline.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -135,7 +135,7 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
         });
 
         btnallow.setBackground(new java.awt.Color(255, 255, 255));
-        btnallow.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnallow.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnallow.setText("ALLOW");
         btnallow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnallow.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -150,36 +150,36 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
+                .addGap(0, 125, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 866, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
+                .addGap(89, 89, 89))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(358, 358, 358)
+                        .addGap(329, 329, 329)
                         .addComponent(btnallow)
-                        .addGap(129, 129, 129)
+                        .addGap(251, 251, 251)
                         .addComponent(btndecline))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(285, 285, 285)
-                        .addComponent(lblbroker, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblmaintenance, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(lblbroker)
-                .addGap(18, 18, 18)
+                .addComponent(lblmaintenance)
+                .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btndecline)
                     .addComponent(btnallow))
-                .addGap(42, 42, 42))
+                .addGap(31, 31, 31))
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1060, 280));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1080, 320));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -187,18 +187,14 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1078, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1078, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 531, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -262,15 +258,15 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
     private javax.swing.JButton btnallow;
     private javax.swing.JButton btndecline;
     private javax.swing.JButton btnlogout;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblbroker;
+    private javax.swing.JLabel lblicon;
+    private javax.swing.JLabel lblmaintenance;
+    private javax.swing.JLabel lbltitle;
     private javax.swing.JTable tblworkrequest;
     // End of variables declaration//GEN-END:variables
 }
