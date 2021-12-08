@@ -31,12 +31,11 @@ public class AssignPropety extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         housingtable = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        btnBack = new javax.swing.JButton();
+        btnprevious = new javax.swing.JButton();
         lblavailhouses = new javax.swing.JLabel();
         btnsendhousingoptions = new javax.swing.JButton();
 
@@ -50,7 +49,7 @@ public class AssignPropety extends javax.swing.JPanel {
 
             },
             new String [] {
-                "HouseID", " Name", " Address", "City", "State", "Zipcode", "No of Bhk", "Restrooms", "Price", "Status", "Customer ", "Ownedby"
+                "House_ID", " Name", "Street_Name", "City", "State", "Zipcode", "No of Bhk", "Restrooms", "Price", "Status", "Customer ", "Ownedby"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -65,7 +64,6 @@ public class AssignPropety extends javax.swing.JPanel {
         jScrollPane1.setViewportView(housingtable);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 790, 170));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 145, 164));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -99,13 +97,13 @@ public class AssignPropety extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
-        btnBack.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(41, 50, 80));
-        btnBack.setText("CANCEL");
-        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+        btnprevious.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        btnprevious.setForeground(new java.awt.Color(41, 50, 80));
+        btnprevious.setText("CANCEL");
+        btnprevious.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnprevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                btnpreviousActionPerformed(evt);
             }
         });
 
@@ -137,7 +135,7 @@ public class AssignPropety extends javax.swing.JPanel {
                         .addGap(202, 202, 202)
                         .addComponent(lblavailhouses, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
         jPanel3Layout.setVerticalGroup(
@@ -146,7 +144,7 @@ public class AssignPropety extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(lblavailhouses)))
@@ -179,10 +177,10 @@ public class AssignPropety extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void btnpreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpreviousActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_btnBackActionPerformed
+    }//GEN-LAST:event_btnpreviousActionPerformed
 
     private void btnsendhousingoptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsendhousingoptionsActionPerformed
         // TODO add your handling code here
@@ -192,10 +190,9 @@ public class AssignPropety extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnprevious;
     private javax.swing.JButton btnsendhousingoptions;
     private javax.swing.JTable housingtable;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI.SystemAdminWorkArea;
+package UI.SysAdminWorkArea;
 
 /**
  *
  * @author nemod
  */
-public class BarGraphforStatusofWR1 extends javax.swing.JPanel {
+public class PieGraphforNumofUsers extends javax.swing.JPanel {
 
     /**
-     * Creates new form BarGraphforStatusofWR1
+     * Creates new form PieGraphforNumofUsers
      */
-    public BarGraphforStatusofWR1() {
+    public PieGraphforNumofUsers() {
         initComponents();
     }
 
@@ -51,7 +51,7 @@ public class BarGraphforStatusofWR1 extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(25, 56, 82));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("HOUSE SELL ANAYLSIS PER NETWORK");
+        jLabel6.setText("NUMBER OF USERS BY ROLES");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);

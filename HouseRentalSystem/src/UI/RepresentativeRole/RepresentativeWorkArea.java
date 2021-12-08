@@ -36,7 +36,6 @@ public class RepresentativeWorkArea extends javax.swing.JPanel {
         manageEmployee = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         lblrepjobmanage = new javax.swing.JLabel();
-        sepline = new javax.swing.JSeparator();
         lblreptitle = new javax.swing.JLabel();
         rightSystemAdminPanel = new javax.swing.JPanel();
 
@@ -63,7 +62,7 @@ public class RepresentativeWorkArea extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setToolTipText("");
 
-        lblrepprofilemanage.setBackground(new java.awt.Color(215, 81, 81));
+        lblrepprofilemanage.setBackground(new java.awt.Color(255, 255, 255));
         lblrepprofilemanage.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblrepprofilemanage.setText("MANAGE PROFILE");
         lblrepprofilemanage.setAutoscrolls(true);
@@ -109,7 +108,7 @@ public class RepresentativeWorkArea extends javax.swing.JPanel {
         jLabel4.setBackground(new java.awt.Color(215, 81, 81));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        lblrepjobmanage.setBackground(new java.awt.Color(255, 213, 90));
+        lblrepjobmanage.setBackground(new java.awt.Color(255, 255, 255));
         lblrepjobmanage.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblrepjobmanage.setText("MANAGE JOBS");
         lblrepjobmanage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -133,15 +132,12 @@ public class RepresentativeWorkArea extends javax.swing.JPanel {
             manageEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(manageEmployeeLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(lblrepjobmanage, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.add(manageEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, 40));
-
-        sepline.setBackground(new java.awt.Color(0, 0, 0));
-        sepline.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel3.add(sepline, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 280, 60));
 
         lblreptitle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblreptitle.setText("REPRESENTATIVE PAGE");
@@ -224,7 +220,6 @@ public class RepresentativeWorkArea extends javax.swing.JPanel {
     private javax.swing.JPanel manageEmployee;
     private javax.swing.JPanel manageOrganizationPanel;
     private javax.swing.JPanel rightSystemAdminPanel;
-    private javax.swing.JSeparator sepline;
     private javax.swing.JPanel systemAdminPanel;
     // End of variables declaration//GEN-END:variables
 }
