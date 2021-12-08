@@ -29,7 +29,6 @@ public class ViewRepresentativejob extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         housingtable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
@@ -42,7 +41,7 @@ public class ViewRepresentativejob extends javax.swing.JPanel {
         btnbrowserproperties = new javax.swing.JButton();
         btnselectjob = new javax.swing.JButton();
         btndone = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblcomments = new javax.swing.JLabel();
         txtFeedback = new javax.swing.JTextField();
         lblquoteamount = new javax.swing.JLabel();
         quoteTxt = new javax.swing.JTextField();
@@ -52,7 +51,6 @@ public class ViewRepresentativejob extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 460, 150, 160));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 204, 90, 10));
 
         housingtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,8 +154,8 @@ public class ViewRepresentativejob extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("COMMENTS:");
+        lblcomments.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcomments.setText("COMMENTS:");
 
         txtFeedback.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -196,7 +194,7 @@ public class ViewRepresentativejob extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(quoteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77)
-                        .addComponent(jLabel1)
+                        .addComponent(lblcomments)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -233,7 +231,7 @@ public class ViewRepresentativejob extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblquoteamount, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(quoteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
+                    .addComponent(lblcomments)
                     .addComponent(txtFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38))
         );
@@ -314,13 +312,12 @@ public class ViewRepresentativejob extends javax.swing.JPanel {
     private javax.swing.JButton btndone;
     private javax.swing.JButton btnselectjob;
     private javax.swing.JTable housingtable;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblcomments;
     private javax.swing.JLabel lblicon;
     private javax.swing.JLabel lblquoteamount;
     private javax.swing.JLabel lblrepworkarea;

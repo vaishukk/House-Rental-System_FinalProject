@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI.SystemAdminWorkArea;
+package UI.SysAdminWorkArea;
 
 /**
  *
@@ -78,21 +78,21 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     private void manageNetwork(){
-        UI.SystemAdminWorkArea.ManageNetworkJPanel manageNetworkPanel = new UI.SystemAdminWorkArea.ManageNetworkJPanel(ecosystem);
+        UI.SysAdminWorkArea.ManageNetworkJPanel manageNetworkPanel = new UI.SysAdminWorkArea.ManageNetworkJPanel(ecosystem);
         rightSystemAdminPanel.add("ManageNetworkJPanel",manageNetworkPanel);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
      }
     
     private void manageEnterprise(){
-        UI.SystemAdminWorkArea.ManageEnterprise manageEnterprise = new UI.SystemAdminWorkArea.ManageEnterprise(ecosystem);
+        UI.SysAdminWorkArea.ManageEnterprise manageEnterprise = new UI.SysAdminWorkArea.ManageEnterprise(ecosystem);
         rightSystemAdminPanel.add("ManageEnterpriseJPanel",manageEnterprise);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
     }
     
     private void manageEnterpriseAdmin(){
-        UI.SystemAdminWorkArea.ManageEnterpriseAdmin manageEnterpriseAdmin = new UI.SystemAdminWorkArea.ManageEnterpriseAdmin(ecosystem);
+        UI.SysAdminWorkArea.ManageEnterpriseAdmin manageEnterpriseAdmin = new UI.SysAdminWorkArea.ManageEnterpriseAdmin(ecosystem);
         rightSystemAdminPanel.add("ManageEnterpriseAdminJPanel",manageEnterpriseAdmin);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
@@ -188,7 +188,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageEnterpriseLayout.setHorizontalGroup(
             manageEnterpriseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageEnterpriseLayout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+                .addContainerGap(84, Short.MAX_VALUE)
                 .addComponent(manageEnterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );

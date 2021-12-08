@@ -11,7 +11,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
-import UI.UserRegistration.UserRegistrationPanel;
+import UI.UserRegistration.UserSignUpForm;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.BorderFactory;
@@ -59,7 +59,7 @@ public class MainFrame extends javax.swing.JFrame {
             greetings = greetings + " " + userAccount.getUsername();
             container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganisation, inEnterprise, networkEmergency, system));
 
-            greetingUserLabel.setText(greetings + " !!!");
+            lblhello.setText(greetings + " !!!");
             CardLayout layout = (CardLayout) container.getLayout();
             layout.next(container);
         }
@@ -71,22 +71,21 @@ public class MainFrame extends javax.swing.JFrame {
 
         leftPanel = new javax.swing.JPanel();
         btnLogoutLabel = new javax.swing.JLabel();
-        greetingUserLabel = new javax.swing.JLabel();
+        lblhello = new javax.swing.JLabel();
         btnBackLabel = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
         loginJPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        addimageicon = new javax.swing.JLabel();
         houserentaltitle = new javax.swing.JLabel();
         lblmainicon = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lbltagline = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         getusername = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         getpassword = new javax.swing.JPasswordField();
         loginButton = new javax.swing.JLabel();
         cancelButton = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         btnRegister = new javax.swing.JLabel();
         loginButton1 = new javax.swing.JLabel();
         loginButton2 = new javax.swing.JLabel();
@@ -94,7 +93,7 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        leftPanel.setBackground(new java.awt.Color(41, 50, 80));
+        leftPanel.setBackground(new java.awt.Color(204, 204, 204));
         leftPanel.setMinimumSize(new java.awt.Dimension(1338, 60));
         leftPanel.setPreferredSize(new java.awt.Dimension(1338, 60));
         leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,10 +107,10 @@ public class MainFrame extends javax.swing.JFrame {
         });
         leftPanel.add(btnLogoutLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 0, 70, 60));
 
-        greetingUserLabel.setBackground(new java.awt.Color(255, 255, 255));
-        greetingUserLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        greetingUserLabel.setForeground(new java.awt.Color(255, 255, 255));
-        leftPanel.add(greetingUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 690, 60));
+        lblhello.setBackground(new java.awt.Color(255, 255, 255));
+        lblhello.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        lblhello.setForeground(new java.awt.Color(255, 255, 255));
+        leftPanel.add(lblhello, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 770, 60));
 
         btnBackLabel.setForeground(new java.awt.Color(255, 255, 255));
         btnBackLabel.setText("BACK");
@@ -124,7 +123,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         getContentPane().add(leftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, -1));
 
-        container.setBackground(new java.awt.Color(41, 50, 80));
+        container.setBackground(new java.awt.Color(204, 204, 204));
         container.setForeground(new java.awt.Color(31, 50, 97));
         container.setPreferredSize(new java.awt.Dimension(1338, 840));
         container.setLayout(new java.awt.CardLayout());
@@ -138,8 +137,8 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         jPanel2.setPreferredSize(new java.awt.Dimension(554, 840));
 
-        jLabel2.setBackground(new java.awt.Color(255, 213, 90));
-        jLabel2.setPreferredSize(new java.awt.Dimension(600, 840));
+        addimageicon.setBackground(new java.awt.Color(255, 213, 90));
+        addimageicon.setPreferredSize(new java.awt.Dimension(600, 840));
 
         houserentaltitle.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         houserentaltitle.setForeground(new java.awt.Color(41, 50, 80));
@@ -149,24 +148,27 @@ public class MainFrame extends javax.swing.JFrame {
         lblmainicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeicon.png"))); // NOI18N
         lblmainicon.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Helping you find the House of your Dreams!");
-        jLabel9.setBorder(new javax.swing.border.MatteBorder(null));
+        lbltagline.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lbltagline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbltagline.setText("Helping you find the House of your Dreams!");
+        lbltagline.setBorder(new javax.swing.border.MatteBorder(null));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(lblmainicon, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(houserentaltitle))
-            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(lblmainicon, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(houserentaltitle))
+                    .addComponent(lbltagline, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(addimageicon, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(37, 37, 37))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,9 +178,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(houserentaltitle)
                     .addComponent(lblmainicon, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbltagline, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addimageicon, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -270,9 +272,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         loginJPanel.add(cancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 10, 68, 35));
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginJPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 77, 279, -1));
 
         btnRegister.setBackground(new java.awt.Color(255, 255, 255));
         btnRegister.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -410,8 +409,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnRegisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMousePressed
         // TODO add your handling code here:
-        UserRegistrationPanel panel = new UserRegistrationPanel(container, system);
-        greetingUserLabel.setText("WELCOME TO NEW HOUSE RENTAL ORGANIZATION REGISTRATION!!!");
+        UserSignUpForm panel = new UserSignUpForm(container, system);
+        lblhello.setText("Welcome to House Rental!");
         loginJPanel.setVisible(false);
         container.setVisible(true);
         leftPanel.setVisible(true);
@@ -430,7 +429,7 @@ public class MainFrame extends javax.swing.JFrame {
         char[] passwordCharArray = getpassword.getPassword();
         String password = String.valueOf(passwordCharArray);
         if (userName.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Enter valid user credentials to login!");
+            JOptionPane.showMessageDialog(null, "Invalid input, please try again");
         } else {
             userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
             inEnterprise = null;
@@ -469,7 +468,7 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }
             if (userAccount == null) {
-                JOptionPane.showMessageDialog(null, "Invalid user credentials,Try again!");
+                JOptionPane.showMessageDialog(null, "Invalid input, please try again");
                 return;
             } else {
                 loginJPanel.setVisible(false);
@@ -525,6 +524,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel addimageicon;
     private javax.swing.JLabel btnBackLabel;
     private javax.swing.JLabel btnLogoutLabel;
     private javax.swing.JLabel btnRegister;
@@ -532,15 +532,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel container;
     private javax.swing.JPasswordField getpassword;
     private javax.swing.JTextField getusername;
-    private javax.swing.JLabel greetingUserLabel;
     private javax.swing.JLabel houserentaltitle;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lblhello;
     private javax.swing.JLabel lblmainicon;
+    private javax.swing.JLabel lbltagline;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JLabel loginButton;
     private javax.swing.JLabel loginButton1;

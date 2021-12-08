@@ -36,22 +36,21 @@ public class ManageRepresentative extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         lblname = new javax.swing.JLabel();
         getname = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lbladd = new javax.swing.JLabel();
         getadd = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lblcity = new javax.swing.JLabel();
         getcity = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lblstate = new javax.swing.JLabel();
         getstate = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        lblmailid = new javax.swing.JLabel();
         getmailid = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        lblzip = new javax.swing.JLabel();
         getzip = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lblavail = new javax.swing.JLabel();
+        lblcharge = new javax.swing.JLabel();
         lblsubtitle = new javax.swing.JLabel();
         getcharge = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        txtStatus = new javax.swing.JTextField();
+        getavail = new javax.swing.JTextField();
         lblcontactno = new javax.swing.JLabel();
         getcontactnumber = new javax.swing.JTextField();
 
@@ -109,43 +108,43 @@ public class ManageRepresentative extends javax.swing.JPanel {
 
         getname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Street Name");
+        lbladd.setBackground(new java.awt.Color(255, 255, 255));
+        lbladd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbladd.setText("Street Name");
 
         getadd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("City:");
+        lblcity.setBackground(new java.awt.Color(255, 255, 255));
+        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcity.setText("City:");
 
         getcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("State");
+        lblstate.setBackground(new java.awt.Color(255, 255, 255));
+        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblstate.setText("State");
 
         getstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Mail Id");
+        lblmailid.setBackground(new java.awt.Color(255, 255, 255));
+        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblmailid.setText("Mail Id");
 
         getmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("Zipcode:");
+        lblzip.setBackground(new java.awt.Color(255, 255, 255));
+        lblzip.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblzip.setText("Zipcode:");
 
         getzip.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel10.setText("Status");
+        lblavail.setBackground(new java.awt.Color(255, 255, 255));
+        lblavail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblavail.setText("Availability");
 
-        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setText("Charge:");
+        lblcharge.setBackground(new java.awt.Color(255, 255, 255));
+        lblcharge.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcharge.setText("Charge:");
 
         lblsubtitle.setBackground(new java.awt.Color(255, 255, 255));
         lblsubtitle.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
@@ -168,24 +167,21 @@ public class ManageRepresentative extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(593, 593, 593)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(203, 203, 203)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
+                            .addComponent(lblcharge)
+                            .addComponent(lblavail)
+                            .addComponent(lblzip)
+                            .addComponent(lblmailid)
+                            .addComponent(lblstate)
+                            .addComponent(lblcity)
+                            .addComponent(lbladd)
                             .addComponent(lblcontactno)
                             .addComponent(lblname))
                         .addGap(58, 58, 58)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(getcharge, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
-                            .addComponent(txtStatus)
+                            .addComponent(getavail)
                             .addComponent(getzip)
                             .addComponent(getmailid)
                             .addComponent(getstate)
@@ -196,7 +192,7 @@ public class ManageRepresentative extends javax.swing.JPanel {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(299, 299, 299)
                         .addComponent(lblsubtitle)))
-                .addContainerGap(315, Short.MAX_VALUE))
+                .addContainerGap(504, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,37 +209,36 @@ public class ManageRepresentative extends javax.swing.JPanel {
                     .addComponent(getcontactnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lbladd)
                     .addComponent(getadd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(lblcity)
                     .addComponent(getcity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(lblstate)
                         .addGap(20, 20, 20))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(getstate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblmailid, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(getmailid, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
+                    .addComponent(lblzip)
                     .addComponent(getzip, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblavail)
+                    .addComponent(getavail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(getcharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(19, 19, 19)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblcharge))
+                .addGap(40, 40, 40))
         );
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1120, 500));
@@ -299,6 +294,7 @@ public class ManageRepresentative extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmit;
     private javax.swing.JTextField getadd;
+    private javax.swing.JTextField getavail;
     private javax.swing.JTextField getcharge;
     private javax.swing.JTextField getcity;
     private javax.swing.JTextField getcontactnumber;
@@ -306,23 +302,21 @@ public class ManageRepresentative extends javax.swing.JPanel {
     private javax.swing.JTextField getname;
     private javax.swing.JTextField getstate;
     private javax.swing.JTextField getzip;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lbladd;
+    private javax.swing.JLabel lblavail;
+    private javax.swing.JLabel lblcharge;
+    private javax.swing.JLabel lblcity;
     private javax.swing.JLabel lblcontactno;
     private javax.swing.JLabel lblicon;
+    private javax.swing.JLabel lblmailid;
     private javax.swing.JLabel lblname;
+    private javax.swing.JLabel lblstate;
     private javax.swing.JLabel lblsubtitle;
     private javax.swing.JLabel lbltitle;
-    private javax.swing.JTextField txtStatus;
+    private javax.swing.JLabel lblzip;
     // End of variables declaration//GEN-END:variables
 }

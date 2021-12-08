@@ -10,7 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
-import UI.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
+import UI.SysAdminWorkArea.SystemAdminWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
