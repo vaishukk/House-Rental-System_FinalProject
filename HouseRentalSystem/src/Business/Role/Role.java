@@ -26,7 +26,7 @@ public abstract class Role {
         Agent("Agent"),//Broker
         Builder("Builder"),
         PropertyManager("Property Manager"),//AssetManager
-        Electrician("Electrician"),
+        Repair("Repair"),
         Miscellaneous("Miscellaneous"),
         MoversPackers("Movers & Packers"),
         Photographer("Photographer"),

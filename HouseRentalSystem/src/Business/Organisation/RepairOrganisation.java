@@ -5,23 +5,23 @@
  */
 package Business.Organisation;
 
+//import Business.Role.RepairRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
 /**
  *
- * @author Kiran
+ * @author nemod
  */
-public class MaintenanceOrgainsation extends Organisation{
-    
-    public MaintenanceOrgainsation(String name) {
+public class RepairOrganisation extends Organisation{
+    public RepairOrganisation(String name) {
         super(name);
     }
     
     //@Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-       // roles.add(new ElectricianRole());
+        //roles.add(new RepairRole());
         return roles;
     }
        @Override
