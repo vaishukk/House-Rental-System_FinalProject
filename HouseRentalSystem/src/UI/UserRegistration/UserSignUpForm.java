@@ -6,6 +6,13 @@
 package UI.UserRegistration;
 
 import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkQueue;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -17,8 +24,29 @@ public class UserSignUpForm extends javax.swing.JPanel {
     /**
      * Creates new form userRegistration
      */
+    private final EcoSystem system;
+    private boolean flag = false;
+    
     public UserSignUpForm(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
+        this.system = system;
+        populateNetworkComboBox();
+        populateOrgTypes();
+        //pleaseWait.setVisible(false);
+    }
+    
+    public void populateNetworkComboBox() {
+        getstate.removeAllItems();
+        for (Network network : system.getNetworkList()) {
+            getstate.addItem(network);
+        }
+    }
+    
+    public void populateOrgTypes() {
+        organizationbox.addItem(Organisation.Type.Broker);
+        
+        organizationbox.addItem(Organisation.Type.Broker);
+        
     }
 
     /**
@@ -393,6 +421,117 @@ public class UserSignUpForm extends javax.swing.JPanel {
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
 
+        Network network = (Network) getstate.getSelectedItem();
+        Organisation.Type type = (Organisation.Type) organizationbox.getSelectedItem();
+        String emailAddress = getmail.getText();
+        String username = getusername.getText();
+        String name = getname.getText();
+        String password = getpassword.getText();
+        String phone = getcontactdetails.getText();
+        String city = getaddress.getText();
+        if (network == null || type == null || name.isEmpty() || username.isEmpty() || password.isEmpty() || emailAddress.isEmpty()
+                || city.isEmpty() || phone.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "All of the above the fields are required for registration!!", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (!system.checkValidPasswordFormat(password)) {
+            return;
+        }
+        if (!system.checkIfUserIsUnique(username)) {
+            return;
+        }
+        if (!this.system.checkValidEmailFormat(emailAddress)) {
+            return;
+        }
+        if (!this.system.checkValidPhoneFormat(phone)) {
+            return;
+        }
+
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
+                    for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
+                        if (u.getEmail() != null) {
+                            if (u.getEmail().toLowerCase().equals(emailAddress.toLowerCase())) {
+                                JOptionPane.showMessageDialog(null, "Sorry! This Email Address already exists in our system", "Error!", JOptionPane.ERROR_MESSAGE);
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
+                    for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
+                        if (u.getPhone() != null) {
+                            if (u.getPhone().equals(phone)) {
+                                JOptionPane.showMessageDialog(null, "Sorry! This Contact Number already exists in our system", "Error!", JOptionPane.ERROR_MESSAGE);
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (Organisation.Type.Customer == type) {
+            flag = true;
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Asset) {
+                    Organisation org = enterprise.getOrganisationDirectory().createOrganisation(type, name);
+                    Employee emp = org.getEmployeeDirectory().createEmployee(name);
+//                    UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(username, password, emp, new BuyerRole());
+//                    ua1.setEmail(emailAddress);
+//                    ua1.setPhone(phone);
+//                    ua1.setCity(city);
+                    String bodyMsg = "Hello " + username + ", \n Thank you for registering with us. Your account is activated. Happy Housing!";
+                }
+            }
+        } else {
+//            UserRegistrationRequest registrationRequest = new UserRegistrationRequest();
+//            registrationRequest.setName(name);
+//            registrationRequest.setUserName(username);
+//            registrationRequest.setUserPassword(password);
+//            registrationRequest.setUserEmailId(emailAddress);
+//            registrationRequest.setNetwork(network);
+//            registrationRequest.setUserCity(city);
+//            registrationRequest.setOrgType(type);
+//            registrationRequest.setStatus("Requested");
+//            registrationRequest.setUserContact(phone);
+
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
+                    if (org.getType() == type) {
+                        if (enterprise.getWorkQueue() == null) {
+                            enterprise.setWorkQueue(new WorkQueue());
+                        }
+                        flag = true;
+                    }
+                }
+                if(flag){
+                    //enterprise.getWorkQueue().getWorkRequestList().add(registrationRequest);
+                }
+            }
+        }
+        if (flag) {
+//            pleaseWait.setVisible(true);
+//            btnRegister.setEnabled(false);
+            String bodyMsg = "Hello " + username + ", \n Thank you for registering with us. Your account will be activated within 48 hours. We will keep you posted here.";
+            system.sendEmailMessage(emailAddress, bodyMsg);
+            //SendSMS sendSMS = new SendSMS(phone, bodyMsg);
+            JOptionPane.showMessageDialog(null, "You have been registered succesfully!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Sorry! No such Organization is created by the enterprise");
+        }
+        getname.setText("");
+        getusername.setText("");
+        getpassword.setText("");
+        getmail.setText("");
+        getaddress.setText("");
+        getcontactdetails.setText("");
+        //pleaseWait.setVisible(false);
+        btnSignUp.setEnabled(true);
          
     }//GEN-LAST:event_btnSignUpActionPerformed
 

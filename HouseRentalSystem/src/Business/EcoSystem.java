@@ -151,6 +151,35 @@ public class EcoSystem extends Organisation{
             return true;
         }
     }
+    
+    public Boolean checkValidEmailFormat(String email) {
+        Pattern pattern;
+        Matcher matcher;
+        String EMAIL_PATTERN
+                = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        if (matcher.matches()) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter valid format of email! Ex: hello@hello.com", "Error!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+    
+    public Boolean checkValidPhoneFormat(String phoneNo) {
+        Pattern pattern;
+        Matcher matcher;
+        String PHONE_PATTERN = "^[0-9]{10}$";
+        pattern = Pattern.compile(PHONE_PATTERN);
+        matcher = pattern.matcher(phoneNo);
+        if (matcher.matches()) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter valid format of phone! Ex: 9876543210", "Error!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
 
     
     public static void sendEmailMessage(String emailId, String body) {

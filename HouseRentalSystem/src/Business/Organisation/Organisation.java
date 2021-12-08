@@ -28,7 +28,7 @@ public class Organisation {
     public enum Type {
         Admin("Admin Organization"),
         MoversPackers("Movers Packers Organization"),
-        Electrician("Electrician Organization"),
+        Repair("Repair Organization"),
         AssetManager("Asset Manager Organization"),
         Builder("Builder Organization"),
         Supervisor("Supervisor Organization"),
