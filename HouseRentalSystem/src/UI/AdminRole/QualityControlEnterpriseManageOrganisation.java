@@ -30,17 +30,17 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblorganizations = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        lblquality = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblicon = new javax.swing.JLabel();
+        lbltitle = new javax.swing.JLabel();
         btnlogout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblorganization = new javax.swing.JLabel();
-        OrganizationTypeComboBox = new javax.swing.JComboBox();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        organizationName = new javax.swing.JTextField();
+        OrganizationtypeBox = new javax.swing.JComboBox();
+        lblorganizationname = new javax.swing.JLabel();
+        lblorganizationtype = new javax.swing.JLabel();
+        getname = new javax.swing.JTextField();
         btnaddorganization = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
@@ -48,7 +48,7 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
         jPanel1.setPreferredSize(new java.awt.Dimension(1058, 840));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblorganizations.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        tblorganizations.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tblorganizations.setForeground(new java.awt.Color(25, 56, 82));
         tblorganizations.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -78,16 +78,16 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 595, 120));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("QUALITY CONTROL ORGANIZATIONS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 390, -1));
+        lblquality.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblquality.setForeground(new java.awt.Color(255, 255, 255));
+        lblquality.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblquality.setText("QUALITY CONTROL ORGANIZATIONS");
+        jPanel1.add(lblquality, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 390, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel6.setText("HOUSE RENTAL SYSTEM");
+        lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lbltitle.setText("HOUSE RENTAL SYSTEM");
 
         btnlogout.setBackground(new java.awt.Color(255, 255, 255));
         btnlogout.addActionListener(new java.awt.event.ActionListener() {
@@ -102,9 +102,9 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addComponent(lbltitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -114,9 +114,9 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addComponent(btnlogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -129,17 +129,17 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
         lblorganization.setText("CREATE ORGANIZATION");
         lblorganization.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        OrganizationTypeComboBox.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        OrganizationTypeComboBox.setForeground(new java.awt.Color(25, 56, 82));
+        OrganizationtypeBox.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        OrganizationtypeBox.setForeground(new java.awt.Color(25, 56, 82));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Organization Name");
+        lblorganizationname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblorganizationname.setText("Organization Name");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Organization Type ");
+        lblorganizationtype.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblorganizationtype.setText("Organization Type ");
 
-        organizationName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        organizationName.setForeground(new java.awt.Color(25, 56, 82));
+        getname.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        getname.setForeground(new java.awt.Color(25, 56, 82));
 
         btnaddorganization.setBackground(new java.awt.Color(255, 255, 255));
         btnaddorganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -166,13 +166,13 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
                         .addGap(163, 163, 163)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(lblorganizationname)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(organizationName, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(getname, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(lblorganizationtype)
                                 .addGap(91, 91, 91)
-                                .addComponent(OrganizationTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(OrganizationtypeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(272, 272, 272)
                         .addComponent(btnaddorganization, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -185,38 +185,34 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
                 .addComponent(lblorganization, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(organizationName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(getname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblorganizationname))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel1))
-                    .addComponent(OrganizationTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnaddorganization, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                        .addComponent(lblorganizationtype))
+                    .addComponent(OrganizationtypeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnaddorganization, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 70, 920, 200));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 60, 920, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 923, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 10, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 629, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -231,20 +227,20 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox OrganizationTypeComboBox;
+    private javax.swing.JComboBox OrganizationtypeBox;
     private javax.swing.JButton btnaddorganization;
     private javax.swing.JButton btnlogout;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField getname;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblicon;
     private javax.swing.JLabel lblorganization;
-    private javax.swing.JTextField organizationName;
+    private javax.swing.JLabel lblorganizationname;
+    private javax.swing.JLabel lblorganizationtype;
+    private javax.swing.JLabel lblquality;
+    private javax.swing.JLabel lbltitle;
     private javax.swing.JTable tblorganizations;
     // End of variables declaration//GEN-END:variables
 }

@@ -34,14 +34,14 @@ public class MaintenanceProviderManageOrganisation extends javax.swing.JPanel {
         tblOrganization = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblicon = new javax.swing.JLabel();
+        lbltitle = new javax.swing.JLabel();
         btnlogout = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        organizationName = new javax.swing.JTextField();
-        OrganizationTypeComboBox = new javax.swing.JComboBox();
+        lblorganizationname = new javax.swing.JLabel();
+        lblorganizationtype = new javax.swing.JLabel();
+        getorganizationname = new javax.swing.JTextField();
+        Organizationtypebox = new javax.swing.JComboBox();
         addorganizationbtn = new javax.swing.JButton();
         lblorganization = new javax.swing.JLabel();
 
@@ -50,7 +50,7 @@ public class MaintenanceProviderManageOrganisation extends javax.swing.JPanel {
         jPanel3.setPreferredSize(new java.awt.Dimension(1058, 840));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblOrganization.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        tblOrganization.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         tblOrganization.setForeground(new java.awt.Color(25, 56, 82));
         tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,8 +88,8 @@ public class MaintenanceProviderManageOrganisation extends javax.swing.JPanel {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel6.setText("HOUSE RENTAL SYSTEM");
+        lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lbltitle.setText("HOUSE RENTAL SYSTEM");
 
         btnlogout.setBackground(new java.awt.Color(255, 255, 255));
         btnlogout.addActionListener(new java.awt.event.ActionListener() {
@@ -104,9 +104,9 @@ public class MaintenanceProviderManageOrganisation extends javax.swing.JPanel {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addComponent(lbltitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 413, Short.MAX_VALUE)
                 .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(106, 106, 106))
@@ -116,9 +116,9 @@ public class MaintenanceProviderManageOrganisation extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addComponent(btnlogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -126,17 +126,17 @@ public class MaintenanceProviderManageOrganisation extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Organization Name");
+        lblorganizationname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblorganizationname.setText("Organization Name");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Organization Type ");
+        lblorganizationtype.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblorganizationtype.setText("Organization Type ");
 
-        organizationName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        organizationName.setForeground(new java.awt.Color(25, 56, 82));
+        getorganizationname.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        getorganizationname.setForeground(new java.awt.Color(25, 56, 82));
 
-        OrganizationTypeComboBox.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        OrganizationTypeComboBox.setForeground(new java.awt.Color(25, 56, 82));
+        Organizationtypebox.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Organizationtypebox.setForeground(new java.awt.Color(25, 56, 82));
 
         addorganizationbtn.setBackground(new java.awt.Color(255, 255, 255));
         addorganizationbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -164,21 +164,21 @@ public class MaintenanceProviderManageOrganisation extends javax.swing.JPanel {
                         .addGap(131, 131, 131)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(lblorganizationtype)
                                 .addGap(71, 71, 71))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(lblorganizationname)
                                 .addGap(69, 69, 69)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(organizationName, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(OrganizationTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(getorganizationname, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Organizationtypebox, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(149, 149, 149)
                         .addComponent(lblorganization, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(244, 244, 244)
-                        .addComponent(addorganizationbtn)))
-                .addContainerGap(478, Short.MAX_VALUE))
+                        .addComponent(addorganizationbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(488, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,33 +187,28 @@ public class MaintenanceProviderManageOrganisation extends javax.swing.JPanel {
                 .addComponent(lblorganization, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(organizationName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblorganizationname)
+                    .addComponent(getorganizationname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(OrganizationTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblorganizationtype)
+                    .addComponent(Organizationtypebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addorganizationbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addComponent(addorganizationbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 970, 180));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 980, 180));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 980, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 584, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -269,22 +264,22 @@ public class MaintenanceProviderManageOrganisation extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox OrganizationTypeComboBox;
+    private javax.swing.JComboBox Organizationtypebox;
     private javax.swing.JButton addorganizationbtn;
     private javax.swing.JButton btnlogout;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField getorganizationname;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblicon;
     private javax.swing.JLabel lblorganization;
-    private javax.swing.JTextField organizationName;
+    private javax.swing.JLabel lblorganizationname;
+    private javax.swing.JLabel lblorganizationtype;
+    private javax.swing.JLabel lbltitle;
     private javax.swing.JTable tblOrganization;
     // End of variables declaration//GEN-END:variables
 }

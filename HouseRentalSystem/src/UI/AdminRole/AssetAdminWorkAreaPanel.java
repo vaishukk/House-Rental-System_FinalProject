@@ -145,7 +145,7 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        manageEmployeeLabel.setBackground(new java.awt.Color(215, 81, 81));
+        manageEmployeeLabel.setBackground(new java.awt.Color(255, 255, 255));
         manageEmployeeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         manageEmployeeLabel.setText("Manage Employee");
         manageEmployeeLabel.setAutoscrolls(true);
@@ -191,7 +191,7 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        manageUserAccountLabel.setBackground(new java.awt.Color(215, 81, 81));
+        manageUserAccountLabel.setBackground(new java.awt.Color(255, 255, 255));
         manageUserAccountLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         manageUserAccountLabel.setText("Manage User Account");
         manageUserAccountLabel.setPreferredSize(new java.awt.Dimension(115, 16));
@@ -221,7 +221,7 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
 
         jPanel3.add(manageUserAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 280, 40));
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("ASSET ENTERPRISE");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, -1));
@@ -238,7 +238,7 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        manageRequestLabel.setBackground(new java.awt.Color(215, 81, 81));
+        manageRequestLabel.setBackground(new java.awt.Color(255, 255, 255));
         manageRequestLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         manageRequestLabel.setText("Manage Requests");
         manageRequestLabel.setPreferredSize(new java.awt.Dimension(115, 16));

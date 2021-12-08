@@ -31,11 +31,11 @@ public class QualityControlEnterpriseWorkRequest extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblicon = new javax.swing.JLabel();
+        lbltitle = new javax.swing.JLabel();
         btnlogout = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        lblQuality = new javax.swing.JLabel();
+        lblquality = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblworkrequest = new javax.swing.JTable();
         btndecline = new javax.swing.JButton();
@@ -48,8 +48,8 @@ public class QualityControlEnterpriseWorkRequest extends javax.swing.JPanel {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel8.setText("HOUSE RENTAL SYSTEM");
+        lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lbltitle.setText("HOUSE RENTAL SYSTEM");
 
         btnlogout.setBackground(new java.awt.Color(255, 255, 255));
         btnlogout.addActionListener(new java.awt.event.ActionListener() {
@@ -64,9 +64,9 @@ public class QualityControlEnterpriseWorkRequest extends javax.swing.JPanel {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
+                .addComponent(lbltitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 509, Short.MAX_VALUE)
                 .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -76,9 +76,9 @@ public class QualityControlEnterpriseWorkRequest extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                    .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                     .addComponent(btnlogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -86,11 +86,11 @@ public class QualityControlEnterpriseWorkRequest extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
-        lblQuality.setBackground(new java.awt.Color(0, 0, 0));
-        lblQuality.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblQuality.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblQuality.setText("QUALITY CONTROL ENTERPRISE SIGNUP REQUESTS");
-        lblQuality.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblquality.setBackground(new java.awt.Color(0, 0, 0));
+        lblquality.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblquality.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblquality.setText("QUALITY CONTROL ENTERPRISE SIGNUP REQUESTS");
+        lblquality.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         tblworkrequest.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         tblworkrequest.setForeground(new java.awt.Color(25, 56, 82));
@@ -124,7 +124,7 @@ public class QualityControlEnterpriseWorkRequest extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblworkrequest);
 
         btndecline.setBackground(new java.awt.Color(255, 255, 255));
-        btndecline.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btndecline.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btndecline.setText("DECLINE");
         btndecline.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btndecline.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -135,7 +135,7 @@ public class QualityControlEnterpriseWorkRequest extends javax.swing.JPanel {
         });
 
         btnallow.setBackground(new java.awt.Color(255, 255, 255));
-        btnallow.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnallow.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnallow.setText("ALLOW");
         btnallow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnallow.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -149,10 +149,6 @@ public class QualityControlEnterpriseWorkRequest extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 866, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -162,17 +158,20 @@ public class QualityControlEnterpriseWorkRequest extends javax.swing.JPanel {
                         .addComponent(btndecline))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(285, 285, 285)
-                        .addComponent(lblQuality, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblquality, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 866, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(lblQuality)
-                .addGap(18, 18, 18)
+                .addComponent(lblquality)
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btndecline)
                     .addComponent(btnallow))
@@ -262,15 +261,15 @@ public class QualityControlEnterpriseWorkRequest extends javax.swing.JPanel {
     private javax.swing.JButton btnallow;
     private javax.swing.JButton btndecline;
     private javax.swing.JButton btnlogout;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblQuality;
+    private javax.swing.JLabel lblicon;
+    private javax.swing.JLabel lblquality;
+    private javax.swing.JLabel lbltitle;
     private javax.swing.JTable tblworkrequest;
     // End of variables declaration//GEN-END:variables
 }
