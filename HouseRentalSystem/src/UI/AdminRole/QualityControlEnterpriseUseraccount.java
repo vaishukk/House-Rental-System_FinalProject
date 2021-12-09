@@ -28,24 +28,24 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        lblquality = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblUserDetails2 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        lblicon = new javax.swing.JLabel();
+        lbltitle = new javax.swing.JLabel();
         btnlogout = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        selectOrganization = new javax.swing.JComboBox();
-        selectEmployee = new javax.swing.JComboBox();
-        selectRole2 = new javax.swing.JComboBox();
-        createUsername2 = new javax.swing.JTextField();
-        createPassword = new javax.swing.JPasswordField();
+        lblorganization = new javax.swing.JLabel();
+        lblemployee = new javax.swing.JLabel();
+        lblrole = new javax.swing.JLabel();
+        lblusername = new javax.swing.JLabel();
+        lblpassword = new javax.swing.JLabel();
+        organizationbox = new javax.swing.JComboBox();
+        employeebox = new javax.swing.JComboBox();
+        rolebox = new javax.swing.JComboBox();
+        getusername = new javax.swing.JTextField();
+        getpassword = new javax.swing.JPasswordField();
         lblusers = new javax.swing.JLabel();
         btnaddusers = new javax.swing.JButton();
 
@@ -54,11 +54,11 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
         jPanel3.setPreferredSize(new java.awt.Dimension(1058, 840));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("MANAGE QUALITY ASSURANCE USERS ACCOUNT");
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 638, -1));
+        lblquality.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblquality.setForeground(new java.awt.Color(255, 255, 255));
+        lblquality.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblquality.setText("MANAGE QUALITY ASSURANCE USERS ACCOUNT");
+        jPanel3.add(lblquality, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 638, -1));
 
         jScrollPane3.setForeground(new java.awt.Color(0, 102, 255));
 
@@ -94,8 +94,8 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel20.setText("HOUSE RENTAL SYSTEM");
+        lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lbltitle.setText("HOUSE RENTAL SYSTEM");
 
         btnlogout.setBackground(new java.awt.Color(255, 255, 255));
         btnlogout.addActionListener(new java.awt.event.ActionListener() {
@@ -110,9 +110,9 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20)
+                .addComponent(lbltitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -122,9 +122,9 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addComponent(btnlogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -132,50 +132,50 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setText("Organization");
+        lblorganization.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblorganization.setText("Organization");
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel15.setText("Employee");
+        lblemployee.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblemployee.setText("Employee");
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel16.setText("Role");
+        lblrole.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblrole.setText("Role");
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel17.setText("User Name");
+        lblusername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblusername.setText("User Name");
 
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel18.setText("Password");
+        lblpassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblpassword.setText("Password");
 
-        selectOrganization.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        selectOrganization.setForeground(new java.awt.Color(25, 56, 82));
-        selectOrganization.addActionListener(new java.awt.event.ActionListener() {
+        organizationbox.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        organizationbox.setForeground(new java.awt.Color(25, 56, 82));
+        organizationbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectOrganizationActionPerformed(evt);
+                organizationboxActionPerformed(evt);
             }
         });
 
-        selectEmployee.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        selectEmployee.setForeground(new java.awt.Color(25, 56, 82));
-        selectEmployee.addActionListener(new java.awt.event.ActionListener() {
+        employeebox.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        employeebox.setForeground(new java.awt.Color(25, 56, 82));
+        employeebox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectEmployeeActionPerformed(evt);
+                employeeboxActionPerformed(evt);
             }
         });
 
-        selectRole2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        selectRole2.setForeground(new java.awt.Color(25, 56, 82));
-        selectRole2.addActionListener(new java.awt.event.ActionListener() {
+        rolebox.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rolebox.setForeground(new java.awt.Color(25, 56, 82));
+        rolebox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectRole2ActionPerformed(evt);
+                roleboxActionPerformed(evt);
             }
         });
 
-        createUsername2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        createUsername2.setForeground(new java.awt.Color(25, 56, 82));
+        getusername.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        getusername.setForeground(new java.awt.Color(25, 56, 82));
 
-        createPassword.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        createPassword.setForeground(new java.awt.Color(25, 56, 82));
+        getpassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        getpassword.setForeground(new java.awt.Color(25, 56, 82));
 
         lblusers.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblusers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -195,18 +195,18 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(99, 99, 99)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel17))
+                            .addComponent(lblorganization)
+                            .addComponent(lblemployee)
+                            .addComponent(lblrole)
+                            .addComponent(lblpassword)
+                            .addComponent(lblusername))
                         .addGap(145, 145, 145)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(createUsername2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(selectRole2, javax.swing.GroupLayout.Alignment.LEADING, 0, 290, Short.MAX_VALUE)
-                            .addComponent(selectEmployee, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(selectOrganization, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(createPassword)))
+                            .addComponent(getusername, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rolebox, javax.swing.GroupLayout.Alignment.LEADING, 0, 290, Short.MAX_VALUE)
+                            .addComponent(employeebox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(organizationbox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(getpassword)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(165, 165, 165)
                         .addComponent(lblusers, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -222,24 +222,24 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
                 .addComponent(lblusers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(selectOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblorganization)
+                    .addComponent(organizationbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(selectEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblemployee)
+                    .addComponent(employeebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(selectRole2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblrole)
+                    .addComponent(rolebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(createUsername2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblusername)
+                    .addComponent(getusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(createPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblpassword)
+                    .addComponent(getpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnaddusers, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -265,17 +265,17 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void selectRole2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectRole2ActionPerformed
+    private void roleboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_selectRole2ActionPerformed
+    }//GEN-LAST:event_roleboxActionPerformed
 
-    private void selectEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectEmployeeActionPerformed
+    private void employeeboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_selectEmployeeActionPerformed
+    }//GEN-LAST:event_employeeboxActionPerformed
 
-    private void selectOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectOrganizationActionPerformed
+    private void organizationboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationboxActionPerformed
       
-    }//GEN-LAST:event_selectOrganizationActionPerformed
+    }//GEN-LAST:event_organizationboxActionPerformed
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
         // TODO add your handling code here:
@@ -285,46 +285,24 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaddusers;
     private javax.swing.JButton btnlogout;
-    private javax.swing.JPasswordField createPassword;
-    private javax.swing.JTextField createUsername;
-    private javax.swing.JTextField createUsername1;
-    private javax.swing.JTextField createUsername2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox employeebox;
+    private javax.swing.JPasswordField getpassword;
+    private javax.swing.JTextField getusername;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblemployee;
+    private javax.swing.JLabel lblicon;
+    private javax.swing.JLabel lblorganization;
+    private javax.swing.JLabel lblpassword;
+    private javax.swing.JLabel lblquality;
+    private javax.swing.JLabel lblrole;
+    private javax.swing.JLabel lbltitle;
+    private javax.swing.JLabel lblusername;
     private javax.swing.JLabel lblusers;
-    private javax.swing.JComboBox selectEmployee;
-    private javax.swing.JComboBox selectOrganization;
-    private javax.swing.JComboBox selectRole;
-    private javax.swing.JComboBox selectRole1;
-    private javax.swing.JComboBox selectRole2;
-    private javax.swing.JTable tblUserDetails;
-    private javax.swing.JTable tblUserDetails1;
+    private javax.swing.JComboBox organizationbox;
+    private javax.swing.JComboBox rolebox;
     private javax.swing.JTable tblUserDetails2;
     // End of variables declaration//GEN-END:variables
 }

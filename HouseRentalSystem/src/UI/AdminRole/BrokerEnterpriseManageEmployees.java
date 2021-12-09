@@ -28,33 +28,33 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        lblbroker = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblorganization = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblicon = new javax.swing.JLabel();
+        lbltitle = new javax.swing.JLabel();
         btnlogout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblemployee = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        organizationEmpJComboBox = new javax.swing.JComboBox();
-        employeeName = new javax.swing.JTextField();
-        addemployeebtn = new javax.swing.JButton();
+        lblorganization = new javax.swing.JLabel();
+        lblname = new javax.swing.JLabel();
+        organizationbbox = new javax.swing.JComboBox();
+        getname = new javax.swing.JTextField();
+        btnaddemployee = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
         jPanel1.setMinimumSize(new java.awt.Dimension(1058, 840));
         jPanel1.setPreferredSize(new java.awt.Dimension(1058, 840));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("BROKER ENTERPRISE EMPLOYEES");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 492, -1));
+        lblbroker.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblbroker.setForeground(new java.awt.Color(255, 255, 255));
+        lblbroker.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblbroker.setText("BROKER ENTERPRISE EMPLOYEES");
+        jPanel1.add(lblbroker, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 492, -1));
 
-        tblorganization.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        tblorganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tblorganization.setForeground(new java.awt.Color(25, 56, 82));
         tblorganization.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,8 +89,8 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel6.setText("HOUSE RENTAL SYSTEM");
+        lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lbltitle.setText("HOUSE RENTAL SYSTEM");
 
         btnlogout.setBackground(new java.awt.Color(255, 255, 255));
         btnlogout.addActionListener(new java.awt.event.ActionListener() {
@@ -105,9 +105,9 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addComponent(lbltitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -117,9 +117,9 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addComponent(btnlogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -127,41 +127,41 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
-        lblemployee.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        lblemployee.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblemployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblemployee.setText("CREATE AN EMPLOYEE");
         lblemployee.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Organization");
+        lblorganization.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblorganization.setText("Organization");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Name");
+        lblname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblname.setText("Name");
 
-        organizationEmpJComboBox.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        organizationEmpJComboBox.setForeground(new java.awt.Color(25, 56, 82));
-        organizationEmpJComboBox.addActionListener(new java.awt.event.ActionListener() {
+        organizationbbox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        organizationbbox.setForeground(new java.awt.Color(25, 56, 82));
+        organizationbbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                organizationEmpJComboBoxActionPerformed(evt);
+                organizationbboxActionPerformed(evt);
             }
         });
 
-        employeeName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        employeeName.setForeground(new java.awt.Color(25, 56, 82));
-        employeeName.addKeyListener(new java.awt.event.KeyAdapter() {
+        getname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getname.setForeground(new java.awt.Color(25, 56, 82));
+        getname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                employeeNameKeyPressed(evt);
+                getnameKeyPressed(evt);
             }
         });
 
-        addemployeebtn.setBackground(new java.awt.Color(255, 255, 255));
-        addemployeebtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addemployeebtn.setText("ADD EMPLOYEE");
-        addemployeebtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        addemployeebtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        addemployeebtn.addActionListener(new java.awt.event.ActionListener() {
+        btnaddemployee.setBackground(new java.awt.Color(255, 255, 255));
+        btnaddemployee.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnaddemployee.setText("ADD EMPLOYEE");
+        btnaddemployee.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnaddemployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnaddemployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addemployeebtnActionPerformed(evt);
+                btnaddemployeeActionPerformed(evt);
             }
         });
 
@@ -174,18 +174,18 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(175, 175, 175)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
+                            .addComponent(lblorganization)
+                            .addComponent(lblname))
                         .addGap(70, 70, 70)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(employeeName, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(getname, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(organizationbbox, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(89, 89, 89)
                         .addComponent(lblemployee, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(295, 295, 295)
-                        .addComponent(addemployeebtn)))
+                        .addComponent(btnaddemployee, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(336, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -195,14 +195,14 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
                 .addComponent(lblemployee)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblorganization, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(organizationbbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(employeeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblname, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addemployeebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addComponent(btnaddemployee, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -224,38 +224,38 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void employeeNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_employeeNameKeyPressed
+    private void getnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_getnameKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_employeeNameKeyPressed
+    }//GEN-LAST:event_getnameKeyPressed
 
-    private void addemployeebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addemployeebtnActionPerformed
+    private void btnaddemployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddemployeeActionPerformed
         
-    }//GEN-LAST:event_addemployeebtnActionPerformed
+    }//GEN-LAST:event_btnaddemployeeActionPerformed
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnlogoutActionPerformed
 
-    private void organizationEmpJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationEmpJComboBoxActionPerformed
+    private void organizationbboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationbboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_organizationEmpJComboBoxActionPerformed
+    }//GEN-LAST:event_organizationbboxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addemployeebtn;
+    private javax.swing.JButton btnaddemployee;
     private javax.swing.JButton btnlogout;
-    private javax.swing.JTextField employeeName;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField getname;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblbroker;
     private javax.swing.JLabel lblemployee;
-    private javax.swing.JComboBox organizationEmpJComboBox;
+    private javax.swing.JLabel lblicon;
+    private javax.swing.JLabel lblname;
+    private javax.swing.JLabel lblorganization;
+    private javax.swing.JLabel lbltitle;
+    private javax.swing.JComboBox organizationbbox;
     private javax.swing.JTable tblorganization;
     // End of variables declaration//GEN-END:variables
 }
