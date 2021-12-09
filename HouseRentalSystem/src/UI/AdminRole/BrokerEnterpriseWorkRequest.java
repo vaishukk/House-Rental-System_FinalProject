@@ -5,6 +5,9 @@
  */
 package UI.AdminRole;
 
+import Business.Enterprise.Enterprise;
+import Business.Organisation.OrganisationDirectory;
+
 /**
  *
  * @author sanik
@@ -14,8 +17,13 @@ public class BrokerEnterpriseWorkRequest extends javax.swing.JPanel {
     /**
      * Creates new form BrokerEnterpriseWorkRequest
      */
-    public BrokerEnterpriseWorkRequest() {
+    private final Enterprise enterprise;
+    private final OrganisationDirectory organisationDirectory;
+    public BrokerEnterpriseWorkRequest(Enterprise enterprise) {
         initComponents();
+        this.enterprise = enterprise;
+        this.organisationDirectory = enterprise.getOrganisationDirectory();
+        //populateTable();
     }
 
     /**

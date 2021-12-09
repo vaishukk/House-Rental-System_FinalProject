@@ -9,13 +9,29 @@ package UI.AdminRole;
  *
  * @author sanik
  */
+
+ 
+   
+
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organisation.Organisation;
+
 public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
 
     /**
      * Creates new form BrokerEnterpriseuseraccounts
      */
-    public BrokerEnterpriseUseraccounts() {
+    private final Enterprise enterprise;
+    private final EcoSystem ecosystem;
+    Organisation organization;
+    public BrokerEnterpriseUseraccounts(Enterprise enterprise, EcoSystem system, Organisation organisation) {
         initComponents();
+        this.enterprise = enterprise;
+        this.ecosystem = system;
+        this.organization = organization;
+        //populateOrganizationComboBox();
+        //populateData();
     }
 
     /**

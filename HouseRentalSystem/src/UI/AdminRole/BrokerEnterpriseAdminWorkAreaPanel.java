@@ -46,8 +46,28 @@ public class BrokerEnterpriseAdminWorkAreaPanel extends javax.swing.JPanel {
     }
 
     private void manageorganisation() {
-        //BrokerEntManageOrganizationsJPanel bnmoj = new BrokerEntManageOrganizationsJPanel(enterprise.getOrganizationDirectory());
-        //workPanel.add("BrokerEntManageOrganizationsJPanel", bnmoj);
+        BrokerEnterpriseManageOrganizations brokerEnterpriseManageOrganizations = new BrokerEnterpriseManageOrganizations(enterprise.getOrganisationDirectory());
+        workPanel.add("BrokerEnterpriseManageOrganizations", brokerEnterpriseManageOrganizations);
+        CardLayout layout = (CardLayout) workPanel.getLayout();
+        layout.next(workPanel);
+    }
+    private void manageEmployee() {
+        BrokerEnterpriseManageEmployees brokerEnterpriseManageEmployees = new BrokerEnterpriseManageEmployees(enterprise.getOrganisationDirectory());
+        workPanel.add("BrokerEnterpriseManageEmployees", brokerEnterpriseManageEmployees);
+        CardLayout layout = (CardLayout) workPanel.getLayout();
+        layout.next(workPanel);
+    }
+
+    private void manageUsers() {
+        BrokerEnterpriseUseraccounts brokerEnterpriseUseraccounts = new BrokerEnterpriseUseraccounts(enterprise, system, Organisation);
+        workPanel.add("BrokerEnterpriseUseraccounts", brokerEnterpriseUseraccounts);
+        CardLayout layout = (CardLayout) workPanel.getLayout();
+        layout.next(workPanel);
+    }
+
+    private void manageRequests() {
+        BrokerEnterpriseWorkRequest brokerEnterpriseWorkRequest = new BrokerEnterpriseWorkRequest(enterprise);
+        workPanel.add("BrokerEnterpriseWorkRequest", brokerEnterpriseWorkRequest);
         CardLayout layout = (CardLayout) workPanel.getLayout();
         layout.next(workPanel);
     }
@@ -279,30 +299,30 @@ public class BrokerEnterpriseAdminWorkAreaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrganizationMousePressed
-       
+       manageorganisation();
     }//GEN-LAST:event_manageOrganizationMousePressed
 
     private void manageOrgPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrgPanelMousePressed
         // TODO add your handling code here:
-       
+       manageorganisation();
     }//GEN-LAST:event_manageOrgPanelMousePressed
 
     private void manageEmployeeLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEmployeeLabelMousePressed
-       
+       manageEmployee();
     }//GEN-LAST:event_manageEmployeeLabelMousePressed
 
     private void manageEmpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEmpMousePressed
         // TODO add your handling code here:
-        
+        manageEmployee();
     }//GEN-LAST:event_manageEmpMousePressed
 
     private void manageUserAccMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageUserAccMousePressed
-       
+       manageUsers();
     }//GEN-LAST:event_manageUserAccMousePressed
 
     private void manageRequestPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageRequestPanelMousePressed
         // TODO add your handling code here:
-       
+        manageRequests();
     }//GEN-LAST:event_manageRequestPanelMousePressed
 
 

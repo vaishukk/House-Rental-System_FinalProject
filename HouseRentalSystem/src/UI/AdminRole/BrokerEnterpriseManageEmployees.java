@@ -5,6 +5,8 @@
  */
 package UI.AdminRole;
 
+import Business.Organisation.OrganisationDirectory;
+
 /**
  *
  * @author sanik
@@ -14,8 +16,12 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
     /**
      * Creates new form BrokerEnterpriseManageEmployees
      */
-    public BrokerEnterpriseManageEmployees() {
+     private final OrganisationDirectory directory;
+    public BrokerEnterpriseManageEmployees(OrganisationDirectory directory) {
         initComponents();
+        this.directory = directory;
+        //volPopulate();
+        //populateOrganizationTypeComboBox();
     }
 
     /**
