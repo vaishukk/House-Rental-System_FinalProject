@@ -164,11 +164,9 @@
                                       </Group>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="getaddress" alignment="0" pref="254" max="32767" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="getzip" alignment="0" pref="253" max="32767" attributes="0"/>
-                                              <Component id="getcity" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="getstate" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="getzip" alignment="0" pref="253" max="32767" attributes="0"/>
+                                          <Component id="getcity" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="getstate" alignment="0" max="32767" attributes="0"/>
                                           <Component id="getmailid" max="32767" attributes="0"/>
                                           <Component id="getavail" alignment="0" max="32767" attributes="0"/>
                                           <Component id="getcost" max="32767" attributes="0"/>

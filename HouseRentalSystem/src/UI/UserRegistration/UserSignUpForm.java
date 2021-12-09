@@ -453,8 +453,8 @@ public class UserSignUpForm extends javax.swing.JPanel {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
                     for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
-                        if (u.getEmail() != null) {
-                            if (u.getEmail().toLowerCase().equals(emailAddress.toLowerCase())) {
+                        if (u.getMailId() != null) {
+                            if (u.getMailId().toLowerCase().equals(emailAddress.toLowerCase())) {
                                 JOptionPane.showMessageDialog(null, "Sorry! This Email Address already exists in our system", "Error!", JOptionPane.ERROR_MESSAGE);
                                 return;
                             }
@@ -467,8 +467,8 @@ public class UserSignUpForm extends javax.swing.JPanel {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
                     for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
-                        if (u.getPhone() != null) {
-                            if (u.getPhone().equals(phone)) {
+                        if (u.getContactnumber() != null) {
+                            if (u.getContactnumber().equals(phone)) {
                                 JOptionPane.showMessageDialog(null, "Sorry! This Contact Number already exists in our system", "Error!", JOptionPane.ERROR_MESSAGE);
                                 return;
                             }
@@ -484,8 +484,8 @@ public class UserSignUpForm extends javax.swing.JPanel {
                     Organisation org = enterprise.getOrganisationDirectory().createOrganisation(type, name);
                     Employee emp = org.getEmployeeDirectory().createEmployee(name);
                     UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(username, password, emp, new CustomerRole());
-                    ua1.setEmail(emailAddress);
-                    ua1.setPhone(phone);
+                    ua1.setMailId(emailAddress);
+                    ua1.setContactnumber(phone);
                     ua1.setCity(city);
                     String bodyMsg = "Hello " + username + ", \n Thank you for registering with us. Your account is activated. Happy Housing!";
                 }

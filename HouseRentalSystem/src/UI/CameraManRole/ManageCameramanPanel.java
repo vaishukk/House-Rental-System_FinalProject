@@ -5,6 +5,12 @@
  */
 package UI.CameraManRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Kiran
@@ -14,8 +20,30 @@ public class ManageCameramanPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageVideoCamrProfilePanel
      */
-    public ManageCameramanPanel() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Enterprise enterprise;
+    public ManageCameramanPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount, EcoSystem system) {
         initComponents();
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.userAccount = useraccount;
+        this.enterprise = enterprise;
+        fillReqTable();
+    }
+    
+    public void fillReqTable() {
+        getname.setText(userAccount.getName());
+        getcost.setText(userAccount.getCost());
+        getcity.setText(userAccount.getCity());
+        getavail.setText(userAccount.getStatus());
+        getzip.setText(userAccount.getZip());
+        getaddress.setText(userAccount.getAddress());
+        getmailid.setText(userAccount.getMailId());
+        getcontactnumber.setText(userAccount.getContactnumber());
+        getstate.setText(userAccount.getState());
     }
 
     /**
@@ -271,6 +299,36 @@ public class ManageCameramanPanel extends javax.swing.JPanel {
 
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
+        if(system.isNull(getname.getText()) || system.isNull(getcost.getText()) || system.isNull(getcity.getText())
+           || system.isNull(getavail.getText()) || system.isNull(getzip.getText()) || system.isNull(getaddress.getText())
+           || system.isNull(getmailid.getText()) || system.isNull(getcontactnumber.getText()) || system.isNull(getstate.getText())){
+            JOptionPane.showMessageDialog(null, "Please enter all fields!");
+            return;
+        }else if(!system.isDouble(getcost.getText())){
+            JOptionPane.showMessageDialog(null, "Please enter valid charge!");
+            return;
+        }else if(!system.isInt(getzip.getText()) || getzip.getText().length() != 5){
+            JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
+            return;
+        }else if(!system.checkValidPhoneFormat(getcontactnumber.getText())){
+            return;
+        }else if(!system.checkValidEmailFormat(getmailid.getText())){
+            return;
+        }else if(!system.checkIfEmailIsUnique(getmailid.getText(), userAccount.getUsername())){
+            return;
+        }else if(!system.checkIfPhoneIsUnique(getcontactnumber.getText(), userAccount.getUsername())){
+            return;
+        }
+        userAccount.setName(getname.getText());
+        userAccount.setCost(getcost.getText());
+        userAccount.setCity(getcity.getText());
+        userAccount.setStatus(getavail.getText());
+        userAccount.setZip(getzip.getText());
+        userAccount.setAddress(getaddress.getText());
+        userAccount.setMailId(getmailid.getText());
+        userAccount.setContactnumber(getcontactnumber.getText());
+        userAccount.setState(getstate.getText());
+        JOptionPane.showMessageDialog(null, "Profile Updated Successfully!");
        
     }//GEN-LAST:event_btnsubmitActionPerformed
 

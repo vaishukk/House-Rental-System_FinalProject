@@ -180,6 +180,74 @@ public class EcoSystem extends Organisation{
             return false;
         }
     }
+    
+    public boolean isNull(String strNum) {
+        if (strNum.trim().isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean isDouble(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+    
+     public boolean isInt(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            int d = Integer.parseInt(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+     
+     public boolean checkIfEmailIsUnique(String email, String username) {
+        for (Network n : business.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
+                    for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
+                        if (u.getMailId() != null) {
+                            if (u.getMailId().toLowerCase().equals(email.toLowerCase()) && !u.getUsername().equals(username)) {
+                                JOptionPane.showMessageDialog(null, "Sorry! This Email Address already exists in our system", "Error!", JOptionPane.ERROR_MESSAGE);
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+     
+      public boolean checkIfPhoneIsUnique(String phone, String username) {
+        for (Network n : business.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
+                    for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
+                        if (u.getContactnumber() != null) {
+                            if (u.getContactnumber().equals(phone) && !u.getUsername().equals(username)) {
+                                JOptionPane.showMessageDialog(null, "Sorry! This Contact Number already exists in our system", "Error!", JOptionPane.ERROR_MESSAGE);
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
 
     
     public static void sendEmailMessage(String emailId, String body) {

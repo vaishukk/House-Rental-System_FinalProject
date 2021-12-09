@@ -17,10 +17,10 @@ public class Asset {
     private String homeImg;
     private String assetID;
     private String assetName;
-    private String street;
+    private String address;
     private String city;
     private String state;
-    private String pincode;
+    private String zip;
     private String status;
     private double price;
     private int bhk;
@@ -58,12 +58,12 @@ public class Asset {
         this.assetName = assetName;
     }
 
-    public String getStreet() {
-        return street;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getCity() {
@@ -82,12 +82,12 @@ public class Asset {
         this.state = state;
     }
 
-    public String getPincode() {
-        return pincode;
+    public String getZip() {
+        return zip;
     }
 
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
+    public void setZip(String zip) {
+        this.zip = zip;
     }
 
     public String getStatus() {

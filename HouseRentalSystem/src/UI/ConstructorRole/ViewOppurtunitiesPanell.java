@@ -5,6 +5,16 @@
  */
 package UI.ConstructorRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.ConstructorRequest;
+import Business.WorkQueue.WorkRequest;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Kiran
@@ -14,8 +24,47 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
     /**
      * Creates new form ViewOppurtunitiesPanell
      */
-    public ViewOppurtunitiesPanell() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount useraccount;
+    private Enterprise enterprise;
+    public ViewOppurtunitiesPanell(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.useraccount = useraccount;
+        this.enterprise = enterprise;
+        populateRequestTable();
+    }
+    
+    public void populateRequestTable() {
+        DefaultTableModel model = (DefaultTableModel) housingtable.getModel();
+        model.setRowCount(0);
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
+
+                    if (workRequest instanceof ConstructorRequest) {
+                        if (((ConstructorRequest) workRequest).getConstructor().getUsername().equals(useraccount.getUsername())) {
+                            Object[] row = new Object[model.getColumnCount()];
+                            row[0] = workRequest;
+                            row[1] = ((ConstructorRequest) workRequest).getCustomer();
+                            row[2] = ((ConstructorRequest) workRequest).getMerchant();
+                            row[3] = ((ConstructorRequest) workRequest).getAsset().getAddress();
+                            row[4] = ((ConstructorRequest) workRequest).getAsset().getCity();
+                            row[5] = ((ConstructorRequest) workRequest).getAsset().getState();
+                            row[6] = ((ConstructorRequest) workRequest).getAsset().getZip();
+                            row[7] = ((ConstructorRequest) workRequest).getStatus();
+                            row[8] = ((ConstructorRequest) workRequest).getCustomerNote();
+                            row[9] = ((ConstructorRequest) workRequest).getExaminerNote();
+                            row[10] = ((ConstructorRequest) workRequest).getQuote();
+                            row[11] = ((ConstructorRequest) workRequest).getCustomer().getRole().toString();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -259,12 +308,55 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
 
     private void btnselectjobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnselectjobActionPerformed
         
-        
+        int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            ConstructorRequest checkRequest = (ConstructorRequest) housingtable.getValueAt(selectedRow, 0);
+            try {
+                Double quote = Double.parseDouble(getquote.getText());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Quote");
+                return;
+            }
+            if (!"In Progress".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("In Progress");
+                checkRequest.setQuote(getquote.getText());
+                useraccount.setStatus("Occupied");
+                JOptionPane.showMessageDialog(null, "Job Taken Successfully!");
+                populateRequestTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already taken!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnselectjobActionPerformed
 
     private void btnjobcompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnjobcompleteActionPerformed
         // TODO add your handling code here:
-
+        int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            ConstructorRequest checkRequest = (ConstructorRequest) housingtable.getValueAt(selectedRow, 0);
+            String comment = getcomments.getText();
+            if (comment.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            if (!"Completed".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("Completed");
+                checkRequest.setExaminerNote(comment);
+                JOptionPane.showMessageDialog(null, "Job is set to completed!");
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
+                if (dialogResult == JOptionPane.YES_OPTION) {
+                    useraccount.setStatus("Available");
+                }
+                populateRequestTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already completed!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnjobcompleteActionPerformed
 
     private void btnviewappointerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewappointerActionPerformed
@@ -282,7 +374,30 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
 
     private void btndeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeclineActionPerformed
         // TODO add your handling code here:
-        // TODO add your handling code here:
+        int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            ConstructorRequest checkRequest = (ConstructorRequest) housingtable.getValueAt(selectedRow, 0);
+            String comment = getcomments.getText();
+            if (comment.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            if (!"Completed".equals(checkRequest.getStatus()) && !"In Progress".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("Rejected");
+                checkRequest.setExaminerNote(comment);
+                JOptionPane.showMessageDialog(null, "Job is set to rejected!");
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
+                if (dialogResult == JOptionPane.YES_OPTION) {
+                    useraccount.setStatus("Available");
+                }
+                populateRequestTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already " + checkRequest.getStatus());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btndeclineActionPerformed
 
 

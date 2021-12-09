@@ -5,6 +5,14 @@
  */
 package UI.ConstructorRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Kiran
@@ -14,8 +22,37 @@ public class ConstructerWorkAreaPanel extends javax.swing.JPanel {
     /**
      * Creates new form ConstructerArea
      */
-    public ConstructerWorkAreaPanel() {
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organisation organisation;
+    public ConstructerWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+         this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organisation = organisation;
+        manageAdvertise();
+    }
+    
+    private void manageAdvertise() {
+
+        ViewOppurtunitiesPanell viewOppurtunitiesPanell= new ViewOppurtunitiesPanell(rightSystemAdminPanel, enterprise, account, system);
+        rightSystemAdminPanel.add("viewOppurtunitiesPanell", viewOppurtunitiesPanell);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+
+    private void manageBuyers() {
+
+        ManageConstructorPanel manageConstructorPanel = new ManageConstructorPanel(rightSystemAdminPanel, enterprise, account, system);
+        rightSystemAdminPanel.add("manageExaminerProfileJPanel", manageConstructorPanel);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
     }
 
     /**
@@ -173,21 +210,21 @@ public class ConstructerWorkAreaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblmanageprofileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanageprofileMousePressed
-       
+        manageBuyers();
     }//GEN-LAST:event_lblmanageprofileMousePressed
 
     private void manprofilepanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manprofilepanelMousePressed
         // TODO add your handling code here:
-        
+        manageBuyers();
     }//GEN-LAST:event_manprofilepanelMousePressed
 
     private void lblmanageoppurtunitiesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanageoppurtunitiesMousePressed
-        
+        manageAdvertise();        
     }//GEN-LAST:event_lblmanageoppurtunitiesMousePressed
 
     private void manageoppurtunitiespanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageoppurtunitiespanelMousePressed
         // TODO add your handling code here:
-        
+        manageAdvertise();
     }//GEN-LAST:event_manageoppurtunitiespanelMousePressed
 
 
