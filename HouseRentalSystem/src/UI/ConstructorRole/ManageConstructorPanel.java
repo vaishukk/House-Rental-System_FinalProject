@@ -5,6 +5,12 @@
  */
 package UI.ConstructorRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Kiran
@@ -14,8 +20,30 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageConstructorPanel
      */
-    public ManageConstructorPanel() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Enterprise enterprise;
+    public ManageConstructorPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount, EcoSystem system) {
         initComponents();
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.userAccount = useraccount;
+        this.enterprise = enterprise;
+        populateRequestTable();
+    }
+    
+    public void populateRequestTable() {
+        getname.setText(userAccount.getName());
+        getcost.setText(userAccount.getCost());
+        getcityname.setText(userAccount.getCity());
+        getavail.setText(userAccount.getStatus());
+        getzip.setText(userAccount.getZip());
+        getaddress.setText(userAccount.getAddress());
+        getmailid.setText(userAccount.getMailId());
+        getcontactno.setText(userAccount.getContactnumber());
+        getstatename.setText(userAccount.getState());
     }
 
     /**
@@ -52,7 +80,7 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
         lblavail = new javax.swing.JLabel();
         getavail = new javax.swing.JTextField();
         lblcharge = new javax.swing.JLabel();
-        getcharge = new javax.swing.JTextField();
+        getcost = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(241, 241, 242));
 
@@ -165,12 +193,12 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
 
         lblcharge.setBackground(new java.awt.Color(255, 255, 255));
         lblcharge.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblcharge.setText("Charge:");
+        lblcharge.setText("Price:");
 
-        getcharge.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getcharge.addActionListener(new java.awt.event.ActionListener() {
+        getcost.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                getchargeActionPerformed(evt);
+                getcostActionPerformed(evt);
             }
         });
 
@@ -206,7 +234,7 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
                             .addComponent(getmailid)
                             .addComponent(getzip)
                             .addComponent(getavail)
-                            .addComponent(getcharge))))
+                            .addComponent(getcost))))
                 .addContainerGap(534, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -249,7 +277,7 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblcharge)
-                    .addComponent(getcharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(getcost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -296,25 +324,54 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-       
+       if (system.isNull(getname.getText()) || system.isNull(getcost.getText()) || system.isNull(getcityname.getText())
+                || system.isNull(getavail.getText()) || system.isNull(getzip.getText()) || system.isNull(getaddress.getText())
+                || system.isNull(getmailid.getText()) || system.isNull(getcontactno.getText()) || system.isNull(getstatename.getText())) {
+            JOptionPane.showMessageDialog(null, "Please enter all fields!");
+            return;
+        } else if (!system.isDouble(getcost.getText())) {
+            JOptionPane.showMessageDialog(null, "Please enter valid charge!");
+            return;
+        } else if (!system.isInt(getzip.getText()) || getzip.getText().length() != 5) {
+            JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
+            return;
+        } else if (!system.checkValidPhoneFormat(getcontactno.getText())) {
+            return;
+        } else if (!system.checkValidEmailFormat(getmailid.getText())) {
+            return;
+        } else if (!system.checkIfEmailIsUnique(getmailid.getText(), userAccount.getUsername())) {
+            return;
+        } else if (!system.checkIfPhoneIsUnique(getcontactno.getText(), userAccount.getUsername())) {
+            return;
+        }
+        userAccount.setName(getname.getText());
+        userAccount.setCost(getcost.getText());
+        userAccount.setCity(getcityname.getText());
+        userAccount.setStatus(getavail.getText());
+        userAccount.setZip(getzip.getText());
+        userAccount.setAddress(getaddress.getText());
+        userAccount.setMailId(getmailid.getText());
+        userAccount.setContactnumber(getcontactno.getText());
+        userAccount.setState(getstatename.getText());
+        JOptionPane.showMessageDialog(null, "Profile Updated Successfully!");
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void getcitynameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getcitynameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_getcitynameActionPerformed
 
-    private void getchargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getchargeActionPerformed
+    private void getcostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getcostActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_getchargeActionPerformed
+    }//GEN-LAST:event_getcostActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmit;
     private javax.swing.JTextField getaddress;
     private javax.swing.JTextField getavail;
-    private javax.swing.JTextField getcharge;
     private javax.swing.JTextField getcityname;
     private javax.swing.JTextField getcontactno;
+    private javax.swing.JTextField getcost;
     private javax.swing.JTextField getmailid;
     private javax.swing.JTextField getname;
     private javax.swing.JTextField getstatename;

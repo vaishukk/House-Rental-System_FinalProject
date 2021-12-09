@@ -23,13 +23,13 @@ public class UserAccount {
     public Employee employee;
     private Role role;
     private WorkQueue workQueue;
-    private String Phone;
-    private String Street;
-    private String Zipcode;
-    private String Email;
+    private String contactnumber;
+    private String address;
+    private String zip;
+    private String mailId;
     private String City;
     private String State;
-    private String Charge;
+    private String cost;
     private String NationId;
     private String IdDoc;
     private boolean isApproved;
@@ -98,36 +98,36 @@ public class UserAccount {
         this.workQueue = workQueue;
     }
 
-    public String getPhone() {
-        return Phone;
+    public String getContactnumber() {
+        return contactnumber;
     }
 
-    public void setPhone(String Phone) {
-        this.Phone = Phone;
+    public void setContactnumber(String contactnumber) {
+        this.contactnumber = contactnumber;
     }
 
-    public String getStreet() {
-        return Street;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStreet(String Street) {
-        this.Street = Street;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getZipcode() {
-        return Zipcode;
+    public String getZip() {
+        return zip;
     }
 
-    public void setZipcode(String Zipcode) {
-        this.Zipcode = Zipcode;
+    public void setZip(String zip) {
+        this.zip = zip;
     }
 
-    public String getEmail() {
-        return Email;
+    public String getMailId() {
+        return mailId;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setMailId(String mailId) {
+        this.mailId = mailId;
     }
 
     public String getCity() {
@@ -146,12 +146,12 @@ public class UserAccount {
         this.State = State;
     }
 
-    public String getCharge() {
-        return Charge;
+    public String getCost() {
+        return cost;
     }
 
-    public void setCharge(String Charge) {
-        this.Charge = Charge;
+    public void setCost(String cost) {
+        this.cost = cost;
     }
 
     public String getNationId() {

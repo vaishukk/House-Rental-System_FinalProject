@@ -5,6 +5,14 @@
  */
 package UI.CameraManRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Kiran
@@ -14,8 +22,37 @@ public class CameraManWorkAreaPanel extends javax.swing.JPanel {
     /**
      * Creates new form VideoCamWorkAreaPanel
      */
-    public CameraManWorkAreaPanel() {
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organisation organisation;
+    public CameraManWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organisation = organisation;
+        manageOpportunities();
+    }
+    
+     private void manageOpportunities() {
+       
+        ViewOppurnitiesPanel viewOppurnitiesPanel = new ViewOppurnitiesPanel(UserRight, enterprise, account, system);
+        UserRight.add("viewOppurnitiesPanel",viewOppurnitiesPanel);
+        CardLayout layout = (CardLayout) UserRight.getLayout();
+        layout.next(UserRight);
+    }
+     
+     private void manageProfile() {
+       
+        ManageCameramanPanel manageCameramanPanel = new ManageCameramanPanel(UserRight, enterprise, account, system);
+        UserRight.add("manageCameramanPanel", manageCameramanPanel);
+        CardLayout layout = (CardLayout) UserRight.getLayout();
+        layout.next(UserRight);
     }
 
     /**
@@ -176,21 +213,21 @@ public class CameraManWorkAreaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblmanageprofileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanageprofileMousePressed
-       
+       manageProfile();
     }//GEN-LAST:event_lblmanageprofileMousePressed
 
     private void manageprofilePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageprofilePanelMousePressed
         // TODO add your handling code here:
-       
+       manageProfile();
     }//GEN-LAST:event_manageprofilePanelMousePressed
 
     private void lblmanageoppurtunitiesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanageoppurtunitiesMousePressed
-       
+       manageOpportunities();
     }//GEN-LAST:event_lblmanageoppurtunitiesMousePressed
 
     private void manageoppurtunitesPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageoppurtunitesPanelMousePressed
         // TODO add your handling code here:
-        
+        manageOpportunities();
     }//GEN-LAST:event_manageoppurtunitesPanelMousePressed
 
 
