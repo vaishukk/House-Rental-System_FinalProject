@@ -5,6 +5,13 @@
  */
 package UI.Customer;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sanik
@@ -14,7 +21,7 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
     /**
      * Creates new form CustomerWorkAreaPanel
      */
-    public CustomerWorkAreaPanel() {
+    public CustomerWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
     }
 

@@ -10,7 +10,9 @@ import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
+import Business.Role.CustomerRole;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.RegistrationRequest;
 import Business.WorkQueue.WorkQueue;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -481,24 +483,24 @@ public class UserSignUpForm extends javax.swing.JPanel {
                 if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Asset) {
                     Organisation org = enterprise.getOrganisationDirectory().createOrganisation(type, name);
                     Employee emp = org.getEmployeeDirectory().createEmployee(name);
-//                    UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(username, password, emp, new BuyerRole());
-//                    ua1.setEmail(emailAddress);
-//                    ua1.setPhone(phone);
-//                    ua1.setCity(city);
+                    UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(username, password, emp, new CustomerRole());
+                    ua1.setEmail(emailAddress);
+                    ua1.setPhone(phone);
+                    ua1.setCity(city);
                     String bodyMsg = "Hello " + username + ", \n Thank you for registering with us. Your account is activated. Happy Housing!";
                 }
             }
         } else {
-//            UserRegistrationRequest registrationRequest = new UserRegistrationRequest();
-//            registrationRequest.setName(name);
-//            registrationRequest.setUserName(username);
-//            registrationRequest.setUserPassword(password);
-//            registrationRequest.setUserEmailId(emailAddress);
-//            registrationRequest.setNetwork(network);
-//            registrationRequest.setUserCity(city);
-//            registrationRequest.setOrgType(type);
-//            registrationRequest.setStatus("Requested");
-//            registrationRequest.setUserContact(phone);
+            RegistrationRequest registrationRequest = new RegistrationRequest();
+            registrationRequest.setName(name);
+            registrationRequest.setUserName(username);
+            registrationRequest.setUserPassword(password);
+            registrationRequest.setUserEmailId(emailAddress);
+            registrationRequest.setNetwork(network);
+            registrationRequest.setUserCity(city);
+            registrationRequest.setOrgType(type);
+            //registrationRequest.setStatus("Requested");
+            registrationRequest.setUserContact(phone);
 
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
