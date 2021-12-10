@@ -5,17 +5,62 @@
  */
 package UI.Customer;
 
+import Business.Asset.Asset;
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sanik
  */
 public class DisplayHouseInfoPanel extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private AssetDirectory assetDirectory;
+    private Asset asset;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Enterprise enterprise;
+    private Network network;
+    private Organisation organisation;
     /**
      * Creates new form DisplayHouseInfoPanel
+     * @param userProcessContainer
+     * @param property
+     * @param propertyDirectory
+     * @param system
+     * @param userAccount
      */
-    public DisplayHouseInfoPanel() {
+    
+    
+    public DisplayHouseInfoPanel(JPanel userProcessContainer, Asset asset, AssetDirectory assetDirectory, EcoSystem system, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.asset = asset;
+        this.assetDirectory = assetDirectory;
+        this.userAccount = userAccount;
+        this.system = system;
+
+        populateReqTable();
+        
+    }
+    
+    private void populateReqTable() {
+//        nameTxt.setText(property.getPropertyName());
+//        cityTxt.setText(property.getCity());
+//        addressTxt.setText(property.getStreet());
+//        pinTxt.setText(property.getPincode());
+//        stateTxt.setText(property.getState());
+//        priceTxt.setText(Double.toString(property.getPrice()));
+//        bhkTxt.setText(Integer.toString(property.getBhk()));
+//        bathroomTxt.setText(Double.toString(property.getBathroom()));
+//        String imgIcon = property.getUploadImg();
+//        imgupload.setIcon(ResizeImage(imgIcon));
     }
 
     /**
