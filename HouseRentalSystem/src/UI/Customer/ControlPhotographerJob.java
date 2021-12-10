@@ -5,6 +5,19 @@
  */
 package UI.Customer;
 
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.CameraManRequest;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,9 +27,60 @@ public class ControlPhotographerJob extends javax.swing.JPanel {
     /**
      * Creates new form ControlPhotographerJob
      */
-    public ControlPhotographerJob() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private AssetDirectory assetDirectory;
+    private Enterprise enterprise;
+    private Network network;
+    private Organisation organisation;
+
+    
+    public ControlPhotographerJob(JPanel userProcess, UserAccount userAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
         initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.userAccount = userAccount;
+        this.enterprise = enterprise;
+        this.network = network;
+        this.organisation = organisation;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+        populateReqTable();
     }
+    
+     public void populateReqTable() {
+        DefaultTableModel model = (DefaultTableModel) tblphoto.getModel();
+        model.setRowCount(0);
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                if (e.getEnterpriseType() == Enterprise.EnterpriseType.QualityControl) {
+                    for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
+                        if (workRequest instanceof CameraManRequest) {
+                            if (userAccount.getUsername().equals(((CameraManRequest) workRequest).getCustomer().getUsername())) {
+                                Object[] row = new Object[model.getColumnCount()];
+                                row[0] = ((CameraManRequest) workRequest);
+                                row[1] = ((CameraManRequest) workRequest).getCameraman().getName();
+                                row[2] = ((CameraManRequest) workRequest).getMerchant().getName();
+                                row[3] = ((CameraManRequest) workRequest).getAsset().getAddress();
+                                row[4] = ((CameraManRequest) workRequest).getAsset().getCity();
+                                row[5] = ((CameraManRequest) workRequest).getAsset().getState();
+                                row[6] = ((CameraManRequest) workRequest).getAsset().getZip();
+                                row[7] = ((CameraManRequest) workRequest).getStatus();
+                                row[8] = ((CameraManRequest) workRequest).getCustomerNote();
+                                row[9] = ((CameraManRequest) workRequest).getExaminerNote();
+                                row[10] = ((CameraManRequest) workRequest).getCameraman().getCost();
+                                row[11] = ((CameraManRequest) workRequest).getQuote();
+                                row[12] = ((CameraManRequest) workRequest).getOrgType();
+                                model.addRow(row);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,9 +95,8 @@ public class ControlPhotographerJob extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         btnback = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         lblphoto = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblphoto = new javax.swing.JTable();
@@ -50,10 +113,11 @@ public class ControlPhotographerJob extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+        btnback.setBackground(new java.awt.Color(255, 255, 255));
+        btnback.setText("BACK");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
+                btnbackActionPerformed(evt);
             }
         });
 
@@ -67,7 +131,7 @@ public class ControlPhotographerJob extends javax.swing.JPanel {
                 .addGap(6, 6, 6)
                 .addComponent(lbltitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 732, Short.MAX_VALUE)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
         );
         jPanel6Layout.setVerticalGroup(
@@ -80,19 +144,12 @@ public class ControlPhotographerJob extends javax.swing.JPanel {
                 .addComponent(lbltitle))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 90));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-
-        btnback.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnback.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbackActionPerformed(evt);
-            }
-        });
 
         lblphoto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblphoto.setText("VIEW PHOTOGRAPHER JOB LIST");
@@ -132,18 +189,14 @@ public class ControlPhotographerJob extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(306, 306, 306)
-                        .addComponent(lblphoto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 545, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jScrollPane2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(163, 163, 163))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(306, 306, 306)
+                .addComponent(lblphoto)
+                .addContainerGap(758, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jScrollPane2)
+                .addGap(219, 219, 219))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -159,15 +212,10 @@ public class ControlPhotographerJob extends javax.swing.JPanel {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblphoto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(lblphoto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblmessage)
@@ -195,22 +243,35 @@ public class ControlPhotographerJob extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
-
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void btnsendmessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsendmessageActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblphoto.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            CameraManRequest br = (CameraManRequest) tblphoto.getValueAt(selectedRow, 0);
+            String message = getmessage.getText();
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            br.setCustomerNote(message);
+            populateReqTable();
+            JOptionPane.showMessageDialog(null, "Message Sent Successfully!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnsendmessageActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnback;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JButton btnsendmessage;
     private javax.swing.JTextField getmessage;
     private javax.swing.JPanel jPanel1;
