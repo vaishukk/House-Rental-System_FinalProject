@@ -207,8 +207,8 @@ public class BrokerEnterpriseAdminWorkAreaPanel extends javax.swing.JPanel {
             manageUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageUserAccLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         menuPanel.add(manageUserAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 280, 40));

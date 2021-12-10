@@ -5,7 +5,11 @@
  */
 package UI.AdminRole;
 
+import Business.Organisation.Organisation;
+import Business.Organisation.Organisation.Type;
 import Business.Organisation.OrganisationDirectory;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,8 +25,30 @@ public class BrokerEnterpriseManageOrganizations extends javax.swing.JPanel {
     public BrokerEnterpriseManageOrganizations(OrganisationDirectory directory) {
         initComponents();
          this.directory = directory;
-        //volPopulate();
-        //populateOrganizationTypeComboBox();
+        volPopulate();
+        populateOrganizationTypeComboBox();
+    }
+    
+    private void populateOrganizationTypeComboBox() {
+        organizationtypebox.removeAllItems();
+        organizationtypebox.addItem(Organisation.Type.Broker);
+
+    }
+
+    public void volPopulate() {
+        DefaultTableModel model = (DefaultTableModel) tblOrganization.getModel();
+
+        model.setRowCount(0);
+
+        for (Organisation organisation : directory.getOrganisationList()) {
+            {
+                Object[] row = new Object[2];
+                row[0] = organisation.getType().getValue();
+                row[1] = organisation.getName();
+                model.addRow(row);
+            }
+
+        }
     }
 
     /**
@@ -217,7 +243,16 @@ public class BrokerEnterpriseManageOrganizations extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnaddorganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddorganizationActionPerformed
+        Type type = (Type) organizationtypebox.getSelectedItem();
 
+        if ("".equals(getorganization.getText())) {
+            JOptionPane.showMessageDialog(null, "Enter organization name!");
+        } else {
+            Organisation organisation = directory.createOrganisation(type, getorganization.getText());
+            JOptionPane.showMessageDialog(null, "Organization Successfully Created");
+            getorganization.setText("");
+            volPopulate();
+        }
         
     }//GEN-LAST:event_btnaddorganizationActionPerformed
 

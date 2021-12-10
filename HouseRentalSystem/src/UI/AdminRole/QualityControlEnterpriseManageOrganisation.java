@@ -5,6 +5,16 @@
  */
 package UI.AdminRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.Organisation.Organisation.Type;
+import Business.Organisation.OrganisationDirectory;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,8 +24,44 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
     /**
      * Creates new form QualityControlEnterpriseManageOrganisation
      */
-    public QualityControlEnterpriseManageOrganisation() {
+    private OrganisationDirectory directory;
+    private JPanel userProcessContainer;
+    private Enterprise enterprise;
+    private Network network;
+    private EcoSystem system;
+    private int index = -1;
+    
+    public QualityControlEnterpriseManageOrganisation(JPanel userProcessContainer, OrganisationDirectory directory, Enterprise enterprise, Network network, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.directory = directory;
+        this.enterprise = enterprise;
+        this.network = network;
+        this.system = system;
+        PopulateTable();
+        populateOrganizationtypeBox();
+    }
+    
+     private void populateOrganizationtypeBox() {
+        OrganizationtypeBox.removeAllItems();
+        OrganizationtypeBox.addItem(Organisation.Type.CameraMan);
+        OrganizationtypeBox.addItem(Organisation.Type.Supervisor);
+    }
+
+    public void PopulateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblorganizations.getModel();
+
+        model.setRowCount(0);
+
+        for (Organisation organization : directory.getOrganisationList()) {
+            {
+                Object[] row = new Object[2];
+                row[0] = organization.getType().getValue();
+                row[1] = organization.getName();
+                model.addRow(row);
+            }
+
+        }
     }
 
     /**
@@ -218,6 +264,16 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
 
     private void btnaddorganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddorganizationActionPerformed
 
+        Type type = (Type) OrganizationtypeBox.getSelectedItem();
+
+        if ("".equals(getname.getText())) {
+            JOptionPane.showMessageDialog(null, "Enter organization name!");
+        } else {
+            Organisation organisation = directory.createOrganisation(type, getname.getText());
+            JOptionPane.showMessageDialog(null, "Organization Successfully Created");
+            getname.setText("");
+            PopulateTable();
+        }
        
     }//GEN-LAST:event_btnaddorganizationActionPerformed
 

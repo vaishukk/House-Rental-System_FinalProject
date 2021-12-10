@@ -13,6 +13,7 @@ import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.Organisation.OrganisationDirectory;
 import Business.Role.Role;
+import Business.Role.SystemAdminRole;
 import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -247,6 +248,13 @@ public class EcoSystem extends Organisation{
             }
         }
         return true;
+    }
+      
+      @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> roleList = new ArrayList<Role>();
+        roleList.add(new SystemAdminRole());
+        return roleList;
     }
 
     

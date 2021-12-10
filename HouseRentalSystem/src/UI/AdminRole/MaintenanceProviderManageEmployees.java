@@ -5,6 +5,15 @@
  */
 package UI.AdminRole;
 
+import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Organisation.Organisation;
+import Business.Organisation.OrganisationDirectory;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,8 +23,40 @@ public class MaintenanceProviderManageEmployees extends javax.swing.JPanel {
     /**
      * Creates new form MaintenanceProviderManageEmployees
      */
-    public MaintenanceProviderManageEmployees() {
+    private JPanel userProcessContainer;
+    private OrganisationDirectory organisationDirectory;
+    private Enterprise enterprise;
+    private EcoSystem system;
+    public MaintenanceProviderManageEmployees(JPanel userProcessContainer, OrganisationDirectory organisationDirectory) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.organisationDirectory = organisationDirectory;
+        populateTable();
+        populateOrganisationBox();
+        populateTable();
+    }
+    
+    public void populateOrganisationBox() {
+        organizationbox.removeAllItems();
+
+        for (Organisation organisation : organisationDirectory.getOrganisationList()) {
+            organizationbox.addItem(organisation);
+        }
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) organizationbox.getModel();
+
+        model.setRowCount(0);
+
+        for (Organisation organisation : organisationDirectory.getOrganisationList()) {
+            for (Employee employee : organisation.getEmployeeDirectory().getEmpList()) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = employee.getId();
+                row[1] = employee.getName();
+                model.addRow(row);
+            }
+        }
     }
 
     /**
@@ -282,6 +323,16 @@ public class MaintenanceProviderManageEmployees extends javax.swing.JPanel {
 
     private void btnaddemployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddemployeeActionPerformed
 
+        if (!getname.getText().equals("")) {
+            Organisation organisation = (Organisation) organizationbox.getSelectedItem();
+            String name = getname.getText();
+            organisation.getEmployeeDirectory().createEmployee(name);
+            JOptionPane.showMessageDialog(null, "Employee Added Successfully");
+            populateTable();
+            getname.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Enter value", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnaddemployeeActionPerformed
 
 

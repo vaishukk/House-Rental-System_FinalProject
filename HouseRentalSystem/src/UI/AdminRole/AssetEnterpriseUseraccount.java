@@ -5,6 +5,11 @@
  */
 package UI.AdminRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organisation.Organisation;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sanik
@@ -14,8 +19,19 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
     /**
      * Creates new form AssetEnterpriseUseraccount
      */
-    public AssetEnterpriseUseraccount() {
+    private final JPanel userProcessContainer;
+    private final Enterprise enterprise;
+    private final EcoSystem ecosystem;
+    Organisation organisation;
+    
+    public AssetEnterpriseUseraccount(JPanel userProcessContainer, Enterprise enterprise, EcoSystem system, Organisation organisation) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        this.ecosystem = system;
+        this.organisation = organisation;
+        //populateOrganizationComboBox();
+        //populateData();
     }
 
     /**

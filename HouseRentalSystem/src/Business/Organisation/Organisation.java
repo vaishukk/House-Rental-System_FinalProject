@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  * @author Kiran
  */
-public class Organisation {
+public abstract class Organisation {
     private String name;
     private WorkQueue workQueue;
     private EmployeeDirectory employeeDirectory;
@@ -30,13 +30,12 @@ public class Organisation {
         MoversPackers("Movers Packers Organization"),
         Repair("Repair Organization"),
         AssetManager("Asset Manager Organization"),
-        Builder("Builder Organization"),
+        Constructor("Constructor Organization"),
         Supervisor("Supervisor Organization"),
         Broker("Broker Organization"),
         MoneyContractor("MoneyContractor Organization"),
-        Photographer("Photographer Organization"),
+        CameraMan("CameraMan Organization"),
         Customer("Customer Organization"),
-        Dealer("Dealer Organization"),
         Merchant("Merchant Organisation");
 
         private String value;
@@ -65,6 +64,8 @@ public class Organisation {
         ++counter;
     }
 
+    public abstract ArrayList<Role> getSupportedRole();
+    
     public String getName() {
         return name;
     }
@@ -120,6 +121,8 @@ public class Organisation {
     public void setType(Type type) {
         this.type = type;
     }
+    
+    
     
     
     @Override
