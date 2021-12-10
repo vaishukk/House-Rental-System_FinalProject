@@ -41,8 +41,30 @@ public class MaintenanceProviderAdminWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageOrganisation(){
         
-       // ServiceProviderEntManageOrganizationsJPanel pemoj = new ServiceProviderEntManageOrganizationsJPanel(rightSystemAdminPanel, enterprise.getOrganizationDirectory(),enterprise, network, system);
-       // rightSystemAdminPanel.add("ServiceProvider", pemoj);
+       MaintenanceProviderManageOrganisation maintenanceProviderManageOrganisation = new MaintenanceProviderManageOrganisation(rightSystemAdminPanel, enterprise.getOrganisationDirectory(),enterprise, network, system);
+        rightSystemAdminPanel.add("MaintenanceProvider", maintenanceProviderManageOrganisation);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+    
+    private void manageEmployee(){
+       
+        MaintenanceProviderManageEmployees maintenanceProviderManageEmployees = new MaintenanceProviderManageEmployees(rightSystemAdminPanel, enterprise.getOrganisationDirectory());
+        rightSystemAdminPanel.add("MaintenanceProviderManageEmployees", maintenanceProviderManageEmployees);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+    private void manageUsers(){
+        
+        MaintenanceProviderEnterpriseUseraccount maintenanceProviderEnterpriseUseraccount = new MaintenanceProviderEnterpriseUseraccount(rightSystemAdminPanel, enterprise, system, organisation);
+        rightSystemAdminPanel.add("MaintenanceProviderEnterpriseUseraccount", maintenanceProviderEnterpriseUseraccount);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+    private void manageRequests(){
+       
+        MaintenanceProviderEnterpriseWorkRequest maintenanceProviderEnterpriseWorkRequest = new MaintenanceProviderEnterpriseWorkRequest(rightSystemAdminPanel, account, enterprise, network, system);
+        rightSystemAdminPanel.add("MaintenanceProviderEnterpriseWorkRequest", maintenanceProviderEnterpriseWorkRequest);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
     }
@@ -332,30 +354,30 @@ public class MaintenanceProviderAdminWorkAreaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrganizationMousePressed
-        
+        manageOrganisation();
     }//GEN-LAST:event_manageOrganizationMousePressed
 
     private void manageOrganizationPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrganizationPanelMousePressed
         // TODO add your handling code here:
-        
+        manageOrganisation();
     }//GEN-LAST:event_manageOrganizationPanelMousePressed
 
     private void manageEmployeeLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEmployeeLabelMousePressed
-      
+      manageEmployee();
     }//GEN-LAST:event_manageEmployeeLabelMousePressed
 
     private void manageEmployeeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEmployeeMousePressed
         // TODO add your handling code here:
-       
+       manageEmployee();
     }//GEN-LAST:event_manageEmployeeMousePressed
 
     private void manageUserAccountMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageUserAccountMousePressed
-       
+        manageUsers();
     }//GEN-LAST:event_manageUserAccountMousePressed
 
     private void manageRequestPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageRequestPanelMousePressed
         // TODO add your handling code here:
-        
+         manageRequests();
     }//GEN-LAST:event_manageRequestPanelMousePressed
 
 

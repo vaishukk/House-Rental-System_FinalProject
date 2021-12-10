@@ -5,6 +5,16 @@
  */
 package UI.AdminRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.Organisation.Organisation.Type;
+import Business.Organisation.OrganisationDirectory;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,8 +24,44 @@ public class MaintenanceProviderManageOrganisation extends javax.swing.JPanel {
     /**
      * Creates new form MaintenanceProviderManageOrganisation
      */
-    public MaintenanceProviderManageOrganisation() {
+    private OrganisationDirectory directory;
+    private JPanel userProcessContainer;
+    private Enterprise enterprise;
+    private Network network;
+    private EcoSystem system;
+    private int index = -1;
+    public MaintenanceProviderManageOrganisation(JPanel userProcessContainer, OrganisationDirectory directory, Enterprise enterprise, Network network, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.directory = directory;
+        this.enterprise = enterprise;
+        this.network = network;
+        this.system = system;
+        PopulateTable();
+        populateOrganizationtypebox();
+    }
+
+    private void populateOrganizationtypebox() {
+        Organizationtypebox.removeAllItems();
+        Organizationtypebox.addItem(Organisation.Type.Repair);        
+        Organizationtypebox.addItem(Organisation.Type.MoversPackers);        
+        Organizationtypebox.addItem(Organisation.Type.MoneyContractor);
+    }
+
+    public void PopulateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblOrganization.getModel();
+
+        model.setRowCount(0);
+
+        for (Organisation organisation : directory.getOrganisationList()) {
+            {
+                Object[] row = new Object[2];
+                row[0] = organisation.getType().getValue();
+                row[1] = organisation.getName();
+                model.addRow(row);
+            }
+
+        }
     }
 
     /**
@@ -260,6 +306,16 @@ public class MaintenanceProviderManageOrganisation extends javax.swing.JPanel {
 
     private void addorganizationbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addorganizationbtnActionPerformed
 
+        Type type = (Type) Organizationtypebox.getSelectedItem();
+
+        if ("".equals(getorganizationname.getText())) {
+            JOptionPane.showMessageDialog(null, "Enter organization name!");
+        } else {
+            Organisation organisation = directory.createOrganisation(type, getorganizationname.getText());
+            JOptionPane.showMessageDialog(null, "Organization Successfully Created");
+            getorganizationname.setText("");
+            PopulateTable();
+        }
     }//GEN-LAST:event_addorganizationbtnActionPerformed
 
 

@@ -13,7 +13,7 @@ import Business.Organisation.Organisation;
  *
  * @author nemod
  */
-public class RegistrationRequest {
+public class RegistrationRequest extends WorkRequest{
      private Network network;
     private Enterprise enterprise;
     private Organisation.Type orgType;

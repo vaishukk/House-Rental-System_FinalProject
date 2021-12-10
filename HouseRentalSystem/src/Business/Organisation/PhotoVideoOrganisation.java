@@ -25,7 +25,7 @@ public class PhotoVideoOrganisation extends Organisation{
     }
        @Override
     public Type getType() {
-        return Organisation.Type.Photographer;
+        return Organisation.Type.CameraMan;
     }  
     
 }

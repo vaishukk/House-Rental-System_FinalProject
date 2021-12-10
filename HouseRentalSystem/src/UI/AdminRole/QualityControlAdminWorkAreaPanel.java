@@ -41,8 +41,30 @@ public class QualityControlAdminWorkAreaPanel extends javax.swing.JPanel {
     
     private void manageOrganisation(){
         
-       // QualityAssuaranceEntManageOrganizationsJPanel pemoj = new QualityAssuaranceEntManageOrganizationsJPanel(rightSystemAdminPanel, enterprise.getOrganizationDirectory(),enterprise, network, system);
-        //rightSystemAdminPanel.add("QualityAssuaranceEntManageOrganizationsJPanel", pemoj);
+        QualityControlEnterpriseManageOrganisation qualityControlEnterpriseManageOrganisation = new QualityControlEnterpriseManageOrganisation(rightSystemAdminPanel, enterprise.getOrganisationDirectory(),enterprise, network, system);
+        rightSystemAdminPanel.add("QualityControlEnterpriseManageOrganisation", qualityControlEnterpriseManageOrganisation);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+     
+    private void manageEmployee(){
+        
+        QualityControlEnterpriseManageEmployees qualityControlEnterpriseManageEmployees = new QualityControlEnterpriseManageEmployees(rightSystemAdminPanel, enterprise.getOrganisationDirectory());
+        rightSystemAdminPanel.add("QualityControlEnterpriseManageEmployees", qualityControlEnterpriseManageEmployees);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+    private void manageUsers(){
+        
+        QualityControlEnterpriseUseraccount qualityControlEnterpriseUseraccount = new QualityControlEnterpriseUseraccount(rightSystemAdminPanel, enterprise, system, organisation);
+        rightSystemAdminPanel.add("QualityControlEnterpriseUseraccount", qualityControlEnterpriseUseraccount);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+    private void manageRequests(){
+        
+        QualityControlEnterpriseWorkRequest qualityControlEnterpriseWorkRequest = new QualityControlEnterpriseWorkRequest(rightSystemAdminPanel, account, enterprise, network, system);
+        rightSystemAdminPanel.add("QualityControlEnterpriseWorkRequest", qualityControlEnterpriseWorkRequest);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
     }
@@ -321,21 +343,21 @@ public class QualityControlAdminWorkAreaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageOrganizationPanelMousePressed
 
     private void manageEmployeeLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEmployeeLabelMousePressed
-        
+        manageEmployee();
     }//GEN-LAST:event_manageEmployeeLabelMousePressed
 
     private void manageEmployeeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEmployeeMousePressed
         // TODO add your handling code here:
-        
+        manageEmployee();
     }//GEN-LAST:event_manageEmployeeMousePressed
 
     private void manageUserAccountMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageUserAccountMousePressed
-        
+         manageUsers();
     }//GEN-LAST:event_manageUserAccountMousePressed
 
     private void manageRequestPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageRequestPanelMousePressed
         // TODO add your handling code here:
-        
+        manageRequests();
     }//GEN-LAST:event_manageRequestPanelMousePressed
 
 

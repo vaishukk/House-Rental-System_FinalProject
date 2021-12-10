@@ -5,6 +5,20 @@
  */
 package UI.AdminRole;
 
+import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.Organisation.OrganisationDirectory;
+import Business.Role.ConstructorRole;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.RegistrationRequest;
+import Business.WorkQueue.WorkRequest;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,8 +28,43 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
     /**
      * Creates new form MaintenanceProviderEnterpriseWorkRequest
      */
-    public MaintenanceProviderEnterpriseWorkRequest() {
+     private JPanel userProcessContainer;
+    private EcoSystem business;
+    private UserAccount userAccount;
+    private Enterprise enterprise;
+    private Network network;
+    private OrganisationDirectory organizationDirectory;
+    public MaintenanceProviderEnterpriseWorkRequest(JPanel userProcessContainer, UserAccount account, Enterprise enterprise, Network network, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = account;
+        this.enterprise = enterprise;
+        this.network = network;
+        this.business = business;
+        this.organizationDirectory = enterprise.getOrganisationDirectory();
+        populateTable();
+    }
+    
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblworkrequest.getModel();
+
+        model.setRowCount(0);
+
+        for (WorkRequest workRequest : enterprise.getWorkQueue().getWrkReqList()) {
+            if (workRequest instanceof RegistrationRequest) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = workRequest;
+                row[1] = ((RegistrationRequest) workRequest).getStatus();
+                row[2] = ((RegistrationRequest) workRequest).getUserName();
+                row[3] = ((RegistrationRequest) workRequest).getName();
+                row[4] = ((RegistrationRequest) workRequest).getUserEmailId();
+                row[5] = ((RegistrationRequest) workRequest).getUserCity();
+                row[6] = ((RegistrationRequest) workRequest).getOrgType();
+                row[7] = ((RegistrationRequest) workRequest).getNetwork();
+                model.addRow(row);
+            }
+        }
+
     }
 
     /**
@@ -247,10 +296,62 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
 
     private void btndeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeclineActionPerformed
 
+        int selectedRow = tblworkrequest.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            RegistrationRequest request = (RegistrationRequest) tblworkrequest.getValueAt(selectedRow, 0);
+            request.setStatus("Rejected");
+            JOptionPane.showMessageDialog(null, "User request has been removed successfully");
+            populateTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a request to process.");
+            return;
+        }
     }//GEN-LAST:event_btndeclineActionPerformed
 
     private void btnallowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnallowActionPerformed
 
+        int selectedRow = tblworkrequest.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            RegistrationRequest request = (RegistrationRequest) tblworkrequest.getValueAt(selectedRow, 0);
+           
+            if (request.getOrgType() == Organisation.Type.CameraMan) {
+                Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
+                Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
+                //UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new CameraManRole());
+            }else if (request.getOrgType() == Organisation.Type.Supervisor) {
+                Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
+                Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
+               // UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new SupervisorRole());
+            }             
+            else if (request.getOrgType() == Organisation.Type.Repair) {
+                Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
+                Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
+                //UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new RepairRole());
+            } 
+             else if (request.getOrgType() == Organisation.Type.MoversPackers) {
+                Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
+                Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
+                //UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new MoversPackerRole());
+            } 
+             else if (request.getOrgType() == Organisation.Type.Customer) {
+                Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
+                Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
+                //UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new CustomerRole());
+            } 
+             else if (request.getOrgType() == Organisation.Type.Constructor) {
+                Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
+                Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
+                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new ConstructorRole());
+            } 
+            request.setStatus("Completed");
+            JOptionPane.showMessageDialog(null, "User account has been activated successfully");
+            populateTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a request to process.");
+            return;
+        }
     }//GEN-LAST:event_btnallowActionPerformed
 
 

@@ -14,8 +14,13 @@ package UI.AdminRole;
    
 
 import Business.EcoSystem;
+import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Organisation.Organisation;
+import Business.Role.Role;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
 
@@ -24,14 +29,36 @@ public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
      */
     private final Enterprise enterprise;
     private final EcoSystem ecosystem;
-    Organisation organization;
+    Organisation organisation;
     public BrokerEnterpriseUseraccounts(Enterprise enterprise, EcoSystem system, Organisation organisation) {
         initComponents();
         this.enterprise = enterprise;
         this.ecosystem = system;
-        this.organization = organization;
-        //populateOrganizationComboBox();
-        //populateData();
+        this.organisation = organisation;
+        populateorganizationbox();
+        populateData();
+    }
+    
+     public void populateorganizationbox() {
+        organizationbox.removeAllItems();
+        for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
+            organizationbox.addItem(org);
+        }
+    }
+
+    public void populateData() {
+        DefaultTableModel model = (DefaultTableModel) userdtltbl.getModel();
+
+        model.setRowCount(0);
+
+        for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
+            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                Object row[] = new Object[2];
+                row[0] = ua;
+                row[1] = ua.getRole();
+                ((DefaultTableModel) userdtltbl.getModel()).addRow(row);
+            }
+        }
     }
 
     /**
@@ -45,7 +72,7 @@ public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblUserDetails = new javax.swing.JTable();
+        userdtltbl = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
@@ -72,9 +99,9 @@ public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
 
         jScrollPane1.setForeground(new java.awt.Color(0, 102, 255));
 
-        tblUserDetails.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        tblUserDetails.setForeground(new java.awt.Color(25, 56, 82));
-        tblUserDetails.setModel(new javax.swing.table.DefaultTableModel(
+        userdtltbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        userdtltbl.setForeground(new java.awt.Color(25, 56, 82));
+        userdtltbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -97,8 +124,8 @@ public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblUserDetails.setSelectionBackground(new java.awt.Color(56, 90, 174));
-        jScrollPane1.setViewportView(tblUserDetails);
+        userdtltbl.setSelectionBackground(new java.awt.Color(56, 90, 174));
+        jScrollPane1.setViewportView(userdtltbl);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 638, 60));
 
@@ -298,11 +325,50 @@ public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
     }//GEN-LAST:event_employeeboxActionPerformed
 
     private void organizationboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationboxActionPerformed
-        
+         Organisation org = (Organisation) organizationbox.getSelectedItem();
+        if (org != null) {
+            populateEmployeeComboBox(org);
+            popRoleComboBox(org);
+        }
     }//GEN-LAST:event_organizationboxActionPerformed
 
+    public void populateEmployeeComboBox(Organisation organisation) {
+        employeebox.removeAllItems();
+
+        for (Employee employee : organisation.getEmployeeDirectory().getEmpList()) {
+            employeebox.addItem(employee);
+        }
+    }
+
+    private void popRoleComboBox(Organisation organisation) {
+        rolebox.removeAllItems();
+        for (Role role : organisation.getSupportedRole()) {
+            rolebox.addItem(role);
+        }
+    }
+    
     private void btnaddusersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddusersActionPerformed
-        
+        String username = getusername.getText();
+        String password = getpassword.getText();
+        if ("".equals(username) || "".equals(password)|| organizationbox.getSelectedItem() == null
+                || employeebox.getSelectedItem() == null || rolebox.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "Please enter all required fields!");
+            return;
+        }
+        if (!ecosystem.checkValidPasswordFormat(password)) {
+            return;
+        }
+        if (!ecosystem.checkIfUserIsUnique(username)) {
+            return;
+        }
+        Organisation org = (Organisation) organizationbox.getSelectedItem();
+        Employee employee = (Employee) employeebox.getSelectedItem();
+        Role role = (Role) rolebox.getSelectedItem();
+        org.getUserAccountDirectory().createUserAccount(username, password, employee, role);
+        populateData();
+        getusername.setText("");
+        getpassword.setText("");
+        JOptionPane.showMessageDialog(null, "User created successfully");
        
     }//GEN-LAST:event_btnaddusersActionPerformed
 
@@ -332,6 +398,6 @@ public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
     private javax.swing.JLabel lblusers;
     private javax.swing.JComboBox organizationbox;
     private javax.swing.JComboBox rolebox;
-    private javax.swing.JTable tblUserDetails;
+    private javax.swing.JTable userdtltbl;
     // End of variables declaration//GEN-END:variables
 }

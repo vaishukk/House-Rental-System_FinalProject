@@ -5,7 +5,11 @@
  */
 package UI.AdminRole;
 
+import Business.Employee.Employee;
+import Business.Organisation.Organisation;
 import Business.Organisation.OrganisationDirectory;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,12 +20,35 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
     /**
      * Creates new form BrokerEnterpriseManageEmployees
      */
-     private final OrganisationDirectory directory;
-    public BrokerEnterpriseManageEmployees(OrganisationDirectory directory) {
+     private final OrganisationDirectory orgdirectory;
+    public BrokerEnterpriseManageEmployees(OrganisationDirectory orgdirectory) {
         initComponents();
-        this.directory = directory;
-        //volPopulate();
-        //populateOrganizationTypeComboBox();
+        this.orgdirectory = orgdirectory;
+        populateTable();
+        populateorganizationbbox();
+        populateTable();
+    }
+    
+    public void populateorganizationbbox() {
+        organizationbbox.removeAllItems();
+
+        for (Organisation organisation : orgdirectory.getOrganisationList()) {
+            organizationbbox.addItem(organisation);
+        }
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblorganization.getModel();
+        model.setRowCount(0);
+
+        for (Organisation organisation : orgdirectory.getOrganisationList()) {
+            for (Employee employee : organisation.getEmployeeDirectory().getEmpList()) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = employee.getId();
+                row[1] = employee.getName();
+                model.addRow(row);
+            }
+        }
     }
 
     /**
@@ -235,7 +262,16 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
     }//GEN-LAST:event_getnameKeyPressed
 
     private void btnaddemployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddemployeeActionPerformed
-        
+         if (!getname.getText().equals("")) {
+            Organisation organisation = (Organisation) organizationbbox.getSelectedItem();
+            String name = getname.getText();
+            organisation.getEmployeeDirectory().createEmployee(name);
+            JOptionPane.showMessageDialog(null, "Employee Added Successfully");
+            populateTable();
+            getname.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Please Enter Value", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnaddemployeeActionPerformed
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed

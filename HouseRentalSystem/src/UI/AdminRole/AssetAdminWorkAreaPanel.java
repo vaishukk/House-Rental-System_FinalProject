@@ -41,8 +41,30 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
     
      private void manageOrganisation(){
         
-       // PropertyEntManageOrganizationsJPanel pemoj = new PropertyEntManageOrganizationsJPanel(enterprise.getOrganizationDirectory());
-        //rightSystemAdminPanel.add("PropertyEntManageOrganizationsJPanel", pemoj);
+        AssetEnterpriseManageOrganisation assetEnterpriseManageOrganisation = new AssetEnterpriseManageOrganisation(enterprise.getOrganisationDirectory());
+        rightSystemAdminPanel.add("AssetEnterpriseManageOrganisation", assetEnterpriseManageOrganisation);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+     
+     private void manageEmployee(){
+        
+        AssetEnterpriseManageEmployees assetEnterpriseManageEmployees = new AssetEnterpriseManageEmployees(rightSystemAdminPanel, enterprise.getOrganisationDirectory());
+        rightSystemAdminPanel.add("AssetEnterpriseManageEmployees", assetEnterpriseManageEmployees);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+    private void manageUsers(){
+       
+        AssetEnterpriseUseraccount assetEnterpriseUseraccount = new AssetEnterpriseUseraccount(rightSystemAdminPanel, enterprise, system, organisation);
+        rightSystemAdminPanel.add("PropertyEntUserAccounts", assetEnterpriseUseraccount);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+    private void manageRequests(){
+       
+        AssetEnterpriseWorkRequest assetEnterpriseWorkRequest = new AssetEnterpriseWorkRequest(rightSystemAdminPanel, account, enterprise, network, system);
+        rightSystemAdminPanel.add("PropertyEntWorkRequestJPanel", assetEnterpriseWorkRequest);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
     }
@@ -327,21 +349,21 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageOrganizationPanelMousePressed
 
     private void manageEmployeeLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEmployeeLabelMousePressed
-        
+        manageEmployee();
     }//GEN-LAST:event_manageEmployeeLabelMousePressed
 
     private void manageEmployeeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEmployeeMousePressed
         // TODO add your handling code here:
-       
+        manageEmployee();
     }//GEN-LAST:event_manageEmployeeMousePressed
 
     private void manageUserAccountMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageUserAccountMousePressed
-        
+        manageUsers();
     }//GEN-LAST:event_manageUserAccountMousePressed
 
     private void manageRequestPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageRequestPanelMousePressed
         // TODO add your handling code here:
-       
+       manageRequests();
     }//GEN-LAST:event_manageRequestPanelMousePressed
 
 

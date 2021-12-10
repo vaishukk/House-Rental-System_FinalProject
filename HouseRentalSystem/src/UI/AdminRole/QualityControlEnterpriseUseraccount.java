@@ -5,6 +5,16 @@
  */
 package UI.AdminRole;
 
+import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Organisation.Organisation;
+import Business.Role.Role;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,8 +24,17 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
     /**
      * Creates new form QualityControlEnterpriseUseraccount
      */
-    public QualityControlEnterpriseUseraccount() {
+    private final Enterprise enterprise;
+    private final EcoSystem ecosystem;
+    Organisation organisation;
+    
+    public QualityControlEnterpriseUseraccount(JPanel userProcessContainer, Enterprise enterprise, EcoSystem system, Organisation organisation) {
         initComponents();
+        this.enterprise = enterprise;
+        this.ecosystem = system;
+        this.organisation = organisation;
+        populateorganizationbox();
+        populateTable();
     }
 
     /**
@@ -185,6 +204,11 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
         btnaddusers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnaddusers.setText("ADD USERS");
         btnaddusers.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnaddusers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddusersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -274,12 +298,78 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
     }//GEN-LAST:event_employeeboxActionPerformed
 
     private void organizationboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationboxActionPerformed
-      
+      Organisation org = (Organisation) organizationbox.getSelectedItem();
+        if (org != null) {
+            populateEmployeeBox(org);
+            populateRoleBox(org);
+        }
     }//GEN-LAST:event_organizationboxActionPerformed
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnlogoutActionPerformed
+
+    private void btnaddusersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddusersActionPerformed
+        // TODO add your handling code here:
+        String username = getusername.getText();
+        String password = getpassword.getText();
+        if ("".equals(username) || "".equals(password) || organizationbox.getSelectedItem() == null
+                || employeebox.getSelectedItem() == null || rolebox.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "Please enter all required fields!");
+            return;
+        }
+        if (!ecosystem.checkValidPasswordFormat(password)) {
+            return;
+        }
+        if (!ecosystem.checkIfUserIsUnique(username)) {
+            return;
+        }
+        Organisation org = (Organisation) organizationbox.getSelectedItem();
+        Employee employee = (Employee) employeebox.getSelectedItem();
+        Role role = (Role) rolebox.getSelectedItem();
+        org.getUserAccountDirectory().createUserAccount(username, password, employee, role);
+        populateTable();
+        getusername.setText("");
+        getpassword.setText("");
+        JOptionPane.showMessageDialog(null, "User created successfully");
+    }//GEN-LAST:event_btnaddusersActionPerformed
+
+    public void populateorganizationbox() {
+        organizationbox.removeAllItems();
+        for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
+            organizationbox.addItem(org);
+        }
+    }
+
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblUserDetails2.getModel();
+
+        model.setRowCount(0);
+
+        for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
+            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                Object row[] = new Object[2];
+                row[0] = ua;
+                row[1] = ua.getRole();
+                ((DefaultTableModel) tblUserDetails2.getModel()).addRow(row);
+            }
+        }
+    }
+
+    public void populateEmployeeBox(Organisation organisation) {
+        employeebox.removeAllItems();
+
+        for (Employee employee : organisation.getEmployeeDirectory().getEmpList()) {
+            employeebox.addItem(employee);
+        }
+    }
+
+    private void populateRoleBox(Organisation organisation) {
+        rolebox.removeAllItems();
+        for (Role role : organisation.getSupportedRole()) {
+            rolebox.addItem(role);
+        }
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,8 +5,15 @@
  */
 package UI.AdminRole;
 
+import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
+import Business.Organisation.Organisation;
 import Business.Organisation.OrganisationDirectory;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.RegistrationRequest;
+import Business.WorkQueue.WorkRequest;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,8 +30,31 @@ public class BrokerEnterpriseWorkRequest extends javax.swing.JPanel {
         initComponents();
         this.enterprise = enterprise;
         this.organisationDirectory = enterprise.getOrganisationDirectory();
-        //populateTable();
+        populateTable();
     }
+    
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblworkrequest.getModel();
+
+        model.setRowCount(0);
+
+        for (WorkRequest workRequest : enterprise.getWorkQueue().getWrkReqList()) {
+            if (workRequest instanceof RegistrationRequest) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = workRequest;
+                row[1] = ((RegistrationRequest) workRequest).getStatus();
+                row[2] = ((RegistrationRequest) workRequest).getUserName();
+                row[3] = ((RegistrationRequest) workRequest).getName();
+                row[4] = ((RegistrationRequest) workRequest).getUserEmailId();
+                row[5] = ((RegistrationRequest) workRequest).getUserCity();
+                row[6] = ((RegistrationRequest) workRequest).getOrgType();
+                row[7] = ((RegistrationRequest) workRequest).getNetwork();
+                model.addRow(row);
+            }
+        }
+
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -201,11 +231,40 @@ public class BrokerEnterpriseWorkRequest extends javax.swing.JPanel {
 
     private void btnallowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnallowActionPerformed
 
+        int selectedRow = tblworkrequest.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            RegistrationRequest request = (RegistrationRequest) tblworkrequest.getValueAt(selectedRow, 0);
+
+            if (request.getOrgType() == Organisation.Type.Broker) {
+                Organisation org = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
+                Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
+               // UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new BrokerRole());
+            }
+
+            request.setStatus("Completed");
+            JOptionPane.showMessageDialog(null, "User account has been activated successfully");
+            populateTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a request to process.");
+            return;
+        }
         
     }//GEN-LAST:event_btnallowActionPerformed
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
 
+        int selectedRow = tblworkrequest.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            RegistrationRequest request = (RegistrationRequest) tblworkrequest.getValueAt(selectedRow, 0);
+            request.setStatus("Rejected");
+            JOptionPane.showMessageDialog(null, "User request has been removed successfully");
+            populateTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a request to process.");
+            return;
+        }
        
     }//GEN-LAST:event_btnRejectActionPerformed
 

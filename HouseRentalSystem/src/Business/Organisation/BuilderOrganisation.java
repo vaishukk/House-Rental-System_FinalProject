@@ -25,7 +25,7 @@ public class BuilderOrganisation extends Organisation{
     }
        @Override
     public Type getType() {
-        return Organisation.Type.Builder;
+        return Organisation.Type.Constructor;
     }  
     
 }

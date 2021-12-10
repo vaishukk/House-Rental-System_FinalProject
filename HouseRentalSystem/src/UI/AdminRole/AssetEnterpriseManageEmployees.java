@@ -5,6 +5,15 @@
  */
 package UI.AdminRole;
 
+import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Organisation.Organisation;
+import Business.Organisation.OrganisationDirectory;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,8 +23,43 @@ public class AssetEnterpriseManageEmployees extends javax.swing.JPanel {
     /**
      * Creates new form AssetEnterpriseManageEmployees
      */
-    public AssetEnterpriseManageEmployees() {
+    private final JPanel userProcessContainer;
+    private final OrganisationDirectory organisationDirectory;
+    private Enterprise enterprise;
+    private EcoSystem system;
+    public AssetEnterpriseManageEmployees(JPanel userProcessContainer, OrganisationDirectory organisationDirectory) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.organisationDirectory = organisationDirectory;
+        populateTable();
+        populateorganizationbox();
+        populateTable();
+    }
+    public void populateorganizationbox() {
+        organizationbox.removeAllItems();
+
+        for (Organisation organisation : organisationDirectory.getOrganisationList()) {
+            if (organisation.getType() != Organisation.Type.Customer) {
+                organizationbox.addItem(organisation);
+            }
+        }
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblorganization.getModel();
+
+        model.setRowCount(0);
+
+        for (Organisation organisation : organisationDirectory.getOrganisationList()) {
+            if (organisation.getType() != Organisation.Type.Customer) {
+                for (Employee employee : organisation.getEmployeeDirectory().getEmpList()) {
+                    Object[] row = new Object[model.getColumnCount()];
+                    row[0] = employee.getId();
+                    row[1] = employee.getName();
+                    model.addRow(row);
+                }
+            }
+        }
     }
 
     /**
@@ -259,7 +303,16 @@ public class AssetEnterpriseManageEmployees extends javax.swing.JPanel {
     }//GEN-LAST:event_getnameKeyPressed
 
     private void btnaddemployeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddemployeActionPerformed
-
+if (!getname.getText().equals("")) {
+            Organisation organisation = (Organisation) organizationbox.getSelectedItem();
+            String name = getname.getText();
+            organisation.getEmployeeDirectory().createEmployee(name);
+            JOptionPane.showMessageDialog(null, "Employee Added Successfully");
+            populateTable();
+            getname.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Enter value", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnaddemployeActionPerformed
 
 
