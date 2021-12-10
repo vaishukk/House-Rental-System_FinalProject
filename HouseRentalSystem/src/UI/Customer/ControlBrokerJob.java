@@ -5,6 +5,21 @@
  */
 package UI.Customer;
 
+import Business.Asset.Asset;
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.BrokerRequest;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,8 +29,57 @@ public class ControlBrokerJob extends javax.swing.JPanel {
     /**
      * Creates new form ControlBrokerJob
      */
-    public ControlBrokerJob() {
+     private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private AssetDirectory assetDirectory;
+    private Enterprise enterprise;
+    private Network network;
+    private Organisation organisation;
+    public ControlBrokerJob(JPanel userProcess, UserAccount userAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
         initComponents();
+        initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.userAccount = userAccount;
+        this.enterprise = enterprise;
+        this.network = network;
+        this.organisation = organisation;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+        tblhouse.setVisible(false);
+        populateReqTable();
+    }
+    
+    public void populateReqTable() {
+        DefaultTableModel model = (DefaultTableModel) tblbroker.getModel();
+        model.setRowCount(0);
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                if (e.getEnterpriseType() == Enterprise.EnterpriseType.Broker) {
+                    for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
+                        if (workRequest instanceof BrokerRequest) {
+                            if (userAccount.getUsername().equals(((BrokerRequest) workRequest).getCustomer().getUsername())) {
+                                Object[] row = new Object[model.getColumnCount()];
+                                row[0] = ((BrokerRequest) workRequest);
+                                row[1] = ((BrokerRequest) workRequest).getBroker().getName();
+                                row[2] = ((BrokerRequest) workRequest).getMerchant().getName();
+                                row[3] = ((BrokerRequest) workRequest).getAsset().getAddress();
+                                row[4] = ((BrokerRequest) workRequest).getAsset().getCity();
+                                row[5] = ((BrokerRequest) workRequest).getAsset().getState();
+                                row[6] = ((BrokerRequest) workRequest).getAsset().getZip();
+                                row[7] = ((BrokerRequest) workRequest).getStatus();
+                                row[8] = ((BrokerRequest) workRequest).getCustomerNote();
+                                row[9] = ((BrokerRequest) workRequest).getExaminerNote();
+                                row[10] = ((BrokerRequest) workRequest).getBroker().getCost();
+                                row[11] = ((BrokerRequest) workRequest).getQuote();
+                                row[12] = ((BrokerRequest) workRequest).getOrgType();
+                                model.addRow(row);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -36,12 +100,11 @@ public class ControlBrokerJob extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
+        btnback = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblhouse = new javax.swing.JTable();
         btnhouses = new javax.swing.JButton();
-        btnback = new javax.swing.JButton();
         lblbroker = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
@@ -89,10 +152,11 @@ public class ControlBrokerJob extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+        btnback.setBackground(new java.awt.Color(255, 255, 255));
+        btnback.setText("BACK");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
+                btnbackActionPerformed(evt);
             }
         });
 
@@ -106,7 +170,7 @@ public class ControlBrokerJob extends javax.swing.JPanel {
                 .addGap(6, 6, 6)
                 .addComponent(lbltitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 702, Short.MAX_VALUE)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
         );
         jPanel6Layout.setVerticalGroup(
@@ -119,7 +183,7 @@ public class ControlBrokerJob extends javax.swing.JPanel {
                 .addComponent(lbltitle))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 90));
@@ -153,13 +217,6 @@ public class ControlBrokerJob extends javax.swing.JPanel {
             }
         });
 
-        btnback.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnback.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbackActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -171,23 +228,16 @@ public class ControlBrokerJob extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(225, 225, 225)
                 .addComponent(btnhouses, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(163, 163, 163))
+                .addGap(163, 847, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnhouses, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(btnhouses, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1340, 290));
@@ -214,29 +264,76 @@ public class ControlBrokerJob extends javax.swing.JPanel {
 
     private void btnsendmessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsendmessageActionPerformed
         // TODO add your handling code here:
-       
-    }//GEN-LAST:event_btnsendmessageActionPerformed
+       int selectedRow = tblbroker.getSelectedRow();
 
-    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnbackActionPerformed
+        if (selectedRow >= 0) {
+            BrokerRequest br = (BrokerRequest) tblbroker.getValueAt(selectedRow, 0);
+            String message = getmessage.getText();
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            br.setCustomerNote(message);
+            populateReqTable();
+            JOptionPane.showMessageDialog(null, "Message Sent Successfully!");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
+    }//GEN-LAST:event_btnsendmessageActionPerformed
 
     private void btnhousesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhousesActionPerformed
         // TODO add your handling code here:
-       
+       tblbroker.setVisible(true);
+        DefaultTableModel model = (DefaultTableModel) tblbroker.getModel();
+        model.setRowCount(0);
+        int selectedRow = tblhouse.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            BrokerRequest br = (BrokerRequest) tblhouse.getValueAt(selectedRow, 0);
+
+            if (br instanceof BrokerRequest) {
+                ArrayList<String> assetList = br.getAssetList();
+                if (assetList.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Sorry there are no house suggestions yet!");
+                    return;
+                }
+                for (String assetID : assetList) {
+                    Asset asset = system.getAssetDirectory().fetchAsset(assetID);
+                    Object[] row = new Object[model.getColumnCount()];
+                    row[0] = asset.getAssetID();
+                    row[1] = asset.getAssetName();
+                    row[2] = asset.getAddress();
+                    row[3] = asset.getCity();
+                    row[4] = asset.getState();
+                    row[5] = asset.getZip();
+                    row[6] = asset.getBhk();
+                    row[7] = asset.getBathroom();
+                    row[8] = asset.getPrice();
+                    row[9] = asset.getStatus();
+                    row[10] = asset.getCustomer();
+                    row[11] = asset.getMerchant();
+                    model.addRow(row);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
+
                    
     }//GEN-LAST:event_btnhousesActionPerformed
 
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnbackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnback;
     private javax.swing.JButton btnhouses;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JButton btnsendmessage;
     private javax.swing.JTextField getmessage;
     private javax.swing.JPanel jPanel1;

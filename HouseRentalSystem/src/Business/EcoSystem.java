@@ -46,6 +46,15 @@ public class EcoSystem extends Organisation{
         enterpriseDirectory = new EnterpriseDirectory();
     }
 
+    public AssetDirectory getAssetDirectory() {
+        return AssetDirectory;
+    }
+
+    public void setAssetDirectory(AssetDirectory AssetDirectory) {
+        this.AssetDirectory = AssetDirectory;
+    }
+
+    
     public OrganisationDirectory getOrganisationDirectory() {
         return organisationDirectory;
     }

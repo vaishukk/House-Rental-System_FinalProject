@@ -22,6 +22,13 @@ public class AssetDirectory {
         this.assetList = assetList;
     }
     
-    
+    public Asset fetchAsset(String AssetNo) {
+        for (Asset asset : assetList) {
+            if (asset.getAssetID().equalsIgnoreCase(AssetNo)) {
+                return asset;
+            }
+        }
+        return null;
+    }
     
 }

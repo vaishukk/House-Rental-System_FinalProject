@@ -5,6 +5,19 @@
  */
 package UI.Customer;
 
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.ConstructorRequest;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,8 +27,55 @@ public class ControlConstructorJob extends javax.swing.JPanel {
     /**
      * Creates new form ControlConstructorJob
      */
-    public ControlConstructorJob() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private AssetDirectory assetDirectory;
+    private Enterprise enterprise;
+    private Network network;
+    private Organisation organisation;
+    public ControlConstructorJob(JPanel userProcess, UserAccount userAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
         initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.userAccount = userAccount;
+        this.enterprise = enterprise;
+        this.network = network;
+        this.organisation = organisation;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+        populateReqTable();
+    }
+    
+    public void populateReqTable() {
+        DefaultTableModel model = (DefaultTableModel) tblconstructor.getModel();
+        model.setRowCount(0);
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                if (e.getEnterpriseType() == Enterprise.EnterpriseType.Asset) {
+                    for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
+                        if (workRequest instanceof ConstructorRequest) {
+                            if (userAccount.getUsername().equals(((ConstructorRequest) workRequest).getCustomer().getUsername())) {
+                                Object[] row = new Object[model.getColumnCount()];
+                                row[0] = ((ConstructorRequest) workRequest);
+                                row[1] = ((ConstructorRequest) workRequest).getConstructor().getName();
+                                row[2] = ((ConstructorRequest) workRequest).getMerchant().getName();
+                                row[3] = ((ConstructorRequest) workRequest).getAsset().getAddress();
+                                row[4] = ((ConstructorRequest) workRequest).getAsset().getCity();
+                                row[5] = ((ConstructorRequest) workRequest).getAsset().getState();
+                                row[6] = ((ConstructorRequest) workRequest).getAsset().getZip();
+                                row[7] = ((ConstructorRequest) workRequest).getStatus();
+                                row[8] = ((ConstructorRequest) workRequest).getCustomerNote();
+                                row[9] = ((ConstructorRequest) workRequest).getExaminerNote();
+                                row[10] = ((ConstructorRequest) workRequest).getConstructor().getCost();
+                                row[11] = ((ConstructorRequest) workRequest).getQuote();
+                                row[12] = ((ConstructorRequest) workRequest).getOrgType();
+                                model.addRow(row);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -31,9 +91,8 @@ public class ControlConstructorJob extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         btnback = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         lblconstructor = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblconstructor = new javax.swing.JTable();
@@ -50,10 +109,11 @@ public class ControlConstructorJob extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+        btnback.setBackground(new java.awt.Color(255, 255, 255));
+        btnback.setText("BACK");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
+                btnbackActionPerformed(evt);
             }
         });
 
@@ -67,7 +127,7 @@ public class ControlConstructorJob extends javax.swing.JPanel {
                 .addGap(6, 6, 6)
                 .addComponent(lbltitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 732, Short.MAX_VALUE)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
         );
         jPanel6Layout.setVerticalGroup(
@@ -80,19 +140,12 @@ public class ControlConstructorJob extends javax.swing.JPanel {
                 .addComponent(lbltitle))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 90));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-
-        btnback.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnback.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbackActionPerformed(evt);
-            }
-        });
 
         lblconstructor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblconstructor.setText("VIEW CONSTRUCTOR JOB LIST");
@@ -135,9 +188,7 @@ public class ControlConstructorJob extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(306, 306, 306)
                 .addComponent(lblconstructor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(163, 163, 163))
+                .addGap(163, 789, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -155,10 +206,6 @@ public class ControlConstructorJob extends javax.swing.JPanel {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblconstructor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,22 +238,32 @@ public class ControlConstructorJob extends javax.swing.JPanel {
 
     private void btnsendmessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsendmessageActionPerformed
         // TODO add your handling code here:
-
+int selectedRow = tblconstructor.getSelectedRow();
+        if (selectedRow >= 0) {
+            ConstructorRequest cr = (ConstructorRequest) tblconstructor.getValueAt(selectedRow, 0);
+            String message = getmessage.getText();
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            cr.setCustomerNote(message);
+            populateReqTable();
+            JOptionPane.showMessageDialog(null, "Message Sent Successfully!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnsendmessageActionPerformed
-
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnbackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnback;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JButton btnsendmessage;
     private javax.swing.JTextField getmessage;
     private javax.swing.JPanel jPanel1;
