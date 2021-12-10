@@ -5,6 +5,11 @@
  */
 package UI.Customer;
 
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sanik
@@ -14,9 +19,22 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
     /**
      * Creates new form DisplayMerchantInfo
      */
-    public DisplayMerchantInfoPanel() {
+    private JPanel userProcessContainer;
+    private UserAccount seller;
+    private AssetDirectory assetDirectory;
+    private final EcoSystem system;
+    private UserAccount userAccount;
+    
+    public DisplayMerchantInfoPanel(JPanel userProcessContainer, UserAccount seller, UserAccount userAccount, EcoSystem system) {
         initComponents();
+         this.system = system;
+        this.userAccount = userAccount;
+        this.seller = seller;
+        this.userProcessContainer = userProcessContainer;
+        //populateReqTable();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

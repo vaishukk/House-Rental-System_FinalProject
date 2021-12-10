@@ -5,6 +5,14 @@
  */
 package UI.Customer;
 
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sanik
@@ -14,9 +22,25 @@ public class DisplayJobsInfoPanel extends javax.swing.JPanel {
     /**
      * Creates new form DisplayJobsInfoPanel
      */
-    public DisplayJobsInfoPanel() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private AssetDirectory assetDirectory;
+    private Enterprise enterprise;
+    private Network network;
+    private Organisation organisation;
+    
+    public DisplayJobsInfoPanel(JPanel userProcess, UserAccount userAccount, Enterprise enterprise, EcoSystem system, Network network, Organisation organisation) {
         initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.enterprise = enterprise;
+        this.userAccount = userAccount;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+        this.network = network;
+        this.organisation = organisation;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

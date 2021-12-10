@@ -10,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -21,9 +22,47 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
     /**
      * Creates new form CustomerWorkAreaPanel
      */
-    public CustomerWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organisation organisation;
+
+     public CustomerWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        //this.userProcessContainer = userProcessContainer;
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organisation = organisation;
+        manageAdvertise();
+
     }
+
+    private void manageAdvertise() {
+        CustomerScreenPanel customerScreenPanel = new CustomerScreenPanel(rightWorkAreaPanel, account, enterprise, system, network, organisation);
+        rightWorkAreaPanel.add("viewJobsJPanel", customerScreenPanel);
+        CardLayout layout = (CardLayout) rightWorkAreaPanel.getLayout();
+        layout.next(rightWorkAreaPanel);
+    }
+
+    private void manageBuyers() {
+        DisplayJobsInfoPanel displayJobsInfoPanel = new DisplayJobsInfoPanel(rightWorkAreaPanel, account, enterprise, system, network, organisation);
+        rightWorkAreaPanel.add("DisplayJobsInfoPanel", displayJobsInfoPanel);
+        CardLayout layout = (CardLayout) rightWorkAreaPanel.getLayout();
+        layout.next(rightWorkAreaPanel);
+    }
+    
+    private void manageProfile() {
+        ControlCustomerPanel controlCustomerPanel = new ControlCustomerPanel(userProcessContainer, system, account);
+        rightWorkAreaPanel.add("ControlCustomerPanel", controlCustomerPanel);
+        CardLayout layout = (CardLayout) rightWorkAreaPanel.getLayout();
+        layout.next(rightWorkAreaPanel);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -300,39 +339,40 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbladvertisementsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbladvertisementsMousePressed
-        
+        manageAdvertise();
     }//GEN-LAST:event_lbladvertisementsMousePressed
 
     private void manageOrganizationPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrganizationPanelMousePressed
-        // TODO add your h
+        manageAdvertise();
     }//GEN-LAST:event_manageOrganizationPanelMousePressed
 
     private void lbljobstatusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbljobstatusMousePressed
-       
+        manageBuyers();
     }//GEN-LAST:event_lbljobstatusMousePressed
 
     private void jobstatuspanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jobstatuspanelMousePressed
         // TODO add your handling code here:
-        
+        manageBuyers();
     }//GEN-LAST:event_jobstatuspanelMousePressed
 
     private void manageEmployeeLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEmployeeLabel1MousePressed
         // TODO add your handling code here:
+        manageBuyers();
     }//GEN-LAST:event_manageEmployeeLabel1MousePressed
 
     private void advertisementpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_advertisementpanelMousePressed
         // TODO add your handling code here:
-       
+        manageAdvertise();
     }//GEN-LAST:event_advertisementpanelMousePressed
 
     private void lblprofileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblprofileMousePressed
         // TODO add your handling code here:
-       
+       manageProfile();
     }//GEN-LAST:event_lblprofileMousePressed
 
     private void profilepanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilepanelMousePressed
         // TODO add your handling code here:
-        
+        manageProfile();
     }//GEN-LAST:event_profilepanelMousePressed
 
 

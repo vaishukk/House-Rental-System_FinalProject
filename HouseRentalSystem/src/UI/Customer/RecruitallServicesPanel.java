@@ -5,6 +5,14 @@
  */
 package UI.Customer;
 
+import Business.Asset.Asset;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sanik
@@ -14,8 +22,24 @@ public class RecruitallServicesPanel extends javax.swing.JPanel {
     /**
      * Creates new form RecruitallServices
      */
-    public RecruitallServicesPanel() {
+    
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Asset asset;
+    private Enterprise enterprise;
+    private Network network;
+    private Organisation organisation;
+
+    public RecruitallServicesPanel(JPanel userProcessContainer, Organisation organisation, Network network, Enterprise enterprise, Asset asset, EcoSystem system, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.system = system;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organisation = organisation;
+        this.asset = asset;
     }
 
     /**
