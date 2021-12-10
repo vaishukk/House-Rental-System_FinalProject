@@ -26,6 +26,8 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
+import javax.activation.*;
+import java.awt.*;
 
 /**
  *
@@ -269,8 +271,8 @@ public class EcoSystem extends Organisation{
     
     public static void sendEmailMessage(String emailId, String body) {
     String to = emailId;
-    String from = "vkvaishnavikk472@gmail.com";
-    String pass = "Panchatpangya";
+    String from = "houserentalsystem123@gmail.com";
+    String pass = "houserentalsystem";
 
     Properties properties = System.getProperties();
     String host = "smtp.gmail.com";
