@@ -85,6 +85,7 @@ public class CameraManWorkAreaPanel extends javax.swing.JPanel {
         UserLeft.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageprofilePanel.setBackground(new java.awt.Color(255, 255, 255));
+        manageprofilePanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         manageprofilePanel.setToolTipText("");
         manageprofilePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageprofilePanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -124,6 +125,7 @@ public class CameraManWorkAreaPanel extends javax.swing.JPanel {
         UserLeft.add(manageprofilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, -1));
 
         manageoppurtunitesPanel.setBackground(new java.awt.Color(255, 255, 255));
+        manageoppurtunitesPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         manageoppurtunitesPanel.setToolTipText("");
         manageoppurtunitesPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageoppurtunitesPanel.setPreferredSize(new java.awt.Dimension(264, 48));
@@ -147,24 +149,24 @@ public class CameraManWorkAreaPanel extends javax.swing.JPanel {
         manageoppurtunitesPanel.setLayout(manageoppurtunitesPanelLayout);
         manageoppurtunitesPanelLayout.setHorizontalGroup(
             manageoppurtunitesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageoppurtunitesPanelLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageoppurtunitesPanelLayout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addComponent(lblmanageoppurtunities, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         manageoppurtunitesPanelLayout.setVerticalGroup(
             manageoppurtunitesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageoppurtunitesPanelLayout.createSequentialGroup()
-                .addComponent(lblmanageoppurtunities, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageoppurtunitesPanelLayout.createSequentialGroup()
+                .addGap(0, 10, Short.MAX_VALUE)
+                .addComponent(lblmanageoppurtunities, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        UserLeft.add(manageoppurtunitesPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, 40));
+        UserLeft.add(manageoppurtunitesPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 280, -1));
 
         lblsubtitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblsubtitle.setText(" CAMERA MAN ");
         lblsubtitle.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        UserLeft.add(lblsubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        UserLeft.add(lblsubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         UserRight.setBackground(new java.awt.Color(241, 241, 242));
         UserRight.setPreferredSize(new java.awt.Dimension(1058, 840));

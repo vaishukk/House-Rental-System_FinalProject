@@ -83,15 +83,12 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         manageOrganizationPanel = new javax.swing.JPanel();
         manageOrganization = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         manageEmployee = new javax.swing.JPanel();
         manageEmployeeLabel = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         manageUserAccount = new javax.swing.JPanel();
         manageUserAccountLabel = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
+        Asset = new javax.swing.JLabel();
         manageRequestPanel = new javax.swing.JPanel();
         manageRequestLabel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -108,6 +105,7 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageOrganizationPanel.setBackground(new java.awt.Color(255, 255, 255));
+        manageOrganizationPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         manageOrganizationPanel.setToolTipText("");
         manageOrganizationPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageOrganizationPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -125,39 +123,26 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setBackground(new java.awt.Color(215, 81, 81));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setToolTipText("");
-
         javax.swing.GroupLayout manageOrganizationPanelLayout = new javax.swing.GroupLayout(manageOrganizationPanel);
         manageOrganizationPanel.setLayout(manageOrganizationPanelLayout);
         manageOrganizationPanelLayout.setHorizontalGroup(
             manageOrganizationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageOrganizationPanelLayout.createSequentialGroup()
-                .addGroup(manageOrganizationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(manageOrganizationPanelLayout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(jLabel5))
-                    .addGroup(manageOrganizationPanelLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(manageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 58, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOrganizationPanelLayout.createSequentialGroup()
+                .addGap(0, 103, Short.MAX_VALUE)
+                .addComponent(manageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         manageOrganizationPanelLayout.setVerticalGroup(
             manageOrganizationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOrganizationPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(manageOrganizationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(manageOrganization, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addGroup(manageOrganizationPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel5)))
+                .addComponent(manageOrganization, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel3.add(manageOrganizationPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, -1));
+        jPanel3.add(manageOrganizationPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 50));
 
         manageEmployee.setBackground(new java.awt.Color(255, 255, 255));
+        manageEmployee.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         manageEmployee.setToolTipText("");
         manageEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageEmployee.setPreferredSize(new java.awt.Dimension(264, 48));
@@ -187,25 +172,25 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
             .addGroup(manageEmployeeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageEmployeeLayout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(manageEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(manageEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         manageEmployeeLayout.setVerticalGroup(
             manageEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageEmployeeLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(manageEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(manageEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(manageEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addContainerGap())
         );
 
-        jPanel3.add(manageEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 280, 40));
+        jPanel3.add(manageEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, 40));
 
         manageUserAccount.setBackground(new java.awt.Color(255, 255, 255));
+        manageUserAccount.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         manageUserAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageUserAccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -218,18 +203,13 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
         manageUserAccountLabel.setText("Manage User Account");
         manageUserAccountLabel.setPreferredSize(new java.awt.Dimension(115, 16));
 
-        jLabel6.setBackground(new java.awt.Color(215, 81, 81));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
         javax.swing.GroupLayout manageUserAccountLayout = new javax.swing.GroupLayout(manageUserAccount);
         manageUserAccount.setLayout(manageUserAccountLayout);
         manageUserAccountLayout.setHorizontalGroup(
             manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageUserAccountLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageUserAccountLayout.createSequentialGroup()
+                .addContainerGap(94, Short.MAX_VALUE)
+                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         manageUserAccountLayout.setVerticalGroup(
@@ -238,21 +218,17 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel3.add(manageUserAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 280, 40));
+        jPanel3.add(manageUserAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 280, 40));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("ASSET ENTERPRISE");
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, -1));
-
-        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 290, 20));
+        Asset.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Asset.setText("ASSET PAGE");
+        Asset.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(Asset, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         manageRequestPanel.setBackground(new java.awt.Color(255, 255, 255));
+        manageRequestPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         manageRequestPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageRequestPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -275,9 +251,8 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
             .addGroup(manageRequestPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addGap(37, 37, 37)
-                .addComponent(manageRequestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addComponent(manageRequestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         manageRequestPanelLayout.setVerticalGroup(
             manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,7 +266,7 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel3.add(manageRequestPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 280, 40));
+        jPanel3.add(manageRequestPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 280, 40));
 
         rightSystemAdminPanel.setBackground(new java.awt.Color(241, 241, 242));
         rightSystemAdminPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
@@ -368,14 +343,11 @@ public class AssetAdminWorkAreaPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel Asset;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel manageEmployee;
     private javax.swing.JLabel manageEmployeeLabel;
     private javax.swing.JLabel manageOrganization;
