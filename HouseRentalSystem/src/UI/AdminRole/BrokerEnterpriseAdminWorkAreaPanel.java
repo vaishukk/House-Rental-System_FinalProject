@@ -85,8 +85,8 @@ public class BrokerEnterpriseAdminWorkAreaPanel extends javax.swing.JPanel {
         menuPanel = new javax.swing.JPanel();
         manageOrgPanel = new javax.swing.JPanel();
         lblmanageorg = new javax.swing.JLabel();
-        lblmanageemp = new javax.swing.JLabel();
         manageEmp = new javax.swing.JPanel();
+        lblmanageemp = new javax.swing.JLabel();
         manageuserPanel = new javax.swing.JPanel();
         lblmanageuser = new javax.swing.JLabel();
         lblbrokerpage = new javax.swing.JLabel();
@@ -124,6 +124,36 @@ public class BrokerEnterpriseAdminWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
+        javax.swing.GroupLayout manageOrgPanelLayout = new javax.swing.GroupLayout(manageOrgPanel);
+        manageOrgPanel.setLayout(manageOrgPanelLayout);
+        manageOrgPanelLayout.setHorizontalGroup(
+            manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageOrgPanelLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(lblmanageorg, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        manageOrgPanelLayout.setVerticalGroup(
+            manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOrgPanelLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(lblmanageorg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(52, 52, 52))
+        );
+
+        menuPanel.add(manageOrgPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 40));
+
+        manageEmp.setBackground(new java.awt.Color(255, 255, 255));
+        manageEmp.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        manageEmp.setToolTipText("");
+        manageEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageEmp.setPreferredSize(new java.awt.Dimension(264, 48));
+        manageEmp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageEmpMousePressed(evt);
+            }
+        });
+
         lblmanageemp.setBackground(new java.awt.Color(255, 255, 255));
         lblmanageemp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblmanageemp.setText("MANAGE EMPLOYEE");
@@ -134,51 +164,28 @@ public class BrokerEnterpriseAdminWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout manageOrgPanelLayout = new javax.swing.GroupLayout(manageOrgPanel);
-        manageOrgPanel.setLayout(manageOrgPanelLayout);
-        manageOrgPanelLayout.setHorizontalGroup(
-            manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageOrgPanelLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblmanageorg, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-                    .addComponent(lblmanageemp, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        manageOrgPanelLayout.setVerticalGroup(
-            manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOrgPanelLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(lblmanageorg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblmanageemp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        menuPanel.add(manageOrgPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 80));
-
-        manageEmp.setBackground(new java.awt.Color(255, 255, 255));
-        manageEmp.setToolTipText("");
-        manageEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        manageEmp.setPreferredSize(new java.awt.Dimension(264, 48));
-        manageEmp.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageEmpMousePressed(evt);
-            }
-        });
-
         javax.swing.GroupLayout manageEmpLayout = new javax.swing.GroupLayout(manageEmp);
         manageEmp.setLayout(manageEmpLayout);
         manageEmpLayout.setHorizontalGroup(
             manageEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addGap(0, 278, Short.MAX_VALUE)
+            .addGroup(manageEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(manageEmpLayout.createSequentialGroup()
+                    .addGap(29, 29, 29)
+                    .addComponent(lblmanageemp, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addGap(30, 30, 30)))
         );
         manageEmpLayout.setVerticalGroup(
             manageEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 46, Short.MAX_VALUE)
+            .addGroup(manageEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(manageEmpLayout.createSequentialGroup()
+                    .addGap(5, 5, 5)
+                    .addComponent(lblmanageemp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        menuPanel.add(manageEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 280, 40));
+        menuPanel.add(manageEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 280, 40));
 
         manageuserPanel.setBackground(new java.awt.Color(255, 255, 255));
         manageuserPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -211,7 +218,7 @@ public class BrokerEnterpriseAdminWorkAreaPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        menuPanel.add(manageuserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 280, 40));
+        menuPanel.add(manageuserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 280, 40));
 
         lblbrokerpage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblbrokerpage.setText("BROKER PAGE ");
@@ -247,7 +254,7 @@ public class BrokerEnterpriseAdminWorkAreaPanel extends javax.swing.JPanel {
             .addComponent(lblmanagedemands, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
         );
 
-        menuPanel.add(managedemandspanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 280, 40));
+        menuPanel.add(managedemandspanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 280, 40));
 
         workPanel.setBackground(new java.awt.Color(241, 241, 242));
         workPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
