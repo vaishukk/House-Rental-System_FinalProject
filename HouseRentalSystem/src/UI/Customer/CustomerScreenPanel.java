@@ -69,8 +69,8 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
             row[3] = asset.getCity();
             row[4] = asset.getState();
             row[5] = asset.getZip();
-            row[6] = asset.getBhk();
-            row[7] = asset.getBathroom();
+            row[6] = asset.getBedroom();
+            row[7] = asset.getBaths();
             row[8] = asset.getPrice();
             row[9] = asset.getStatus();
             row[10] = asset.getMerchant();

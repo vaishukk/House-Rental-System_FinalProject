@@ -8,6 +8,7 @@ package UI.Customer;
 import Business.Asset.AssetDirectory;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -20,20 +21,29 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
      * Creates new form DisplayMerchantInfo
      */
     private JPanel userProcessContainer;
-    private UserAccount seller;
+    private UserAccount merchant;
     private AssetDirectory assetDirectory;
     private final EcoSystem system;
     private UserAccount userAccount;
     
-    public DisplayMerchantInfoPanel(JPanel userProcessContainer, UserAccount seller, UserAccount userAccount, EcoSystem system) {
+    public DisplayMerchantInfoPanel(JPanel userProcessContainer, UserAccount merchant, UserAccount userAccount, EcoSystem system) {
         initComponents();
          this.system = system;
         this.userAccount = userAccount;
-        this.seller = seller;
+        this.merchant = merchant;
         this.userProcessContainer = userProcessContainer;
-        //populateReqTable();
+        populateReqTable();
     }
     
+    public void populateReqTable() {
+        getname.setText(merchant.getName());
+        getcity.setText(merchant.getCity());
+        getzip.setText(merchant.getZip());
+        getaddress.setText(merchant.getAddress());
+        getmail.setText(merchant.getMailId());
+        getphone.setText(merchant.getContactnumber());
+        getstate.setText(merchant.getState());
+    }
     
 
     /**
@@ -49,7 +59,7 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
+        btnback = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblzip = new javax.swing.JLabel();
         lbladdress = new javax.swing.JLabel();
@@ -66,7 +76,6 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
         lblname = new javax.swing.JLabel();
         getmail = new javax.swing.JTextField();
         getname = new javax.swing.JTextField();
-        btnBack1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,10 +85,11 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+        btnback.setBackground(new java.awt.Color(255, 255, 255));
+        btnback.setText("BACK");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
+                btnbackActionPerformed(evt);
             }
         });
 
@@ -93,7 +103,7 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
                 .addGap(6, 6, 6)
                 .addComponent(lbltitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 729, Short.MAX_VALUE)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -106,7 +116,7 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
                 .addComponent(lbltitle))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 90));
@@ -180,14 +190,6 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
         });
         jPanel2.add(getname, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 160, -1));
 
-        btnBack1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBack1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 30, 30));
-
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1280, 290));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -212,9 +214,12 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnbackActionPerformed
 
     private void getphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getphoneActionPerformed
         // TODO add your handling code here:
@@ -224,15 +229,9 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_getnameActionPerformed
 
-    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnBack1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack1;
-    private javax.swing.JButton btnlogout;
+    private javax.swing.JButton btnback;
     private javax.swing.JTextField getaddress;
     private javax.swing.JTextField getcity;
     private javax.swing.JTextField getmail;

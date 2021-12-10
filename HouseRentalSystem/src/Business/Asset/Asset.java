@@ -23,8 +23,8 @@ public class Asset {
     private String zip;
     private String status;
     private double price;
-    private int bhk;
-    private double bathroom;
+    private int bedroom;
+    private double baths;
     private UserAccount merchant;
     private UserAccount customer;
     private double longitude;
@@ -106,20 +106,20 @@ public class Asset {
         this.price = price;
     }
 
-    public int getBhk() {
-        return bhk;
+    public int getBedroom() {
+        return bedroom;
     }
 
-    public void setBhk(int bhk) {
-        this.bhk = bhk;
+    public void setBedroom(int bedroom) {
+        this.bedroom = bedroom;
     }
 
-    public double getBathroom() {
-        return bathroom;
+    public double getBaths() {
+        return baths;
     }
 
-    public void setBathroom(double bathroom) {
-        this.bathroom = bathroom;
+    public void setBaths(double baths) {
+        this.baths = baths;
     }
 
     public UserAccount getMerchant() {
