@@ -11,6 +11,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -226,37 +227,62 @@ public class DisplayJobsInfoPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBack1ActionPerformed
 
     private void btnassetmanagersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnassetmanagersActionPerformed
-        
+        ControlManagerJob controlManagerJob = new ControlManagerJob(userProcessContainer, userAccount, system, enterprise, network, organisation);
+        userProcessContainer.add("ControlManagerJob", controlManagerJob);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnassetmanagersActionPerformed
 
     private void btnmoneylenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoneylenderActionPerformed
-        
+        ControlLoanJob controlLoanJob = new ControlLoanJob(userProcessContainer, userAccount, system, enterprise, network, organisation);
+        userProcessContainer.add("ControlLoanJob", controlLoanJob);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnmoneylenderActionPerformed
 
     private void btnexaminerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexaminerActionPerformed
         // TODO add your handling code here:
-        
+        ControlExaminerJob controlExaminerJob = new ControlExaminerJob(userProcessContainer, userAccount, system, enterprise, network, organisation);
+        userProcessContainer.add("ControlExaminerJob", controlExaminerJob);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnexaminerActionPerformed
 
     private void btnrepairsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrepairsActionPerformed
-        
+        ControlRepairServicesJob controlRepairServicesJob = new ControlRepairServicesJob(userProcessContainer, userAccount, system, enterprise, network, organisation);
+        userProcessContainer.add("ControlRepairServicesJob", controlRepairServicesJob);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnrepairsActionPerformed
 
     private void btnmoversActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoversActionPerformed
-       
+        ControlMoversandPackersJob controlMoversandPackersJob = new ControlMoversandPackersJob(userProcessContainer, userAccount, system, enterprise, network, organisation);
+        userProcessContainer.add("ControlMoversandPackersJob", controlMoversandPackersJob);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnmoversActionPerformed
 
     private void btnbrokersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbrokersActionPerformed
-        
+        ControlBrokerJob controlBrokerJob = new ControlBrokerJob(userProcessContainer, userAccount, system, enterprise, network, organisation);
+        userProcessContainer.add("ControlBrokerJob", controlBrokerJob);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnbrokersActionPerformed
 
     private void btnconstructorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconstructorActionPerformed
         // TODO add your handling code here:
-        
+        ControlConstructorJob controlConstructorJob = new ControlConstructorJob(userProcessContainer, userAccount, system, enterprise, network, organisation);
+        userProcessContainer.add("ControlConstructorJob", controlConstructorJob);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnconstructorActionPerformed
 
     private void btnphotographerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnphotographerActionPerformed
         // TODO add your handling code here:
+        ControlPhotographerJob controlPhotographerJob = new ControlPhotographerJob(userProcessContainer, userAccount, system, enterprise, network, organisation);
+        userProcessContainer.add("ControlPhotographerJob", controlPhotographerJob);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
 
     }//GEN-LAST:event_btnphotographerActionPerformed
 
