@@ -5,6 +5,18 @@
  */
 package UI.RepresentativeRole;
 
+import Business.Asset.Asset;
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.BrokerRequest;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nemod
@@ -14,9 +26,45 @@ public class AssignPropety extends javax.swing.JPanel {
     /**
      * Creates new form AssignPropety
      */
-    public AssignPropety() {
+    private JPanel userProcessContainer;
+    private EcoSystem business;
+    private BrokerRequest brokerRequest;
+    private Enterprise enterprise;
+    private UserAccount useraccount;
+    private AssetDirectory assetDirectory;
+    private EcoSystem system;
+    
+    public AssignPropety(JPanel userProcessContainer, UserAccount useraccount, EcoSystem system, BrokerRequest brokerRequest) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        this.useraccount = useraccount;
+        this.brokerRequest = brokerRequest;
+        this.system = system;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+        populateTable();
     }
+    private void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) housingtable.getModel();
+        dtm.setRowCount(0);
+        for (Asset asset : assetDirectory.getAssetList()) {
+            Object[] row = new Object[12];
+            row[0] = asset.getAssetID();
+            row[1] = asset.getAssetName();
+            row[2] = asset.getAddress();
+            row[3] = asset.getCity();
+            row[4] = asset.getState();
+            row[5] = asset.getZip();
+            row[6] = asset.getBedroom();
+            row[7] = asset.getBaths();
+            row[8] = asset.getPrice();
+            row[9] = asset.getStatus();
+            row[10] = asset.getCustomer();
+            row[11] = asset.getMerchant().getName();
+            dtm.addRow(row);
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,8 +82,8 @@ public class AssignPropety extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         btnprevious = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         lblavailhouses = new javax.swing.JLabel();
         btnsendhousingoptions = new javax.swing.JButton();
 
@@ -72,6 +120,16 @@ public class AssignPropety extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         lbltitle.setText("HOUSE RENTALS");
 
+        btnprevious.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        btnprevious.setForeground(new java.awt.Color(41, 50, 80));
+        btnprevious.setText("BACK");
+        btnprevious.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnprevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpreviousActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -81,7 +139,9 @@ public class AssignPropety extends javax.swing.JPanel {
                 .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(592, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 488, Short.MAX_VALUE)
+                .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,21 +151,15 @@ public class AssignPropety extends javax.swing.JPanel {
                     .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 70));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
-
-        btnprevious.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        btnprevious.setForeground(new java.awt.Color(41, 50, 80));
-        btnprevious.setText("CANCEL");
-        btnprevious.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnprevious.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpreviousActionPerformed(evt);
-            }
-        });
 
         lblavailhouses.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblavailhouses.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -134,20 +188,13 @@ public class AssignPropety extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(202, 202, 202)
                         .addComponent(lblavailhouses, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
-                .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addContainerGap(379, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(lblavailhouses)))
+                .addGap(23, 23, 23)
+                .addComponent(lblavailhouses)
                 .addGap(45, 45, 45)
                 .addComponent(btnsendhousingoptions, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
@@ -179,12 +226,29 @@ public class AssignPropety extends javax.swing.JPanel {
 
     private void btnpreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpreviousActionPerformed
         // TODO add your handling code here:
-        
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnpreviousActionPerformed
 
     private void btnsendhousingoptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsendhousingoptionsActionPerformed
         // TODO add your handling code here
-       
+       ArrayList<String> assetList = new ArrayList<String>();
+        if (housingtable.getSelectedRow() >= 0) {
+            for (int i = 0; i < housingtable.getSelectedRows().length; i++) {
+                String assetID = (String) housingtable.getValueAt(housingtable.getSelectedRows()[i], 0);
+                Asset asset = system.getAssetDirectory().fetchAsset(assetID);
+                if (!asset.getStatus().equalsIgnoreCase("sold")) {
+                    assetList.add(assetID);
+                    brokerRequest.setAssetList(assetList);
+                    JOptionPane.showMessageDialog(this, "Asset Suggested Successfully!");
+                } else {
+                    JOptionPane.showMessageDialog(this, asset.getAssetName()+ " is sold! Please suggest other vacant asset.");
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a house to suggest");
+        }
        
     }//GEN-LAST:event_btnsendhousingoptionsActionPerformed
 

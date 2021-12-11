@@ -5,6 +5,20 @@
  */
 package UI.RepresentativeRole;
 
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.BrokerRequest;
+import Business.WorkQueue.WorkRequest;
+import UI.Customer.DisplayCustomerInfoPanel;
+import UI.Customer.DisplayMerchantInfoPanel;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nemod
@@ -14,8 +28,50 @@ public class ViewRepresentativejob extends javax.swing.JPanel {
     /**
      * Creates new form ViewRepresentativejob
      */
-    public ViewRepresentativejob() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private AssetDirectory assetDirectory;
+    private Enterprise enterprise;
+    
+    public ViewRepresentativejob(JPanel userProcess, EcoSystem system, Enterprise enterprise, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.enterprise = enterprise;
+        this.userAccount = userAccount;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+
+        populateReqTable();
+    }
+    
+    public void populateReqTable() {
+        DefaultTableModel model = (DefaultTableModel) housingtable.getModel();
+        model.setRowCount(0);
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
+                    if (workRequest instanceof BrokerRequest) {
+                        if (((BrokerRequest) workRequest).getBroker().getUsername().equals(userAccount.getUsername())) {
+                            Object[] row = new Object[model.getColumnCount()];
+                            row[0] = workRequest;
+                            row[1] = ((BrokerRequest) workRequest).getCustomer();
+                            row[2] = ((BrokerRequest) workRequest).getMerchant();
+                            row[3] = ((BrokerRequest) workRequest).getAsset().getAddress();
+                            row[4] = ((BrokerRequest) workRequest).getAsset().getCity();
+                            row[5] = ((BrokerRequest) workRequest).getAsset().getState();
+                            row[6] = ((BrokerRequest) workRequest).getAsset().getZip();
+                            row[7] = ((BrokerRequest) workRequest).getStatus();
+                            row[8] = ((BrokerRequest) workRequest).getCustomerNote();
+                            row[9] = ((BrokerRequest) workRequest).getExaminerNote();
+                            row[10] = ((BrokerRequest) workRequest).getQuote();
+                            row[11] = ((BrokerRequest) workRequest).getCustomer().getRole().toString();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -267,22 +323,87 @@ public class ViewRepresentativejob extends javax.swing.JPanel {
 
     private void btnbrowserpropertiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbrowserpropertiesActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = housingtable.getSelectedRow();
+        int count = housingtable.getSelectedRowCount();
+        if (count == 1) {
+            BrokerRequest agentRequest = (BrokerRequest) housingtable.getValueAt(selectedRow, 0);
+            String requestStatus = (String) housingtable.getValueAt(selectedRow, 7);
+            if (requestStatus.equalsIgnoreCase("In Progress")) {
+                AssignPropety assignPropety = new AssignPropety(userProcessContainer, userAccount, system, agentRequest);
+                userProcessContainer.add("AssignPropety", assignPropety);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please set this job in progress to suggest houses!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnbrowserpropertiesActionPerformed
 
     private void brnwiewappointerdetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnwiewappointerdetailsActionPerformed
         // TODO add your handling code here:
-       
+       int selectedRow = housingtable.getSelectedRow();
+
+        int count = housingtable.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount buyerAcc = (UserAccount) housingtable.getValueAt(selectedRow, 1);
+                DisplayCustomerInfoPanel displayCustomerInfoPanel = new DisplayCustomerInfoPanel(userProcessContainer, buyerAcc, userAccount, system);
+                userProcessContainer.add("DisplayCustomerInfoPanel", displayCustomerInfoPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
     }//GEN-LAST:event_brnwiewappointerdetailsActionPerformed
 
     private void BtnviewMerchantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnviewMerchantActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = housingtable.getSelectedRow();
+
+        int count = housingtable.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount sellerAcc = (UserAccount) housingtable.getValueAt(selectedRow, 2);
+                DisplayMerchantInfoPanel displayMerchantInfoPanel = new DisplayMerchantInfoPanel(userProcessContainer, sellerAcc, userAccount, system);
+                userProcessContainer.add("DisplayMerchantInfoPanel", displayMerchantInfoPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
         
     }//GEN-LAST:event_BtnviewMerchantActionPerformed
 
     private void btnselectjobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnselectjobActionPerformed
-       
+       int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            BrokerRequest checkRequest = (BrokerRequest) housingtable.getValueAt(selectedRow, 0);
+            try {
+                Double quote = Double.parseDouble(quoteTxt.getText());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Quote");
+                return;
+            }
+            if (!"In Progress".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("In Progress");
+                checkRequest.setQuote(quoteTxt.getText());
+                userAccount.setStatus("Occupied");
+                JOptionPane.showMessageDialog(null, "Job Taken Successfully!");
+                populateReqTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already taken!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnselectjobActionPerformed
 
     private void quoteTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quoteTxtActionPerformed
@@ -291,14 +412,60 @@ public class ViewRepresentativejob extends javax.swing.JPanel {
 
     private void btndoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndoneActionPerformed
         // TODO add your handling code here:
-      
+      int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            BrokerRequest checktRequest = (BrokerRequest) housingtable.getValueAt(selectedRow, 0);
+            String feedback = txtFeedback.getText();
+            if (feedback.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            if (!"Completed".equals(checktRequest.getStatus())) {
+                checktRequest.setStatus("Completed");
+                checktRequest.setExaminerNote(feedback);
+                JOptionPane.showMessageDialog(null, "Job is set to completed!");
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
+                if (dialogResult == JOptionPane.YES_OPTION) {
+                    userAccount.setStatus("Available");
+                }
+                populateReqTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already completed!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
               
         
     }//GEN-LAST:event_btndoneActionPerformed
 
     private void btndeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeclineActionPerformed
         // TODO add your handling code here:
-        // TODO add your handling code here:
+        int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            BrokerRequest checkRequest = (BrokerRequest) housingtable.getValueAt(selectedRow, 0);
+            String feedback = txtFeedback.getText();
+            if (feedback.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            if (!"Completed".equals(checkRequest.getStatus()) && !"In Progress".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("Rejected");
+                checkRequest.setExaminerNote(feedback);
+                JOptionPane.showMessageDialog(null, "Job is set to rejected!");
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
+                if (dialogResult == JOptionPane.YES_OPTION) {
+                    userAccount.setStatus("Available");
+                }
+                populateReqTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already " + checkRequest.getStatus());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
        
         
     }//GEN-LAST:event_btndeclineActionPerformed
