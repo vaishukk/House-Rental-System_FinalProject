@@ -5,6 +5,19 @@
  */
 package UI.MoversNPackers;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.MoversRequest;
+import Business.WorkQueue.WorkRequest;
+import UI.Customer.DisplayCustomerInfoPanel;
+import UI.Customer.DisplayMerchantInfoPanel;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nemod
@@ -14,8 +27,46 @@ public class PackersandMoversDetailsPanel extends javax.swing.JPanel {
     /**
      * Creates new form PackersandMoversDetailsPanel
      */
-    public PackersandMoversDetailsPanel() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount useraccount;
+    private Enterprise enterprise;
+    public PackersandMoversDetailsPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.useraccount = useraccount;
+        this.enterprise = enterprise;
+        populateReqTable();
+    }
+    
+    public void populateReqTable() {
+        DefaultTableModel model = (DefaultTableModel) housingtable.getModel();
+        model.setRowCount(0);
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
+                    if (workRequest instanceof MoversRequest) {
+                        if (((MoversRequest) workRequest).getMovpac().getUsername().equals(useraccount.getUsername())) {
+                            Object[] row = new Object[model.getColumnCount()];
+                            row[0] = workRequest;
+                            row[1] = ((MoversRequest) workRequest).getCustomer();
+                            row[2] = ((MoversRequest) workRequest).getMerchant();
+                            row[3] = ((MoversRequest) workRequest).getAsset().getAddress();
+                            row[4] = ((MoversRequest) workRequest).getAsset().getCity();
+                            row[5] = ((MoversRequest) workRequest).getAsset().getState();
+                            row[6] = ((MoversRequest) workRequest).getAsset().getZip();
+                            row[7] = ((MoversRequest) workRequest).getStatus();
+                            row[8] = ((MoversRequest) workRequest).getCustomerNote();
+                            row[9] = ((MoversRequest) workRequest).getExaminerNote();
+                            row[10] = ((MoversRequest) workRequest).getQuote();
+                            row[11] = ((MoversRequest) workRequest).getCustomer().getRole().toString();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -250,12 +301,55 @@ public class PackersandMoversDetailsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnselectjobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnselectjobsActionPerformed
-        
+        int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            MoversRequest checkRequest = (MoversRequest) housingtable.getValueAt(selectedRow, 0);
+            try {
+                Double quote = Double.parseDouble(getquote.getText());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Quote");
+                return;
+            }
+            if (!"In Progress".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("In Progress");
+                checkRequest.setQuote(getquote.getText());
+                useraccount.setStatus("Occupied");
+                JOptionPane.showMessageDialog(null, "Job Taken Successfully!");
+                populateReqTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already taken!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnselectjobsActionPerformed
 
     private void btndonecompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndonecompleteActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            MoversRequest checkRequest = (MoversRequest) housingtable.getValueAt(selectedRow, 0);
+            String comment = getcomments.getText();
+            if (comment.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            if (!"Completed".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("Completed");
+                checkRequest.setExaminerNote(comment);
+                JOptionPane.showMessageDialog(null, "Job is set to completed!");
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
+                if (dialogResult == JOptionPane.YES_OPTION) {
+                    useraccount.setStatus("Available");
+                }
+                populateReqTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already completed!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
                 
     }//GEN-LAST:event_btndonecompleteActionPerformed
 
@@ -265,18 +359,71 @@ public class PackersandMoversDetailsPanel extends javax.swing.JPanel {
 
     private void btnviewappointerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewappointerActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = housingtable.getSelectedRow();
+
+        int count = housingtable.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount buyerAcc = (UserAccount) housingtable.getValueAt(selectedRow, 1);
+                DisplayCustomerInfoPanel displayCustomerInfoPanel = new DisplayCustomerInfoPanel(userProcessContainer, buyerAcc, useraccount, system);
+                userProcessContainer.add("DisplayCustomerInfoPanel", displayCustomerInfoPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
     }//GEN-LAST:event_btnviewappointerActionPerformed
 
     private void btnviewmerchantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewmerchantActionPerformed
         // TODO add your handling code here:
-       
+       int selectedRow = housingtable.getSelectedRow();
+
+        int count = housingtable.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount sellerAcc = (UserAccount) housingtable.getValueAt(selectedRow, 2);
+                DisplayMerchantInfoPanel displayMerchantInfoPanel = new DisplayMerchantInfoPanel(userProcessContainer, sellerAcc, useraccount, system);
+                userProcessContainer.add("DisplayMerchantInfoPanel", displayMerchantInfoPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
     }//GEN-LAST:event_btnviewmerchantActionPerformed
 
     private void btndeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeclineActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
-       
+       int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            MoversRequest checkRequest = (MoversRequest) housingtable.getValueAt(selectedRow, 0);
+            String comment = getcomments.getText();
+            if (comment.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            if (!"Completed".equals(checkRequest.getStatus()) && !"In Progress".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("Rejected");
+                checkRequest.setExaminerNote(comment);
+                JOptionPane.showMessageDialog(null, "Job is set to rejected!");
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
+                if (dialogResult == JOptionPane.YES_OPTION) {
+                    useraccount.setStatus("Available");
+                }
+                populateReqTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already " + checkRequest.getStatus());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
        
     }//GEN-LAST:event_btndeclineActionPerformed
 

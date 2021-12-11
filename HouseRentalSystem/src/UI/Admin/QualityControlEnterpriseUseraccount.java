@@ -78,8 +78,8 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
         lblquality.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblquality.setForeground(new java.awt.Color(255, 255, 255));
         lblquality.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblquality.setText("MANAGE QUALITY ASSURANCE USERS ACCOUNT");
-        jPanel3.add(lblquality, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 440, -1));
+        lblquality.setText("QUALITY ASSURANCE -  USERS ACCOUNT");
+        jPanel3.add(lblquality, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, 420, -1));
 
         jScrollPane3.setForeground(new java.awt.Color(0, 102, 255));
 
