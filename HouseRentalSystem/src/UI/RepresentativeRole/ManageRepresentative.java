@@ -5,6 +5,13 @@
  */
 package UI.RepresentativeRole;
 
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author nemod
@@ -14,10 +21,35 @@ public class ManageRepresentative extends javax.swing.JPanel {
     /**
      * Creates new form ManageRepresentative
      */
-    public ManageRepresentative() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+
+    private AssetDirectory assetDirectory;
+
+    private Enterprise enterprise;
+    public ManageRepresentative(JPanel userProcess, EcoSystem system, Enterprise enterprise, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.enterprise = enterprise;
+        this.userAccount = userAccount;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+
+        populateReqTable();
     }
 
+    public void populateReqTable() {
+        getname.setText(userAccount.getName());
+        getcharge.setText(userAccount.getCost());
+        getcity.setText(userAccount.getCity());
+        getavail.setText(userAccount.getStatus());
+        getzip.setText(userAccount.getZip());
+        getadd.setText(userAccount.getAddress());
+        getmailid.setText(userAccount.getMailId());
+        getcontactnumber.setText(userAccount.getContactnumber());
+        getstate.setText(userAccount.getState());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -286,7 +318,36 @@ public class ManageRepresentative extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-       
+       if(system.isNull(getname.getText()) || system.isNull(getcharge.getText()) || system.isNull(getcity.getText())
+           || system.isNull(getavail.getText()) || system.isNull(getzip.getText()) || system.isNull(getadd.getText())
+           || system.isNull(getmailid.getText()) || system.isNull(getcontactnumber.getText()) || system.isNull(getstate.getText())){
+            JOptionPane.showMessageDialog(null, "Please enter all fields!");
+            return;
+        }else if(!system.isDouble(getcharge.getText())){
+            JOptionPane.showMessageDialog(null, "Please enter valid charge!");
+            return;
+        }else if(!system.isInt(getzip.getText()) || getzip.getText().length() != 5){
+            JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
+            return;
+        }else if(!system.checkValidPhoneFormat(getcontactnumber.getText())){
+            return;
+        }else if(!system.checkValidEmailFormat(getmailid.getText())){
+            return;
+        }else if(!system.checkIfEmailIsUnique(getmailid.getText(), userAccount.getUsername())){
+            return;
+        }else if(!system.checkIfPhoneIsUnique(getcontactnumber.getText(), userAccount.getUsername())){
+            return;
+        }
+        userAccount.setName(getname.getText());
+        userAccount.setCost(getcharge.getText());
+        userAccount.setCity(getcity.getText());
+        userAccount.setStatus(getavail.getText());
+        userAccount.setZip(getzip.getText());
+        userAccount.setAddress(getadd.getText());
+        userAccount.setMailId(getmailid.getText());
+        userAccount.setContactnumber(getcontactnumber.getText());
+        userAccount.setState(getstate.getText());
+        JOptionPane.showMessageDialog(null, "Profile Updated Successfully!");
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 

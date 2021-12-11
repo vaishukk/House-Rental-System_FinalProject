@@ -5,6 +5,14 @@
  */
 package UI.RepresentativeRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author nemod
@@ -14,8 +22,37 @@ public class RepresentativeWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form RepresentativeWorkArea
      */
-    public RepresentativeWorkArea() {
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organisation organisation;
+    
+    public RepresentativeWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organisation = organisation;
+        manageAdvertise();
+    }
+    private void manageAdvertise() {
+        
+        ViewRepresentativejob viewRepresentativejob = new ViewRepresentativejob(rightSystemAdminPanel, system, enterprise, account);
+        rightSystemAdminPanel.add("ViewRepresentativejob",viewRepresentativejob);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+
+    private void manageBuyers() {
+        
+        ManageRepresentative manageRepresentative = new ManageRepresentative(rightSystemAdminPanel, system, enterprise, account);
+        rightSystemAdminPanel.add("ManageRepresentative", manageRepresentative);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
     }
 
     /**
@@ -191,21 +228,21 @@ public class RepresentativeWorkArea extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblrepprofilemanageMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblrepprofilemanageMousePressed
-       
+       manageBuyers();
     }//GEN-LAST:event_lblrepprofilemanageMousePressed
 
     private void manageOrganizationPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrganizationPanelMousePressed
         // TODO add your handling code here:
-        
+        manageBuyers();
     }//GEN-LAST:event_manageOrganizationPanelMousePressed
 
     private void lblrepjobmanageMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblrepjobmanageMousePressed
-        
+        manageAdvertise();
     }//GEN-LAST:event_lblrepjobmanageMousePressed
 
     private void manageEmployeeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageEmployeeMousePressed
         // TODO add your handling code here:
-        
+        manageAdvertise();
     }//GEN-LAST:event_manageEmployeeMousePressed
 
 
