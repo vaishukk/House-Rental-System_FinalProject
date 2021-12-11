@@ -32,10 +32,13 @@ public class AssetManagerWorkAreaPanel extends javax.swing.JPanel {
         leftpanel = new javax.swing.JPanel();
         manageproPanel = new javax.swing.JPanel();
         manageProfile = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         lblassetmanager = new javax.swing.JLabel();
         manageOppPanel = new javax.swing.JPanel();
         manageJobs = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         lblmanageorg = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         rightpanel = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(215, 81, 81));
@@ -70,20 +73,22 @@ public class AssetManagerWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-organization-chart-people-48.png"))); // NOI18N
+
         javax.swing.GroupLayout manageproPanelLayout = new javax.swing.GroupLayout(manageproPanel);
         manageproPanel.setLayout(manageproPanelLayout);
         manageproPanelLayout.setHorizontalGroup(
             manageproPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageproPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(manageProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
         );
         manageproPanelLayout.setVerticalGroup(
             manageproPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageproPanelLayout.createSequentialGroup()
-                .addComponent(manageProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+            .addComponent(manageProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         leftpanel.add(manageproPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 280, 40));
@@ -112,13 +117,17 @@ public class AssetManagerWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-office-50.png"))); // NOI18N
+
         javax.swing.GroupLayout manageOppPanelLayout = new javax.swing.GroupLayout(manageOppPanel);
         manageOppPanel.setLayout(manageOppPanelLayout);
         manageOppPanelLayout.setHorizontalGroup(
             manageOppPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageOppPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(manageJobs, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOppPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageJobs, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         manageOppPanelLayout.setVerticalGroup(
             manageOppPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,9 +135,10 @@ public class AssetManagerWorkAreaPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(manageJobs, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        leftpanel.add(manageOppPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 280, 50));
+        leftpanel.add(manageOppPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 280, 50));
 
         lblmanageorg.setBackground(new java.awt.Color(255, 255, 255));
         lblmanageorg.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -141,7 +151,10 @@ public class AssetManagerWorkAreaPanel extends javax.swing.JPanel {
                 lblmanageorgMousePressed(evt);
             }
         });
-        leftpanel.add(lblmanageorg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 280, 30));
+        leftpanel.add(lblmanageorg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 220, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-jobs-recruitment-consultancy-providing-new-opportunities-for-freshers-24.png"))); // NOI18N
+        leftpanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 40, 30));
 
         rightpanel.setBackground(new java.awt.Color(241, 241, 242));
         rightpanel.setMinimumSize(new java.awt.Dimension(1058, 840));
@@ -212,6 +225,9 @@ public class AssetManagerWorkAreaPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblassetmanager;
     private javax.swing.JLabel lblmanageorg;

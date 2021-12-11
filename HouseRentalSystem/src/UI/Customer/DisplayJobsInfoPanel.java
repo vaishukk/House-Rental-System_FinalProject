@@ -279,7 +279,7 @@ public class DisplayJobsInfoPanel extends javax.swing.JPanel {
 
     private void btnphotographerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnphotographerActionPerformed
         // TODO add your handling code here:
-        ControlPhotographerJob controlPhotographerJob = new ControlPhotographerJob(userProcessContainer, userAccount, system, enterprise, network, organisation);
+        ControlCameraManJob controlPhotographerJob = new ControlCameraManJob(userProcessContainer, userAccount, system, enterprise, network, organisation);
         userProcessContainer.add("ControlPhotographerJob", controlPhotographerJob);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

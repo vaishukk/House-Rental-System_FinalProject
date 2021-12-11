@@ -68,9 +68,11 @@ public class CameraManWorkAreaPanel extends javax.swing.JPanel {
         systemAdminPanel = new javax.swing.JPanel();
         UserLeft = new javax.swing.JPanel();
         manageprofilePanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         lblmanageprofile = new javax.swing.JLabel();
         manageoppurtunitesPanel = new javax.swing.JPanel();
         lblmanageoppurtunities = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         lblsubtitle = new javax.swing.JLabel();
         UserRight = new javax.swing.JPanel();
 
@@ -94,6 +96,8 @@ public class CameraManWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-organization-chart-people-48.png"))); // NOI18N
+
         lblmanageprofile.setBackground(new java.awt.Color(255, 255, 255));
         lblmanageprofile.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblmanageprofile.setText("MANAGE PROFILE");
@@ -110,16 +114,18 @@ public class CameraManWorkAreaPanel extends javax.swing.JPanel {
         manageprofilePanelLayout.setHorizontalGroup(
             manageprofilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageprofilePanelLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(lblmanageprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(lblmanageprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         manageprofilePanelLayout.setVerticalGroup(
             manageprofilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageprofilePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblmanageprofile, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(manageprofilePanelLayout.createSequentialGroup()
+                .addComponent(lblmanageprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         UserLeft.add(manageprofilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, -1));
@@ -145,23 +151,29 @@ public class CameraManWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-online-jobs-application-available-on-a-smartphone-24.png"))); // NOI18N
+
         javax.swing.GroupLayout manageoppurtunitesPanelLayout = new javax.swing.GroupLayout(manageoppurtunitesPanel);
         manageoppurtunitesPanel.setLayout(manageoppurtunitesPanelLayout);
         manageoppurtunitesPanelLayout.setHorizontalGroup(
             manageoppurtunitesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageoppurtunitesPanelLayout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
-                .addComponent(lblmanageoppurtunities, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(manageoppurtunitesPanelLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblmanageoppurtunities)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         manageoppurtunitesPanelLayout.setVerticalGroup(
             manageoppurtunitesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageoppurtunitesPanelLayout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(lblmanageoppurtunities, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(manageoppurtunitesPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblmanageoppurtunities, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        UserLeft.add(manageoppurtunitesPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 280, -1));
+        UserLeft.add(manageoppurtunitesPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 280, 60));
 
         lblsubtitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblsubtitle.setText(" CAMERA MAN ");
@@ -236,6 +248,8 @@ public class CameraManWorkAreaPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel UserLeft;
     private javax.swing.JPanel UserRight;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblmanageoppurtunities;
     private javax.swing.JLabel lblmanageprofile;
