@@ -10,7 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
-import UI.AdminRole.QualityControlAdminWorkAreaPanel;
+import UI.Admin.QualityControlAdminWorkAreaPanel;
 import javax.swing.JPanel;
 
 /**
