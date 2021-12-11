@@ -81,8 +81,8 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         housingtable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
-        lblmainicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
+        lblicon1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         btnviewappointer = new javax.swing.JButton();
         btnviewmerchant = new javax.swing.JButton();
@@ -94,6 +94,9 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         lblcomments = new javax.swing.JLabel();
         getcomments = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        lblsubsubtitle = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,12 +123,14 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(housingtable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 920, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 920, 150));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         lbltitle.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         lbltitle.setText("HOUSE RENTALS");
+
+        lblicon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeicon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -133,19 +138,21 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblmainicon, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(712, Short.MAX_VALUE))
+                .addContainerGap(741, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(8, 8, 8)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblmainicon, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblicon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 70));
@@ -154,6 +161,7 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
 
         btnviewappointer.setBackground(new java.awt.Color(241, 241, 242));
         btnviewappointer.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnviewappointer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-employee-58.png"))); // NOI18N
         btnviewappointer.setText("VIEW APPOINTER");
         btnviewappointer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnviewappointer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -165,6 +173,7 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
 
         btnviewmerchant.setBackground(new java.awt.Color(241, 241, 242));
         btnviewmerchant.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnviewmerchant.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-broker-48.png"))); // NOI18N
         btnviewmerchant.setText("VIEW MERCHANT");
         btnviewmerchant.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnviewmerchant.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -176,6 +185,7 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
 
         btnselectjob.setBackground(new java.awt.Color(241, 241, 242));
         btnselectjob.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnselectjob.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-online-jobs-application-available-on-a-smartphone-24.png"))); // NOI18N
         btnselectjob.setText("SELECT JOB");
         btnselectjob.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnselectjob.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -187,6 +197,7 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
 
         btnjobcomplete.setBackground(new java.awt.Color(241, 241, 242));
         btnjobcomplete.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnjobcomplete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-verification-tick-mark-for-digital-certification-document-24.png"))); // NOI18N
         btnjobcomplete.setText("JOB DONE");
         btnjobcomplete.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnjobcomplete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -198,6 +209,7 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
 
         btndecline.setBackground(new java.awt.Color(241, 241, 242));
         btndecline.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btndecline.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-cross-mark-48.png"))); // NOI18N
         btndecline.setText("DECLINE");
         btndecline.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btndecline.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -225,6 +237,8 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
         lblcomments.setForeground(new java.awt.Color(41, 50, 80));
         lblcomments.setText("COMMENTS:");
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-worker-beard-48.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -234,14 +248,11 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(169, 169, 169)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(btnviewappointer)
-                                .addGap(369, 369, 369))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(btnselectjob, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btndecline, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(80, 80, 80)))
+                            .addComponent(btnselectjob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnviewappointer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(108, 108, 108)
+                        .addComponent(btndecline, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnviewmerchant, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                             .addComponent(btnjobcomplete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -255,25 +266,33 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(getcomments, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(409, 409, 409)
+                        .addGap(337, 337, 337)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel3)
-                .addGap(33, 33, 33)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnviewappointer)
-                    .addComponent(btnviewmerchant))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnselectjob)
-                    .addComponent(btndecline)
-                    .addComponent(btnjobcomplete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                    .addComponent(btnviewappointer, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnviewmerchant))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btndecline, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(btnjobcomplete, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnselectjob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblquote, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(getquote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -283,6 +302,14 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
         );
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1210, 250));
+
+        lblsubsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblsubsubtitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblsubsubtitle.setText("VIEW DETAILS");
+        jPanel1.add(lblsubsubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 140, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-contact-details-64.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -410,15 +437,18 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
     private javax.swing.JTextField getcomments;
     private javax.swing.JTextField getquote;
     private javax.swing.JTable housingtable;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblcomments;
-    private javax.swing.JLabel lblmainicon;
+    private javax.swing.JLabel lblicon1;
     private javax.swing.JLabel lblquote;
+    private javax.swing.JLabel lblsubsubtitle;
     private javax.swing.JLabel lbltitle;
     // End of variables declaration//GEN-END:variables
 }

@@ -69,8 +69,10 @@ public class ConstructerWorkAreaPanel extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         manprofilepanel = new javax.swing.JPanel();
         lblmanageprofile = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         manageoppurtunitiespanel = new javax.swing.JPanel();
         lblmanageoppurtunities = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         lblsublabel = new javax.swing.JLabel();
         rightSystemAdminPanel = new javax.swing.JPanel();
 
@@ -86,6 +88,7 @@ public class ConstructerWorkAreaPanel extends javax.swing.JPanel {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manprofilepanel.setBackground(new java.awt.Color(255, 255, 255));
+        manprofilepanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         manprofilepanel.setToolTipText("");
         manprofilepanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -104,12 +107,16 @@ public class ConstructerWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-organization-chart-people-48.png"))); // NOI18N
+
         javax.swing.GroupLayout manprofilepanelLayout = new javax.swing.GroupLayout(manprofilepanel);
         manprofilepanel.setLayout(manprofilepanelLayout);
         manprofilepanelLayout.setHorizontalGroup(
             manprofilepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manprofilepanelLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(9, 9, 9)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblmanageprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -119,11 +126,13 @@ public class ConstructerWorkAreaPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(lblmanageprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel3.add(manprofilepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, -1));
 
         manageoppurtunitiespanel.setBackground(new java.awt.Color(255, 255, 255));
+        manageoppurtunitiespanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         manageoppurtunitiespanel.setToolTipText("");
         manageoppurtunitiespanel.setPreferredSize(new java.awt.Dimension(264, 48));
         manageoppurtunitiespanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -142,21 +151,26 @@ public class ConstructerWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-online-jobs-application-available-on-a-smartphone-24.png"))); // NOI18N
+
         javax.swing.GroupLayout manageoppurtunitiespanelLayout = new javax.swing.GroupLayout(manageoppurtunitiespanel);
         manageoppurtunitiespanel.setLayout(manageoppurtunitiespanelLayout);
         manageoppurtunitiespanelLayout.setHorizontalGroup(
             manageoppurtunitiespanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageoppurtunitiespanelLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(lblmanageoppurtunities, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                .addGap(17, 17, 17))
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblmanageoppurtunities, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                .addGap(28, 28, 28))
         );
         manageoppurtunitiespanelLayout.setVerticalGroup(
             manageoppurtunitiespanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblmanageoppurtunities, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(lblmanageoppurtunities, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel3.add(manageoppurtunitiespanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, 60));
+        jPanel3.add(manageoppurtunitiespanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 280, 60));
 
         lblsublabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblsublabel.setText("CONSTRUCTER MANAGEMENT");
@@ -229,6 +243,8 @@ public class ConstructerWorkAreaPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblmanageoppurtunities;
