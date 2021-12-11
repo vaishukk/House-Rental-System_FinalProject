@@ -5,6 +5,15 @@
  */
 package UI.MoversNPackers;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import UI.Customer.DisplayJobsInfoPanel;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author nemod
@@ -14,10 +23,38 @@ public class PackersandMoversWorkAreaPanel extends javax.swing.JPanel {
     /**
      * Creates new form PackersandMoversWorkAreaPanel
      */
-    public PackersandMoversWorkAreaPanel() {
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organisation organisation;
+    public PackersandMoversWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organisation = organisation;
+        manageJobs();
     }
 
+    private void manageJobs() {
+      
+        PackersandMoversDetailsPanel packersandMoversDetailsPanel = new PackersandMoversDetailsPanel(UserRight, enterprise, account, system);
+        UserRight.add("PackersandMoversDetailsPanel",packersandMoversDetailsPanel);
+        CardLayout layout = (CardLayout) UserRight.getLayout();
+        layout.next(UserRight);
+    }
+
+    private void manageProfile() {
+      
+        ManagePackersandMoversPanel managePackersandMoversPanel = new ManagePackersandMoversPanel(UserRight, enterprise, account, system);
+        UserRight.add("ManagePackersandMoversPanel", managePackersandMoversPanel);
+        CardLayout layout = (CardLayout) UserRight.getLayout();
+        layout.next(UserRight);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -174,21 +211,21 @@ public class PackersandMoversWorkAreaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblmanageprofileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanageprofileMousePressed
-        
+        manageProfile();
     }//GEN-LAST:event_lblmanageprofileMousePressed
 
     private void manageprofilePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageprofilePanelMousePressed
         // TODO add your handling code here:
-        
+        manageProfile();
     }//GEN-LAST:event_manageprofilePanelMousePressed
 
     private void lblmanageoppurtunitiesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanageoppurtunitiesMousePressed
-        
+        manageJobs();
     }//GEN-LAST:event_lblmanageoppurtunitiesMousePressed
 
     private void manageoppurtunitiesPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageoppurtunitiesPanelMousePressed
         // TODO add your handling code here:
-        
+        manageJobs();
     }//GEN-LAST:event_manageoppurtunitiesPanelMousePressed
 
 
