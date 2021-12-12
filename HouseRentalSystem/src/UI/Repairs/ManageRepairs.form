@@ -74,9 +74,7 @@
                       <Component id="lblicon" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lbltitle" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="379" max="32767" attributes="0"/>
-                      <Component id="btnlogout" min="-2" pref="72" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="461" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -86,7 +84,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblicon" alignment="0" pref="58" max="32767" attributes="0"/>
-                          <Component id="btnlogout" alignment="0" max="32767" attributes="0"/>
                           <Component id="lbltitle" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -104,16 +101,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="HOUSE RENTAL SYSTEM"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnlogout">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnlogoutActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

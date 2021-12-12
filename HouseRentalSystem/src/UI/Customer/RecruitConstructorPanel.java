@@ -5,6 +5,20 @@
  */
 package UI.Customer;
 
+import Business.Asset.Asset;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.Role.ConstructorRole;
+import Business.SMS.Sms;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.ConstructorRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,9 +28,52 @@ public class RecruitConstructorPanel extends javax.swing.JPanel {
     /**
      * Creates new form RecruitConstructorPanel
      */
-    public RecruitConstructorPanel() {
+     private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Asset asset;
+    private Enterprise enterprise;
+    private Network network;
+    private Organisation organisation;
+
+    public RecruitConstructorPanel(JPanel userProcess, Organisation organisation, Network network, Enterprise enterprise, Asset asset, UserAccount userAccount, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.asset = asset;
+        this.userAccount = userAccount;
+        this.enterprise = enterprise;
+        this.network = network;
+        this.organisation = organisation;
+        populateReqTable();
     }
+
+    public void populateReqTable() {
+        DefaultTableModel model = (DefaultTableModel) tblhouse.getModel();
+        model.setRowCount(0);
+
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
+                    for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                        if (ua.getRole() instanceof ConstructorRole) {
+                            Object[] row = new Object[8];
+                            row[0] = ua.getEmployee().getId();
+                            row[1] = ua;
+                            row[2] = ua.getCity();
+                            row[3] = ua.getState();
+                            row[4] = ua.getStatus();
+                            row[5] = ua.getContactnumber();
+                            row[6] = ua.getCost();
+                            row[7] = org.getType();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,13 +90,12 @@ public class RecruitConstructorPanel extends javax.swing.JPanel {
         tblhouse = new javax.swing.JTable();
         lblmessae = new javax.swing.JLabel();
         getmessage = new javax.swing.JTextField();
-        btnBack1 = new javax.swing.JButton();
         lblconstructor = new javax.swing.JLabel();
         btnconstructor = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
+        btnback = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,12 +127,6 @@ public class RecruitConstructorPanel extends javax.swing.JPanel {
 
         getmessage.setForeground(new java.awt.Color(41, 50, 80));
 
-        btnBack1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack1ActionPerformed(evt);
-            }
-        });
-
         lblconstructor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblconstructor.setText("CONSTRUCTORS LIST");
         lblconstructor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -86,26 +136,25 @@ public class RecruitConstructorPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(400, 400, 400)
-                .addComponent(lblconstructor)
-                .addGap(313, 313, 313)
-                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(lblmessae)
-                .addGap(36, 36, 36)
-                .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(400, 400, 400)
+                        .addComponent(lblconstructor))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(lblmessae)
+                        .addGap(36, 36, 36)
+                        .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(430, 430, 430))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblconstructor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lblconstructor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
@@ -131,10 +180,11 @@ public class RecruitConstructorPanel extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+        btnback.setBackground(new java.awt.Color(255, 255, 255));
+        btnback.setText("BACK");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
+                btnbackActionPerformed(evt);
             }
         });
 
@@ -148,7 +198,7 @@ public class RecruitConstructorPanel extends javax.swing.JPanel {
                 .addGap(6, 6, 6)
                 .addComponent(lbltitle)
                 .addGap(669, 669, 669)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +210,7 @@ public class RecruitConstructorPanel extends javax.swing.JPanel {
                 .addComponent(lbltitle))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 90));
@@ -187,24 +237,63 @@ public class RecruitConstructorPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnBack1ActionPerformed
-
     private void btnconstructorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconstructorActionPerformed
 
+        int selectedRow = tblhouse.getSelectedRow();
+        int count = tblhouse.getSelectedRowCount();
+
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount constructorAcc = (UserAccount) tblhouse.getValueAt(selectedRow, 1);
+                String message = getmessage.getText();
+                if (message.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Comment note!");
+                    return;
+                } else if (!constructorAcc.getStatus().equals("Available")) {
+                    JOptionPane.showMessageDialog(null, "Sorry! This Builder is already Occupied");
+                    return;
+                }
+                for (Network n : system.getNetworkList()) {
+                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                        for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
+                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if (constructorAcc.getUsername().equals(ua.getUsername())) {
+                                    ConstructorRequest constructor = new ConstructorRequest();
+                                    constructor.setRequestID();
+                                    constructor.setCustomer(userAccount);
+                                    constructor.setConstructor(constructorAcc);
+                                    constructor.setMerchant(asset.getMerchant());
+                                    constructor.setStatus("Pending");
+                                    constructor.setCustomerNote(message);
+                                    constructor.setAsset(asset);
+                                    constructor.setOrgType(org.getType());
+                                    e.getWorkQueue().getWrkReqList().add(constructor);
+                                    JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
+                                    Sms sms = new Sms(constructorAcc.getContactnumber(), "Hello! You have one new work request! Please login to know more!");
+                                    EcoSystem.sendEmailMessage(constructorAcc.getMailId(), "Hello! You have one new work request! Please login to know more!");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+
+        }
     }//GEN-LAST:event_btnconstructorActionPerformed
 
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnbackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack1;
+    private javax.swing.JButton btnback;
     private javax.swing.JButton btnconstructor;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JTextField getmessage;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

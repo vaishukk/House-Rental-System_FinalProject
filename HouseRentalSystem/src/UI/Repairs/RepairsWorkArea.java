@@ -5,6 +5,14 @@
  */
 package UI.Repairs;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sanik
@@ -14,8 +22,37 @@ public class RepairsWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form RepairsWorkAreaPanel
      */
-    public RepairsWorkArea() {
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organisation organisation;
+
+    public RepairsWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organisation = organisation;
+        manageJobs();
+    }
+    private void manageJobs() {
+        
+        ViewRepairJobsPanel viewRepairJobsPanel = new ViewRepairJobsPanel(rightworkareapanel, enterprise, account, system);
+        rightworkareapanel.add("ViewRepairJobsPanel",viewRepairJobsPanel);
+        CardLayout layout = (CardLayout) rightworkareapanel.getLayout();
+        layout.next(rightworkareapanel);
+    }
+
+    private void manageProfile() {
+       
+        ManageRepairs manageRepairs = new ManageRepairs(rightworkareapanel, enterprise, account, system);
+        rightworkareapanel.add("ManageRepairs", manageRepairs);
+        CardLayout layout = (CardLayout) rightworkareapanel.getLayout();
+        layout.next(rightworkareapanel);
     }
 
     /**
@@ -184,21 +221,21 @@ public class RepairsWorkArea extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblprofileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblprofileMousePressed
-        
+        manageProfile();
     }//GEN-LAST:event_lblprofileMousePressed
 
     private void manageprofilepanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageprofilepanelMousePressed
         // TODO add your handling code here:
-        
+        manageProfile();
     }//GEN-LAST:event_manageprofilepanelMousePressed
 
     private void lbljobsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbljobsMousePressed
-        
+        manageJobs();
     }//GEN-LAST:event_lbljobsMousePressed
 
     private void managejobsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managejobsMousePressed
         // TODO add your handling code here:
-        
+        manageJobs();
     }//GEN-LAST:event_managejobsMousePressed
 
 

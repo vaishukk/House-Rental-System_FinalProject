@@ -5,6 +5,20 @@
  */
 package UI.Customer;
 
+import Business.Asset.Asset;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.Role.MovpacRole;
+import Business.SMS.Sms;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.MoversRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,8 +28,52 @@ public class RecruitMoversandPackersPanel extends javax.swing.JPanel {
     /**
      * Creates new form RecruitMoversandPackersPanel
      */
-    public RecruitMoversandPackersPanel() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Asset asset;
+    private Enterprise enterprise;
+    private Network network;
+    private Organisation organisation;
+    
+    public RecruitMoversandPackersPanel(JPanel userProcess, Organisation organisation, Network network, Enterprise enterprise, Asset asset, UserAccount userAccount, EcoSystem system) {
         initComponents();
+        initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.asset = asset;
+        this.userAccount = userAccount;
+        this.enterprise = enterprise;
+        this.network = network;
+        this.organisation = organisation;
+
+        populateReqTable();
+    }
+    
+    public void populateReqTable() {
+        DefaultTableModel model = (DefaultTableModel) tblhouse.getModel();
+        model.setRowCount(0);
+        
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
+                    for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                        if (ua.getRole() instanceof MovpacRole) {
+                            Object[] row = new Object[8];
+                            row[0] = ua.getEmployee().getId();
+                            row[1] = ua;
+                            row[2] = ua.getCity();
+                            row[3] = ua.getState();
+                            row[4] = ua.getStatus();
+                            row[5] = ua.getContactnumber();
+                            row[6] = ua.getCost();
+                            row[7] = org.getName();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -33,13 +91,12 @@ public class RecruitMoversandPackersPanel extends javax.swing.JPanel {
         tblhouse = new javax.swing.JTable();
         lblmessae = new javax.swing.JLabel();
         getmessage = new javax.swing.JTextField();
-        btnBack1 = new javax.swing.JButton();
         lblmovers = new javax.swing.JLabel();
         btnmovers = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
+        btnback = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,12 +128,6 @@ public class RecruitMoversandPackersPanel extends javax.swing.JPanel {
 
         getmessage.setForeground(new java.awt.Color(41, 50, 80));
 
-        btnBack1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack1ActionPerformed(evt);
-            }
-        });
-
         lblmovers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblmovers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblmovers.setText("MOVERS AND PACKERS LIST");
@@ -87,26 +138,25 @@ public class RecruitMoversandPackersPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(366, 366, 366)
-                .addComponent(lblmovers, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(245, 245, 245)
-                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(lblmessae)
-                .addGap(36, 36, 36)
-                .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(366, 366, 366)
+                        .addComponent(lblmovers, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(lblmessae)
+                        .addGap(36, 36, 36)
+                        .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(430, 430, 430))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblmovers, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lblmovers, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
@@ -132,10 +182,11 @@ public class RecruitMoversandPackersPanel extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+        btnback.setBackground(new java.awt.Color(255, 255, 255));
+        btnback.setText("BACK");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
+                btnbackActionPerformed(evt);
             }
         });
 
@@ -149,7 +200,7 @@ public class RecruitMoversandPackersPanel extends javax.swing.JPanel {
                 .addGap(6, 6, 6)
                 .addComponent(lbltitle)
                 .addGap(669, 669, 669)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +212,7 @@ public class RecruitMoversandPackersPanel extends javax.swing.JPanel {
                 .addComponent(lbltitle))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 90));
@@ -188,22 +239,61 @@ public class RecruitMoversandPackersPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBack1ActionPerformed
-
     private void btnmoversActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoversActionPerformed
 
+        int selectedRow = tblhouse.getSelectedRow();
+        int count = tblhouse.getSelectedRowCount();
+
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount servAcc = (UserAccount) tblhouse.getValueAt(selectedRow, 1);
+                String message = getmessage.getText();
+                if (message.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Comment note!");
+                    return;
+                } else if (!servAcc.getStatus().equals("Available")) {
+                    JOptionPane.showMessageDialog(null, "Sorry! This Plumber is already Occupied");
+                    return;
+                }
+                for (Network n : system.getNetworkList()) {
+                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                        for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
+                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if (servAcc.getUsername().equals(ua.getUsername())) {
+                                    MoversRequest cr = new MoversRequest();
+                                    cr.setRequestID();
+                                    cr.setCustomer(userAccount);
+                                    cr.setMovpac(servAcc);
+                                    cr.setMerchant(asset.getMerchant());
+                                    cr.setStatus("Pending");
+                                    cr.setCustomerNote(message);
+                                    cr.setAsset(asset);
+                                    cr.setOrgType(org.getType());
+                                    e.getWorkQueue().getWrkReqList().add(cr);
+                                    JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
+                                    Sms sms = new Sms(servAcc.getContactnumber(), "Hello! You have one new work request! Please login to know more!");
+                                    EcoSystem.sendEmailMessage(servAcc.getMailId(), "Hello! You have one new work request! Please login to know more!");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnmoversActionPerformed
 
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnbackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack1;
-    private javax.swing.JButton btnlogout;
+    private javax.swing.JButton btnback;
     private javax.swing.JButton btnmovers;
     private javax.swing.JTextField getmessage;
     private javax.swing.JPanel jPanel1;

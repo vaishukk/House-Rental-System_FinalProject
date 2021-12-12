@@ -5,6 +5,14 @@
  */
 package UI.AssetManager;
 
+import Business.Asset.Asset;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Kiran
@@ -14,7 +22,15 @@ public class AssetManagerWorkAreaPanel extends javax.swing.JPanel {
     /**
      * Creates new form AssetManagerWorkAreaPanel
      */
-    public AssetManagerWorkAreaPanel() {
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organisation organization;
+    Asset asset;
+    
+    public AssetManagerWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
     }
 

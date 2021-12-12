@@ -5,6 +5,12 @@
  */
 package UI.Repairs;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sanik
@@ -14,8 +20,30 @@ public class ManageRepairs extends javax.swing.JPanel {
     /**
      * Creates new form ManageRepairs
      */
-    public ManageRepairs() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Enterprise enterprise;
+    
+    public ManageRepairs(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount, EcoSystem system) {
         initComponents();
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.userAccount = useraccount;
+        this.enterprise = enterprise;
+        populateRequestTable();
+    }
+    public void populateRequestTable() {
+        getname.setText(userAccount.getName());
+        getcharge.setText(userAccount.getCost());
+        getcity.setText(userAccount.getCity());
+        getstatus.setText(userAccount.getStatus());
+        getzip.setText(userAccount.getZip());
+        getaddress.setText(userAccount.getAddress());
+        getmaidid.setText(userAccount.getMailId());
+        getcontact.setText(userAccount.getContactnumber());
+        getstate.setText(userAccount.getState());
     }
 
     /**
@@ -31,7 +59,6 @@ public class ManageRepairs extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblservice = new javax.swing.JLabel();
         getcontact = new javax.swing.JTextField();
@@ -62,13 +89,6 @@ public class ManageRepairs extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -78,9 +98,7 @@ public class ManageRepairs extends javax.swing.JPanel {
                 .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(461, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +106,6 @@ public class ManageRepairs extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(btnlogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -275,17 +292,43 @@ public class ManageRepairs extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-       
+       if (system.isNull(getname.getText()) || system.isNull(getcharge.getText()) || system.isNull(getcity.getText())
+                || system.isNull(getstatus.getText()) || system.isNull(getzip.getText()) || system.isNull(getaddress.getText())
+                || system.isNull(getmaidid.getText()) || system.isNull(getcontact.getText()) || system.isNull(getstate.getText())) {
+            JOptionPane.showMessageDialog(null, "Please enter all fields!");
+            return;
+        } else if (!system.isDouble(getcharge.getText())) {
+            JOptionPane.showMessageDialog(null, "Please enter valid charge!");
+            return;
+            
+        } else if(!system.isInt(getzip.getText()) || getzip.getText().length() != 5){
+            JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
+            return;
+        }else if(!system.checkValidPhoneFormat(getcontact.getText())){
+            return;
+        }else if(!system.checkValidEmailFormat(getmaidid.getText())){
+            return;
+        }else if(!system.checkIfEmailIsUnique(getmaidid.getText(), userAccount.getUsername())){
+            return;
+        }else if(!system.checkIfPhoneIsUnique(getcontact.getText(), userAccount.getUsername())){
+            return;
+        }
+        userAccount.setName(getname.getText());
+        userAccount.setCost(getcharge.getText());
+        userAccount.setCity(getcity.getText());
+        userAccount.setStatus(getstatus.getText());
+        userAccount.setZip(getzip.getText());
+        userAccount.setAddress(getaddress.getText());
+        userAccount.setMailId(getmaidid.getText());
+        userAccount.setContactnumber(getcontact.getText());
+        userAccount.setState(getstate.getText());
+        JOptionPane.showMessageDialog(null, "Profile Updated Successfully!");
       
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void getcityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getcityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_getcityActionPerformed
-
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
 
     private void getstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getstatusActionPerformed
         // TODO add your handling code here:
@@ -294,7 +337,6 @@ public class ManageRepairs extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JTextField getaddress;
     private javax.swing.JTextField getcharge;
     private javax.swing.JTextField getcity;

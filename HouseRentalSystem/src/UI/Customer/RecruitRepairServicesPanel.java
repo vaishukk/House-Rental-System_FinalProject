@@ -5,6 +5,20 @@
  */
 package UI.Customer;
 
+import Business.Asset.Asset;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.Role.RepairRole;
+import Business.SMS.Sms;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.RepairServiceRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,8 +28,52 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
     /**
      * Creates new form RecruitRepairServices
      */
-    public RecruitRepairServicesPanel() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Asset asset;
+    private Enterprise enterprise;
+    private Network network;
+    private Organisation organisation;
+    
+    public RecruitRepairServicesPanel(JPanel userProcess, Organisation organisation, Network network, Enterprise enterprise, Asset asset, UserAccount userAccount, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.asset = asset;
+        this.userAccount = userAccount;
+        this.enterprise = enterprise;
+        this.network = network;
+        this.organisation = organisation;
+        populateRequestTable();
+    }
+
+    public void populateRequestTable() {
+        DefaultTableModel model = (DefaultTableModel) tblhouse.getModel();
+        model.setRowCount(0);
+        
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
+                    for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                        String role = ua.getRole().toString();
+                        if (ua.getRole() instanceof RepairRole) {
+                            Object[] row = new Object[8];
+                            row[0] = ua.getEmployee().getId();
+                            row[1] = ua;
+                            row[2] = ua.getCity();
+                            row[3] = ua.getState();
+                            row[4] = ua.getStatus();
+                            row[5] = ua.getContactnumber();
+                            row[6] = ua.getCost();
+                            row[7] = org.getType();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
+    
     }
 
     /**
@@ -193,10 +251,70 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
 
     private void btnrepairservicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrepairservicesActionPerformed
 
+        int selectedRow = tblhouse.getSelectedRow();
+        int count = tblhouse.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount servAcc = (UserAccount) tblhouse.getValueAt(selectedRow, 1);
+                String message = getmessage.getText();
+                if (message.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Comment note!");
+                    return;
+                } else if (!servAcc.getStatus().equals("Available")) {
+                    JOptionPane.showMessageDialog(null, "Sorry! This Electrician is already Occupied");
+                    return;
+                }
+                for (Network n : system.getNetworkList()) {
+                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                        for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
+                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if (servAcc.getUsername().equals(ua.getUsername())) {
+                                    RepairServiceRequest cr = new RepairServiceRequest();
+                                    cr.setRequestID();
+                                    cr.setCustomer(userAccount);
+                                    cr.setRepairservice(servAcc);
+                                    cr.setMerchant(asset.getMerchant());
+                                    cr.setStatus("Pending");
+                                    cr.setCustomerNote(message);
+                                    cr.setAsset(asset);
+                                    cr.setOrgType(org.getType());
+                                    e.getWorkQueue().getWrkReqList().add(cr);
+                                    JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
+                                    try {
+                                        if (servAcc.getContactnumber()!= null) {
+                                            Sms sms = new Sms(servAcc.getContactnumber(), "Hello! You have one new work request! Please login to know more!");
+                                        } else {
+                                            System.out.println("NophoneNumber");
+                                        }
+                                    } catch (NullPointerException ex) {
+                                        System.out.println("NophoneNumber");
+                                    }
+                                    try {
+                                        if (servAcc.getMailId()!= null) {
+                                            EcoSystem.sendEmailMessage(servAcc.getMailId(), "Hello! You have one new work request! Please login to know more!");
+                                        } else {
+                                            System.out.println("Noemail");
+                                        }
+                                    } catch (NullPointerException ex) {
+                                        System.out.println("NoEmail");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+
+        }
     }//GEN-LAST:event_btnrepairservicesActionPerformed
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnlogoutActionPerformed
 
 
