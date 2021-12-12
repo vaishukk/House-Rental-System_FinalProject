@@ -10,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -28,7 +29,27 @@ public class ExaminerWorkAreaPanel extends javax.swing.JPanel {
     UserAccount account;
     Organisation organisation;
     public ExaminerWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
-        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organisation = organisation;
+        manageJobs();
+    }
+
+    private void manageJobs() {
+        ViewExaminer viewExaminer = new ViewExaminer(rightworkareapanel, enterprise, account, system);
+        rightworkareapanel.add("ViewExaminer", viewExaminer);
+        CardLayout layout = (CardLayout) rightworkareapanel.getLayout();
+        layout.next(rightworkareapanel);
+    }
+
+    private void manageProfile() {
+        ExaminerProfile examinerProfile = new ExaminerProfile(rightworkareapanel, enterprise, account, system);
+        rightworkareapanel.add("ExaminerProfile", examinerProfile);
+        CardLayout layout = (CardLayout) rightworkareapanel.getLayout();
+        layout.next(rightworkareapanel);
     }
 
     /**
@@ -209,21 +230,21 @@ public class ExaminerWorkAreaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblprofileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblprofileMousePressed
-       
+       manageProfile();
     }//GEN-LAST:event_lblprofileMousePressed
 
     private void manageprofilepanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageprofilepanelMousePressed
         // TODO add your handling code here:
-        
+        manageProfile();
     }//GEN-LAST:event_manageprofilepanelMousePressed
 
     private void lbljobsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbljobsMousePressed
-       
+       manageJobs();
     }//GEN-LAST:event_lbljobsMousePressed
 
     private void managejobpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managejobpanelMousePressed
         // TODO add your handling code here:
-        
+        manageJobs();
     }//GEN-LAST:event_managejobpanelMousePressed
 
 
