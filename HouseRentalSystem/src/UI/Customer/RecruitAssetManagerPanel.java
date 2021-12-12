@@ -92,11 +92,12 @@ public class RecruitAssetManagerPanel extends javax.swing.JPanel {
         lblmessae = new javax.swing.JLabel();
         getmessage = new javax.swing.JTextField();
         lblmanager = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         btnrecruitassetmanager = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
         btnback = new javax.swing.JButton();
+        lblicon1 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,7 +111,7 @@ public class RecruitAssetManagerPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Name", "City", "State", "Status", "Contact", "Rent", "OrganizationName"
+                "ID", "Name", "City", "State", "Availibility", "Contact", "Rent", "OrganizationName"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -132,6 +133,8 @@ public class RecruitAssetManagerPanel extends javax.swing.JPanel {
         lblmanager.setText("ASEET MANAGERS LIST");
         lblmanager.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-contact-details-64.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -139,34 +142,42 @@ public class RecruitAssetManagerPanel extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(400, 400, 400)
+                        .addGap(313, 313, 313)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
                         .addComponent(lblmanager))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
+                        .addGap(50, 50, 50)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
+                        .addGap(93, 93, 93)
                         .addComponent(lblmessae)
-                        .addGap(36, 36, 36)
-                        .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(430, 430, 430))
+                        .addGap(58, 58, 58)
+                        .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(440, 440, 440))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblmanager, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblmanager, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblmessae)
-                    .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 77, 1280, 340));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1280, 290));
 
         btnrecruitassetmanager.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnrecruitassetmanager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-save-64.png"))); // NOI18N
         btnrecruitassetmanager.setText("RECRUIT ASSET MANAGER ");
         btnrecruitassetmanager.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnrecruitassetmanager.addActionListener(new java.awt.event.ActionListener() {
@@ -174,7 +185,7 @@ public class RecruitAssetManagerPanel extends javax.swing.JPanel {
                 btnrecruitassetmanagerActionPerformed(evt);
             }
         });
-        jPanel1.add(btnrecruitassetmanager, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 480, -1, -1));
+        jPanel1.add(btnrecruitassetmanager, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 50));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -189,14 +200,16 @@ public class RecruitAssetManagerPanel extends javax.swing.JPanel {
             }
         });
 
+        lblicon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeicon.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addContainerGap()
+                .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lbltitle)
                 .addGap(669, 669, 669)
                 .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -204,17 +217,19 @@ public class RecruitAssetManagerPanel extends javax.swing.JPanel {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lbltitle))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblicon1)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGap(19, 19, 19)
+                            .addComponent(lbltitle))
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 90));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -296,11 +311,12 @@ public class RecruitAssetManagerPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnback;
     private javax.swing.JButton btnrecruitassetmanager;
     private javax.swing.JTextField getmessage;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblicon;
+    private javax.swing.JLabel lblicon1;
     private javax.swing.JLabel lblmanager;
     private javax.swing.JLabel lblmessae;
     private javax.swing.JLabel lbltitle;

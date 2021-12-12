@@ -93,11 +93,12 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
         getmessage = new javax.swing.JTextField();
         btnBack1 = new javax.swing.JButton();
         lblrepair = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         btnrepairservices = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
+        btnback = new javax.swing.JButton();
+        lblicon1 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,42 +140,57 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
         lblrepair.setText("REPAIR SERVICES LIST");
         lblrepair.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-cloud-60.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(400, 400, 400)
-                .addComponent(lblrepair)
-                .addGap(313, 313, 313)
-                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(lblmessae)
-                .addGap(36, 36, 36)
-                .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(307, 307, 307)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblrepair)
+                        .addGap(328, 328, 328)
+                        .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(lblmessae)
+                        .addGap(18, 18, 18)
+                        .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(387, 387, 387))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblrepair, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblrepair, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblmessae)
-                    .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(65, 65, 65))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 77, 1280, 340));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1280, 250));
 
         btnrepairservices.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnrepairservices.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-online-jobs-application-available-on-a-smartphone-24.png"))); // NOI18N
         btnrepairservices.setText("RECRUIT REPAIR SERVICES ");
         btnrepairservices.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnrepairservices.addActionListener(new java.awt.event.ActionListener() {
@@ -182,46 +198,51 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
                 btnrepairservicesActionPerformed(evt);
             }
         });
-        jPanel1.add(btnrepairservices, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 480, -1, -1));
+        jPanel1.add(btnrepairservices, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+        btnback.setBackground(new java.awt.Color(255, 255, 255));
+        btnback.setText("BACK");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
+                btnbackActionPerformed(evt);
             }
         });
+
+        lblicon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeicon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addContainerGap()
+                .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle)
                 .addGap(669, 669, 669)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lbltitle))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblicon1)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGap(19, 19, 19)
+                            .addComponent(lbltitle))
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 90));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -310,24 +331,25 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnrepairservicesActionPerformed
 
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnlogoutActionPerformed
+    }//GEN-LAST:event_btnbackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack1;
-    private javax.swing.JButton btnlogout;
+    private javax.swing.JButton btnback;
     private javax.swing.JButton btnrepairservices;
     private javax.swing.JTextField getmessage;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblicon;
+    private javax.swing.JLabel lblicon1;
     private javax.swing.JLabel lblmessae;
     private javax.swing.JLabel lblrepair;
     private javax.swing.JLabel lbltitle;

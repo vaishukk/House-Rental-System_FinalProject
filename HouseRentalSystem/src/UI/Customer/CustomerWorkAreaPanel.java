@@ -77,11 +77,11 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
         WorkAreaPanel = new javax.swing.JPanel();
         leftworkAreaPanel = new javax.swing.JPanel();
         manageOrganizationPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         lbladvertisements = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jobstatuspanel = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         lbljobstatus = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         lblcustomer = new javax.swing.JLabel();
         advertisementpanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -89,7 +89,7 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
         profilepanel = new javax.swing.JPanel();
         lblprofile = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
         rightWorkAreaPanel = new javax.swing.JPanel();
 
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -103,6 +103,7 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
         leftworkAreaPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageOrganizationPanel.setBackground(new java.awt.Color(255, 255, 255));
+        manageOrganizationPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         manageOrganizationPanel.setToolTipText("");
         manageOrganizationPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageOrganizationPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,13 +112,9 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setToolTipText("");
-
         lbladvertisements.setBackground(new java.awt.Color(255, 255, 255));
         lbladvertisements.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbladvertisements.setText("DISPLAY ADVERTISEMENT");
+        lbladvertisements.setText("DISPLAY UPDATES");
         lbladvertisements.setAutoscrolls(true);
         lbladvertisements.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbladvertisements.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -126,30 +123,31 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-office-50.png"))); // NOI18N
+
         javax.swing.GroupLayout manageOrganizationPanelLayout = new javax.swing.GroupLayout(manageOrganizationPanel);
         manageOrganizationPanel.setLayout(manageOrganizationPanelLayout);
         manageOrganizationPanelLayout.setHorizontalGroup(
             manageOrganizationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageOrganizationPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOrganizationPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbladvertisements, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(lbladvertisements, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         manageOrganizationPanelLayout.setVerticalGroup(
             manageOrganizationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOrganizationPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(manageOrganizationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbladvertisements, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGroup(manageOrganizationPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbladvertisements, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        leftworkAreaPanel.add(manageOrganizationPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, -1));
+        leftworkAreaPanel.add(manageOrganizationPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 59, 260, 50));
 
         jobstatuspanel.setBackground(new java.awt.Color(255, 255, 255));
+        jobstatuspanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jobstatuspanel.setToolTipText("");
         jobstatuspanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jobstatuspanel.setPreferredSize(new java.awt.Dimension(264, 48));
@@ -159,12 +157,9 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setBackground(new java.awt.Color(255, 213, 90));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
         lbljobstatus.setBackground(new java.awt.Color(255, 255, 255));
         lbljobstatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbljobstatus.setText("DISPLAY JOB STATUS");
+        lbljobstatus.setText("DISPLAY WORKING STATUS");
         lbljobstatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbljobstatus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -172,33 +167,36 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-employee-64.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+
         javax.swing.GroupLayout jobstatuspanelLayout = new javax.swing.GroupLayout(jobstatuspanel);
         jobstatuspanel.setLayout(jobstatuspanelLayout);
         jobstatuspanelLayout.setHorizontalGroup(
             jobstatuspanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jobstatuspanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbljobstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbljobstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jobstatuspanelLayout.setVerticalGroup(
             jobstatuspanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-            .addGroup(jobstatuspanelLayout.createSequentialGroup()
-                .addComponent(lbljobstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jobstatuspanelLayout.createSequentialGroup()
+                .addGroup(jobstatuspanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbljobstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84))
         );
 
-        leftworkAreaPanel.add(jobstatuspanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, 40));
+        leftworkAreaPanel.add(jobstatuspanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 260, 70));
 
         lblcustomer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblcustomer.setText("CUSTOMER WORK AREA PANEL");
         lblcustomer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        leftworkAreaPanel.add(lblcustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, -1));
+        leftworkAreaPanel.add(lblcustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        advertisementpanel.setBackground(new java.awt.Color(255, 213, 90));
+        advertisementpanel.setBackground(new java.awt.Color(255, 255, 255));
         advertisementpanel.setToolTipText("");
         advertisementpanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -245,6 +243,7 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
         leftworkAreaPanel.add(advertisementpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, -1));
 
         profilepanel.setBackground(new java.awt.Color(255, 255, 255));
+        profilepanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         profilepanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         profilepanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -265,32 +264,36 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
         jLabel7.setBackground(new java.awt.Color(255, 213, 90));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-employee-64 (2).png"))); // NOI18N
+
         javax.swing.GroupLayout profilepanelLayout = new javax.swing.GroupLayout(profilepanel);
         profilepanel.setLayout(profilepanelLayout);
         profilepanelLayout.setHorizontalGroup(
             profilepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(profilepanelLayout.createSequentialGroup()
-                .addGroup(profilepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addGroup(profilepanelLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(lblprofile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(lblprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         profilepanelLayout.setVerticalGroup(
             profilepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(profilepanelLayout.createSequentialGroup()
-                .addComponent(lblprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel7)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, profilepanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(profilepanelLayout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        leftworkAreaPanel.add(profilepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 250, 60));
-
-        jSeparator1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jSeparator1.setFocusCycleRoot(true);
-        leftworkAreaPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 270, 9));
+        leftworkAreaPanel.add(profilepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 260, 60));
 
         rightWorkAreaPanel.setBackground(new java.awt.Color(241, 241, 242));
         rightWorkAreaPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
@@ -379,12 +382,12 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel WorkAreaPanel;
     private javax.swing.JPanel advertisementpanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel jobstatuspanel;
     private javax.swing.JLabel lbladvertisements;
     private javax.swing.JLabel lblcustomer;

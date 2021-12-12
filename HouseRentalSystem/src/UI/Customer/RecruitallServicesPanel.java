@@ -64,9 +64,9 @@ public class RecruitallServicesPanel extends javax.swing.JPanel {
         recruitAssetManager = new javax.swing.JButton();
         recruitCameraMan = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
+        btnback = new javax.swing.JButton();
+        lblicon1 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,11 +80,14 @@ public class RecruitallServicesPanel extends javax.swing.JPanel {
         });
 
         lblservicemanagement.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblservicemanagement.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblservicemanagement.setText("SERVICE MANAGEMENT");
         lblservicemanagement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         hireRepairServices.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        hireRepairServices.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-analyse-64.png"))); // NOI18N
         hireRepairServices.setText("RECRUIT REPAIR SERVICE");
+        hireRepairServices.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         hireRepairServices.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         hireRepairServices.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +96,9 @@ public class RecruitallServicesPanel extends javax.swing.JPanel {
         });
 
         recruitConstructor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        recruitConstructor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-worker-beard-48.png"))); // NOI18N
         recruitConstructor.setText("RECRUIT CONSTRUCTOR");
+        recruitConstructor.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         recruitConstructor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         recruitConstructor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +107,9 @@ public class RecruitallServicesPanel extends javax.swing.JPanel {
         });
 
         recruitExaminer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        recruitExaminer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-employee-64 (2).png"))); // NOI18N
         recruitExaminer.setText("RECRUIT EXAMINER");
+        recruitExaminer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         recruitExaminer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         recruitExaminer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +118,9 @@ public class RecruitallServicesPanel extends javax.swing.JPanel {
         });
 
         recruitBroker.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        recruitBroker.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-broker-48.png"))); // NOI18N
         recruitBroker.setText("RECRUIT BROKER");
+        recruitBroker.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         recruitBroker.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         recruitBroker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +129,9 @@ public class RecruitallServicesPanel extends javax.swing.JPanel {
         });
 
         recruitMovPac.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        recruitMovPac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-luggage-64.png"))); // NOI18N
         recruitMovPac.setText("RECRUIT MOVERS AND PACKERS");
+        recruitMovPac.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         recruitMovPac.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         recruitMovPac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,9 +139,10 @@ public class RecruitallServicesPanel extends javax.swing.JPanel {
             }
         });
 
-        recruitAssetManager.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        recruitAssetManager.setForeground(new java.awt.Color(0, 0, 51));
+        recruitAssetManager.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        recruitAssetManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-employee-58.png"))); // NOI18N
         recruitAssetManager.setText("RECRUIT ASSET MANAGER");
+        recruitAssetManager.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         recruitAssetManager.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         recruitAssetManager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +151,9 @@ public class RecruitallServicesPanel extends javax.swing.JPanel {
         });
 
         recruitCameraMan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        recruitCameraMan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-photographer-64.png"))); // NOI18N
         recruitCameraMan.setText("RECRUIT CAMERAMAN ");
+        recruitCameraMan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         recruitCameraMan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         recruitCameraMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,92 +166,107 @@ public class RecruitallServicesPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblservicemanagement, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(314, 314, 314)
+                        .addGap(258, 258, 258)
+                        .addComponent(lblservicemanagement, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(recruitAssetManager, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                            .addComponent(hireRepairServices, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(79, 79, 79)
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(recruitMovPac)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(recruitAssetManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(hireRepairServices, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(recruitCameraMan)
+                                    .addComponent(recruitConstructor, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(recruitConstructor, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(recruitCameraMan))
-                        .addGap(64, 64, 64)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(recruitExaminer, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(recruitMovPac))
-                        .addGap(197, 197, 197))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(330, 330, 330)
-                        .addComponent(recruitBroker, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(231, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(recruitBroker, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(recruitExaminer)))
+                        .addGap(294, 294, 294)))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblservicemanagement))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(hireRepairServices)
                     .addComponent(recruitConstructor)
-                    .addComponent(recruitExaminer))
-                .addGap(92, 92, 92)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(recruitCameraMan)
-                    .addComponent(recruitAssetManager)
-                    .addComponent(recruitMovPac))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addComponent(recruitBroker)
-                .addGap(62, 62, 62))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(recruitExaminer, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(recruitAssetManager)
+                            .addComponent(recruitCameraMan)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(recruitBroker, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(42, 42, 42)
+                .addComponent(recruitMovPac)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 77, 1280, 410));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1280, 380));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+        btnback.setBackground(new java.awt.Color(255, 255, 255));
+        btnback.setText("BACK");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
+                btnbackActionPerformed(evt);
             }
         });
+
+        lblicon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeicon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addContainerGap()
+                .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle)
                 .addGap(669, 669, 669)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(lbltitle))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblicon1)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGap(19, 19, 19)
+                            .addComponent(lbltitle))
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 90));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -267,15 +296,11 @@ public class RecruitallServicesPanel extends javax.swing.JPanel {
 
     private void recruitCameraManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recruitCameraManActionPerformed
 
-        RecruitPhotographersPanel recruitPhotographersPanel = new RecruitPhotographersPanel(userProcessContainer, organisation, network, enterprise, asset, userAccount, system);
+        RecruitCameraManPanel recruitPhotographersPanel = new RecruitCameraManPanel(userProcessContainer, organisation, network, enterprise, asset, userAccount, system);
         userProcessContainer.add("RecruitPhotographersPanel", recruitPhotographersPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_recruitCameraManActionPerformed
-
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
 
     private void hireRepairServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hireRepairServicesActionPerformed
         // TODO add your handling code here:
@@ -324,15 +349,22 @@ public class RecruitallServicesPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_recruitAssetManagerActionPerformed
 
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnbackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack1;
-    private javax.swing.JButton btnlogout;
+    private javax.swing.JButton btnback;
     private javax.swing.JButton hireRepairServices;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JLabel lblicon;
+    private javax.swing.JLabel lblicon1;
     private javax.swing.JLabel lblservicemanagement;
     private javax.swing.JLabel lbltitle;
     private javax.swing.JButton recruitAssetManager;

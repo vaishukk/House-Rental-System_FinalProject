@@ -91,11 +91,12 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
         lblmessae = new javax.swing.JLabel();
         getmessage = new javax.swing.JTextField();
         lblbrokers = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         btnbrokers = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
         btnback = new javax.swing.JButton();
+        lblicon1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(44, 68, 80));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -109,7 +110,7 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Name", "City", "State", "Status", "Contact", "Rent", "OrganizationName"
+                "ID", "Name", "City", "State", "Availibility", "Contact Information", "Rent Cost", "OrganizationName"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -131,6 +132,8 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
         lblbrokers.setText("BROKERS LIST");
         lblbrokers.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-broker-48.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -138,13 +141,15 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(400, 400, 400)
+                        .addGap(334, 334, 334)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
                         .addComponent(lblbrokers))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
+                        .addGap(102, 102, 102)
                         .addComponent(lblmessae)
-                        .addGap(36, 36, 36)
-                        .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(121, 121, 121)
+                        .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 821, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -154,18 +159,24 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(lblbrokers, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblmessae)
-                    .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(lblbrokers, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblmessae))
+                .addGap(12, 12, 12))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1280, 337));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1280, 270));
 
         btnbrokers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnbrokers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-online-jobs-application-available-on-a-smartphone-24.png"))); // NOI18N
         btnbrokers.setText("RECRIUT BROKER");
         btnbrokers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnbrokers.addActionListener(new java.awt.event.ActionListener() {
@@ -173,7 +184,7 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
                 btnbrokersActionPerformed(evt);
             }
         });
-        add(btnbrokers, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 480, -1, -1));
+        add(btnbrokers, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -188,32 +199,32 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
             }
         });
 
+        lblicon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeicon.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(lbltitle)
-                .addGap(669, 669, 669)
+                .addGap(1138, 1138, 1138)
                 .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbltitle))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lbltitle))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblicon1)
+                    .addComponent(lbltitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 80));
+        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbrokersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbrokersActionPerformed
@@ -275,11 +286,12 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnback;
     private javax.swing.JButton btnbrokers;
     private javax.swing.JTextField getmessage;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblbrokers;
-    private javax.swing.JLabel lblicon;
+    private javax.swing.JLabel lblicon1;
     private javax.swing.JLabel lblmessae;
     private javax.swing.JLabel lbltitle;
     private javax.swing.JTable tblhouse;

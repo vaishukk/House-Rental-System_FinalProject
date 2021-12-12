@@ -94,6 +94,7 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
+        lblicon1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblassets = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -102,11 +103,13 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
         hireSPBtn = new javax.swing.JButton();
         btnViewSellerDetails = new javax.swing.JButton();
         btnViewHouseDetails = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnrenthouse.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnrenthouse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-give-60.png"))); // NOI18N
         btnrenthouse.setText("RENT HOUSE");
         btnrenthouse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +123,8 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
+        lblicon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeicon.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -128,20 +133,25 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lbltitle)
-                .addContainerGap(911, Short.MAX_VALUE))
+                .addContainerGap(822, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lbltitle))
+                    .addComponent(lblicon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 1380, 80));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 1380, 70));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -155,7 +165,7 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "AssetID", " Name", " Address", "City", "State", "Zipcode", "Bedrooms", "Baths", "Rent", "Status", "SoldByID", "SoldBy"
+                "Assetid", " Name", " Address", "City", "State", "Zipcode", "Bedrooms", "Baths", "Rent", "Availibility", "SoldByID", "Merchant"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -169,7 +179,9 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblhouse);
 
         btnViewHouseOnMap.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnViewHouseOnMap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-address-16.png"))); // NOI18N
         btnViewHouseOnMap.setText("DISPLAY HOUSE ON MAP");
+        btnViewHouseOnMap.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnViewHouseOnMap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewHouseOnMapActionPerformed(evt);
@@ -177,7 +189,9 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
         });
 
         hireSPBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        hireSPBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-account-24.png"))); // NOI18N
         hireSPBtn.setText("RECRUIT SERVICES");
+        hireSPBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         hireSPBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hireSPBtnActionPerformed(evt);
@@ -185,7 +199,9 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
         });
 
         btnViewSellerDetails.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnViewSellerDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-account-30.png"))); // NOI18N
         btnViewSellerDetails.setText("DISPLAY SELLER DETAILS");
+        btnViewSellerDetails.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnViewSellerDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewSellerDetailsActionPerformed(evt);
@@ -193,12 +209,16 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
         });
 
         btnViewHouseDetails.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnViewHouseDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-enterprise-resource-planning-48.png"))); // NOI18N
         btnViewHouseDetails.setText("DISPLAY HOUSE DETAILS");
+        btnViewHouseDetails.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnViewHouseDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewHouseDetailsActionPerformed(evt);
             }
         });
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-give-60.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -207,40 +227,46 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(288, 288, 288)
+                        .addGap(287, 287, 287)
+                        .addComponent(jLabel4)
+                        .addGap(31, 31, 31)
                         .addComponent(lblassets))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addGap(71, 71, 71)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
                         .addComponent(btnViewHouseOnMap, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(hireSPBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnViewSellerDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)
-                        .addComponent(btnViewHouseDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(455, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnViewHouseDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(476, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblassets, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnViewHouseOnMap, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(hireSPBtn)
-                        .addComponent(btnViewSellerDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnViewHouseDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(lblassets, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnViewHouseOnMap, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hireSPBtn)
+                    .addComponent(btnViewSellerDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnViewHouseDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(98, 98, 98))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1380, 440));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1380, 450));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -388,12 +414,14 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnViewSellerDetails;
     private javax.swing.JButton btnrenthouse;
     private javax.swing.JButton hireSPBtn;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblassets;
     private javax.swing.JLabel lblicon;
+    private javax.swing.JLabel lblicon1;
     private javax.swing.JLabel lbltitle;
     private javax.swing.JTable tblhouse;
     // End of variables declaration//GEN-END:variables
