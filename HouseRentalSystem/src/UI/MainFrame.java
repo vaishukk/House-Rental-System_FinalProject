@@ -106,7 +106,7 @@ public class MainFrame extends javax.swing.JFrame {
                 btnlogoffMousePressed(evt);
             }
         });
-        leftPanel.add(btnlogoff, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 0, 70, 30));
+        leftPanel.add(btnlogoff, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 0, 70, 30));
 
         lblwelcome.setBackground(new java.awt.Color(255, 255, 255));
         lblwelcome.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -120,15 +120,15 @@ public class MainFrame extends javax.swing.JFrame {
                 btnBackLabelMousePressed(evt);
             }
         });
-        leftPanel.add(btnBackLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 0, 60, 30));
+        leftPanel.add(btnBackLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, 60, 30));
 
-        getContentPane().add(leftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 30));
+        getContentPane().add(leftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 50));
 
         container.setBackground(new java.awt.Color(204, 204, 204));
         container.setForeground(new java.awt.Color(31, 50, 97));
         container.setPreferredSize(new java.awt.Dimension(1338, 840));
         container.setLayout(new java.awt.CardLayout());
-        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 61, 1390, 1050));
+        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 61, 1270, 650));
 
         loginJPanel.setBackground(new java.awt.Color(204, 204, 204));
         loginJPanel.setPreferredSize(new java.awt.Dimension(1338, 900));
@@ -192,7 +192,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         loginJPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 539, 970));
