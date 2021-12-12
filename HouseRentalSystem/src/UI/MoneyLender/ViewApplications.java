@@ -5,6 +5,21 @@
  */
 package UI.MoneyLender;
 
+import Business.Asset.Asset;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.MoneyContractorEmployeeRequest;
+import Business.WorkQueue.WorkRequest;
+import UI.Customer.DisplayCustomerInfoPanel;
+import UI.Customer.DisplayMerchantInfoPanel;
+import UI.MerchantRole.ViewCustomerPanel;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,8 +29,47 @@ public class ViewApplications extends javax.swing.JPanel {
     /**
      * Creates new form ViewApplications
      */
-    public ViewApplications() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount useraccount;
+    private Enterprise enterprise;
+    
+    public ViewApplications(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.useraccount = useraccount;
+        this.enterprise = enterprise;
+        populateRequestTable();
+    }
+
+    public void populateRequestTable() {
+        DefaultTableModel model = (DefaultTableModel) tblapplications.getModel();
+        model.setRowCount(0);
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
+                    if (workRequest instanceof MoneyContractorEmployeeRequest) {
+                        if (((MoneyContractorEmployeeRequest) workRequest).getMoneycontractoremp()== null || ((MoneyContractorEmployeeRequest) workRequest).getMoneycontractoremp().getUsername().equals(useraccount.getUsername())) {
+                            Object[] row = new Object[model.getColumnCount()];
+                            row[0] = workRequest;
+                            row[1] = ((MoneyContractorEmployeeRequest) workRequest).getCustomer();
+                            row[2] = ((MoneyContractorEmployeeRequest) workRequest).getMerchant();
+                            row[3] = ((MoneyContractorEmployeeRequest) workRequest).getAsset().getAddress();
+                            row[4] = ((MoneyContractorEmployeeRequest) workRequest).getAsset().getCity();
+                            row[5] = ((MoneyContractorEmployeeRequest) workRequest).getAsset().getState();
+                            row[6] = ((MoneyContractorEmployeeRequest) workRequest).getAsset().getZip();
+                            row[7] = ((MoneyContractorEmployeeRequest) workRequest).getStatus();
+                            row[8] = ((MoneyContractorEmployeeRequest) workRequest).getCustomerNote();
+                            row[9] = ((MoneyContractorEmployeeRequest) workRequest).getExaminerNote();
+                            row[10] = ((MoneyContractorEmployeeRequest) workRequest).getDiscount();
+                            row[11] = ((MoneyContractorEmployeeRequest) workRequest).getAsset();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -33,7 +87,6 @@ public class ViewApplications extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblloan = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -73,13 +126,6 @@ public class ViewApplications extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -89,9 +135,7 @@ public class ViewApplications extends javax.swing.JPanel {
                 .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 739, Short.MAX_VALUE)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(821, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,7 +143,6 @@ public class ViewApplications extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(btnlogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -236,12 +279,49 @@ public class ViewApplications extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnacceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacceptActionPerformed
-        
+        int selectedRow = tblapplications.getSelectedRow();
+        double discount;
+        if (selectedRow >= 0) {
+            MoneyContractorEmployeeRequest checkRequest = (MoneyContractorEmployeeRequest) tblapplications.getValueAt(selectedRow, 0);
+            try {
+                discount = Double.parseDouble(getprice.getText());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Discount");
+                return;
+            }
+            if (!"In Progress".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("In Progress");
+                checkRequest.setMoneycontractoremp(useraccount);
+                checkRequest.setDiscount(discount);
+                useraccount.setStatus("Occupied");
+                JOptionPane.showMessageDialog(null, "Job Taken Successfully!");
+                populateRequestTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already taken!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnacceptActionPerformed
 
     private void btnViewBuyerDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewBuyerDetailsActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = tblapplications.getSelectedRow();
+        int count = tblapplications.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount custAcc = (UserAccount) tblapplications.getValueAt(selectedRow, 1);
+                Asset AssetAcc = (Asset) tblapplications.getValueAt(selectedRow, 11);
+                ViewCustomerPanel viewCustomerPanel = new ViewCustomerPanel(userProcessContainer, AssetAcc, custAcc, useraccount, system);
+                userProcessContainer.add("ViewCustomerPanel", viewCustomerPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
     }//GEN-LAST:event_btnViewBuyerDetailsActionPerformed
 
     private void getpriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getpriceActionPerformed
@@ -250,17 +330,45 @@ public class ViewApplications extends javax.swing.JPanel {
 
     private void btnViewSellerDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewSellerDetailsActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = tblapplications.getSelectedRow();
+
+        int count = tblapplications.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount merchantAcc = (UserAccount) tblapplications.getValueAt(selectedRow, 2);
+                DisplayMerchantInfoPanel displayMerchantInfoPanel = new DisplayMerchantInfoPanel(userProcessContainer, merchantAcc, useraccount, system);
+                userProcessContainer.add("DisplayMerchantInfoPanel", displayMerchantInfoPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
     }//GEN-LAST:event_btnViewSellerDetailsActionPerformed
 
     private void btndeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeclineActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = tblapplications.getSelectedRow();
+        if (selectedRow >= 0) {
+            String message = getmessage.getText();
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for message");
+                return;
+            }
+            MoneyContractorEmployeeRequest checkRequest = (MoneyContractorEmployeeRequest) tblapplications.getValueAt(selectedRow, 0);
+            if (!"In Progress".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("Rejected");
+                JOptionPane.showMessageDialog(null, "Job Rejected Successfully!");
+                populateRequestTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already taken!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btndeclineActionPerformed
-
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
 
     private void getmessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getmessageActionPerformed
         // TODO add your handling code here:
@@ -272,7 +380,6 @@ public class ViewApplications extends javax.swing.JPanel {
     private javax.swing.JButton btnViewSellerDetails;
     private javax.swing.JButton btnaccept;
     private javax.swing.JButton btndecline;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JTextField getmessage;
     private javax.swing.JTextField getprice;
     private javax.swing.JPanel jPanel1;
