@@ -117,52 +117,65 @@ public class ExaminerProfile extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         lblexaminer.setBackground(new java.awt.Color(255, 255, 255));
-        lblexaminer.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblexaminer.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblexaminer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblexaminer.setText("EXAMINER PROFILE");
         lblexaminer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        getcontact.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getcontact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getcontactActionPerformed(evt);
             }
         });
 
-        lblname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblname.setText("Name");
 
-        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lbladdress.setText("Address");
 
-        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcity.setText("City");
 
+        getname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        getcity.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getcity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getcityActionPerformed(evt);
             }
         });
 
-        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblstate.setText("State");
 
-        lblstatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblstatus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblstatus.setText("Status");
 
+        getstate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        getstatus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getstatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getstatusActionPerformed(evt);
             }
         });
 
-        lblcontact.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcontact.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcontact.setText("Contact ");
 
-        lblzipcode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblzipcode.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblzipcode.setText("Zipcode");
 
+        getmaidid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        getzip.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
         btnSave.setBackground(new java.awt.Color(255, 255, 255));
-        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSave.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnSave.setText("SUBMIT AND SAVE");
         btnSave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -172,10 +185,12 @@ public class ExaminerProfile extends javax.swing.JPanel {
             }
         });
 
-        lblcharge.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcharge.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcharge.setText("Charge");
 
-        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcharge.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblmailid.setText("Mail ID");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -187,40 +202,40 @@ public class ExaminerProfile extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblzipcode)
-                            .addComponent(lblstate))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblzipcode)
+                                .addGap(238, 238, 238)
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblstate))
+                        .addGap(0, 472, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblname)
+                                .addGap(51, 51, 51)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(lblname)
-                                        .addGap(51, 51, 51)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(getname, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(getstate, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(getzip, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(getaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(lbladdress)
-                                    .addComponent(lblcity)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(88, 88, 88)
-                                        .addComponent(getcity, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(98, 98, 98)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblcontact)
-                                    .addComponent(lblstatus)
-                                    .addComponent(lblcharge)
-                                    .addComponent(lblmailid))))
+                                    .addComponent(getname, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(getstate, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(getzip, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(getaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbladdress)
+                            .addComponent(lblcity)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(88, 88, 88)
+                                .addComponent(getcity, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(98, 98, 98)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblcontact)
+                            .addComponent(lblstatus)
+                            .addComponent(lblcharge)
+                            .addComponent(lblmailid))
                         .addGap(47, 47, 47)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(getcharge, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(getstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(getmaidid, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(getcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(243, Short.MAX_VALUE))))
+                        .addContainerGap(250, Short.MAX_VALUE))))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(296, 296, 296)
                 .addComponent(lblexaminer, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,13 +270,17 @@ public class ExaminerProfile extends javax.swing.JPanel {
                     .addComponent(getstate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblstatus)
                     .addComponent(getstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblzipcode)
-                    .addComponent(getzip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(btnSave)
-                .addContainerGap())
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblzipcode)
+                            .addComponent(getzip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 930, 290));

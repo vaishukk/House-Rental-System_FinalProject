@@ -153,41 +153,40 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblzipcode" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblzipcode" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
+                                          <Component id="btnSave" min="-2" pref="135" max="-2" attributes="0"/>
+                                      </Group>
                                       <Component id="lblstate" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="472" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="btnSave" alignment="1" min="-2" pref="135" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblname" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="lblname" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="getname" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                                                      <Component id="getstate" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                                                      <Component id="getzip" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                                                      <Component id="getaddress" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Component id="lbladdress" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblcity" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="88" pref="88" max="-2" attributes="0"/>
-                                                  <Component id="getcity" min="-2" pref="180" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblcontact" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblstatus" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblcharge" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblmailid" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="getname" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                              <Component id="getstate" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                              <Component id="getzip" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                              <Component id="getaddress" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <Component id="lbladdress" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblcity" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="88" pref="88" max="-2" attributes="0"/>
+                                          <Component id="getcity" min="-2" pref="180" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblcontact" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblstatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblcharge" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblmailid" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -196,7 +195,7 @@
                                       <Component id="getmaidid" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                                       <Component id="getcontact" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="243" max="32767" attributes="0"/>
+                                  <EmptySpace pref="250" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -240,14 +239,21 @@
                               <Component id="lblstatus" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="getstatus" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblzipcode" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="getzip" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblzipcode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="getzip" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="btnSave" pref="58" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
-                          <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -259,7 +265,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="18" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="EXAMINER PROFILE"/>
@@ -271,6 +277,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="getcontact">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="0"/>
+                    </Property>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getcontactActionPerformed"/>
                   </Events>
@@ -278,7 +289,7 @@
                 <Component class="javax.swing.JLabel" name="lblname">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Name"/>
                   </Properties>
@@ -286,7 +297,7 @@
                 <Component class="javax.swing.JLabel" name="lbladdress">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Address"/>
                   </Properties>
@@ -294,16 +305,31 @@
                 <Component class="javax.swing.JLabel" name="lblcity">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="City"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="getname">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="0"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="getaddress">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="0"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="getcity">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="0"/>
+                    </Property>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getcityActionPerformed"/>
                   </Events>
@@ -311,7 +337,7 @@
                 <Component class="javax.swing.JLabel" name="lblstate">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="State"/>
                   </Properties>
@@ -319,14 +345,24 @@
                 <Component class="javax.swing.JLabel" name="lblstatus">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Status"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="getstate">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="0"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="getstatus">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="0"/>
+                    </Property>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getstatusActionPerformed"/>
                   </Events>
@@ -334,7 +370,7 @@
                 <Component class="javax.swing.JLabel" name="lblcontact">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Contact "/>
                   </Properties>
@@ -342,14 +378,24 @@
                 <Component class="javax.swing.JLabel" name="lblzipcode">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Zipcode"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="getmaidid">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="0"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="getzip">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="0"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnSave">
                   <Properties>
@@ -357,7 +403,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="1"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="SUBMIT AND SAVE"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -376,17 +422,22 @@
                 <Component class="javax.swing.JLabel" name="lblcharge">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Charge"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="getcharge">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="0"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblmailid">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Mail ID"/>
                   </Properties>

@@ -98,26 +98,26 @@ public class ManagePackersandMoversPanel extends javax.swing.JPanel {
                 btnsubmitActionPerformed(evt);
             }
         });
-        jPanel2.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, 110, 50));
+        jPanel2.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 110, 50));
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
         lblsubtitle.setBackground(new java.awt.Color(255, 255, 255));
-        lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblsubtitle.setText("PACKERS AND MOVERS PAGE");
         lblsubtitle.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         lblname.setBackground(new java.awt.Color(255, 255, 255));
-        lblname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblname.setText("Name:");
 
-        getname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblcontactno.setBackground(new java.awt.Color(255, 255, 255));
-        lblcontactno.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcontactno.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcontactno.setText("Contact No:");
 
-        getcontactnumber.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcontactnumber.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getcontactnumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getcontactnumberActionPerformed(evt);
@@ -125,46 +125,46 @@ public class ManagePackersandMoversPanel extends javax.swing.JPanel {
         });
 
         lbladdress.setBackground(new java.awt.Color(255, 255, 255));
-        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lbladdress.setText("Address:");
 
-        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblcity.setBackground(new java.awt.Color(255, 255, 255));
-        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcity.setText("City:");
 
-        getcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcity.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblstate.setBackground(new java.awt.Color(255, 255, 255));
-        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblstate.setText("State:");
 
-        getstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getstate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblmailid.setBackground(new java.awt.Color(255, 255, 255));
-        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblmailid.setText("Email:");
 
-        getmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getmailid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblzipcode.setBackground(new java.awt.Color(255, 255, 255));
-        lblzipcode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblzipcode.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblzipcode.setText("Zipcode:");
 
-        getzipcode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getzipcode.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblavail.setBackground(new java.awt.Color(255, 255, 255));
-        lblavail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblavail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblavail.setText("Availability:");
 
-        getavailibility.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getavailibility.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblprice.setBackground(new java.awt.Color(255, 255, 255));
-        lblprice.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblprice.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblprice.setText("Price:");
 
-        getCost.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getCost.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getCost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getCostActionPerformed(evt);
@@ -205,7 +205,7 @@ public class ManagePackersandMoversPanel extends javax.swing.JPanel {
                             .addComponent(getmailid)
                             .addComponent(getavailibility)
                             .addComponent(getCost))))
-                .addContainerGap(311, Short.MAX_VALUE))
+                .addContainerGap(321, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,7 +251,7 @@ public class ManagePackersandMoversPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 930, 440));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 930, 400));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 

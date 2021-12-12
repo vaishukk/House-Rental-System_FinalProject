@@ -131,13 +131,13 @@ public class ControlBrokerJob extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblbroker);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 960, 110));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 960, 110));
 
         lblmessage.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         lblmessage.setForeground(new java.awt.Color(255, 255, 255));
         lblmessage.setText("MESSAGE");
-        jPanel1.add(lblmessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 570, -1, -1));
-        jPanel1.add(getmessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, 680, -1));
+        jPanel1.add(lblmessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, -1, -1));
+        jPanel1.add(getmessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 680, -1));
 
         btnsendmessage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnsendmessage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-save-64_1.png"))); // NOI18N
@@ -148,7 +148,7 @@ public class ControlBrokerJob extends javax.swing.JPanel {
                 btnsendmessageActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsendmessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 600, 230, 50));
+        jPanel1.add(btnsendmessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, 230, 50));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -233,39 +233,38 @@ public class ControlBrokerJob extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
+                        .addGap(282, 282, 282)
                         .addComponent(jLabel4)
-                        .addGap(32, 32, 32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnhouses, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(85, 85, 85)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(430, Short.MAX_VALUE))
+                .addContainerGap(355, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(btnhouses, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                        .addGap(19, 19, 19)
+                        .addComponent(btnhouses, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1340, 290));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1340, 210));
 
         lblbroker.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblbroker.setForeground(new java.awt.Color(255, 255, 255));
         lblbroker.setText("VIEW BROKER JOB LIST");
         lblbroker.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(lblbroker, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, -1, 30));
+        jPanel1.add(lblbroker, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-broker-48.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

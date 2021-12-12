@@ -28,6 +28,7 @@ import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 import javax.activation.*;
 import java.awt.*;
+import javax.mail.PasswordAuthentication;
 
 /**
  *
@@ -273,29 +274,39 @@ public class EcoSystem extends Organisation{
     String to = emailId;
     String from = "houserentalsystem123@gmail.com";
     String pass = "houserentalsystem";
-
+    String host = "localhost";
+    
     Properties properties = System.getProperties();
-    String host = "smtp.gmail.com";
-    properties.put("mail.smtp.starttls.enable", "true");
-    properties.put("mail.smtp.ssl.trust", host);
+    //String host = "smtp.gmail.com";
+   
+    properties.put("mail.smtp.host","smtp.gmail.com");
     properties.put("mail.smtp.user", from);
     properties.put("mail.smtp.port", "587");
     properties.put("mail.smtp.auth", "true");
+    properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+    properties.put("mail.smtp.starttls.enable", "true");
+    properties.put("mail.smtp.starttls.required","true");
 
-    Session session = Session.getDefaultInstance(properties);
+    Session session = Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
+       protected PasswordAuthentication getPasswordAuthentication()
+       {
+           return new PasswordAuthentication(from,pass);
+       }
+    });
     try {
         MimeMessage message = new MimeMessage(session);
         message.setFrom(new InternetAddress(from));
-        message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+        message.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
         message.setSubject("New User Registration");
         message.setText(body);
-        Transport transport = session.getTransport("smtp");
-        transport.connect(host, from, pass);
-        transport.sendMessage(message, message.getAllRecipients());
-        transport.close();
+        //Transport transport = session.getTransport("smtp");
+        //transport.connect(host, from, pass);
+        Transport.send(message);
+        //transport.close();
         System.out.println("Sent message successfully....");
     } catch (MessagingException mex) {
         JOptionPane.showMessageDialog(null, "Invalid Email Address");
+        mex.printStackTrace();
     }
 }    
 

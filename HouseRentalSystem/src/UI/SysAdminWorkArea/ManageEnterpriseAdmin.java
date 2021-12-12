@@ -93,7 +93,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(enterpriseTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 660, 90));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 660, 90));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -125,18 +125,18 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 70));
 
-        lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblsubtitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblsubtitle.setText("MANAGE ENTERPRISE ADMIN");
         lblsubtitle.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        lblselectnetwork.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblselectnetwork.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblselectnetwork.setText("Select Network");
 
-        lblenterprise.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblenterprise.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblenterprise.setText("Select Enterprise");
 
-        networkbox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        networkbox.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         networkbox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         networkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,26 +144,26 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
             }
         });
 
-        lblusername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblusername.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblusername.setText("Enter Username");
 
-        getusername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getusername.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getusername.setForeground(new java.awt.Color(25, 56, 82));
 
-        lblpassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblpassword.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblpassword.setText("Enter Password");
 
-        getpassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getpassword.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getpassword.setForeground(new java.awt.Color(25, 56, 82));
 
-        lblname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblname.setText("Enter Name");
 
-        getname.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        getname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getname.setForeground(new java.awt.Color(25, 56, 82));
 
         btnSubmit.setBackground(new java.awt.Color(255, 255, 255));
-        btnSubmit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSubmit.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnSubmit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnSubmit.setText("SAVE");
         btnSubmit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -174,7 +174,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
             }
         });
 
-        enterprisebox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        enterprisebox1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         enterprisebox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         enterprisebox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,18 +245,18 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblusername)
                     .addComponent(getusername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1210, 360));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1210, 320));
 
         lblsubsubtitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblsubsubtitle.setForeground(new java.awt.Color(255, 255, 255));
         lblsubsubtitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblsubsubtitle.setText("VIEW ENTERPRISES AND THEIR NETWORKS ");
-        jPanel1.add(lblsubsubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 470, 30));
+        jPanel1.add(lblsubsubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 470, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

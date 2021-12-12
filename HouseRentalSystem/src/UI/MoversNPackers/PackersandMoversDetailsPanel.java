@@ -117,10 +117,9 @@ public class PackersandMoversDetailsPanel extends javax.swing.JPanel {
             }
         });
         housingtable.setGridColor(new java.awt.Color(0, 0, 0));
-        housingtable.setShowGrid(true);
         jScrollPane1.setViewportView(housingtable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 910, 140));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 910, 140));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 

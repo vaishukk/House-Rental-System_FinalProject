@@ -16,24 +16,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="1281" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="1311" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jPanel1" min="-2" pref="1281" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jPanel1" min="-2" pref="1296" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="770" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="751" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jPanel1" min="-2" pref="770" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jPanel1" min="-2" pref="725" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -90,84 +88,87 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="470" y="570" width="105" height="60"/>
+                  <AbsoluteConstraints x="470" y="540" width="105" height="60"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel4">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="0" y="0" width="1280" height="540"/>
+                  <AbsoluteConstraints x="0" y="0" width="1280" height="520"/>
                 </Constraint>
               </Constraints>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="407" max="-2" attributes="0"/>
-                          <Component id="lblsubtitle" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="62" pref="630" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="407" max="-2" attributes="0"/>
+                                  <Component id="lblsubtitle" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lbladdress" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblcity" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblstate" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblname" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblzipcode" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblbhk" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblbath" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblcoordinates" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblcoordinateslon" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblrent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="getname" pref="316" max="32767" attributes="0"/>
-                                              <Component id="getaddress" max="32767" attributes="0"/>
-                                              <Component id="getcity" max="32767" attributes="0"/>
-                                              <Component id="getstatename" max="32767" attributes="0"/>
-                                              <Component id="getpincode" max="32767" attributes="0"/>
-                                              <Component id="getbhk" max="32767" attributes="0"/>
-                                              <Component id="getrestroomnumber" max="32767" attributes="0"/>
-                                              <Component id="getlatitude" max="32767" attributes="0"/>
-                                              <Component id="getlong" max="32767" attributes="0"/>
-                                              <Component id="getprice" max="32767" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lbladdress" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblcity" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblstate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblname" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblzipcode" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblbhk" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblbath" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblcoordinates" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblcoordinateslon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblrent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="getname" pref="316" max="32767" attributes="0"/>
+                                                      <Component id="getaddress" max="32767" attributes="0"/>
+                                                      <Component id="getcity" max="32767" attributes="0"/>
+                                                      <Component id="getstatename" max="32767" attributes="0"/>
+                                                      <Component id="getpincode" max="32767" attributes="0"/>
+                                                      <Component id="getbhk" max="32767" attributes="0"/>
+                                                      <Component id="getrestroomnumber" max="32767" attributes="0"/>
+                                                      <Component id="getlatitude" max="32767" attributes="0"/>
+                                                      <Component id="getlong" max="32767" attributes="0"/>
+                                                      <Component id="getprice" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Component id="lblupload" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="lblupload" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblimgpath" min="-2" pref="240" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="btnchoose" min="-2" pref="146" max="-2" attributes="0"/>
+                                              <Component id="lblimageinvalid" min="-2" pref="200" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblimgpath" min="-2" pref="240" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnchoose" min="-2" pref="146" max="-2" attributes="0"/>
-                                      <Component id="lblimageinvalid" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="lblnameinvalid" min="-2" pref="220" max="-2" attributes="0"/>
+                                      <Component id="lblbhkinvalid" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Component id="lblrestroominvalid" min="-2" pref="190" max="-2" attributes="0"/>
+                                      <Component id="lbllatinvalid" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblloginvalid" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblpriceinvalid" min="-2" pref="243" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                          <Component id="homeimg" min="-2" pref="300" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblnameinvalid" min="-2" pref="220" max="-2" attributes="0"/>
-                              <Component id="lblbhkinvalid" min="-2" pref="210" max="-2" attributes="0"/>
-                              <Component id="lblrestroominvalid" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="lbllatinvalid" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblloginvalid" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblpriceinvalid" min="-2" pref="243" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  <Component id="homeimg" min="-2" pref="300" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="229" max="32767" attributes="0"/>
+                          <EmptySpace min="62" pref="239" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -270,7 +271,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="20" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="HOUSING UPDATES POSTS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -286,7 +287,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Name :"/>
                   </Properties>
@@ -294,7 +295,7 @@
                 <Component class="javax.swing.JTextField" name="getname">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -304,7 +305,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="12" style="2"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -318,7 +319,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Address:"/>
                   </Properties>
@@ -326,7 +327,7 @@
                 <Component class="javax.swing.JTextField" name="getaddress">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -339,7 +340,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="City:"/>
                   </Properties>
@@ -347,7 +348,7 @@
                 <Component class="javax.swing.JTextField" name="getcity">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -357,7 +358,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="State:"/>
                   </Properties>
@@ -365,7 +366,7 @@
                 <Component class="javax.swing.JTextField" name="getstatename">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -375,7 +376,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Zipcode:"/>
                   </Properties>
@@ -383,7 +384,7 @@
                 <Component class="javax.swing.JTextField" name="getpincode">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -393,7 +394,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="No of Bhk:"/>
                   </Properties>
@@ -401,7 +402,7 @@
                 <Component class="javax.swing.JTextField" name="getbhk">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -411,7 +412,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="12" style="2"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -425,7 +426,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="No of Restrooms:"/>
                   </Properties>
@@ -433,7 +434,7 @@
                 <Component class="javax.swing.JTextField" name="getrestroomnumber">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -443,7 +444,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="12" style="2"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -457,7 +458,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Coordinates (LAT)"/>
                   </Properties>
@@ -465,7 +466,7 @@
                 <Component class="javax.swing.JTextField" name="getlatitude">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -475,7 +476,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="12" style="2"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -489,7 +490,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Coordinates (LON)"/>
                   </Properties>
@@ -497,7 +498,7 @@
                 <Component class="javax.swing.JTextField" name="getlong">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -510,7 +511,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="12" style="2"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -524,7 +525,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Cost of Rent:"/>
                   </Properties>
@@ -532,7 +533,7 @@
                 <Component class="javax.swing.JTextField" name="getprice">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -542,7 +543,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Image Upload:"/>
                   </Properties>
@@ -553,7 +554,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Select Image"/>
                   </Properties>
@@ -564,7 +565,7 @@
                 <Component class="javax.swing.JLabel" name="lblpriceinvalid">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="12" style="2"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -575,7 +576,7 @@
                 <Component class="javax.swing.JLabel" name="lblimgpath">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="SansSerif" size="12" style="1"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -583,11 +584,16 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="homeimg">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="0"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblimageinvalid">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="12" style="2"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -619,7 +625,7 @@
                       <Component id="lblicon" min="-2" pref="71" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lbltitle" min="-2" pref="382" max="-2" attributes="0"/>
-                      <EmptySpace pref="640" max="32767" attributes="0"/>
+                      <EmptySpace pref="637" max="32767" attributes="0"/>
                       <Component id="btnprevious" min="-2" pref="88" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>

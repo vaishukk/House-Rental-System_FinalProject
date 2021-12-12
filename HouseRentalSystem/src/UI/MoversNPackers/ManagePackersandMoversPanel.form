@@ -75,7 +75,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="370" y="530" width="110" height="50"/>
+                  <AbsoluteConstraints x="390" y="480" width="110" height="50"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -87,7 +87,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="0" y="70" width="930" height="440"/>
+                  <AbsoluteConstraints x="0" y="70" width="930" height="400"/>
                 </Constraint>
               </Constraints>
 
@@ -130,7 +130,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="311" max="32767" attributes="0"/>
+                          <EmptySpace pref="321" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -196,7 +196,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="20" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="PACKERS AND MOVERS PAGE"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -212,7 +212,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Name:"/>
                   </Properties>
@@ -220,7 +220,7 @@
                 <Component class="javax.swing.JTextField" name="getname">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -230,7 +230,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Contact No:"/>
                   </Properties>
@@ -238,7 +238,7 @@
                 <Component class="javax.swing.JTextField" name="getcontactnumber">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -251,7 +251,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Address:"/>
                   </Properties>
@@ -259,7 +259,7 @@
                 <Component class="javax.swing.JTextField" name="getaddress">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -269,7 +269,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="City:"/>
                   </Properties>
@@ -277,7 +277,7 @@
                 <Component class="javax.swing.JTextField" name="getcity">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -287,7 +287,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="State:"/>
                   </Properties>
@@ -295,7 +295,7 @@
                 <Component class="javax.swing.JTextField" name="getstate">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -305,7 +305,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Email:"/>
                   </Properties>
@@ -313,7 +313,7 @@
                 <Component class="javax.swing.JTextField" name="getmailid">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -323,7 +323,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Zipcode:"/>
                   </Properties>
@@ -331,7 +331,7 @@
                 <Component class="javax.swing.JTextField" name="getzipcode">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -341,7 +341,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Availability:"/>
                   </Properties>
@@ -349,7 +349,7 @@
                 <Component class="javax.swing.JTextField" name="getavailibility">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -359,7 +359,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Price:"/>
                   </Properties>
@@ -367,7 +367,7 @@
                 <Component class="javax.swing.JTextField" name="getCost">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
+                      <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
                   <Events>

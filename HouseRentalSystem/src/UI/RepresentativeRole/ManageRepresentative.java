@@ -100,7 +100,7 @@ public class ManageRepresentative extends javax.swing.JPanel {
                 btnSubmitActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 590, 150, 60));
+        jPanel2.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 520, 150, 60));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -135,55 +135,59 @@ public class ManageRepresentative extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
         lblname.setBackground(new java.awt.Color(255, 255, 255));
-        lblname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblname.setText("Name:");
 
-        getname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lbladd.setBackground(new java.awt.Color(255, 255, 255));
-        lbladd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbladd.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lbladd.setText("Street Name");
 
-        getadd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getadd.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblcity.setBackground(new java.awt.Color(255, 255, 255));
-        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcity.setText("City:");
 
-        getcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcity.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblstate.setBackground(new java.awt.Color(255, 255, 255));
-        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblstate.setText("State");
 
-        getstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getstate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblmailid.setBackground(new java.awt.Color(255, 255, 255));
-        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblmailid.setText("Mail Id");
 
-        getmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getmailid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblzip.setBackground(new java.awt.Color(255, 255, 255));
-        lblzip.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblzip.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblzip.setText("Zipcode:");
 
-        getzip.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getzip.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblavail.setBackground(new java.awt.Color(255, 255, 255));
-        lblavail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblavail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblavail.setText("Availability");
 
         lblcharge.setBackground(new java.awt.Color(255, 255, 255));
-        lblcharge.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcharge.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcharge.setText("Charge:");
 
         lblsubtitle.setBackground(new java.awt.Color(255, 255, 255));
-        lblsubtitle.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblsubtitle.setText("ADD REPRESENTATIVE DETAILS");
         lblsubtitle.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        lblcontactno.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcharge.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        getavail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        lblcontactno.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcontactno.setText("Contact No");
 
         getcontactnumber.addActionListener(new java.awt.event.ActionListener() {
@@ -197,9 +201,9 @@ public class ManageRepresentative extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(258, 258, 258)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(203, 203, 203)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblcharge)
                             .addComponent(lblavail)
@@ -211,25 +215,26 @@ public class ManageRepresentative extends javax.swing.JPanel {
                             .addComponent(lblcontactno)
                             .addComponent(lblname))
                         .addGap(58, 58, 58)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(getcharge, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
-                            .addComponent(getavail)
-                            .addComponent(getzip)
-                            .addComponent(getmailid)
-                            .addComponent(getstate)
-                            .addComponent(getcity)
-                            .addComponent(getadd)
-                            .addComponent(getcontactnumber)
-                            .addComponent(getname)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(getcharge, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                                .addComponent(getavail)
+                                .addComponent(getzip)
+                                .addComponent(getmailid)
+                                .addComponent(getstate)
+                                .addComponent(getcity)
+                                .addComponent(getadd)
+                                .addComponent(getname))
+                            .addComponent(getcontactnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(299, 299, 299)
+                        .addGap(96, 96, 96)
                         .addComponent(lblsubtitle)))
-                .addContainerGap(504, Short.MAX_VALUE))
+                .addContainerGap(507, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(lblsubtitle)
                 .addGap(32, 32, 32)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -239,7 +244,7 @@ public class ManageRepresentative extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblcontactno)
                     .addComponent(getcontactnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbladd)
                     .addComponent(getadd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -270,10 +275,10 @@ public class ManageRepresentative extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(getcharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblcharge))
-                .addGap(40, 40, 40))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1120, 500));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1120, 430));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

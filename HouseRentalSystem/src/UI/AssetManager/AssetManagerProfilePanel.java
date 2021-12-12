@@ -129,20 +129,20 @@ public class AssetManagerProfilePanel extends javax.swing.JPanel {
                 btnsubmitActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 580, 150, 60));
+        jPanel1.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, 150, 60));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
         lblassetmanagerdetails.setBackground(new java.awt.Color(255, 255, 255));
-        lblassetmanagerdetails.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblassetmanagerdetails.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblassetmanagerdetails.setText("ASSET MANAGER DETAILS");
         lblassetmanagerdetails.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         lblname.setBackground(new java.awt.Color(255, 255, 255));
-        lblname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblname.setText("Name:");
 
-        getname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getnameActionPerformed(evt);
@@ -150,10 +150,10 @@ public class AssetManagerProfilePanel extends javax.swing.JPanel {
         });
 
         lblcontact.setBackground(new java.awt.Color(255, 255, 255));
-        lblcontact.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcontact.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcontact.setText("Contact no:");
 
-        getcontactnum.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcontactnum.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getcontactnum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getcontactnumActionPerformed(evt);
@@ -161,40 +161,40 @@ public class AssetManagerProfilePanel extends javax.swing.JPanel {
         });
 
         lblmailid.setBackground(new java.awt.Color(255, 255, 255));
-        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblmailid.setText("Mailid:");
 
-        getmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getmailid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lbladdress.setBackground(new java.awt.Color(255, 255, 255));
-        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lbladdress.setText("Address:");
 
-        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblcity.setBackground(new java.awt.Color(255, 255, 255));
-        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcity.setText("City:");
 
-        getcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcity.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblstate.setBackground(new java.awt.Color(255, 255, 255));
-        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblstate.setText("State:");
 
-        getstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getstate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblzip.setBackground(new java.awt.Color(255, 255, 255));
-        lblzip.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblzip.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblzip.setText("Zipcode:");
 
-        getzipcode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getzipcode.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblavail.setBackground(new java.awt.Color(255, 255, 255));
-        lblavail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblavail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblavail.setText("Availibility:");
 
-        getavail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getavail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getavail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getavailActionPerformed(evt);
@@ -202,11 +202,12 @@ public class AssetManagerProfilePanel extends javax.swing.JPanel {
         });
 
         lblprice.setBackground(new java.awt.Color(255, 255, 255));
-        lblprice.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblprice.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblprice.setText("Price:");
 
-        getprice.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getprice.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-employee-64 (2).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -214,49 +215,42 @@ public class AssetManagerProfilePanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(335, 335, 335)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(335, 335, 335)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblname)
-                            .addComponent(lblcontact)
-                            .addComponent(lblmailid)
-                            .addComponent(lbladdress)
-                            .addComponent(lblcity)
-                            .addComponent(lblstate)
-                            .addComponent(lblzip)
-                            .addComponent(lblavail)
-                            .addComponent(lblprice))
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(getprice, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(getzipcode, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                                .addComponent(getmailid)
-                                .addComponent(getcontactnum)
-                                .addComponent(getname)
-                                .addComponent(getaddress)
-                                .addComponent(getcity)
-                                .addComponent(getstate)
-                                .addComponent(getavail))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(296, 296, 296)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblassetmanagerdetails)))
-                .addContainerGap(355, Short.MAX_VALUE))
+                    .addComponent(lblname)
+                    .addComponent(lblcontact)
+                    .addComponent(lblmailid)
+                    .addComponent(lbladdress)
+                    .addComponent(lblcity)
+                    .addComponent(lblstate)
+                    .addComponent(lblzip)
+                    .addComponent(lblavail)
+                    .addComponent(lblprice)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblassetmanagerdetails)
+                    .addComponent(getprice, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(getzipcode, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                        .addComponent(getmailid)
+                        .addComponent(getcontactnum)
+                        .addComponent(getname)
+                        .addComponent(getaddress)
+                        .addComponent(getcity)
+                        .addComponent(getstate)
+                        .addComponent(getavail)))
+                .addContainerGap(371, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
+                        .addGap(25, 25, 25)
                         .addComponent(lblassetmanagerdetails))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(getname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblname))
@@ -292,10 +286,10 @@ public class AssetManagerProfilePanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblprice)
                     .addComponent(getprice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 950, 480));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 950, 440));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

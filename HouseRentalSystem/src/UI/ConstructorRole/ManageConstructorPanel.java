@@ -85,6 +85,17 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(241, 241, 242));
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1242, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 618, Short.MAX_VALUE)
+        );
+
         jPanel2.setBackground(new java.awt.Color(44, 68, 80));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -97,7 +108,7 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
                 btnSubmitActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 540, 160, 60));
+        jPanel2.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 160, 60));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -115,7 +126,7 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
                 .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(741, Short.MAX_VALUE))
+                .addContainerGap(803, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,26 +140,26 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 70));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 70));
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
         lblname.setBackground(new java.awt.Color(255, 255, 255));
-        lblname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblname.setText("Name:");
 
-        getname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel11.setText("BUILDER PROFILE");
         jLabel11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         lblcontactnium.setBackground(new java.awt.Color(255, 255, 255));
-        lblcontactnium.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcontactnium.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcontactnium.setText("Phone:");
 
-        getcontactno.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcontactno.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getcontactno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getcontactnoActionPerformed(evt);
@@ -156,16 +167,16 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
         });
 
         lbladd.setBackground(new java.awt.Color(255, 255, 255));
-        lbladd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbladd.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lbladd.setText("Address:");
 
-        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblcity.setBackground(new java.awt.Color(255, 255, 255));
-        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcity.setText("City:");
 
-        getcityname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcityname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getcityname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getcitynameActionPerformed(evt);
@@ -173,40 +184,41 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
         });
 
         lblstate.setBackground(new java.awt.Color(255, 255, 255));
-        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblstate.setText("State:");
 
-        getstatename.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getstatename.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblmailid.setBackground(new java.awt.Color(255, 255, 255));
-        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblmailid.setText("Mail Id:");
 
-        getmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getmailid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblzip.setBackground(new java.awt.Color(255, 255, 255));
-        lblzip.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblzip.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblzip.setText("Zipcode:");
 
-        getzip.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getzip.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblavail.setBackground(new java.awt.Color(255, 255, 255));
-        lblavail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblavail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblavail.setText("Availibility:");
 
-        getavail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getavail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblcharge.setBackground(new java.awt.Color(255, 255, 255));
-        lblcharge.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcharge.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcharge.setText("Price:");
 
-        getcost.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcost.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getcost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getcostActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-worker-beard-48.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -214,123 +226,111 @@ public class ManageConstructorPanel extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(324, 324, 324)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblcontactnium)
-                                    .addComponent(lblname)))
-                            .addComponent(lbladd)
-                            .addComponent(lblcity)
-                            .addComponent(lblstate)
-                            .addComponent(lblmailid)
-                            .addComponent(lblzip)
-                            .addComponent(lblavail)
-                            .addComponent(lblcharge))
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(getname, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-                            .addComponent(getcontactno)
-                            .addComponent(getaddress)
-                            .addComponent(getcityname)
-                            .addComponent(getstatename)
-                            .addComponent(getmailid)
-                            .addComponent(getzip)
-                            .addComponent(getavail)
-                            .addComponent(getcost)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(324, 324, 324)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11)))
-                .addContainerGap(532, Short.MAX_VALUE))
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel11))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbladd)
+                                    .addComponent(lblcity)
+                                    .addComponent(lblstate)
+                                    .addComponent(lblmailid)
+                                    .addComponent(lblzip)
+                                    .addComponent(lblavail)
+                                    .addComponent(lblcharge)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(5, 5, 5)
+                                        .addComponent(lblcontactnium)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(getcontactno)
+                                    .addComponent(getaddress)
+                                    .addComponent(getcityname)
+                                    .addComponent(getstatename)
+                                    .addComponent(getmailid)
+                                    .addComponent(getzip)
+                                    .addComponent(getavail)
+                                    .addComponent(getcost, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(lblname)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(getname, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(589, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
                         .addComponent(jLabel11)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblname)
                     .addComponent(getname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblcontactnium)
                     .addComponent(getcontactno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbladd)
                     .addComponent(getaddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblcity)
                     .addComponent(getcityname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblstate)
                     .addComponent(getstatename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblzip)
                     .addComponent(getzip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(getmailid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblmailid))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblavail)
                     .addComponent(getavail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblcharge)
                     .addComponent(getcost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1210, 460));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1280, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1210, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 19, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 19, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 618, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 878, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 130, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 130, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
