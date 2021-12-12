@@ -5,6 +5,23 @@
  */
 package UI.AssetManager;
 
+import Business.Asset.Asset;
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HandlerRequest;
+import Business.WorkQueue.WorkRequest;
+import UI.Customer.DisplayCustomerInfoPanel;
+import UI.Customer.DisplayMerchantInfoPanel;
+import UI.Customer.RecruitallServicesPanel;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Kiran
@@ -14,8 +31,74 @@ public class ViewOppurtunitiesPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewOppurtunitiesPanel
      */
-    public ViewOppurtunitiesPanel() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount useraccount;
+    private AssetDirectory assetDirectory;
+    private Enterprise enterprise;
+    private Network network;
+    private Organisation organisation;
+    public ViewOppurtunitiesPanel(JPanel userProcessContainer, Organisation organisation, Network network, Enterprise enterprise, UserAccount useraccount, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.useraccount = useraccount;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organisation = organisation;
+        this.enterprise = enterprise;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+        popuateAssetTable();
+        populateReqTable();
+    }
+
+    public void popuateAssetTable() {
+        DefaultTableModel model = (DefaultTableModel) tableassetmanagement.getModel();
+        model.setRowCount(0);
+        for (Asset asset : assetDirectory.getAssetList()) {
+            Object[] row = new Object[12];
+            row[0] = asset.getAssetID();
+            row[1] = asset.getAssetName();
+            row[2] = asset.getAddress();
+            row[3] = asset.getCity();
+            row[4] = asset.getState();
+            row[5] = asset.getZip();
+            row[6] = asset.getBedroom();
+            row[7] = asset.getBaths();
+            row[8] = asset.getPrice();
+            row[9] = asset.getStatus();
+            row[10] = asset.getMerchant();
+            row[11] = asset.getMerchant().getName();
+            model.addRow(row);
+        }
+    }
+
+    public void populateReqTable() {
+        DefaultTableModel model = (DefaultTableModel) housingtable.getModel();
+        model.setRowCount(0);
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
+                    if (workRequest instanceof HandlerRequest) {
+                        if (((HandlerRequest) workRequest).getHandler().getUsername().equals(useraccount.getUsername())) {
+                            Object[] row = new Object[model.getColumnCount()];
+                            row[0] = workRequest;
+                            row[1] = ((HandlerRequest) workRequest).getCustomer();
+                            row[2] = ((HandlerRequest) workRequest).getMerchant();
+                            row[3] = ((HandlerRequest) workRequest).getAsset().getAddress();
+                            row[4] = ((HandlerRequest) workRequest).getAsset().getCity();
+                            row[5] = ((HandlerRequest) workRequest).getAsset().getState();
+                            row[6] = ((HandlerRequest) workRequest).getAsset().getZip();
+                            row[7] = ((HandlerRequest) workRequest).getStatus();
+                            row[8] = ((HandlerRequest) workRequest).getCustomerNote();
+                            row[9] = ((HandlerRequest) workRequest).getExaminerNote();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -321,12 +404,55 @@ public class ViewOppurtunitiesPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnselectjobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnselectjobActionPerformed
-       
+       int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            HandlerRequest checkRequest = (HandlerRequest) housingtable.getValueAt(selectedRow, 0);
+            try {
+                Double quote = Double.parseDouble(getquote.getText());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Quote");
+                return;
+            }
+            if (!"In Progress".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("In Progress");
+                checkRequest.setQuote(getquote.getText());
+                useraccount.setStatus("Occupied");
+                JOptionPane.showMessageDialog(null, "Job Taken Successfully!");
+                populateReqTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already taken!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnselectjobActionPerformed
 
     private void btnjobdoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnjobdoneActionPerformed
         // TODO add your handling code here:
-       
+       int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            HandlerRequest checkRequest = (HandlerRequest) housingtable.getValueAt(selectedRow, 0);
+            String comments = getcomments.getText();
+            if (comments.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            if (!"Completed".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("Completed");
+                checkRequest.setExaminerNote(comments);
+                JOptionPane.showMessageDialog(null, "Job is set to completed!");
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
+                if (dialogResult == JOptionPane.YES_OPTION) {
+                    useraccount.setStatus("Available");
+                }
+                populateReqTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already completed!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnjobdoneActionPerformed
 
     private void getquoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getquoteActionPerformed
@@ -335,22 +461,88 @@ public class ViewOppurtunitiesPanel extends javax.swing.JPanel {
 
     private void btnviewcustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewcustomerActionPerformed
         // TODO add your handling code here:
-      
+      int selectedRow = housingtable.getSelectedRow();
+
+        int count = housingtable.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount custAcc = (UserAccount) housingtable.getValueAt(selectedRow, 1);
+                DisplayCustomerInfoPanel displayCustomerInfoPanel = new DisplayCustomerInfoPanel(userProcessContainer, custAcc, useraccount, system);
+                userProcessContainer.add("DisplayCustomerInfoPanel", displayCustomerInfoPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
        
     }//GEN-LAST:event_btnviewcustomerActionPerformed
 
     private void btnviewmerchantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewmerchantActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = housingtable.getSelectedRow();
+
+        int count = housingtable.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount merchantAcc = (UserAccount) housingtable.getValueAt(selectedRow, 2);
+                DisplayMerchantInfoPanel displayMerchantInfoPanel = new DisplayMerchantInfoPanel(userProcessContainer, merchantAcc, useraccount, system);
+                userProcessContainer.add("DisplayMerchantInfoPanel", displayMerchantInfoPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
     }//GEN-LAST:event_btnviewmerchantActionPerformed
 
     private void btnrecruitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrecruitActionPerformed
-       
+       int selectedRow = tableassetmanagement.getSelectedRow();
+        int count = tableassetmanagement.getSelectedRowCount();
+        if (count == 1) {
+            String assetID = (String) tableassetmanagement.getValueAt(selectedRow, 0);
+            Asset asset = assetDirectory.fetchAsset(assetID);
+
+            RecruitallServicesPanel recruitallServicesPanel = new RecruitallServicesPanel(userProcessContainer, organisation, network, enterprise, asset, system, useraccount);
+            userProcessContainer.add("RecruitallServicesPanel", recruitallServicesPanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnrecruitActionPerformed
 
     private void btndeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeclineActionPerformed
         // TODO add your handling code here:
-        // TODO add your handling code here:
+        int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            HandlerRequest checkRequest = (HandlerRequest) housingtable.getValueAt(selectedRow, 0);
+            String comment = getcomments.getText();
+            if (comment.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            if (!"Completed".equals(checkRequest.getStatus()) && !"In Progress".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("Rejected");
+                checkRequest.setExaminerNote(comment);
+                JOptionPane.showMessageDialog(null, "Job is set to rejected!");
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
+                if (dialogResult == JOptionPane.YES_OPTION) {
+                    useraccount.setStatus("Available");
+                }
+                populateReqTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already " + checkRequest.getStatus());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
        
     }//GEN-LAST:event_btndeclineActionPerformed
 

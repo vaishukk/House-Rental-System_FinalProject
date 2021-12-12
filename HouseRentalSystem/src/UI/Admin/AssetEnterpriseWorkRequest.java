@@ -11,7 +11,9 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.Organisation.OrganisationDirectory;
+import Business.Role.AssetManagerRole;
 import Business.Role.ConstructorRole;
+import Business.Role.MerchantRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.RegistrationRequest;
 import Business.WorkQueue.WorkRequest;
@@ -304,7 +306,7 @@ int selectedRow = assetenterprisetable.getSelectedRow();
                 case AssetManager:{
                     Organisation org = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
                     Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                    //UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new AssetManagerRole());
+                    UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new AssetManagerRole());
                         break;
                     }
                 case Constructor:{
@@ -316,7 +318,7 @@ int selectedRow = assetenterprisetable.getSelectedRow();
                 case Merchant:{
                     Organisation org = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
                     Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                    //UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new MerchantRole());
+                    UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new MerchantRole());
                         break;
                     }
                 default:

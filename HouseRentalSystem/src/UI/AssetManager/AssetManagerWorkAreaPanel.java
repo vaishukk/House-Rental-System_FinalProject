@@ -11,6 +11,8 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
+import UI.Customer.DisplayJobsInfoPanel;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -32,6 +34,36 @@ public class AssetManagerWorkAreaPanel extends javax.swing.JPanel {
     
     public AssetManagerWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organization = organization;
+        this.asset=asset;
+        manageJobs();
+    }
+    
+    private void manageJobs() {
+        ViewOppurtunitiesPanel viewOppurtunitiesPanel = new ViewOppurtunitiesPanel(rightpanel,organization,network, enterprise,account, system);
+        rightpanel.add("ViewOppurtunitiesPanel",viewOppurtunitiesPanel);
+        CardLayout layout = (CardLayout) rightpanel.getLayout();
+        layout.next(rightpanel);
+    }
+    
+    private void displayjobs() {
+        DisplayJobsInfoPanel displayJobsInfoPanel = new DisplayJobsInfoPanel(rightpanel, account, enterprise, system, network, organization);
+        rightpanel.add("DisplayJobsInfoPanel", displayJobsInfoPanel);
+        CardLayout layout = (CardLayout) rightpanel.getLayout();
+        layout.next(rightpanel);
+    }
+    
+    private void manageProfile() {
+        
+        AssetManagerProfilePanel assetManagerProfilePanel = new AssetManagerProfilePanel(rightpanel, enterprise, account, system);
+        rightpanel.add("AssetManagerProfilePanel", assetManagerProfilePanel);
+        CardLayout layout = (CardLayout) rightpanel.getLayout();
+        layout.next(rightpanel);
     }
 
     /**
@@ -218,25 +250,25 @@ public class AssetManagerWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageProfileMousePressed
         // TODO add your handling code here:
-        
+        manageProfile();
     }//GEN-LAST:event_manageProfileMousePressed
 
     private void manageproPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageproPanelMousePressed
         // TODO add your handling code here:
-        
+        manageProfile();
     }//GEN-LAST:event_manageproPanelMousePressed
 
     private void manageJobsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageJobsMousePressed
-        
+        manageJobs();
     }//GEN-LAST:event_manageJobsMousePressed
 
     private void manageOppPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOppPanelMousePressed
         // TODO add your handling code here:
-        
+        manageJobs();
     }//GEN-LAST:event_manageOppPanelMousePressed
 
     private void lblmanageorgMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanageorgMousePressed
-        
+        displayjobs();
     }//GEN-LAST:event_lblmanageorgMousePressed
 
 
