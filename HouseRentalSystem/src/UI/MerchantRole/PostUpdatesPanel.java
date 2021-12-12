@@ -5,6 +5,22 @@
  */
 package UI.MerchantRole;
 
+import Business.Asset.Asset;
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author nemod
@@ -14,8 +30,59 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
     /**
      * Creates new form PostUpdatesPanel
      */
-    public PostUpdatesPanel() {
+    JFileChooser imgChooser;
+    private final EcoSystem system;
+    private final UserAccount userAccount;
+    BufferedImage img;
+    private final JPanel userProcessContainer;
+    private final Enterprise enterprise;
+    private final AssetDirectory assetDirectory;
+    private String imagePath;
+    
+    public PostUpdatesPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        this.userAccount = useraccount;
+        this.system = system;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+        disableLabels();
+    }
+    
+    public void disableLabels() {
+        lblnameinvalid.setVisible(false);
+        lblbhkinvalid.setVisible(false);
+        lblimageinvalid.setVisible(false);
+        lblpriceinvalid.setVisible(false);
+        lblrestroominvalid.setVisible(false);
+        lbllatinvalid.setVisible(false);
+        lblloginvalid.setVisible(false);
+    }
+
+    public ImageIcon ResizeImage(String ImagePath) {
+        ImageIcon MyImage = new ImageIcon(ImagePath);
+        Image img = MyImage.getImage();
+        Image newImg = img.getScaledInstance(homeimg.getWidth(), homeimg.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImg);
+        return image;
+    }
+    
+    public void displayImage(String imgPath) {
+        homeimg.setIcon(ResizeImage(imgPath));
+    }
+    
+    public void emptyAllFields() {
+        getname.setText("");
+        getaddress.setText("");
+        getcity.setText("");
+        getstatename.setText("");
+        getpincode.setText("");
+        homeimg.setText("");
+        getprice.setText("");
+        getbhk.setText("");
+        getrestroomnumber.setText("");
+        getlatitude.setText("");
+        getlong.setText("");
     }
 
     /**
@@ -31,7 +98,6 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        btnprevious = new javax.swing.JButton();
         lblsubtitle = new javax.swing.JLabel();
         lblname = new javax.swing.JLabel();
         getname = new javax.swing.JTextField();
@@ -61,12 +127,13 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
         lblupload = new javax.swing.JLabel();
         btnchoose = new javax.swing.JButton();
         lblpriceinvalid = new javax.swing.JLabel();
-        fileNameLabel = new javax.swing.JLabel();
-        imgupload = new javax.swing.JLabel();
+        lblimgpath = new javax.swing.JLabel();
+        homeimg = new javax.swing.JLabel();
         lblimageinvalid = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
+        btnprevious = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(241, 241, 242));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -84,16 +151,6 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 570, 105, 60));
-
-        btnprevious.setBackground(new java.awt.Color(102, 102, 102));
-        btnprevious.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnprevious.setText("BACK");
-        btnprevious.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnprevious.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpreviousActionPerformed(evt);
-            }
-        });
 
         lblsubtitle.setBackground(new java.awt.Color(255, 255, 255));
         lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -212,8 +269,8 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
         lblpriceinvalid.setForeground(new java.awt.Color(255, 0, 0));
         lblpriceinvalid.setText("Invalid entry please enter  price in 0.0 format");
 
-        fileNameLabel.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        fileNameLabel.setForeground(new java.awt.Color(255, 0, 0));
+        lblimgpath.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblimgpath.setForeground(new java.awt.Color(255, 0, 0));
 
         lblimageinvalid.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         lblimageinvalid.setForeground(new java.awt.Color(255, 0, 0));
@@ -226,9 +283,7 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(407, 407, 407)
                 .addComponent(lblsubtitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+                .addGap(62, 630, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -261,35 +316,29 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
                             .addComponent(lblupload)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
+                        .addComponent(lblimgpath, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnchoose, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblimageinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(72, 72, 72)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblnameinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblbhkinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(lblrestroominvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fileNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbllatinvalid)
-                            .addComponent(lblloginvalid)
-                            .addComponent(lblpriceinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblnameinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblbhkinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblrestroominvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbllatinvalid)
+                    .addComponent(lblloginvalid)
+                    .addComponent(lblpriceinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(imgupload, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                        .addComponent(homeimg, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblsubtitle))
+                .addComponent(lblsubtitle)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblname)
@@ -317,12 +366,10 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
                     .addComponent(getbhk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblbhkinvalid))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblbath)
-                        .addComponent(getrestroomnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblrestroominvalid))
-                    .addComponent(fileNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblbath)
+                    .addComponent(getrestroomnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblrestroominvalid))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblcoordinates)
@@ -334,19 +381,22 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
                     .addComponent(getlong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblloginvalid))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblrent)
-                    .addComponent(getprice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblpriceinvalid))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(getprice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblpriceinvalid)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(imgupload, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(homeimg, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(29, 29, 29)
                                 .addComponent(lblupload)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblimgpath, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
@@ -368,6 +418,16 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         lbltitle.setText("HOUSE RENTALS");
 
+        btnprevious.setBackground(new java.awt.Color(102, 102, 102));
+        btnprevious.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnprevious.setText("BACK");
+        btnprevious.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnprevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpreviousActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -377,7 +437,9 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
                 .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(792, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 640, Short.MAX_VALUE)
+                .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -387,6 +449,10 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
                     .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 70));
@@ -423,16 +489,90 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-      
+      String name = getname.getText();
+        String address = getaddress.getText();
+        String city = getcity.getText();
+        String state = getstatename.getText();
+        String pincode = getpincode.getText();
+        Double price = Double.parseDouble((getprice.getText()).isEmpty() ? "0.0" : getprice.getText());
+        int bhk = Integer.parseInt((getbhk.getText()).isEmpty() ? "0" : getbhk.getText());
+        Double bathroom = Double.parseDouble((getrestroomnumber.getText()).isEmpty() ? "0.0" : getrestroomnumber.getText());
+        Double latitude = Double.parseDouble((getlatitude.getText()).isEmpty() ? "0.0" : getlatitude.getText());
+        Double longitude = Double.parseDouble((getlong.getText()).isEmpty() ? "0.0" : getlong.getText());
+        ImageIcon img = (ImageIcon) homeimg.getIcon();
+
+        if (name.isEmpty() || address.isEmpty() || city.isEmpty() || state.isEmpty() || pincode.isEmpty()
+            || getprice.getText().isEmpty() || img == null || getrestroomnumber.getText().isEmpty()
+            || getlong.getText().isEmpty() || getlatitude.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter all the fields continue!");
+        } else if (!system.isDouble(getprice.getText())) {
+            lblpriceinvalid.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Please enter valid rent!");
+        } else if (!system.isDouble(getrestroomnumber.getText())) {
+            lblrestroominvalid.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Please enter valid bathroom value!");
+        } else if (!system.isDouble(getlong.getText())) {
+            lblloginvalid.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Please enter valid longitude!");
+        } else if (!system.isDouble(getlatitude.getText())) {
+            lbllatinvalid.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Please enter valid latitude!");
+        } else if (!system.isInt(getbhk.getText())) {
+            lblbhkinvalid.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Please enter valid bhk value!");
+        } else if (!system.isInt(getpincode.getText()) || getpincode.getText().length() != 5) {
+            JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
+        } else {
+            disableLabels();
+            Asset asset = new Asset();
+            asset.setAssetName(name);
+            asset.setAddress(address);
+            asset.setZip(pincode);
+            asset.setCity(city);
+            asset.setState(state);
+            asset.setBedroom(bhk);
+            asset.setBaths(bathroom);
+            asset.setPrice(price);
+            asset.setStatus("Vacant");
+            asset.setHomeImg(imagePath);
+            asset.setMerchant(userAccount);
+            asset.setAssetID(assetDirectory.createAssetID());
+            asset.setLatitude(latitude);
+            asset.setLongitude(longitude);
+            assetDirectory.addAsset(asset);
+            system.setAssetDirectory(assetDirectory);
+            JOptionPane.showMessageDialog(null, "Advertisement Added!");
+            emptyAllFields();
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnchooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnchooseActionPerformed
-        
+
+        JFileChooser fileChooser = new JFileChooser();
+        int result = fileChooser.showSaveDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            imagePath = selectedFile.getAbsolutePath();
+            String regex
+            = "([^\\s]+(\\.(?i)(jpe?g|png|gif|bmp))$)";
+            Pattern p = Pattern.compile(regex);
+            Matcher m = p.matcher(imagePath);
+            if (!m.matches()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid image file!");
+                return;
+            }
+            lblimgpath.setText(imagePath);
+            displayImage(imagePath);
+            JOptionPane.showMessageDialog(null, "Picture Uploaded Successfully");
+
+        }        
     }//GEN-LAST:event_btnchooseActionPerformed
 
     private void btnpreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpreviousActionPerformed
         // TODO add your handling code here:
-        
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnpreviousActionPerformed
 
 
@@ -440,7 +580,6 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnchoose;
     private javax.swing.JButton btnprevious;
-    private javax.swing.JLabel fileNameLabel;
     private javax.swing.JTextField getaddress;
     private javax.swing.JTextField getbhk;
     private javax.swing.JTextField getcity;
@@ -451,7 +590,7 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
     private javax.swing.JTextField getprice;
     private javax.swing.JTextField getrestroomnumber;
     private javax.swing.JTextField getstatename;
-    private javax.swing.JLabel imgupload;
+    private javax.swing.JLabel homeimg;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -465,6 +604,7 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblcoordinateslon;
     private javax.swing.JLabel lblicon;
     private javax.swing.JLabel lblimageinvalid;
+    private javax.swing.JLabel lblimgpath;
     private javax.swing.JLabel lbllatinvalid;
     private javax.swing.JLabel lblloginvalid;
     private javax.swing.JLabel lblname;

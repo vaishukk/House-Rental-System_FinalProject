@@ -5,6 +5,17 @@
  */
 package UI.MerchantRole;
 
+import Business.Asset.Asset;
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nemod
@@ -14,8 +25,44 @@ public class ManageHousePanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageHousePanel
      */
-    public ManageHousePanel() {
+    private JPanel userProcessContainer;
+    private EcoSystem business;
+    private Enterprise enterprise;
+    private UserAccount useraccount;
+    private AssetDirectory assetDirectory;
+    private EcoSystem system;
+    
+    public ManageHousePanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        this.useraccount = useraccount;
+        this.system = system;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+        populateTable();
+        disableLabels();
+    }
+
+    private void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) housingtable.getModel();
+        dtm.setRowCount(0);
+        for (Asset asset : assetDirectory.getAssetList()) {
+            if (asset.getMerchant().getUsername().equals(useraccount.getUsername())) {
+                Object[] row = new Object[11];
+                row[0] = asset;
+                row[1] = asset.getAssetName();
+                row[2] = asset.getAddress();
+                row[3] = asset.getCity();
+                row[4] = asset.getState();
+                row[5] = asset.getZip();
+                row[6] = asset.getBedroom();
+                row[7] = asset.getBaths();
+                row[8] = asset.getPrice();
+                row[9] = asset.getStatus();
+                row[10]= asset.getCustomer();
+                dtm.addRow(row);
+            }
+        }
     }
 
     /**
@@ -344,10 +391,11 @@ public class ManageHousePanel extends javax.swing.JPanel {
                     .addComponent(lblzipcode)
                     .addComponent(getzipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(getnoofbhk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblbhkinvalid)
-                    .addComponent(lblbhk))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblbhk)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(getnoofbhk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblbhkinvalid)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblrestrooms, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -398,18 +446,96 @@ public class ManageHousePanel extends javax.swing.JPanel {
     private void btndiscardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndiscardActionPerformed
         // TODO add your handling code here:
 
+         int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to delete the house", "Warning", dialogButton);
+
+            if (dialogResult == JOptionPane.YES_OPTION) {
+                Asset asset = (Asset) housingtable.getValueAt(selectedRow, 0);
+                assetDirectory.removeAsset(asset);
+                JOptionPane.showMessageDialog(this, "Selected house is removed from the list!");
+                populateTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a house to be deleted");
+        }
       
     }//GEN-LAST:event_btndiscardActionPerformed
 
     private void btnalterhousedetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalterhousedetailsActionPerformed
         // TODO add your handling code here:
-        
+        DefaultTableModel dtm = (DefaultTableModel) housingtable.getModel();
+
+        int selectedRow = housingtable.getSelectedRow();
+        if (selectedRow >= 0) {
+
+            String name = (String) housingtable.getValueAt(selectedRow, 1);
+            String address = (String) housingtable.getValueAt(selectedRow, 2);
+            String city = (String) housingtable.getValueAt(selectedRow, 3);
+            String state = (String) housingtable.getValueAt(selectedRow, 4);
+            String zipcode = (String) housingtable.getValueAt(selectedRow, 5);
+            int bhk = (Integer) housingtable.getValueAt(selectedRow, 6);
+            double bathroom = (Double) housingtable.getValueAt(selectedRow, 7);
+            double price = (Double) housingtable.getValueAt(selectedRow, 8);
+            String status = (String) housingtable.getValueAt(selectedRow, 9);
+            UserAccount soldto = (UserAccount) housingtable.getValueAt(selectedRow, 10);
+
+            getname.setText(name);
+            getadd.setText(address);
+            getzipcode.setText(zipcode);
+            getstate.setText(state);
+            String bhkset = Integer.toString(bhk);
+            getnoofbhk.setText(bhkset);
+            String bathroomset = Double.toString(bathroom);
+            getnoofrestrooms.setText(bathroomset);
+            String priceset = Double.toString(price);
+            getprice.setText(priceset);
+            availcomboBox.getModel().setSelectedItem(status);
+            if(soldto != null){
+                getsoldto.setText(soldto.getName());
+            }
+            getcity.setText(city);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row");
+        }
 
     }//GEN-LAST:event_btnalterhousedetailsActionPerformed
 
     private void btnpotentialcustActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpotentialcustActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = housingtable.getSelectedRow();
+
+        int count = housingtable.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+
+                String name = (String) housingtable.getValueAt(selectedRow, 1);
+                Asset asset = assetDirectory.searchAssetName(name);
+
+                ArrayList<UserAccount> buyers = asset.getRegisteredCustomer();
+                try {
+                    if (!buyers.isEmpty() || buyers != null) {
+
+                        ManageCustomerPanel manageCustomerPanel = new ManageCustomerPanel(userProcessContainer, enterprise, useraccount, asset, system);
+                        userProcessContainer.add("ManageCustomerPanel", manageCustomerPanel);
+                        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                        layout.next(userProcessContainer);
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Sorry,No interested buyer for this property!!");
+                    }
+                } catch (NullPointerException e) {
+                    System.out.println("NullPointerException thrown!");
+                    JOptionPane.showMessageDialog(null, "Sorry,No interested buyer for this property!!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
     }//GEN-LAST:event_btnpotentialcustActionPerformed
 
     private void getnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getnameActionPerformed
@@ -418,10 +544,74 @@ public class ManageHousePanel extends javax.swing.JPanel {
 
     private void btnalterdetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalterdetailsActionPerformed
         // TODO add your handling code here:
+        String name = getname.getText();
+        String address = getadd.getText();
+        String city = getcity.getText();
+        String state = getstate.getText();
+        String pincode = getzipcode.getText();
+        double price = 0.0;
+        double bathroom = 0.0;
+        Boolean flag = true;
+
+        price = Double.parseDouble((getprice.getText()).isEmpty() ? "0.0" : getprice.getText());
+        int bhk = Integer.parseInt((getnoofbhk.getText()).isEmpty() ? "0" : getnoofbhk.getText());
+        bathroom = Double.parseDouble((getnoofrestrooms.getText()).isEmpty() ? "0.0" : getnoofrestrooms.getText());
+
+        if (name.isEmpty() || address.isEmpty() || city.isEmpty() || state.isEmpty() || pincode.isEmpty() || price == 0.0 || bathroom == 0.0) {
+            JOptionPane.showMessageDialog(null, "Please enter the missing field to continue!");
+            flag = false;
+        }
+        if (price == 0.0) {
+            lblrentinvalid.setVisible(true);
+            flag = false;
+        }
+        if (bhk == 0) {
+            lblbhkinvalid.setVisible(true);
+            flag = false;
+        }
+        if (bathroom == 0.0) {
+            lblrestroominvalid.setVisible(true);
+            flag = false;
+        }
+        if (flag) {
+            disableLabels();
+            int selectedRow = housingtable.getSelectedRow();
+            Asset asset = (Asset) housingtable.getValueAt(selectedRow, 0);
+            asset.setAssetName(getname.getText());
+            asset.setAddress(getadd.getText());
+            asset.setCity(getcity.getText());
+            asset.setZip(getzipcode.getText());
+            asset.setState(getstate.getText());
+            int bhkget = Integer.parseInt(getnoofbhk.getText());
+            asset.setBedroom(bhkget);
+            asset.setBaths(Double.parseDouble(getnoofrestrooms.getText()));
+            asset.setPrice(Double.parseDouble(getprice.getText()));
+            String statusget = String.valueOf(availcomboBox.getSelectedItem());
+            asset.setStatus(statusget);
+            asset.setMerchant(useraccount);
+            system.setAssetDirectory(assetDirectory);
+            JOptionPane.showMessageDialog(null, "House details Updated!");
+            getname.setText("");
+            getadd.setText("");
+            getzipcode.setText("");
+            getstate.setText("");
+            getnoofbhk.setText("");
+            getnoofrestrooms.setText("");
+            getprice.setText("");
+            getsoldto.setText("");
+            getcity.setText("");
+            populateTable();
+        }
       
       
     }//GEN-LAST:event_btnalterdetailsActionPerformed
 
+    public void disableLabels() {
+        lblrestroominvalid.setVisible(false);
+        lblbhkinvalid.setVisible(false);
+        lblnameinvalid.setVisible(false);
+        lblrentinvalid.setVisible(false);
+    }
     private void getnoofbhkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getnoofbhkActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_getnoofbhkActionPerformed

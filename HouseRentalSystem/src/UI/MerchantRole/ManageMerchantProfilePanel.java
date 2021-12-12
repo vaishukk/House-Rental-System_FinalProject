@@ -5,6 +5,13 @@
  */
 package UI.MerchantRole;
 
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author nemod
@@ -14,8 +21,27 @@ public class ManageMerchantProfilePanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageMerchantProfilePanel
      */
-    public ManageMerchantProfilePanel() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private AssetDirectory assetDirectory;
+    public ManageMerchantProfilePanel(JPanel userProcess, EcoSystem system, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.userAccount = userAccount;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+        populateRequestTable();
+    }
+
+    public void populateRequestTable() {
+        getname.setText(userAccount.getName());
+        getcity.setText(userAccount.getCity());
+        getpincode.setText(userAccount.getZip());
+        getadd.setText(userAccount.getAddress());
+        getmailid.setText(userAccount.getMailId());
+        getcontact.setText(userAccount.getContactnumber());
+        getstate.setText(userAccount.getState());
     }
 
     /**
@@ -266,12 +292,39 @@ public class ManageMerchantProfilePanel extends javax.swing.JPanel {
 
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
-        
+        if(system.isNull(getname.getText()) || system.isNull(getcity.getText())
+           || system.isNull(getpincode.getText()) || system.isNull(getadd.getText())
+           || system.isNull(getmailid.getText()) || system.isNull(getcontact.getText()) || system.isNull(getstate.getText())){
+            JOptionPane.showMessageDialog(null, "Please enter all fields!");
+            return;
+        }else if(!system.isInt(getpincode.getText()) || getpincode.getText().length() != 5){
+            JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
+            return;
+        }else if(!system.checkValidPhoneFormat(getcontact.getText())){
+            return;
+        }else if(!system.checkValidEmailFormat(getmailid.getText())){
+            return;
+        }else if(!system.checkIfEmailIsUnique(getmailid.getText(), userAccount.getUsername())){
+            return;
+        }else if(!system.checkIfPhoneIsUnique(getcontact.getText(), userAccount.getUsername())){
+            return;
+        }
+        userAccount.setName(getname.getText());
+        userAccount.setCity(getcity.getText());
+        userAccount.setZip(getpincode.getText());
+        userAccount.setAddress(getadd.getText());
+        userAccount.setMailId(getmailid.getText());
+        userAccount.setContactnumber(getcontact.getText());
+        userAccount.setState(getstate.getText());
+        JOptionPane.showMessageDialog(null, "Profile Updated Successfully!");
 
     }//GEN-LAST:event_btnsubmitActionPerformed
 
     private void btnpreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpreviousActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnpreviousActionPerformed
 
 

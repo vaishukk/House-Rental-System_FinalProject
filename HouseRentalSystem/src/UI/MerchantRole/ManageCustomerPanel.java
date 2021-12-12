@@ -5,6 +5,16 @@
  */
 package UI.MerchantRole;
 
+import Business.Asset.Asset;
+import Business.Asset.AssetDirectory;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nemod
@@ -14,10 +24,38 @@ public class ManageCustomerPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageCustomerPanel
      */
-    public ManageCustomerPanel() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private Enterprise enterprise;
+    private UserAccount useraccount;
+    private Asset asset;
+    private AssetDirectory assetDirectory;
+    
+    public ManageCustomerPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount, Asset asset, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        this.useraccount = useraccount;
+        this.system = system;
+        this.asset = asset;
+        this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
+        populateTable();
+    
     }
-
+    
+    private void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) customertable.getModel();
+        dtm.setRowCount(0);
+        for (UserAccount useraccounts : asset.getRegisteredCustomer()) {
+            Object[] row = new Object[5];
+            row[0] = useraccounts.getEmployee().getId();
+            row[1] = useraccounts;
+            row[2] = useraccounts.getContactnumber();
+            row[3] = useraccounts.getMailId();
+            row[4] = useraccounts.getCity();
+            dtm.addRow(row);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -187,17 +225,52 @@ public class ManageCustomerPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddBuyerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBuyerActionPerformed
-       
+       DefaultTableModel dtm = (DefaultTableModel) customertable.getModel();
+
+        int selectedRow = customertable.getSelectedRow();
+        if (selectedRow >= 0) {
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to sell the house", "Warning", dialogButton);
+
+            if (dialogResult == JOptionPane.YES_OPTION) {
+                UserAccount custAcc = (UserAccount) customertable.getValueAt(selectedRow, 1);
+                asset.setCustomer(custAcc);
+                asset.setStatus("Sold");
+                system.getAssetDirectory().getAssetList().set(assetDirectory.getAssetList().indexOf(asset), asset);
+                system.setAssetDirectory(assetDirectory);
+                JOptionPane.showMessageDialog(this, "" + asset.getAssetName()+ "house is sold to" + custAcc.getUsername() + "");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a house to be sold");
+        }
     }//GEN-LAST:event_btnAddBuyerActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = customertable.getSelectedRow();
+
+        int count = customertable.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount buyerAcc = (UserAccount) customertable.getValueAt(selectedRow, 1);
+                ViewCustomerPanel viewCustomerPanel = new ViewCustomerPanel(userProcessContainer, asset, buyerAcc, useraccount, system);
+                userProcessContainer.add("ViewCustomerPanel", viewCustomerPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
+
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnpreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpreviousActionPerformed
         // TODO add your handling code here:
-        
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnpreviousActionPerformed
 
 
