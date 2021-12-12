@@ -26,7 +26,7 @@ public class SupervisorOrganisation extends Organisation{
     }
        @Override
     public Type getType() {
-        return Organisation.Type.Supervisor;
+        return Organisation.Type.Examiner;
     }  
     
 }

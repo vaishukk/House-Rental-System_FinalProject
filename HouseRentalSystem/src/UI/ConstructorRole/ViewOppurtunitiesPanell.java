@@ -11,6 +11,9 @@ import Business.Network.Network;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.ConstructorRequest;
 import Business.WorkQueue.WorkRequest;
+import UI.Customer.DisplayCustomerInfoPanel;
+import UI.Customer.DisplayMerchantInfoPanel;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -388,7 +391,22 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
 
     private void btnviewappointerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewappointerActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = housingtable.getSelectedRow();
+
+        int count = housingtable.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount custAcc = (UserAccount) housingtable.getValueAt(selectedRow, 1);
+                DisplayCustomerInfoPanel displayCustomerInfoPanel = new DisplayCustomerInfoPanel(userProcessContainer, custAcc, useraccount, system);
+                userProcessContainer.add("DisplayCustomerInfoPanel", displayCustomerInfoPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
     }//GEN-LAST:event_btnviewappointerActionPerformed
 
     private void getquoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getquoteActionPerformed
@@ -396,7 +414,22 @@ public class ViewOppurtunitiesPanell extends javax.swing.JPanel {
     }//GEN-LAST:event_getquoteActionPerformed
 
     private void btnviewmerchantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewmerchantActionPerformed
-        
+        int selectedRow = housingtable.getSelectedRow();
+
+        int count = housingtable.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount merchantAcc = (UserAccount) housingtable.getValueAt(selectedRow, 2);
+                DisplayMerchantInfoPanel displayMerchantInfoPanel = new DisplayMerchantInfoPanel(userProcessContainer, merchantAcc, useraccount, system);
+                userProcessContainer.add("DisplayMerchantInfoPanel", displayMerchantInfoPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
     }//GEN-LAST:event_btnviewmerchantActionPerformed
 
     private void btndeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeclineActionPerformed
