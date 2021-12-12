@@ -17,7 +17,7 @@ import javax.swing.JPanel;
  *
  * @author sanik
  */
-public class BrokerEnterpriseAdminWorkAreaPanel extends javax.swing.JPanel {
+public class BrokerAdminWorkAreaPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Enterprise enterprise;
     EcoSystem system;
@@ -34,7 +34,7 @@ public class BrokerEnterpriseAdminWorkAreaPanel extends javax.swing.JPanel {
      * @param business
      * @param network
      */
-    public BrokerEnterpriseAdminWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation Organisation, Enterprise enterprise, Network network, EcoSystem business) {
+    public BrokerAdminWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation Organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
          this.userProcessContainer = userProcessContainer;
         this.account = account;

@@ -5,6 +5,7 @@
  */
 package Business.Organisation;
 
+import Business.Role.ConstructorRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -12,15 +13,15 @@ import java.util.ArrayList;
  *
  * @author Kiran
  */
-public class BuilderOrganisation extends Organisation{
-    public BuilderOrganisation(String name) {
+public class ConstructorOrganisation extends Organisation{
+    public ConstructorOrganisation(String name) {
         super(name);
     }
     
-    //@Override
+    @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        //roles.add(new BuilderRole());
+        roles.add(new ConstructorRole());
         return roles;
     }
        @Override

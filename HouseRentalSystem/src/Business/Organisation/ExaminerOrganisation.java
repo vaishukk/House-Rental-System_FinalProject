@@ -5,6 +5,7 @@
  */
 package Business.Organisation;
 
+import Business.Role.ExaminerRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -12,16 +13,16 @@ import java.util.ArrayList;
  *
  * @author Kiran
  */
-public class SupervisorOrganisation extends Organisation{
+public class ExaminerOrganisation extends Organisation{
     
-    public SupervisorOrganisation(String name) {
+    public ExaminerOrganisation(String name) {
         super(name);
     }
     
-    //@Override
+    @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        //roles.add(new SupervisorRole());
+        roles.add(new ExaminerRole());
         return roles;
     }
        @Override

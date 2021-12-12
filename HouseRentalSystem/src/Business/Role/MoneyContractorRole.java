@@ -10,24 +10,22 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
-import UI.Admin.BrokerAdminWorkAreaPanel;
-import UI.RepresentativeRole.RepresentativeWorkArea;
+import UI.MoneyLender.MoneyLenderWorkAreaPanel;
 import javax.swing.JPanel;
 
 /**
  *
- * @author sanik
+ * @author Kiran
  */
-public class BrokerRole extends Role{
-    
-    @Override
+public class MoneyContractorRole extends Role{
+     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise,Network network, EcoSystem business) {
-        return new RepresentativeWorkArea(userProcessContainer,account,organisation,enterprise,network,business);
+        return new MoneyLenderWorkAreaPanel(userProcessContainer,account,organisation,enterprise,network,business);
     }
 
     @Override
     public String toString(){
-        return (Role.RoleType.Broker.getValue());
+        return (RoleType.MoneyContractorEmployee.getValue());
     }
     
 }
