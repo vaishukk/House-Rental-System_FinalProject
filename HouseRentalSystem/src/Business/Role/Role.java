@@ -22,7 +22,7 @@ public abstract class Role {
         Admin("Admin"),
         Customer("Customer"),//Customer
         Merchant("Merchant"),//Merchant
-        Supervisor("Supervisor"),//Supervisor
+        Examiner("Examiner"),//Supervisor
         Broker("Broker"),//Broker
         Constructor("Constructor"),
         AssetManager("Asset Manager"),//AssetManager

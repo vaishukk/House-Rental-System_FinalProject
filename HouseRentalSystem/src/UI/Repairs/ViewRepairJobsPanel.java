@@ -5,6 +5,19 @@
  */
 package UI.Repairs;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.RepairServiceRequest;
+import Business.WorkQueue.WorkRequest;
+import UI.Customer.DisplayCustomerInfoPanel;
+import UI.Customer.DisplayMerchantInfoPanel;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sanik
@@ -14,9 +27,48 @@ public class ViewRepairJobsPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewRepairJobsPanel
      */
-    public ViewRepairJobsPanel() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount useraccount;
+    private Enterprise enterprise;
+    
+    public ViewRepairJobsPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.useraccount = useraccount;
+        this.enterprise = enterprise;
+        populateReqTable();
     }
+    public void populateReqTable() {
+        DefaultTableModel model = (DefaultTableModel) tblrepairs.getModel();
+        model.setRowCount(0);
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
+                    if (workRequest instanceof RepairServiceRequest) {
+                        if (((RepairServiceRequest) workRequest).getRepairservice().getUsername().equals(useraccount.getUsername())) {
+                            Object[] row = new Object[model.getColumnCount()];
+                            row[0] = workRequest;
+                            row[1] = ((RepairServiceRequest) workRequest).getCustomer();
+                            row[2] = ((RepairServiceRequest) workRequest).getMerchant();
+                            row[3] = ((RepairServiceRequest) workRequest).getAsset().getAddress();
+                            row[4] = ((RepairServiceRequest) workRequest).getAsset().getCity();
+                            row[5] = ((RepairServiceRequest) workRequest).getAsset().getState();
+                            row[6] = ((RepairServiceRequest) workRequest).getAsset().getZip();
+                            row[7] = ((RepairServiceRequest) workRequest).getStatus();
+                            row[8] = ((RepairServiceRequest) workRequest).getCustomerNote();
+                            row[9] = ((RepairServiceRequest) workRequest).getExaminerNote();
+                            row[10] = ((RepairServiceRequest) workRequest).getQuote();
+                            row[11] = ((RepairServiceRequest) workRequest).getCustomer().getRole().toString();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,7 +85,6 @@ public class ViewRepairJobsPanel extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblservice = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -76,13 +127,6 @@ public class ViewRepairJobsPanel extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -92,9 +136,7 @@ public class ViewRepairJobsPanel extends javax.swing.JPanel {
                 .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 649, Short.MAX_VALUE)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(731, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +144,6 @@ public class ViewRepairJobsPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(btnlogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -258,12 +299,55 @@ public class ViewRepairJobsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnacceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacceptActionPerformed
-        
+        int selectedRow = tblrepairs.getSelectedRow();
+        if (selectedRow >= 0) {
+            RepairServiceRequest checkRequest = (RepairServiceRequest) tblrepairs.getValueAt(selectedRow, 0);
+            try {
+                Double amount = Double.parseDouble(getamount.getText());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Quote");
+                return;
+            }
+            if (!"In Progress".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("In Progress");
+                checkRequest.setQuote(getamount.getText());
+                useraccount.setStatus("Occupied");
+                JOptionPane.showMessageDialog(null, "Job Taken Successfully!");
+                populateReqTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already taken!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnacceptActionPerformed
 
     private void btnfinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfinishActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = tblrepairs.getSelectedRow();
+        if (selectedRow >= 0) {
+            RepairServiceRequest checkRequest = (RepairServiceRequest) tblrepairs.getValueAt(selectedRow, 0);
+            String feedback = getfeedback.getText();
+            if (feedback.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            if (!"Completed".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("Completed");
+                checkRequest.setExaminerNote(feedback);
+                JOptionPane.showMessageDialog(null, "Job is set to completed!");
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
+                if (dialogResult == JOptionPane.YES_OPTION) {
+                    useraccount.setStatus("Available");
+                }
+                populateReqTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already completed!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnfinishActionPerformed
 
     private void getamountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getamountActionPerformed
@@ -272,23 +356,72 @@ public class ViewRepairJobsPanel extends javax.swing.JPanel {
 
     private void btnViewBuyerDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewBuyerDetailsActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = tblrepairs.getSelectedRow();
+
+        int count = tblrepairs.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount buyerAcc = (UserAccount) tblrepairs.getValueAt(selectedRow, 1);
+                DisplayCustomerInfoPanel displayCustomerInfoPanel = new DisplayCustomerInfoPanel(userProcessContainer, buyerAcc, useraccount, system);
+                userProcessContainer.add("DisplayCustomerInfoPanel", displayCustomerInfoPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
     }//GEN-LAST:event_btnViewBuyerDetailsActionPerformed
 
     private void btnViewSellerDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewSellerDetailsActionPerformed
         // TODO add your handling code here:
-       
+       int selectedRow = tblrepairs.getSelectedRow();
+
+        int count = tblrepairs.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount sellerAcc = (UserAccount) tblrepairs.getValueAt(selectedRow, 2);
+                DisplayMerchantInfoPanel displayMerchantInfoPanel = new DisplayMerchantInfoPanel(userProcessContainer, sellerAcc, useraccount, system);
+                userProcessContainer.add("DisplayMerchantInfoPanel", displayMerchantInfoPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
     }//GEN-LAST:event_btnViewSellerDetailsActionPerformed
 
     private void btndeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeclineActionPerformed
         // TODO add your handling code here:
-        // TODO add your handling code here:
+        int selectedRow = tblrepairs.getSelectedRow();
+        if (selectedRow >= 0) {
+            RepairServiceRequest checkRequest = (RepairServiceRequest) tblrepairs.getValueAt(selectedRow, 0);
+            String feedback = getfeedback.getText();
+            if (feedback.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                return;
+            }
+            if (!"Completed".equals(checkRequest.getStatus()) && !"In Progress".equals(checkRequest.getStatus())) {
+                checkRequest.setStatus("Rejected");
+                checkRequest.setExaminerNote(feedback);
+                JOptionPane.showMessageDialog(null, "Job is set to rejected!");
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
+                if (dialogResult == JOptionPane.YES_OPTION) {
+                    useraccount.setStatus("Available");
+                }
+                populateReqTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Job is already " + checkRequest.getStatus());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
         
     }//GEN-LAST:event_btndeclineActionPerformed
-
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -297,7 +430,6 @@ public class ViewRepairJobsPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnaccept;
     private javax.swing.JButton btndecline;
     private javax.swing.JButton btnfinish;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JTextField getamount;
     private javax.swing.JTextField getfeedback;
     private javax.swing.JPanel jPanel1;
