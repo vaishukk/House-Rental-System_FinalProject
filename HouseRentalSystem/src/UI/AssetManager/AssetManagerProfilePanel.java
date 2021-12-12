@@ -5,17 +5,47 @@
  */
 package UI.AssetManager;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Kiran
  */
+
 public class AssetManagerProfilePanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageDealerProfilePanel
      */
-    public AssetManagerProfilePanel() {
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Enterprise enterprise;
+    
+    public AssetManagerProfilePanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount, EcoSystem system) {
         initComponents();
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.userAccount = useraccount;
+        this.enterprise = enterprise;
+        populateRequestTable();
+    }
+    
+    public void populateRequestTable() {
+        getname.setText(userAccount.getName());
+        getprice.setText(userAccount.getCost());
+        getcity.setText(userAccount.getCity());
+        getavail.setText(userAccount.getStatus());
+        getzipcode.setText(userAccount.getZip());
+        getaddress.setText(userAccount.getAddress());
+        getmailid.setText(userAccount.getMailId());
+        getcontactnum.setText(userAccount.getContactnumber());
+        getstate.setText(userAccount.getState());
     }
 
     /**
@@ -113,6 +143,11 @@ public class AssetManagerProfilePanel extends javax.swing.JPanel {
         lblname.setText("Name:");
 
         getname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getnameActionPerformed(evt);
+            }
+        });
 
         lblcontact.setBackground(new java.awt.Color(255, 255, 255));
         lblcontact.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -257,7 +292,7 @@ public class AssetManagerProfilePanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblprice)
                     .addComponent(getprice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 950, 480));
@@ -284,8 +319,43 @@ public class AssetManagerProfilePanel extends javax.swing.JPanel {
 
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
-        
+        if (system.isNull(getname.getText()) || system.isNull(getprice.getText()) || system.isNull(getcity.getText())
+                || system.isNull(getavail.getText()) || system.isNull(getzipcode.getText()) || system.isNull(getaddress.getText())
+                || system.isNull(getmailid.getText()) || system.isNull(getcontactnum.getText()) || system.isNull(getstate.getText())) {
+            JOptionPane.showMessageDialog(null, "Please enter all fields!");
+            return;
+        } else if (!system.isDouble(getprice.getText())) {
+            JOptionPane.showMessageDialog(null, "Please enter valid charge!");
+            return;
+        } else if (!system.isInt(getzipcode.getText()) || getzipcode.getText().length() != 5) {
+            JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
+            return;
+        } else if (!system.checkValidPhoneFormat(getcontactnum.getText())) {
+            return;
+        } else if (!system.checkValidEmailFormat(getmailid.getText())) {
+            return;
+        } else if (!system.checkIfEmailIsUnique(getmailid.getText(), userAccount.getUsername())) {
+            return;
+        } else if (!system.checkIfPhoneIsUnique(getcontactnum.getText(), userAccount.getUsername())) {
+            return;
+        }
+        userAccount.setName(getname.getText());
+        userAccount.setCost(getprice.getText());
+        userAccount.setCity(getcity.getText());
+        userAccount.setStatus(getavail.getText());
+        userAccount.setZip(getzipcode.getText());
+        userAccount.setAddress(getaddress.getText());
+        userAccount.setMailId(getmailid.getText());
+        userAccount.setContactnumber(getcontactnum.getText());
+        userAccount.setState(getstate.getText());
+        JOptionPane.showMessageDialog(null, "Profile Updated Successfully!");
+                                          
+
     }//GEN-LAST:event_btnsubmitActionPerformed
+
+    private void getnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getnameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

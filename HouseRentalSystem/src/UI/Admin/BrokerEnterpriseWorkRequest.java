@@ -9,6 +9,7 @@ import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Organisation.Organisation;
 import Business.Organisation.OrganisationDirectory;
+import Business.Role.BrokerRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.RegistrationRequest;
 import Business.WorkQueue.WorkRequest;
@@ -252,7 +253,7 @@ public class BrokerEnterpriseWorkRequest extends javax.swing.JPanel {
             if (request.getOrgType() == Organisation.Type.Broker) {
                 Organisation org = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-               // UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new BrokerRole());
+                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new BrokerRole());
             }
 
             request.setStatus("Completed");

@@ -11,6 +11,8 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.Organisation.OrganisationDirectory;
+import Business.Role.CameraManRole;
+import Business.Role.ExaminerRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.RegistrationRequest;
 import Business.WorkQueue.WorkRequest;
@@ -335,11 +337,11 @@ public class QualityControlEnterpriseWorkRequest extends javax.swing.JPanel {
             if (request.getOrgType() == Organisation.Type.CameraMan) {
                 Organisation org = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                //UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new CameraManRole());
+                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new CameraManRole());
             }else if (request.getOrgType() == Organisation.Type.Supervisor) {
                 Organisation org = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                //UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new supervisorRole());
+                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new ExaminerRole());
             } 
 
             request.setStatus("Completed");

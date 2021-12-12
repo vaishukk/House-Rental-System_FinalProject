@@ -11,7 +11,12 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.Organisation.OrganisationDirectory;
+import Business.Role.CameraManRole;
 import Business.Role.ConstructorRole;
+import Business.Role.CustomerRole;
+import Business.Role.ExaminerRole;
+import Business.Role.MovpacRole;
+import Business.Role.RepairRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.RegistrationRequest;
 import Business.WorkQueue.WorkRequest;
@@ -333,26 +338,26 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
             if (request.getOrgType() == Organisation.Type.CameraMan) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                //UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new CameraManRole());
+                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new CameraManRole());
             }else if (request.getOrgType() == Organisation.Type.Supervisor) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-               // UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new SupervisorRole());
+                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new ExaminerRole());
             }             
             else if (request.getOrgType() == Organisation.Type.Repair) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                //UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new RepairRole());
+                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new RepairRole());
             } 
              else if (request.getOrgType() == Organisation.Type.MoversPackers) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                //UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new MoversPackerRole());
+                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new MovpacRole());
             } 
              else if (request.getOrgType() == Organisation.Type.Customer) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                //UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new CustomerRole());
+                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new CustomerRole());
             } 
              else if (request.getOrgType() == Organisation.Type.Constructor) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
