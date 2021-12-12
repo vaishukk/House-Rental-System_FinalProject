@@ -5,18 +5,57 @@
  */
 package UI.MoneyLender;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sanik
  */
+    
 public class MoneyLenderWorkAreaPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form MoneyLenderWorkAreaPanel
      */
-    public MoneyLenderWorkAreaPanel() {
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organisation organisation;
+    
+    public MoneyLenderWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organisation = organisation;
+        manageAdvertise();
+
     }
+    
+    private void manageAdvertise() {
+        ViewApplications viewApplications = new ViewApplications(userProcessContainer, enterprise, account, system);
+        rightworkarea.add("ViewApplications", viewApplications);
+        CardLayout layout = (CardLayout) rightworkarea.getLayout();
+        layout.next(rightworkarea);
+    }
+
+    private void manageProfile() {
+        ManageMoneyLenderProfile manageMoneyLenderProfile = new ManageMoneyLenderProfile(userProcessContainer, system, account);
+        rightworkarea.add("ManageMoneyLenderProfile", manageMoneyLenderProfile);
+        CardLayout layout = (CardLayout) rightworkarea.getLayout();
+        layout.next(rightworkarea);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -179,17 +218,18 @@ public class MoneyLenderWorkAreaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbldisplayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbldisplayMousePressed
-       
+
+        manageAdvertise();
     }//GEN-LAST:event_lbldisplayMousePressed
 
     private void displayloanpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayloanpanelMousePressed
         // TODO add your handling code here:
-       
+       manageAdvertise();
     }//GEN-LAST:event_displayloanpanelMousePressed
 
     private void manageprofilepanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageprofilepanelMousePressed
         // TODO add your handling code here:
-        
+        manageProfile();
     }//GEN-LAST:event_manageprofilepanelMousePressed
 
 
