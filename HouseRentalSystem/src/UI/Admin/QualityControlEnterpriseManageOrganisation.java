@@ -79,7 +79,6 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
         lblquality = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
         lblicon1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblorganization = new javax.swing.JLabel();
@@ -137,13 +136,6 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
-            }
-        });
-
         lblicon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeicon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -155,17 +147,14 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
                 .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(445, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnlogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(lblicon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblicon1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -272,8 +261,9 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -292,15 +282,10 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
        
     }//GEN-LAST:event_btnaddorganizationActionPerformed
 
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox OrganizationtypeBox;
     private javax.swing.JButton btnaddorganization;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JTextField getname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

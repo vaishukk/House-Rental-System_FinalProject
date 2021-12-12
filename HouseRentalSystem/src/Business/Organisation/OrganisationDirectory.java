@@ -29,15 +29,18 @@ public class OrganisationDirectory {
             organisation = new BrokerOrganisation(name);
             organisationList.add(organisation);
         } else if (type.getValue().equals(Type.Constructor.getValue())) {
-            organisation = new BuilderOrganisation(name);
+            organisation = new ConstructorOrganisation(name);
             organisationList.add(organisation);
         } else if (type.getValue().equals(Type.Examiner.getValue())) {
-            organisation = new SupervisorOrganisation(name);
+            organisation = new ExaminerOrganisation(name);
             organisationList.add(organisation);
         } else if (type.getValue().equals(Type.CameraMan.getValue())) {
             organisation = new PhotoVideoOrganisation(name);
             organisationList.add(organisation);
-        } 
+        } else if (type.getValue().equals(Type.AssetManager.getValue())) {
+            organisation = new AssetManagerOrganisation(name);
+            organisationList.add(organisation);
+        }
         else if (type.getValue().equals(Type.Repair.getValue())) {
             organisation = new RepairOrganisation(name);
             organisationList.add(organisation);

@@ -6,9 +6,14 @@
 package UI.Admin;
 
 import Business.EcoSystem;
+import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Organisation.Organisation;
+import Business.Role.Role;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -30,8 +35,8 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.ecosystem = system;
         this.organisation = organisation;
-        //populateOrganizationComboBox();
-        //populateData();
+        populateOrganizationBox();
+        populateTable();
     }
 
     /**
@@ -247,9 +252,9 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblusers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblicon))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblicon)
+                    .addComponent(lblusers))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(organizationbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -328,6 +333,11 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
 
     private void organizationboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationboxActionPerformed
 
+        Organisation org = (Organisation) organizationbox.getSelectedItem();
+        if (org != null) {
+            populateEmployeeBox(org);
+            populateRoleComboBox(org);
+        }
     }//GEN-LAST:event_organizationboxActionPerformed
 
     private void employeeboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeboxActionPerformed
@@ -340,8 +350,69 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
 
     private void btnaddusersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddusersActionPerformed
 
+        String username = getusername.getText();
+        String password = getpassword.getText();
+        if ("".equals(username) || "".equals(password) || organizationbox.getSelectedItem() == null
+                || employeebox.getSelectedItem() == null || rolebox.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "Please enter all required  fields!");
+            return;
+        }
+        if (!ecosystem.checkValidPasswordFormat(password)) {
+            return;
+        }
+        if (!ecosystem.checkIfUserIsUnique(username)) {
+            return;
+        }
+        Organisation org = (Organisation) organizationbox.getSelectedItem();
+        Employee employee = (Employee) employeebox.getSelectedItem();
+        Role role = (Role) rolebox.getSelectedItem();
+        org.getUserAccountDirectory().createUserAccount(username, password, employee, role);
+        populateTable();
+        getusername.setText("");
+        getpassword.setText("");
+        JOptionPane.showMessageDialog(null, "User created successfully");
     }//GEN-LAST:event_btnaddusersActionPerformed
 
+    public void populateOrganizationBox() {
+        organizationbox.removeAllItems();
+        for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
+            if (org.getType() != Organisation.Type.Customer) {
+                organizationbox.addItem(org);
+            }
+        }
+    }
+
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblUserDetails.getModel();
+
+        model.setRowCount(0);
+
+        for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
+            if (org.getType() != Organisation.Type.Customer) {
+                for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                    Object row[] = new Object[2];
+                    row[0] = ua;
+                    row[1] = ua.getRole();
+                    ((DefaultTableModel) tblUserDetails.getModel()).addRow(row);
+                }
+            }
+        }
+    }
+
+    public void populateEmployeeBox(Organisation organisation) {
+        employeebox.removeAllItems();
+
+        for (Employee employee : organisation.getEmployeeDirectory().getEmpList()) {
+            employeebox.addItem(employee);
+        }
+    }
+
+    private void populateRoleComboBox(Organisation organisation) {
+        rolebox.removeAllItems();
+        for (Role role : organisation.getSupportedRole()) {
+            rolebox.addItem(role);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaddusers;

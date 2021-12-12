@@ -5,6 +5,7 @@
  */
 package Business.Organisation;
 
+import Business.Role.CameraManRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -17,10 +18,10 @@ public class PhotoVideoOrganisation extends Organisation{
         super(name);
     }
     
-    //@Override
+    @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        //roles.add(new PhotoVideoRole());
+        roles.add(new CameraManRole());
         return roles;
     }
        @Override

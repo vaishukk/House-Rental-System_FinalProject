@@ -45,7 +45,7 @@ public class MaintenanceProviderManageEmployees extends javax.swing.JPanel {
     }
 
     private void populateTable() {
-        DefaultTableModel model = (DefaultTableModel) organizationbox.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblorganization.getModel();
 
         model.setRowCount(0);
 
@@ -77,7 +77,6 @@ public class MaintenanceProviderManageEmployees extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         lblemployee = new javax.swing.JLabel();
         lblorganization = new javax.swing.JLabel();
@@ -137,13 +136,6 @@ public class MaintenanceProviderManageEmployees extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -153,9 +145,7 @@ public class MaintenanceProviderManageEmployees extends javax.swing.JPanel {
                 .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(424, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +153,6 @@ public class MaintenanceProviderManageEmployees extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(btnlogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -321,10 +310,6 @@ public class MaintenanceProviderManageEmployees extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
-
     private void organizationboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_organizationboxActionPerformed
@@ -350,7 +335,6 @@ public class MaintenanceProviderManageEmployees extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaddemployee;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JTextField getname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -99,7 +99,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         networktable.setSelectionBackground(new java.awt.Color(56, 90, 174));
         jScrollPane1.setViewportView(networktable);
 
-        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 470, 790, 90));
+        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 790, 90));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -211,10 +211,10 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         lblsubsubtitle.setForeground(new java.awt.Color(255, 255, 255));
         lblsubsubtitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblsubsubtitle.setText("View Networks");
-        jPanel5.add(lblsubsubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 330, 30));
+        jPanel5.add(lblsubsubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 330, 30));
 
         lblsubsubicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-administrative-tools-50.png"))); // NOI18N
-        jPanel5.add(lblsubsubicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, -1, -1));
+        jPanel5.add(lblsubsubicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, -1, -1));
 
         add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
     }// </editor-fold>//GEN-END:initComponents

@@ -10,7 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
-import UI.Admin.BrokerEnterpriseAdminWorkAreaPanel;
+import UI.Admin.BrokerAdminWorkAreaPanel;
 import javax.swing.JPanel;
 
 /**
@@ -21,7 +21,7 @@ public class BrokerAdmin extends Role{
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise,Network network, EcoSystem business) {
-        return new BrokerEnterpriseAdminWorkAreaPanel(userProcessContainer, account,organisation, enterprise, network, business);
+        return new BrokerAdminWorkAreaPanel(userProcessContainer, account,organisation, enterprise, network, business);
     }
     
 }

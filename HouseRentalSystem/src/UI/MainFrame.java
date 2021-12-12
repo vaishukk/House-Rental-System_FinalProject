@@ -372,11 +372,11 @@ public class MainFrame extends javax.swing.JFrame {
                         networkEmergency = network;
                         if (userAccount == null) {
                             //Step 3:check against each organization for each enterprise
-                            for (Organisation organization : enterprise.getOrganisationDirectory().getOrganisationList()) {
-                                userAccount = organization.getUserAccountDirectory().authenticateUser(userName, password);
+                            for (Organisation organisation : enterprise.getOrganisationDirectory().getOrganisationList()) {
+                                userAccount = organisation.getUserAccountDirectory().authenticateUser(userName, password);
                                 if (userAccount != null) {
                                     inEnterprise = enterprise;
-                                    inOrganisation = organization;
+                                    inOrganisation = organisation;
                                     networkEmergency = network;
                                     break;
                                 }
@@ -455,11 +455,11 @@ public class MainFrame extends javax.swing.JFrame {
                         networkEmergency = network;
                         if (userAccount == null) {
                             //Step 3:check against each organization for each enterprise
-                            for (Organisation organization : enterprise.getOrganisationDirectory().getOrganisationList()) {
-                                userAccount = organization.getUserAccountDirectory().authenticateUser(userName, password);
+                            for (Organisation organisation : enterprise.getOrganisationDirectory().getOrganisationList()) {
+                                userAccount = organisation.getUserAccountDirectory().authenticateUser(userName, password);
                                 if (userAccount != null) {
                                     inEnterprise = enterprise;
-                                    inOrganisation = organization;
+                                    inOrganisation = organisation;
                                     networkEmergency = network;
                                     break;
                                 }

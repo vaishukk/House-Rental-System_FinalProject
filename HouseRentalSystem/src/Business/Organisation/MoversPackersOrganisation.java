@@ -5,6 +5,7 @@
  */
 package Business.Organisation;
 
+import Business.Role.MovpacRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -18,10 +19,10 @@ public class MoversPackersOrganisation extends Organisation{
         super(name);
     }
     
-    //@Override
+    @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        //roles.add(new MoversPackersRole());
+        roles.add(new MovpacRole());
         return roles;
     }
        @Override
