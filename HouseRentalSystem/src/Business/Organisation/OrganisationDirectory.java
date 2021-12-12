@@ -31,7 +31,7 @@ public class OrganisationDirectory {
         } else if (type.getValue().equals(Type.Constructor.getValue())) {
             organisation = new BuilderOrganisation(name);
             organisationList.add(organisation);
-        } else if (type.getValue().equals(Type.Supervisor.getValue())) {
+        } else if (type.getValue().equals(Type.Examiner.getValue())) {
             organisation = new SupervisorOrganisation(name);
             organisationList.add(organisation);
         } else if (type.getValue().equals(Type.CameraMan.getValue())) {

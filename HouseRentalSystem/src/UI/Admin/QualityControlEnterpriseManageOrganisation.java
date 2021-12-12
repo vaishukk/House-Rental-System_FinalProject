@@ -45,7 +45,7 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
      private void populateOrganizationtypeBox() {
         OrganizationtypeBox.removeAllItems();
         OrganizationtypeBox.addItem(Organisation.Type.CameraMan);
-        OrganizationtypeBox.addItem(Organisation.Type.Supervisor);
+        OrganizationtypeBox.addItem(Organisation.Type.Examiner);
     }
 
     public void PopulateTable() {

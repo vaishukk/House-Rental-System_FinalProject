@@ -31,7 +31,7 @@ public abstract class Organisation {
         Repair("Repair Organization"),
         AssetManager("Asset Manager Organization"),
         Constructor("Constructor Organization"),
-        Supervisor("Supervisor Organization"),
+        Examiner("Examiner Organization"),
         Broker("Broker Organization"),
         MoneyContractor("MoneyContractor Organization"),
         CameraMan("CameraMan Organization"),

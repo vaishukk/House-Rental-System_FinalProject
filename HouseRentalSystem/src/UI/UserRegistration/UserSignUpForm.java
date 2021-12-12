@@ -11,6 +11,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.Role.CustomerRole;
+import Business.SMS.Sms;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.RegistrationRequest;
 import Business.WorkQueue.WorkQueue;
@@ -45,9 +46,15 @@ public class UserSignUpForm extends javax.swing.JPanel {
     }
     
     public void populateOrgTypes() {
-        organizationbox.addItem(Organisation.Type.Broker);
-        
-        organizationbox.addItem(Organisation.Type.Broker);
+        organizationbox.addItem(Organisation.Type.Broker);        
+        organizationbox.addItem(Organisation.Type.MoversPackers);       
+        organizationbox.addItem(Organisation.Type.CameraMan);
+        organizationbox.addItem(Organisation.Type.Repair);
+        organizationbox.addItem(Organisation.Type.AssetManager);
+        organizationbox.addItem(Organisation.Type.Constructor);
+        organizationbox.addItem(Organisation.Type.Examiner);
+        organizationbox.addItem(Organisation.Type.Customer);
+        organizationbox.addItem(Organisation.Type.Merchant);
         
     }
 
@@ -499,7 +506,7 @@ public class UserSignUpForm extends javax.swing.JPanel {
             registrationRequest.setNetwork(network);
             registrationRequest.setUserCity(city);
             registrationRequest.setOrgType(type);
-            //registrationRequest.setStatus("Requested");
+            registrationRequest.setStatus("Requested");
             registrationRequest.setUserContact(phone);
 
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
@@ -512,16 +519,16 @@ public class UserSignUpForm extends javax.swing.JPanel {
                     }
                 }
                 if(flag){
-                    //enterprise.getWorkQueue().getWorkRequestList().add(registrationRequest);
+                    enterprise.getWorkQueue().getWrkReqList().add(registrationRequest);
                 }
             }
         }
         if (flag) {
 //            pleaseWait.setVisible(true);
-//            btnRegister.setEnabled(false);
+            btnSignUp.setEnabled(false);
             String bodyMsg = "Hello " + username + ", \n Thank you for registering with us. Your account will be activated within 48 hours. We will keep you posted here.";
             system.sendEmailMessage(emailAddress, bodyMsg);
-            //SendSMS sendSMS = new SendSMS(phone, bodyMsg);
+            Sms sendSMS = new Sms(phone, bodyMsg);
             JOptionPane.showMessageDialog(null, "You have been registered succesfully!");
         } else {
             JOptionPane.showMessageDialog(null, "Sorry! No such Organization is created by the enterprise");

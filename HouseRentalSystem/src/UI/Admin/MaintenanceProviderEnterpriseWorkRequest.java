@@ -339,7 +339,7 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
                 UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new CameraManRole());
-            }else if (request.getOrgType() == Organisation.Type.Supervisor) {
+            }else if (request.getOrgType() == Organisation.Type.Examiner) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
                 UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new ExaminerRole());
