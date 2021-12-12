@@ -117,7 +117,7 @@ public class MaintenanceProviderEnterpriseUseraccount extends javax.swing.JPanel
 
         jScrollPane1.setForeground(new java.awt.Color(0, 102, 255));
 
-        tblUserDetails.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tblUserDetails.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tblUserDetails.setForeground(new java.awt.Color(25, 56, 82));
         tblUserDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -268,7 +268,6 @@ public class MaintenanceProviderEnterpriseUseraccount extends javax.swing.JPanel
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblemployee)
                                     .addComponent(lblorganization)

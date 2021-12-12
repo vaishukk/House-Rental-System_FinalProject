@@ -119,7 +119,7 @@ public class ViewCustomerPanel extends javax.swing.JPanel {
                 .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(792, Short.MAX_VALUE))
+                .addContainerGap(819, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +131,7 @@ public class ViewCustomerPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 70));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1310, 70));
 
         btnBack1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnBack1.setText("BACK");
@@ -141,70 +141,64 @@ public class ViewCustomerPanel extends javax.swing.JPanel {
             }
         });
 
-        lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblsubtitle.setForeground(new java.awt.Color(0, 0, 51));
         lblsubtitle.setText("CUSTOMER DETAILS");
         lblsubtitle.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         lblname.setBackground(new java.awt.Color(255, 255, 255));
-        lblname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblname.setText("Name:");
 
-        getname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getname.setEnabled(false);
 
         lblcontact.setBackground(new java.awt.Color(255, 255, 255));
-        lblcontact.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcontact.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcontact.setText("Contact No:");
 
-        getcontact.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcontact.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getcontact.setEnabled(false);
 
         lbladdress.setBackground(new java.awt.Color(255, 255, 255));
-        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lbladdress.setText("Street name:");
 
-        getstreetadd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getstreetadd.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getstreetadd.setEnabled(false);
 
         lblmail.setBackground(new java.awt.Color(255, 255, 255));
-        lblmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblmail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblmail.setText("Mail id:");
 
-        getmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getmailid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getmailid.setEnabled(false);
 
         lblpincode.setBackground(new java.awt.Color(255, 255, 255));
-        lblpincode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblpincode.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblpincode.setText("Zipcode:");
 
-        getzipcode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getzipcode.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getzipcode.setEnabled(false);
 
         lblstateid.setBackground(new java.awt.Color(255, 255, 255));
-        lblstateid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblstateid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblstateid.setText("StateId:");
 
-        getstateid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getstateid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getstateid.setEnabled(false);
 
         lblselhouse.setBackground(new java.awt.Color(255, 255, 255));
-        lblselhouse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblselhouse.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblselhouse.setText("House Choosen:");
 
-        getchosenhouse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getchosenhouse.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getchosenhouse.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblsubtitle, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(259, 259, 259)
-                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(427, 427, 427)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,29 +211,32 @@ public class ViewCustomerPanel extends javax.swing.JPanel {
                     .addComponent(lblname))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(getchosenhouse, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                    .addComponent(getname)
-                    .addComponent(getcontact)
-                    .addComponent(getmailid)
-                    .addComponent(getstreetadd)
-                    .addComponent(getzipcode)
-                    .addComponent(getstateid))
-                .addGap(50, 50, 50)
-                .addComponent(houseimg, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblsubtitle, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(94, 94, 94))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(getchosenhouse, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
+                            .addComponent(getname)
+                            .addComponent(getcontact)
+                            .addComponent(getmailid)
+                            .addComponent(getstreetadd)
+                            .addComponent(getzipcode)
+                            .addComponent(getstateid))
+                        .addGap(50, 50, 50)
+                        .addComponent(houseimg, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(33, Short.MAX_VALUE)
-                        .addComponent(lblsubtitle)
-                        .addGap(30, 30, 30)))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblsubtitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,27 +270,17 @@ public class ViewCustomerPanel extends javax.swing.JPanel {
                 .addGap(42, 42, 42))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1160, 410));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1310, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1154, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 624, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 757, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

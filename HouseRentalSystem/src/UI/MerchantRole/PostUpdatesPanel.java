@@ -150,29 +150,29 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 570, 105, 60));
+        jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 540, 105, 60));
 
         lblsubtitle.setBackground(new java.awt.Color(255, 255, 255));
-        lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblsubtitle.setText("HOUSING UPDATES POSTS");
         lblsubtitle.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         lblname.setBackground(new java.awt.Color(255, 255, 255));
-        lblname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblname.setText("Name :");
 
-        getname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblnameinvalid.setBackground(new java.awt.Color(255, 255, 255));
-        lblnameinvalid.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblnameinvalid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblnameinvalid.setForeground(new java.awt.Color(255, 0, 0));
         lblnameinvalid.setText("Invalid entry");
 
         lbladdress.setBackground(new java.awt.Color(255, 255, 255));
-        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lbladdress.setText("Address:");
 
-        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getaddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getaddressActionPerformed(evt);
@@ -180,61 +180,61 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
         });
 
         lblcity.setBackground(new java.awt.Color(255, 255, 255));
-        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcity.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcity.setText("City:");
 
-        getcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcity.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblstate.setBackground(new java.awt.Color(255, 255, 255));
-        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblstate.setText("State:");
 
-        getstatename.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getstatename.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblzipcode.setBackground(new java.awt.Color(255, 255, 255));
-        lblzipcode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblzipcode.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblzipcode.setText("Zipcode:");
 
-        getpincode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getpincode.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblbhk.setBackground(new java.awt.Color(255, 255, 255));
-        lblbhk.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblbhk.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblbhk.setText("No of Bhk:");
 
-        getbhk.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getbhk.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblbhkinvalid.setBackground(new java.awt.Color(255, 255, 255));
-        lblbhkinvalid.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblbhkinvalid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblbhkinvalid.setForeground(new java.awt.Color(255, 0, 0));
         lblbhkinvalid.setText("Invalid entry");
 
         lblbath.setBackground(new java.awt.Color(255, 255, 255));
-        lblbath.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblbath.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblbath.setText("No of Restrooms:");
 
-        getrestroomnumber.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getrestroomnumber.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblrestroominvalid.setBackground(new java.awt.Color(255, 255, 255));
-        lblrestroominvalid.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblrestroominvalid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblrestroominvalid.setForeground(new java.awt.Color(255, 0, 0));
         lblrestroominvalid.setText("Invalid enrty");
 
         lblcoordinates.setBackground(new java.awt.Color(255, 255, 255));
-        lblcoordinates.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcoordinates.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcoordinates.setText("Coordinates (LAT)");
 
-        getlatitude.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getlatitude.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lbllatinvalid.setBackground(new java.awt.Color(255, 255, 255));
-        lbllatinvalid.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lbllatinvalid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lbllatinvalid.setForeground(new java.awt.Color(255, 0, 0));
         lbllatinvalid.setText("Invalid entry please enter latitude in 0.0 format");
 
         lblcoordinateslon.setBackground(new java.awt.Color(255, 255, 255));
-        lblcoordinateslon.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcoordinateslon.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcoordinateslon.setText("Coordinates (LON)");
 
-        getlong.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getlong.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getlong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getlongActionPerformed(evt);
@@ -242,22 +242,22 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
         });
 
         lblloginvalid.setBackground(new java.awt.Color(255, 255, 255));
-        lblloginvalid.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblloginvalid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblloginvalid.setForeground(new java.awt.Color(255, 0, 0));
         lblloginvalid.setText("Invalid entry please enter longitude in 0.0 format");
 
         lblrent.setBackground(new java.awt.Color(255, 255, 255));
-        lblrent.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblrent.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblrent.setText("Cost of Rent:");
 
-        getprice.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getprice.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         lblupload.setBackground(new java.awt.Color(255, 255, 255));
-        lblupload.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblupload.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblupload.setText("Image Upload:");
 
         btnchoose.setBackground(new java.awt.Color(255, 255, 255));
-        btnchoose.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnchoose.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnchoose.setText("Select Image");
         btnchoose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,14 +265,16 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
             }
         });
 
-        lblpriceinvalid.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblpriceinvalid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblpriceinvalid.setForeground(new java.awt.Color(255, 0, 0));
         lblpriceinvalid.setText("Invalid entry please enter  price in 0.0 format");
 
-        lblimgpath.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblimgpath.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblimgpath.setForeground(new java.awt.Color(255, 0, 0));
 
-        lblimageinvalid.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        homeimg.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        lblimageinvalid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblimageinvalid.setForeground(new java.awt.Color(255, 0, 0));
         lblimageinvalid.setText("Upload the image!!");
 
@@ -280,59 +282,60 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(407, 407, 407)
-                .addComponent(lblsubtitle)
-                .addGap(62, 630, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(303, 303, 303)
+                        .addGap(407, 407, 407)
+                        .addComponent(lblsubtitle))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(303, 303, 303)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbladdress)
-                                    .addComponent(lblcity)
-                                    .addComponent(lblstate)
-                                    .addComponent(lblname)
-                                    .addComponent(lblzipcode)
-                                    .addComponent(lblbhk)
-                                    .addComponent(lblbath)
-                                    .addComponent(lblcoordinates)
-                                    .addComponent(lblcoordinateslon)
-                                    .addComponent(lblrent))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(getname, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
-                                    .addComponent(getaddress)
-                                    .addComponent(getcity)
-                                    .addComponent(getstatename)
-                                    .addComponent(getpincode)
-                                    .addComponent(getbhk)
-                                    .addComponent(getrestroomnumber)
-                                    .addComponent(getlatitude)
-                                    .addComponent(getlong)
-                                    .addComponent(getprice)))
-                            .addComponent(lblupload)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblimgpath, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbladdress)
+                                            .addComponent(lblcity)
+                                            .addComponent(lblstate)
+                                            .addComponent(lblname)
+                                            .addComponent(lblzipcode)
+                                            .addComponent(lblbhk)
+                                            .addComponent(lblbath)
+                                            .addComponent(lblcoordinates)
+                                            .addComponent(lblcoordinateslon)
+                                            .addComponent(lblrent))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(getname, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                                            .addComponent(getaddress)
+                                            .addComponent(getcity)
+                                            .addComponent(getstatename)
+                                            .addComponent(getpincode)
+                                            .addComponent(getbhk)
+                                            .addComponent(getrestroomnumber)
+                                            .addComponent(getlatitude)
+                                            .addComponent(getlong)
+                                            .addComponent(getprice)))
+                                    .addComponent(lblupload)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblimgpath, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(64, 64, 64)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnchoose, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblimageinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(72, 72, 72)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnchoose, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblimageinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(72, 72, 72)))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblnameinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblbhkinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblrestroominvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbllatinvalid)
-                    .addComponent(lblloginvalid)
-                    .addComponent(lblpriceinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(homeimg, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(229, Short.MAX_VALUE))
+                            .addComponent(lblnameinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblbhkinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblrestroominvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbllatinvalid)
+                            .addComponent(lblloginvalid)
+                            .addComponent(lblpriceinvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(homeimg, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(62, 239, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -407,7 +410,7 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
                         .addGap(24, 24, 24))))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 540));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 520));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1280, 700));
 
@@ -437,7 +440,7 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
                 .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 640, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 637, Short.MAX_VALUE)
                 .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
         );
@@ -461,21 +464,19 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1281, Short.MAX_VALUE)
+            .addGap(0, 1311, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 15, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
+            .addGap(0, 751, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 26, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 

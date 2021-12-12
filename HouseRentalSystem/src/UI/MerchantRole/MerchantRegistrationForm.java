@@ -69,7 +69,7 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
         uploadlbl = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnsave = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        lblhouse = new javax.swing.JLabel();
         txtHouse = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         btnloanrequires = new javax.swing.JCheckBox();
@@ -108,15 +108,15 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
                 btnsaveActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 540, 100, 50));
+        jPanel1.add(btnsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 470, 100, 50));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("HOUSE:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, -1, 27));
+        lblhouse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblhouse.setForeground(new java.awt.Color(255, 255, 255));
+        lblhouse.setText("HOUSE:");
+        jPanel1.add(lblhouse, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, 27));
 
         txtHouse.setEnabled(false);
-        jPanel1.add(txtHouse, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 127, 27));
+        jPanel1.add(txtHouse, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 127, 27));
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 514, 269, -1));
 
         btnloanrequires.setText("GET LOAN");
@@ -125,7 +125,7 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
                 btnloanrequiresActionPerformed(evt);
             }
         });
-        jPanel1.add(btnloanrequires, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 130, 30));
+        jPanel1.add(btnloanrequires, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, 130, 30));
 
         fileNameLabel.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         fileNameLabel.setForeground(new java.awt.Color(25, 56, 82));
@@ -163,36 +163,36 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
-        lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblsubtitle.setText("REGISTRATION FORM");
         lblsubtitle.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        lblname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblname.setText("Name:");
 
-        getname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        lblcontactnumber.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblcontactnumber.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblcontactnumber.setText("Contact No:");
 
-        getcontactnumber.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcontactnumber.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        lblemail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblemail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblemail.setText("Mail id");
 
-        getmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getmailid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lbladdress.setText("Address");
 
-        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        lblzip.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblzip.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblzip.setText("Zipcode");
 
-        getzipcode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getzipcode.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        btnprevious.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnprevious.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnprevious.setText("BACK");
         btnprevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,12 +200,12 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
             }
         });
 
-        lblProfID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblProfID.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblProfID.setText("ID Proof:");
 
-        getidproof.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getidproof.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        btnidproofuppload.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnidproofuppload.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnidproofuppload.setText("ID Proof Upload");
         btnidproofuppload.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnidproofuppload.addActionListener(new java.awt.event.ActionListener() {
@@ -219,13 +219,12 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(362, 362, 362)
-                .addComponent(lblsubtitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
-                .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(134, 134, 134))
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(362, 362, 362)
+                        .addComponent(lblsubtitle)
+                        .addGap(192, 192, 192)
+                        .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(294, 294, 294)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,9 +245,9 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
                         .addGap(52, 52, 52)
                         .addComponent(documentimg, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(367, 367, 367)
+                        .addGap(377, 377, 377)
                         .addComponent(btnidproofuppload)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,9 +255,9 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnprevious, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblsubtitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblsubtitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblname)
@@ -286,31 +285,27 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(65, 65, 65)
                         .addComponent(documentimg, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(btnidproofuppload, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+                .addGap(22, 22, 22)
+                .addComponent(btnidproofuppload, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 960, 360));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1050, 340));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 958, Short.MAX_VALUE)
+            .addGap(0, 1050, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 958, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1050, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGap(0, 786, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -435,7 +430,6 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
     private javax.swing.JTextField getname;
     private javax.swing.JTextField getzipcode;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -444,6 +438,7 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
     private javax.swing.JLabel lbladdress;
     private javax.swing.JLabel lblcontactnumber;
     private javax.swing.JLabel lblemail;
+    private javax.swing.JLabel lblhouse;
     private javax.swing.JLabel lblicon;
     private javax.swing.JLabel lblname;
     private javax.swing.JLabel lblsubtitle;
