@@ -31,4 +31,25 @@ public class AssetDirectory {
         return null;
     }
     
+    public void removeAsset(Asset asset) {
+        assetList.remove(asset);
+    }
+    
+    public Asset searchAssetName(String AssetName) {
+        for (Asset asset : assetList) {
+            if (asset.getAssetName().equalsIgnoreCase(AssetName)) {
+                return asset;
+            }
+        }
+        return null;
+    }
+    
+    public void addAsset(Asset asset) {
+        assetList.add(asset);
+    }
+    
+    public String createAssetID() {
+        return "Asset" + (assetList.size() + 1);
+    }
+    
 }

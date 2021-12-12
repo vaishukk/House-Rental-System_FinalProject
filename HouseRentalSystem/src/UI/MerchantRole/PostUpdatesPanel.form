@@ -107,9 +107,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="407" max="-2" attributes="0"/>
                           <Component id="lblsubtitle" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnprevious" min="-2" pref="88" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                          <EmptySpace min="62" pref="630" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -148,6 +146,8 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblimgpath" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnchoose" min="-2" pref="146" max="-2" attributes="0"/>
                                       <Component id="lblimageinvalid" min="-2" pref="200" max="-2" attributes="0"/>
@@ -156,27 +156,18 @@
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblnameinvalid" min="-2" pref="220" max="-2" attributes="0"/>
-                                      <Component id="lblbhkinvalid" min="-2" pref="210" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblrestroominvalid" min="-2" pref="190" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="fileNameLabel" min="-2" pref="240" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="lbllatinvalid" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblloginvalid" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblpriceinvalid" min="-2" pref="243" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="lblnameinvalid" min="-2" pref="220" max="-2" attributes="0"/>
+                              <Component id="lblbhkinvalid" min="-2" pref="210" max="-2" attributes="0"/>
+                              <Component id="lblrestroominvalid" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="lbllatinvalid" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblloginvalid" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblpriceinvalid" min="-2" pref="243" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  <Component id="imgupload" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="homeimg" min="-2" pref="300" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="83" max="32767" attributes="0"/>
+                          <EmptySpace pref="229" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -184,10 +175,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnprevious" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="lblsubtitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblsubtitle" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblname" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -221,13 +209,10 @@
                               <Component id="lblbhkinvalid" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="lblbath" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="getrestroomnumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblrestroominvalid" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="fileNameLabel" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblbath" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="getrestroomnumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblrestroominvalid" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -242,21 +227,25 @@
                               <Component id="lblloginvalid" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblrent" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="getprice" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblpriceinvalid" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="getprice" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblpriceinvalid" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="imgupload" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="homeimg" min="-2" pref="130" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                           <Component id="lblupload" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lblimgpath" min="-2" pref="20" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -275,25 +264,6 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="btnprevious">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="66" green="66" red="66" type="rgb"/>
-                    </Property>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="BACK"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder roundedCorners="true"/>
-                      </Border>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpreviousActionPerformed"/>
-                  </Events>
-                </Component>
                 <Component class="javax.swing.JLabel" name="lblsubtitle">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -602,7 +572,7 @@
                     <Property name="text" type="java.lang.String" value="Invalid entry please enter  price in 0.0 format"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="fileNameLabel">
+                <Component class="javax.swing.JLabel" name="lblimgpath">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
@@ -612,7 +582,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="imgupload">
+                <Component class="javax.swing.JLabel" name="homeimg">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblimageinvalid">
                   <Properties>
@@ -649,7 +619,9 @@
                       <Component id="lblicon" min="-2" pref="71" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lbltitle" min="-2" pref="382" max="-2" attributes="0"/>
-                      <EmptySpace pref="792" max="32767" attributes="0"/>
+                      <EmptySpace pref="640" max="32767" attributes="0"/>
+                      <Component id="btnprevious" min="-2" pref="88" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -662,6 +634,11 @@
                           <Component id="lbltitle" alignment="1" min="-2" pref="51" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="btnprevious" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -681,6 +658,25 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="HOUSE RENTALS"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnprevious">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="BACK"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder roundedCorners="true"/>
+                  </Border>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpreviousActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

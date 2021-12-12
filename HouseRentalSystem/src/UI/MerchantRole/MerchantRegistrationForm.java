@@ -18,6 +18,16 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.MoneyContractorEmployeeRequest;
+import java.awt.CardLayout;
+import java.awt.Image;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MerchantRegistrationForm extends javax.swing.JPanel {
@@ -83,6 +93,7 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
         lblProfID = new javax.swing.JLabel();
         getidproof = new javax.swing.JTextField();
         btnidproofuppload = new javax.swing.JButton();
+        documentimg = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -231,43 +242,50 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
                             .addComponent(getmailid)
                             .addComponent(getaddress)
                             .addComponent(getzipcode)
-                            .addComponent(getidproof)))
+                            .addComponent(getidproof))
+                        .addGap(52, 52, 52)
+                        .addComponent(documentimg, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(367, 367, 367)
                         .addComponent(btnidproofuppload)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnprevious, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblsubtitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblname)
-                    .addComponent(getname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblcontactnumber, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(getcontactnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblemail)
-                    .addComponent(getmailid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbladdress)
-                    .addComponent(getaddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblzip)
-                    .addComponent(getzipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblProfID)
-                    .addComponent(getidproof, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnprevious, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblsubtitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblname)
+                            .addComponent(getname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblcontactnumber, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(getcontactnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblemail)
+                            .addComponent(getmailid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbladdress)
+                            .addComponent(getaddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblzip)
+                            .addComponent(getzipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblProfID)
+                            .addComponent(getidproof, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(documentimg, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(btnidproofuppload, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
@@ -299,30 +317,116 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
 
     private void btnidproofupploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnidproofupploadActionPerformed
         // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        int result = fileChooser.showSaveDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            imagePath = selectedFile.getAbsolutePath();
+            String regex
+                    = "([^\\s]+(\\.(?i)(jpe?g|png|gif|bmp))$)";
+            Pattern p = Pattern.compile(regex);
+            Matcher m = p.matcher(imagePath);
+            if (!m.matches()) {
+                JOptionPane.showMessageDialog(null, "Please enter valid image file!");
+                return;
+            }
+            fileNameLabel.setText(imagePath);
+            viewImg(imagePath);
+            JOptionPane.showMessageDialog(null, "Picture Uploaded Successfully");
+
+        }
+        
+        
         
     }//GEN-LAST:event_btnidproofupploadActionPerformed
 
+    public void viewImg(String imgPath) {
+        documentimg.setIcon(ResizeImage(imgPath));
+    }
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
-       
+       String name = getname.getText();
+        String contact = getcontactnumber.getText();
+        String address = getaddress.getText();
+        String zipcode = getzipcode.getText();
+        String mailId = getmailid.getText();
+        String nationalId = getidproof.getText();
+        String idDoc = imagePath;
+        Boolean appLoan = btnloanrequires.isSelected();
+
+        if (name.isEmpty() || address.isEmpty() || contact.isEmpty() || zipcode.isEmpty() || nationalId.isEmpty() || mailId.isEmpty() || idDoc.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter the missing field to continue!");
+        }else if(!system.isInt(getzipcode.getText()) || getzipcode.getText().length() != 5){
+            JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
+            return;
+        }else if(!system.checkValidPhoneFormat(getcontactnumber.getText())){
+            return;
+        }else if(!system.checkValidEmailFormat(getmailid.getText())){
+            return;
+        }else if(!system.checkIfEmailIsUnique(getmailid.getText(), useraccount.getUsername())){
+            return;
+        }else if(!system.checkIfPhoneIsUnique(getcontactnumber.getText(), useraccount.getUsername())){
+            return;
+        } else if (!system.isInt(getzipcode.getText()) || getzipcode.getText().length() != 5) {
+            JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
+            return;
+        } else {
+            useraccount.setName(name);
+            useraccount.setContactnumber(contact);
+            useraccount.setMailId(mailId);
+            useraccount.setAddress(address);
+            useraccount.setZip(zipcode);
+            useraccount.setNationId(nationalId);
+            useraccount.setIdDoc(idDoc);
+            ArrayList<UserAccount> registeredCust = asset.getRegisteredCustomer();
+            registeredCust.add(useraccount);
+            asset.setRegisteredCustomer(registeredCust);
+            if (appLoan) {
+                for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+                    for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
+                        if (org.getType() == Organisation.Type.MoneyContractor) {
+                            MoneyContractorEmployeeRequest mce = new MoneyContractorEmployeeRequest();
+                            mce.setRequestID();
+                            mce.setCustomer(useraccount);
+                            mce.setMerchant(asset.getMerchant());
+                            mce.setStatus("Pending");
+                            mce.setAsset(asset);
+                            e.getWorkQueue().getWrkReqList().add(mce);
+                            JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
+                        }
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(this, "Thank you for submitting the form!");
+        }
        
     }//GEN-LAST:event_btnsaveActionPerformed
 
     private void btnpreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpreviousActionPerformed
         // TODO add your handling code here:
-       
+       userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnpreviousActionPerformed
 
     private void btnloanrequiresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloanrequiresActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnloanrequiresActionPerformed
 
+    public ImageIcon ResizeImage(String ImagePath) {
+        ImageIcon MyImage = new ImageIcon(ImagePath);
+        Image img = MyImage.getImage();
+        Image newImg = img.getScaledInstance(documentimg.getWidth(), documentimg.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImg);
+        return image;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnidproofuppload;
     private javax.swing.JCheckBox btnloanrequires;
     private javax.swing.JButton btnprevious;
     private javax.swing.JButton btnsave;
+    private javax.swing.JLabel documentimg;
     private javax.swing.JLabel fileNameLabel;
     private javax.swing.JTextField getaddress;
     private javax.swing.JTextField getcontactnumber;

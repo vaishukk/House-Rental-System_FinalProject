@@ -246,53 +246,63 @@
                                   <Component id="getzipcode" alignment="0" max="32767" attributes="0"/>
                                   <Component id="getidproof" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                              <Component id="documentimg" min="-2" pref="249" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="367" max="-2" attributes="0"/>
                               <Component id="btnidproofuppload" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="70" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnprevious" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lblsubtitle" min="-2" pref="37" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblname" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="getname" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblcontactnumber" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="getcontactnumber" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblemail" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="getmailid" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbladdress" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="getaddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblzip" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="getzipcode" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblProfID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="getidproof" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnprevious" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="lblsubtitle" min="-2" pref="37" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblname" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="getname" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblcontactnumber" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="getcontactnumber" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblemail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="getmailid" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lbladdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="getaddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblzip" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="getzipcode" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblProfID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="getidproof" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                              <Component id="documentimg" min="-2" pref="197" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnidproofuppload" pref="60" max="32767" attributes="0"/>
@@ -429,6 +439,8 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnidproofupploadActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="documentimg">
             </Component>
           </SubComponents>
         </Container>

@@ -5,6 +5,14 @@
  */
 package UI.MerchantRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organisation.Organisation;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author nemod
@@ -14,8 +22,44 @@ public class MerchantWorkAreaPanel extends javax.swing.JPanel {
     /**
      * Creates new form MerchantWorkAreaPanel
      */
-    public MerchantWorkAreaPanel() {
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organisation organisation;
+    
+    public MerchantWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organisation = organisation;
+        manageAdvertise();
+
+    }
+
+    private void manageAdvertise() {
+        PostUpdatesPanel postUpdatesPanel = new PostUpdatesPanel(rightSystemAdminPanel, enterprise, account, system);
+        rightSystemAdminPanel.add("PostUpdatesPanel", postUpdatesPanel);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+
+    private void manageHouses() {
+        ManageHousePanel manageHousePanel = new ManageHousePanel(rightSystemAdminPanel, enterprise, account, system);
+        rightSystemAdminPanel.add("ManageHousePanel", manageHousePanel);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }
+
+    private void manageProfile() {
+        ManageMerchantProfilePanel manageMerchantProfilePanel = new ManageMerchantProfilePanel(rightSystemAdminPanel, system, account);
+        rightSystemAdminPanel.add("ManageMerchantProfilePanel", manageMerchantProfilePanel);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
     }
 
     /**
@@ -102,6 +146,11 @@ public class MerchantWorkAreaPanel extends javax.swing.JPanel {
         manageprof.setText("MANAGE PROFILE");
         manageprof.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageprof.setPreferredSize(new java.awt.Dimension(115, 16));
+        manageprof.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageprofMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout manageprofPanelLayout = new javax.swing.GroupLayout(manageprofPanel);
         manageprofPanel.setLayout(manageprofPanelLayout);
@@ -209,27 +258,32 @@ public class MerchantWorkAreaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void managepostupdatesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managepostupdatesMousePressed
-       
+       manageAdvertise();
     }//GEN-LAST:event_managepostupdatesMousePressed
 
     private void managepostupdatesPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managepostupdatesPanelMousePressed
         // TODO add your handling code here:
-       
+       manageAdvertise();
     }//GEN-LAST:event_managepostupdatesPanelMousePressed
 
     private void manageprofPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageprofPanelMousePressed
         // TODO add your handling code here:
-        
+        manageProfile();
     }//GEN-LAST:event_manageprofPanelMousePressed
 
     private void managehouseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managehouseMousePressed
         // TODO add your handling code here:
-        
+        manageHouses();
     }//GEN-LAST:event_managehouseMousePressed
 
     private void managehousingPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managehousingPanelMousePressed
-        
+        manageHouses();
     }//GEN-LAST:event_managehousingPanelMousePressed
+
+    private void manageprofMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageprofMousePressed
+        // TODO add your handling code here:
+        manageProfile();
+    }//GEN-LAST:event_manageprofMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
