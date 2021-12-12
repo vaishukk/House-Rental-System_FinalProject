@@ -57,13 +57,14 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
         btnback = new javax.swing.JButton();
+        lblicon1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblzip = new javax.swing.JLabel();
         lbladdress = new javax.swing.JLabel();
         getzip = new javax.swing.JTextField();
+        lblemail = new javax.swing.JLabel();
         getaddress = new javax.swing.JTextField();
         lblcity = new javax.swing.JLabel();
         getcity = new javax.swing.JTextField();
@@ -72,10 +73,11 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
         lblphone = new javax.swing.JLabel();
         getphone = new javax.swing.JTextField();
         lblmerchant = new javax.swing.JLabel();
-        lblemail = new javax.swing.JLabel();
         lblname = new javax.swing.JLabel();
         getmail = new javax.swing.JTextField();
         getname = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -93,33 +95,37 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
             }
         });
 
+        lblicon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeicon.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addContainerGap()
+                .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 729, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 718, Short.MAX_VALUE)
                 .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lbltitle))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblicon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbltitle))))
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 90));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 70));
 
         jPanel2.setBackground(new java.awt.Color(241, 241, 242));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -134,6 +140,10 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
 
         getzip.setEnabled(false);
         jPanel2.add(getzip, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 160, -1));
+
+        lblemail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblemail.setText("Mail ID");
+        jPanel2.add(lblemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
         getaddress.setEnabled(false);
         jPanel2.add(getaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 160, -1));
@@ -171,10 +181,6 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
         lblmerchant.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(lblmerchant, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 190, -1));
 
-        lblemail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblemail.setText("Mail ID");
-        jPanel2.add(lblemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
-
         lblname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblname.setText("Name");
         jPanel2.add(lblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
@@ -190,7 +196,13 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
         });
         jPanel2.add(getname, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 160, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1280, 290));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-broker-48.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-broker-48.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1280, 290));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -239,13 +251,15 @@ public class DisplayMerchantInfoPanel extends javax.swing.JPanel {
     private javax.swing.JTextField getphone;
     private javax.swing.JTextField getstate;
     private javax.swing.JTextField getzip;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lbladdress;
     private javax.swing.JLabel lblcity;
     private javax.swing.JLabel lblemail;
-    private javax.swing.JLabel lblicon;
+    private javax.swing.JLabel lblicon1;
     private javax.swing.JLabel lblmerchant;
     private javax.swing.JLabel lblname;
     private javax.swing.JLabel lblphone;

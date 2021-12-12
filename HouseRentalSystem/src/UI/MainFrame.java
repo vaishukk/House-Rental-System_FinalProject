@@ -59,7 +59,7 @@ public class MainFrame extends javax.swing.JFrame {
             greetings = greetings + " " + userAccount.getUsername();
             container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganisation, inEnterprise, networkEmergency, system));
 
-            lblhello.setText(greetings + " !!!");
+            lblwelcome.setText(greetings + " !!!");
             CardLayout layout = (CardLayout) container.getLayout();
             layout.next(container);
         }
@@ -70,8 +70,8 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         leftPanel = new javax.swing.JPanel();
-        btnLogoutLabel = new javax.swing.JLabel();
-        lblhello = new javax.swing.JLabel();
+        btnlogoff = new javax.swing.JLabel();
+        lblwelcome = new javax.swing.JLabel();
         btnBackLabel = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
         loginJPanel = new javax.swing.JPanel();
@@ -99,30 +99,30 @@ public class MainFrame extends javax.swing.JFrame {
         leftPanel.setPreferredSize(new java.awt.Dimension(1338, 60));
         leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnLogoutLabel.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogoutLabel.setText("LOGOUT");
-        btnLogoutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnlogoff.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnlogoff.setText("LOGOUT");
+        btnlogoff.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnLogoutLabelMousePressed(evt);
+                btnlogoffMousePressed(evt);
             }
         });
-        leftPanel.add(btnLogoutLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 0, 70, 60));
+        leftPanel.add(btnlogoff, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 0, 70, 30));
 
-        lblhello.setBackground(new java.awt.Color(255, 255, 255));
-        lblhello.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        lblhello.setForeground(new java.awt.Color(255, 255, 255));
-        leftPanel.add(lblhello, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 770, 60));
+        lblwelcome.setBackground(new java.awt.Color(255, 255, 255));
+        lblwelcome.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblwelcome.setForeground(new java.awt.Color(255, 255, 255));
+        leftPanel.add(lblwelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 770, 60));
 
-        btnBackLabel.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackLabel.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnBackLabel.setText("BACK");
         btnBackLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnBackLabelMousePressed(evt);
             }
         });
-        leftPanel.add(btnBackLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 0, 60, 60));
+        leftPanel.add(btnBackLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 0, 60, 30));
 
-        getContentPane().add(leftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, -1));
+        getContentPane().add(leftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 30));
 
         container.setBackground(new java.awt.Color(204, 204, 204));
         container.setForeground(new java.awt.Color(31, 50, 97));
@@ -326,13 +326,13 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLogoutLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutLabelMousePressed
+    private void btnlogoffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoffMousePressed
         container.removeAll();
         dB4OUtil.storeSystem(system);
         loginJPanel.setVisible(true);
         container.setVisible(false);
         leftPanel.setVisible(false);
-    }//GEN-LAST:event_btnLogoutLabelMousePressed
+    }//GEN-LAST:event_btnlogoffMousePressed
 
     private void btnBackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackLabelMousePressed
         // TODO add your handling code here:
@@ -402,7 +402,7 @@ public class MainFrame extends javax.swing.JFrame {
                 loginJPanel.setVisible(false);
                 container.setVisible(true);
                 leftPanel.setVisible(true);
-                btnLogoutLabel.setVisible(true);
+                btnlogoff.setVisible(true);
                 btnBackLabel.setVisible(false);
                 getusername.setText("");
                 getpassword.setText("");
@@ -421,11 +421,11 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnRegisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMousePressed
         // TODO add your handling code here:
         UserSignUpForm panel = new UserSignUpForm(container, system);
-        lblhello.setText("Welcome to House Rental!");
+        lblwelcome.setText("Welcome to House Rental!");
         loginJPanel.setVisible(false);
         container.setVisible(true);
         leftPanel.setVisible(true);
-        btnLogoutLabel.setVisible(false);
+        btnlogoff.setVisible(false);
         btnBackLabel.setVisible(true);
         getusername.setText("");
         getpassword.setText("");
@@ -485,7 +485,7 @@ public class MainFrame extends javax.swing.JFrame {
                 loginJPanel.setVisible(false);
                 container.setVisible(true);
                 leftPanel.setVisible(true);
-                btnLogoutLabel.setVisible(true);
+                btnlogoff.setVisible(true);
                 btnBackLabel.setVisible(false);
                 getusername.setText("");
                 getpassword.setText("");
@@ -537,8 +537,8 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addimageicon;
     private javax.swing.JLabel btnBackLabel;
-    private javax.swing.JLabel btnLogoutLabel;
     private javax.swing.JLabel btnRegister;
+    private javax.swing.JLabel btnlogoff;
     private javax.swing.JLabel cancelButton;
     private javax.swing.JPanel container;
     private javax.swing.JPasswordField getpassword;
@@ -548,9 +548,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JLabel lblhello;
     private javax.swing.JLabel lblmainicon;
     private javax.swing.JLabel lbltagline;
+    private javax.swing.JLabel lblwelcome;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JLabel loginButton;
     private javax.swing.JLabel loginButton1;

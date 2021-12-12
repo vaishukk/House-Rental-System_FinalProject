@@ -54,9 +54,8 @@ public class DisplayJobsInfoPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
+        lblicon1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnBack1 = new javax.swing.JButton();
         btnassetmanagers = new javax.swing.JButton();
@@ -76,151 +75,163 @@ public class DisplayJobsInfoPanel extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
-            }
-        });
+        lblicon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeicon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addContainerGap()
+                .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 729, Short.MAX_VALUE)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(820, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lbltitle))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblicon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(lbltitle)))
+                .addGap(27, 27, 27))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 90));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1300, 70));
 
         jPanel2.setBackground(new java.awt.Color(241, 241, 242));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBack1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBack1.setText("BACK");
+        btnBack1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnBack1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack1ActionPerformed(evt);
             }
         });
-        jPanel2.add(btnBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 30, 30));
+        jPanel2.add(btnBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 90, 30));
 
         btnassetmanagers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnassetmanagers.setText("DISPLAY ASSET MANAGER JOBS");
+        btnassetmanagers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-employee-58.png"))); // NOI18N
+        btnassetmanagers.setText("SEARCH ASSET MANAGER JOBS");
+        btnassetmanagers.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnassetmanagers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnassetmanagers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnassetmanagersActionPerformed(evt);
             }
         });
-        jPanel2.add(btnassetmanagers, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 250, -1));
+        jPanel2.add(btnassetmanagers, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
 
         btnmoneylender.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnmoneylender.setText("DISPLAY MONEY LENDER JOBS");
+        btnmoneylender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-bank-64 (1).png"))); // NOI18N
+        btnmoneylender.setText("SEARCH MONEY LENDER JOBS");
+        btnmoneylender.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnmoneylender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnmoneylender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmoneylenderActionPerformed(evt);
             }
         });
-        jPanel2.add(btnmoneylender, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 240, -1));
+        jPanel2.add(btnmoneylender, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 280, 50));
 
         btnphotographer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnphotographer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-photographer-64.png"))); // NOI18N
         btnphotographer.setText("DISPLAY PHOTOGRAPHER JOBS");
+        btnphotographer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnphotographer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnphotographer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnphotographerActionPerformed(evt);
             }
         });
-        jPanel2.add(btnphotographer, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 270, -1));
+        jPanel2.add(btnphotographer, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 290, 50));
 
         btnexaminer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnexaminer.setText("DISPLAY EXAMINER JOBS");
+        btnexaminer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-analyse-64.png"))); // NOI18N
+        btnexaminer.setText("SEARCH EXAMINER JOBS");
+        btnexaminer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnexaminer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnexaminer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnexaminerActionPerformed(evt);
             }
         });
-        jPanel2.add(btnexaminer, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 290, -1));
+        jPanel2.add(btnexaminer, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 330, 50));
 
         btnrepairs.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnrepairs.setText("DISPLAY REPAIR SERVICES JOBS");
+        btnrepairs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-maintenance-64.png"))); // NOI18N
+        btnrepairs.setText("SEARCH REPAIR SERVICES JOBS");
+        btnrepairs.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnrepairs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnrepairs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnrepairsActionPerformed(evt);
             }
         });
-        jPanel2.add(btnrepairs, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 290, -1));
+        jPanel2.add(btnrepairs, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 330, 50));
 
         btnmovers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnmovers.setText("DISPLAY MOVERS AN PACKERS JOBS");
+        btnmovers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-luggage-64.png"))); // NOI18N
+        btnmovers.setText("SEARCH MOVERS AND PACKERS JOBS");
+        btnmovers.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnmovers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnmovers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmoversActionPerformed(evt);
             }
         });
-        jPanel2.add(btnmovers, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 290, -1));
+        jPanel2.add(btnmovers, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 330, 60));
 
         btnbrokers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnbrokers.setText("DISPLAY BROKER JOBS");
+        btnbrokers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-broker-48.png"))); // NOI18N
+        btnbrokers.setText("SEARCH BROKER JOBS");
+        btnbrokers.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnbrokers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnbrokers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnbrokersActionPerformed(evt);
             }
         });
-        jPanel2.add(btnbrokers, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 290, -1));
+        jPanel2.add(btnbrokers, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 330, -1));
 
         btnconstructor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnconstructor.setText("DISPLAY CONSTRUCTOR JOBS");
+        btnconstructor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-worker-beard-48.png"))); // NOI18N
+        btnconstructor.setText("SEARCH CONSTRUCTOR JOBS");
+        btnconstructor.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnconstructor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnconstructor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnconstructorActionPerformed(evt);
             }
         });
-        jPanel2.add(btnconstructor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 240, -1));
+        jPanel2.add(btnconstructor, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 290, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1280, 390));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1290, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
         // TODO add your handling code here:
@@ -293,7 +304,6 @@ public class DisplayJobsInfoPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnbrokers;
     private javax.swing.JButton btnconstructor;
     private javax.swing.JButton btnexaminer;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JButton btnmoneylender;
     private javax.swing.JButton btnmovers;
     private javax.swing.JButton btnphotographer;
@@ -301,7 +311,7 @@ public class DisplayJobsInfoPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JLabel lblicon;
+    private javax.swing.JLabel lblicon1;
     private javax.swing.JLabel lbltitle;
     // End of variables declaration//GEN-END:variables
 }
