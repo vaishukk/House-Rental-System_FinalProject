@@ -57,8 +57,8 @@ public class AssignPropety extends javax.swing.JPanel {
             row[5] = asset.getZip();
             row[6] = asset.getBedroom();
             row[7] = asset.getBaths();
-            row[8] = asset.getPrice();
-            row[9] = asset.getStatus();
+            row[8] = asset.getCost();
+            row[9] = asset.getAvail();
             row[10] = asset.getCustomer();
             row[11] = asset.getMerchant().getName();
             dtm.addRow(row);
@@ -229,7 +229,7 @@ public class AssignPropety extends javax.swing.JPanel {
             for (int i = 0; i < housingtable.getSelectedRows().length; i++) {
                 String assetID = (String) housingtable.getValueAt(housingtable.getSelectedRows()[i], 0);
                 Asset asset = system.getAssetDirectory().fetchAsset(assetID);
-                if (!asset.getStatus().equalsIgnoreCase("sold")) {
+                if (!asset.getAvail().equalsIgnoreCase("sold")) {
                     assetList.add(assetID);
                     brokerRequest.setAssetList(assetList);
                     JOptionPane.showMessageDialog(this, "Asset Suggested Successfully!");

@@ -22,6 +22,9 @@ public class MoneyContractorEmployeeDirectory {
         this.moneyContractorEmployeeList = moneyContractorEmployeeList;
     }
     
+    public String createMoneyContractorEmployeeId(){
+        return "MoneyContractorEmployee" + (moneyContractorEmployeeList.size() + 1);
+    }
     
     
 }

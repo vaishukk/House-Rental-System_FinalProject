@@ -48,7 +48,7 @@ public class ViewOppurnitiesPanel extends javax.swing.JPanel {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                     if (workRequest instanceof CameraManRequest) {
-                        if (((CameraManRequest) workRequest).getCameraman().getUsername().equals(useraccount.getUsername())) {
+                        if (((CameraManRequest) workRequest).getCameraman().getUserName().equals(useraccount.getUserName())) {
                             Object[] row = new Object[model.getColumnCount()];
                             row[0] = workRequest;
                             row[1] = ((CameraManRequest) workRequest).getCustomer();
@@ -57,7 +57,7 @@ public class ViewOppurnitiesPanel extends javax.swing.JPanel {
                             row[4] = ((CameraManRequest) workRequest).getAsset().getCity();
                             row[5] = ((CameraManRequest) workRequest).getAsset().getState();
                             row[6] = ((CameraManRequest) workRequest).getAsset().getZip();
-                            row[7] = ((CameraManRequest) workRequest).getStatus();
+                            row[7] = ((CameraManRequest) workRequest).getAvail();
                             row[8] = ((CameraManRequest) workRequest).getCustomerNote();
                             row[9] = ((CameraManRequest) workRequest).getExaminerNote();
                             row[10] = ((CameraManRequest) workRequest).getQuote();
@@ -337,10 +337,10 @@ public class ViewOppurnitiesPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Quote");
                 return;
             }
-            if (!"In Progress".equals(checkRequest.getStatus())) {
-                checkRequest.setStatus("In Progress");
+            if (!"In Progress".equals(checkRequest.getAvail())) {
+                checkRequest.setAvail("In Progress");
                 checkRequest.setQuote(getquote.getText());
-                useraccount.setStatus("Occupied");
+                useraccount.setAvail("Occupied");
                 JOptionPane.showMessageDialog(null, "Job Taken Successfully!");
                 populateRequestTable();
             } else {
@@ -361,14 +361,14 @@ public class ViewOppurnitiesPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
                 return;
             }
-            if (!"Completed".equals(checkRequest.getStatus())) {
-                checkRequest.setStatus("Completed");
+            if (!"Completed".equals(checkRequest.getAvail())) {
+                checkRequest.setAvail("Completed");
                 checkRequest.setExaminerNote(comment);
                 JOptionPane.showMessageDialog(null, "Job is set to completed!");
                 int dialogButton = JOptionPane.YES_NO_OPTION;
                 int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
                 if (dialogResult == JOptionPane.YES_OPTION) {
-                    useraccount.setStatus("Available");
+                    useraccount.setAvail("Available");
                 }
                 populateRequestTable();
             } else {
@@ -433,18 +433,18 @@ public class ViewOppurnitiesPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
                 return;
             }
-            if (!"Completed".equals(checkRequest.getStatus()) && !"In Progress".equals(checkRequest.getStatus())) {
-                checkRequest.setStatus("Rejected");
+            if (!"Completed".equals(checkRequest.getAvail()) && !"In Progress".equals(checkRequest.getAvail())) {
+                checkRequest.setAvail("Rejected");
                 checkRequest.setExaminerNote(comment);
                 JOptionPane.showMessageDialog(null, "Job is set to rejected!");
                 int dialogButton = JOptionPane.YES_NO_OPTION;
                 int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
                 if (dialogResult == JOptionPane.YES_OPTION) {
-                    useraccount.setStatus("Available");
+                    useraccount.setAvail("Available");
                 }
                 populateRequestTable();
             } else {
-                JOptionPane.showMessageDialog(null, "Job is already " + checkRequest.getStatus());
+                JOptionPane.showMessageDialog(null, "Job is already " + checkRequest.getAvail());
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");

@@ -52,7 +52,7 @@ public class ControlRepairServicesJob extends javax.swing.JPanel {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.MaintenanceProvider) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof RepairServiceRequest) {
-                            if (userAccount.getUsername().equals(((RepairServiceRequest) workRequest).getCustomer().getUsername())) {
+                            if (userAccount.getUserName().equals(((RepairServiceRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((RepairServiceRequest) workRequest);
                                 row[1] = ((RepairServiceRequest) workRequest).getRepairservice().getName();
@@ -61,7 +61,7 @@ public class ControlRepairServicesJob extends javax.swing.JPanel {
                                 row[4] = ((RepairServiceRequest) workRequest).getAsset().getCity();
                                 row[5] = ((RepairServiceRequest) workRequest).getAsset().getState();
                                 row[6] = ((RepairServiceRequest) workRequest).getAsset().getZip();
-                                row[7] = ((RepairServiceRequest) workRequest).getStatus();
+                                row[7] = ((RepairServiceRequest) workRequest).getAvail();
                                 row[8] = ((RepairServiceRequest) workRequest).getCustomerNote();
                                 row[9] = ((RepairServiceRequest) workRequest).getExaminerNote();
                                 row[10] = ((RepairServiceRequest) workRequest).getRepairservice().getCost();

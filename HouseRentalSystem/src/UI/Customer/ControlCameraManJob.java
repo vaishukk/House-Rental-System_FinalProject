@@ -56,7 +56,7 @@ public class ControlCameraManJob extends javax.swing.JPanel {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.QualityControl) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof CameraManRequest) {
-                            if (userAccount.getUsername().equals(((CameraManRequest) workRequest).getCustomer().getUsername())) {
+                            if (userAccount.getUserName().equals(((CameraManRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((CameraManRequest) workRequest);
                                 row[1] = ((CameraManRequest) workRequest).getCameraman().getName();
@@ -65,7 +65,7 @@ public class ControlCameraManJob extends javax.swing.JPanel {
                                 row[4] = ((CameraManRequest) workRequest).getAsset().getCity();
                                 row[5] = ((CameraManRequest) workRequest).getAsset().getState();
                                 row[6] = ((CameraManRequest) workRequest).getAsset().getZip();
-                                row[7] = ((CameraManRequest) workRequest).getStatus();
+                                row[7] = ((CameraManRequest) workRequest).getAvail();
                                 row[8] = ((CameraManRequest) workRequest).getCustomerNote();
                                 row[9] = ((CameraManRequest) workRequest).getExaminerNote();
                                 row[10] = ((CameraManRequest) workRequest).getCameraman().getCost();

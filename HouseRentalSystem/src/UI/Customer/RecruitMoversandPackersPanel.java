@@ -64,7 +64,7 @@ public class RecruitMoversandPackersPanel extends javax.swing.JPanel {
                             row[1] = ua;
                             row[2] = ua.getCity();
                             row[3] = ua.getState();
-                            row[4] = ua.getStatus();
+                            row[4] = ua.getAvail();
                             row[5] = ua.getContactnumber();
                             row[6] = ua.getCost();
                             row[7] = org.getName();
@@ -259,7 +259,7 @@ public class RecruitMoversandPackersPanel extends javax.swing.JPanel {
                 if (message.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Comment note!");
                     return;
-                } else if (!servAcc.getStatus().equals("Available")) {
+                } else if (!servAcc.getAvail().equals("Available")) {
                     JOptionPane.showMessageDialog(null, "Sorry! This Plumber is already Occupied");
                     return;
                 }
@@ -267,13 +267,13 @@ public class RecruitMoversandPackersPanel extends javax.swing.JPanel {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                                if (servAcc.getUsername().equals(ua.getUsername())) {
+                                if (servAcc.getUserName().equals(ua.getUserName())) {
                                     MoversRequest cr = new MoversRequest();
                                     cr.setRequestID();
                                     cr.setCustomer(userAccount);
                                     cr.setMovpac(servAcc);
                                     cr.setMerchant(asset.getMerchant());
-                                    cr.setStatus("Pending");
+                                    cr.setAvail("Pending");
                                     cr.setCustomerNote(message);
                                     cr.setAsset(asset);
                                     cr.setOrgType(org.getType());

@@ -22,7 +22,7 @@ public class QualityControlEnterprise extends Enterprise{
 
     @Override
 
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Role> getCorrespondingRole() {
         roles = new ArrayList<Role>();
         roles.add(new CameraManRole());
         roles.add(new ExaminerRole());

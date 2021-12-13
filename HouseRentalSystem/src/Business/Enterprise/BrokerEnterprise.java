@@ -19,7 +19,7 @@ public class BrokerEnterprise extends Enterprise{
     }
 
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Role> getCorrespondingRole() {
         roles = new ArrayList<Role>();
         roles.add(new BrokerRole());
         return roles;

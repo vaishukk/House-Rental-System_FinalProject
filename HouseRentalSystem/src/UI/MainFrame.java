@@ -56,7 +56,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (userAccount != null && userAccount.getRole() != null) {
             String greetings = "Welcome";
 
-            greetings = greetings + " " + userAccount.getUsername();
+            greetings = greetings + " " + userAccount.getUserName();
             container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganisation, inEnterprise, networkEmergency, system));
 
             lblwelcome.setText(greetings + " !!!");

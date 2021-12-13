@@ -225,10 +225,10 @@ public class ManageCustomerPanel extends javax.swing.JPanel {
             if (dialogResult == JOptionPane.YES_OPTION) {
                 UserAccount custAcc = (UserAccount) customertable.getValueAt(selectedRow, 1);
                 asset.setCustomer(custAcc);
-                asset.setStatus("Sold");
+                asset.setAvail("Sold");
                 system.getAssetDirectory().getAssetList().set(assetDirectory.getAssetList().indexOf(asset), asset);
                 system.setAssetDirectory(assetDirectory);
-                JOptionPane.showMessageDialog(this, "" + asset.getAssetName()+ "house is sold to" + custAcc.getUsername() + "");
+                JOptionPane.showMessageDialog(this, "" + asset.getAssetName()+ "house is sold to" + custAcc.getUserName() + "");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Please select a house to be sold");

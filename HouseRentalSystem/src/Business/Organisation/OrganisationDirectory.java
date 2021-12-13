@@ -35,7 +35,7 @@ public class OrganisationDirectory {
             organisation = new ExaminerOrganisation(name);
             organisationList.add(organisation);
         } else if (type.getValue().equals(Type.CameraMan.getValue())) {
-            organisation = new PhotoVideoOrganisation(name);
+            organisation = new CameraManOrganisation(name);
             organisationList.add(organisation);
         } else if (type.getValue().equals(Type.AssetManager.getValue())) {
             organisation = new AssetManagerOrganisation(name);

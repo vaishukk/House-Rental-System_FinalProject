@@ -20,10 +20,10 @@ public class AssetManagerOrganisation extends Organisation{
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new AssetManagerRole());
-        return roles;
+    public ArrayList<Role> getCorrespondingRole() {
+        ArrayList<Role> rolesList = new ArrayList();
+        rolesList.add(new AssetManagerRole());
+        return rolesList;
     }
        @Override
     public Type getType() {

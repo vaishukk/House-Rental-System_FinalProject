@@ -64,7 +64,7 @@ public abstract class Organisation {
         ++counter;
     }
 
-    public abstract ArrayList<Role> getSupportedRole();
+    public abstract ArrayList<Role> getCorrespondingRole();
     
     public String getName() {
         return name;

@@ -50,10 +50,10 @@ public class AssetEnterpriseWorkRequest extends javax.swing.JPanel {
             if (workRequest instanceof RegistrationRequest) {
                 Object[] row = new Object[model.getColumnCount()];
                 row[0] = workRequest;
-                row[1] = ((RegistrationRequest) workRequest).getStatus();
+                row[1] = ((RegistrationRequest) workRequest).getAvail();
                 row[2] = ((RegistrationRequest) workRequest).getUserName();
                 row[3] = ((RegistrationRequest) workRequest).getName();
-                row[4] = ((RegistrationRequest) workRequest).getUserEmailId();
+                row[4] = ((RegistrationRequest) workRequest).getUserMailId();
                 row[5] = ((RegistrationRequest) workRequest).getUserCity();
                 row[6] = ((RegistrationRequest) workRequest).getOrgType();
                 row[7] = ((RegistrationRequest) workRequest).getNetwork();
@@ -272,7 +272,7 @@ public class AssetEnterpriseWorkRequest extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             RegistrationRequest request = (RegistrationRequest) assetenterprisetable.getValueAt(selectedRow, 0);
-            request.setStatus("Rejected");
+            request.setAvail("Rejected");
             JOptionPane.showMessageDialog(null, "User request has been removed successfully");
             populateTable();
         } else {
@@ -310,7 +310,7 @@ int selectedRow = assetenterprisetable.getSelectedRow();
                     break;
             }
 
-            request.setStatus("Completed");
+            request.setAvail("Completed");
             JOptionPane.showMessageDialog(null, "User account has been activated successfully");
             populateTable();
         } else {

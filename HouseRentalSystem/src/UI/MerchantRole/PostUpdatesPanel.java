@@ -532,8 +532,8 @@ public class PostUpdatesPanel extends javax.swing.JPanel {
             asset.setState(state);
             asset.setBedroom(bhk);
             asset.setBaths(bathroom);
-            asset.setPrice(price);
-            asset.setStatus("Vacant");
+            asset.setCost(price);
+            asset.setAvail("Vacant");
             asset.setHomeImg(imagePath);
             asset.setMerchant(userAccount);
             asset.setAssetID(assetDirectory.createAssetID());

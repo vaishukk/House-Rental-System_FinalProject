@@ -54,7 +54,7 @@ public class ControlConstructorJob extends javax.swing.JPanel {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.Asset) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof ConstructorRequest) {
-                            if (userAccount.getUsername().equals(((ConstructorRequest) workRequest).getCustomer().getUsername())) {
+                            if (userAccount.getUserName().equals(((ConstructorRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((ConstructorRequest) workRequest);
                                 row[1] = ((ConstructorRequest) workRequest).getConstructor().getName();
@@ -63,7 +63,7 @@ public class ControlConstructorJob extends javax.swing.JPanel {
                                 row[4] = ((ConstructorRequest) workRequest).getAsset().getCity();
                                 row[5] = ((ConstructorRequest) workRequest).getAsset().getState();
                                 row[6] = ((ConstructorRequest) workRequest).getAsset().getZip();
-                                row[7] = ((ConstructorRequest) workRequest).getStatus();
+                                row[7] = ((ConstructorRequest) workRequest).getAvail();
                                 row[8] = ((ConstructorRequest) workRequest).getCustomerNote();
                                 row[9] = ((ConstructorRequest) workRequest).getExaminerNote();
                                 row[10] = ((ConstructorRequest) workRequest).getConstructor().getCost();

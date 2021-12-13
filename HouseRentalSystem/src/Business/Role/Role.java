@@ -20,21 +20,21 @@ public abstract class Role {
     
         public enum RoleType{
         Admin("Admin"),
-        Customer("Customer"),//Customer
-        Merchant("Merchant"),//Merchant
-        Examiner("Examiner"),//Supervisor
-        Broker("Broker"),//Broker
+        Customer("Customer"),
+        Merchant("Merchant"),
+        Examiner("Examiner"),
+        Broker("Broker"),
         Constructor("Constructor"),
-        AssetManager("Asset Manager"),//AssetManager
+        AssetManager("Asset Manager"),
         Repair("Repair"),
         Miscellaneous("Miscellaneous"),
         MoversPackers("Movers & Packers"),
         CameraMan("CameraMan"),
-        MoneyContractorEmployee(" Money Contractor Employee"),//MaintenanceEmployee
+        MoneyContractorEmployee(" Money Contractor Employee"),
         QCadmin("Quality Control Admin"),
-        BrokerAdmin("Broker Admin"),//BrokerAdmin
-        MaintenanceProviderAdmin("Maintenance Provider Admin"),//Maintenance Provider Admin
-        AssetAdmin("Asset Admin");//Asset Admin
+        BrokerAdmin("Broker Admin"),
+        MaintenanceProviderAdmin("Maintenance Provider Admin"),
+        AssetAdmin("Asset Admin");
         
         private String value;
         private RoleType(String value){

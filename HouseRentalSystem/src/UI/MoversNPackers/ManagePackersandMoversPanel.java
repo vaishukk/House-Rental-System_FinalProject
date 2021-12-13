@@ -40,7 +40,7 @@ public class ManagePackersandMoversPanel extends javax.swing.JPanel {
         getname.setText(userAccount.getName());
         getCost.setText(userAccount.getCost());
         getcity.setText(userAccount.getCity());
-        getavailibility.setText(userAccount.getStatus());
+        getavailibility.setText(userAccount.getAvail());
         getzipcode.setText(userAccount.getZip());
         getaddress.setText(userAccount.getAddress());
         getmailid.setText(userAccount.getMailId());
@@ -303,9 +303,9 @@ public class ManagePackersandMoversPanel extends javax.swing.JPanel {
 
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
-       if(system.isNull(getname.getText()) || system.isNull(getCost.getText()) || system.isNull(getcity.getText())
-           || system.isNull(getavailibility.getText()) || system.isNull(getzipcode.getText()) || system.isNull(getaddress.getText())
-           || system.isNull(getmailid.getText()) || system.isNull(getcontactnumber.getText()) || system.isNull(getstate.getText())){
+       if(system.isVoid(getname.getText()) || system.isVoid(getCost.getText()) || system.isVoid(getcity.getText())
+           || system.isVoid(getavailibility.getText()) || system.isVoid(getzipcode.getText()) || system.isVoid(getaddress.getText())
+           || system.isVoid(getmailid.getText()) || system.isVoid(getcontactnumber.getText()) || system.isVoid(getstate.getText())){
             JOptionPane.showMessageDialog(null, "Please enter all fields!");
             return;
         }else if(!system.isDouble(getCost.getText())){
@@ -314,19 +314,19 @@ public class ManagePackersandMoversPanel extends javax.swing.JPanel {
         }else if(!system.isInt(getzipcode.getText()) || getzipcode.getText().length() != 5){
             JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
             return;
-        }else if(!system.checkValidPhoneFormat(getcontactnumber.getText())){
+        }else if(!system.verifyContactFormat(getcontactnumber.getText())){
             return;
-        }else if(!system.checkValidEmailFormat(getmailid.getText())){
+        }else if(!system.verifyMailFormat(getmailid.getText())){
             return;
-        }else if(!system.checkIfEmailIsUnique(getmailid.getText(), userAccount.getUsername())){
+        }else if(!system.verifySameMail(getmailid.getText(), userAccount.getUserName())){
             return;
-        }else if(!system.checkIfPhoneIsUnique(getcontactnumber.getText(), userAccount.getUsername())){
+        }else if(!system.verifySameContact(getcontactnumber.getText(), userAccount.getUserName())){
             return;
         }
         userAccount.setName(getname.getText());
         userAccount.setCost(getCost.getText());
         userAccount.setCity(getcity.getText());
-        userAccount.setStatus(getavailibility.getText());
+        userAccount.setAvail(getavailibility.getText());
         userAccount.setZip(getzipcode.getText());
         userAccount.setAddress(getaddress.getText());
         userAccount.setMailId(getmailid.getText());

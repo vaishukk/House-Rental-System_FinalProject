@@ -58,7 +58,7 @@ public class ControlBrokerJob extends javax.swing.JPanel {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.Broker) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof BrokerRequest) {
-                            if (userAccount.getUsername().equals(((BrokerRequest) workRequest).getCustomer().getUsername())) {
+                            if (userAccount.getUserName().equals(((BrokerRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((BrokerRequest) workRequest);
                                 row[1] = ((BrokerRequest) workRequest).getBroker().getName();
@@ -67,7 +67,7 @@ public class ControlBrokerJob extends javax.swing.JPanel {
                                 row[4] = ((BrokerRequest) workRequest).getAsset().getCity();
                                 row[5] = ((BrokerRequest) workRequest).getAsset().getState();
                                 row[6] = ((BrokerRequest) workRequest).getAsset().getZip();
-                                row[7] = ((BrokerRequest) workRequest).getStatus();
+                                row[7] = ((BrokerRequest) workRequest).getAvail();
                                 row[8] = ((BrokerRequest) workRequest).getCustomerNote();
                                 row[9] = ((BrokerRequest) workRequest).getExaminerNote();
                                 row[10] = ((BrokerRequest) workRequest).getBroker().getCost();
@@ -325,8 +325,8 @@ public class ControlBrokerJob extends javax.swing.JPanel {
                     row[5] = asset.getZip();
                     row[6] = asset.getBedroom();
                     row[7] = asset.getBaths();
-                    row[8] = asset.getPrice();
-                    row[9] = asset.getStatus();
+                    row[8] = asset.getCost();
+                    row[9] = asset.getAvail();
                     row[10] = asset.getCustomer();
                     row[11] = asset.getMerchant();
                     model.addRow(row);

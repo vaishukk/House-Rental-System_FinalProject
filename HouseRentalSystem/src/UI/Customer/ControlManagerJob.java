@@ -52,7 +52,7 @@ public class ControlManagerJob extends javax.swing.JPanel {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.Asset) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof ControlRequest) {
-                            if (userAccount.getUsername().equals(((ControlRequest) workRequest).getCustomer().getUsername())) {
+                            if (userAccount.getUserName().equals(((ControlRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((ControlRequest) workRequest);
                                 row[1] = ((ControlRequest) workRequest).getControl().getName();
@@ -61,7 +61,7 @@ public class ControlManagerJob extends javax.swing.JPanel {
                                 row[4] = ((ControlRequest) workRequest).getAsset().getCity();
                                 row[5] = ((ControlRequest) workRequest).getAsset().getState();
                                 row[6] = ((ControlRequest) workRequest).getAsset().getZip();
-                                row[7] = ((ControlRequest) workRequest).getStatus();
+                                row[7] = ((ControlRequest) workRequest).getAvail();
                                 row[8] = ((ControlRequest) workRequest).getCustomerNote();
                                 row[9] = ((ControlRequest) workRequest).getExaminerNote();
                                 row[10] = ((ControlRequest) workRequest).getControl().getCost();

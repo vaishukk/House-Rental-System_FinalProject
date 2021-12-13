@@ -20,10 +20,10 @@ public class RepairOrganisation extends Organisation{
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new RepairRole());
-        return roles;
+    public ArrayList<Role> getCorrespondingRole() {
+        ArrayList<Role> rolesList = new ArrayList();
+        rolesList.add(new RepairRole());
+        return rolesList;
     }
        @Override
     public Type getType() {

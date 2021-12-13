@@ -439,10 +439,10 @@ public class UserSignUpForm extends javax.swing.JPanel {
         if (!system.verifySameUser(username)) {
             return;
         }
-        if (!this.system.checkValidEmailFormat(emailAddress)) {
+        if (!this.system.verifyMailFormat(emailAddress)) {
             return;
         }
-        if (!this.system.checkValidPhoneFormat(phone)) {
+        if (!this.system.verifyContactFormat(phone)) {
             return;
         }
 
@@ -492,12 +492,12 @@ public class UserSignUpForm extends javax.swing.JPanel {
             registrationRequest.setName(name);
             registrationRequest.setUserName(username);
             registrationRequest.setUserPassword(password);
-            registrationRequest.setUserEmailId(emailAddress);
+            registrationRequest.setUserMailId(emailAddress);
             registrationRequest.setNetwork(network);
             registrationRequest.setUserCity(city);
             registrationRequest.setOrgType(type);
-            registrationRequest.setStatus("Requested");
-            registrationRequest.setUserContact(phone);
+            registrationRequest.setAvail("Requested");
+            registrationRequest.setUserContactNo(phone);
 
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
