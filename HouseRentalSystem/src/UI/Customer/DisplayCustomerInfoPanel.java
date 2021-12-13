@@ -20,19 +20,19 @@ public class DisplayCustomerInfoPanel extends javax.swing.JPanel {
     /**
      * Creates new form DisplayCustomerInfoPanel
      */
-     private JPanel userProcessContainer;
+     private JPanel userPrcCont;
     private UserAccount buyer;
     private AssetDirectory assetDirectory;
     private final EcoSystem system;
-    private UserAccount userAccount;
+    private UserAccount usrAccount;
 
     
     public DisplayCustomerInfoPanel(JPanel userProcessContainer, UserAccount buyer, UserAccount userAccount, EcoSystem system) {
         initComponents();
         this.system = system;
-        this.userAccount = userAccount;
+        this.usrAccount = userAccount;
         this.buyer = buyer;
-        this.userProcessContainer = userProcessContainer;
+        this.userPrcCont = userProcessContainer;
         populateReqTable();
     }
 
@@ -203,9 +203,9 @@ public class DisplayCustomerInfoPanel extends javax.swing.JPanel {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        userPrcCont.remove(this);
+        CardLayout layout = (CardLayout) userPrcCont.getLayout();
+        layout.previous(userPrcCont);
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void getphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getphoneActionPerformed

@@ -35,9 +35,9 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
     /**
      * Creates new form CustomerScreenPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel userPrcCont;
     private EcoSystem system;
-    private UserAccount userAccount;
+    private UserAccount usrAccount;
     private AssetDirectory assetDirectory;
     private Enterprise enterprise;
     private Network network;
@@ -46,14 +46,14 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
     /**
      * Creates new form BuyerWorkAreaJpanel
      */
-    public CustomerScreenPanel(JPanel userProcessContainer, UserAccount userAccount, Enterprise enterprise, EcoSystem system, Network network, Organisation organisation) {
+    public CustomerScreenPanel(JPanel userProcessContainer, UserAccount usrAccount, Enterprise enterprise, EcoSystem system, Network network, Organisation organisation) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.userPrcCont = userProcessContainer;
         this.network = network;
         this.enterprise = enterprise;
         this.organisation = organisation;
         this.system = system;
-        this.userAccount = userAccount;
+        this.usrAccount = usrAccount;
         this.assetDirectory = (system.getAssetDirectory()== null) ? new AssetDirectory() : system.getAssetDirectory();
         populateReqTable();
     }
@@ -294,10 +294,10 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
             if (!"sold".equalsIgnoreCase(status)) {
                 String assetID = (String) tblhouse.getValueAt(selectedRow, 0);
                 Asset asset = assetDirectory.fetchAsset(assetID);
-                MerchantRegistrationForm merchantRegistrationForm = new MerchantRegistrationForm(userProcessContainer, organisation, network, enterprise, asset, system, userAccount);
-                userProcessContainer.add("MerchantRegistrationForm", merchantRegistrationForm);
-                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-                layout.next(userProcessContainer);
+                MerchantRegistrationForm merchantRegistrationForm = new MerchantRegistrationForm(userPrcCont, organisation, network, enterprise, asset, system, usrAccount);
+                userPrcCont.add("MerchantRegistrationForm", merchantRegistrationForm);
+                CardLayout layout = (CardLayout) userPrcCont.getLayout();
+                layout.next(userPrcCont);
             } else {
                 JOptionPane.showMessageDialog(null, "Sorry the selected house is sold! Choose other vacant houses!.");
                 return;
@@ -315,12 +315,12 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
         int count = tblhouse.getSelectedRowCount();
         if (count == 1) {
             if (selectedRow >= 0) {
-                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                CardLayout layout = (CardLayout) userPrcCont.getLayout();
                 String Id = (String) tblhouse.getValueAt(selectedRow, 0);
                 Asset asset = assetDirectory.fetchAsset(Id);
-                DisplayHouseInfoPanel displayHouseInfoPanel = new DisplayHouseInfoPanel(userProcessContainer, asset, assetDirectory, system, userAccount);
-                userProcessContainer.add(displayHouseInfoPanel);
-                layout.next(userProcessContainer);
+                DisplayHouseInfoPanel displayHouseInfoPanel = new DisplayHouseInfoPanel(userPrcCont, asset, assetDirectory, system, usrAccount);
+                userPrcCont.add(displayHouseInfoPanel);
+                layout.next(userPrcCont);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
@@ -333,10 +333,10 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
         int count = tblhouse.getSelectedRowCount();
         if (count == 1) {
             UserAccount seller = (UserAccount) tblhouse.getValueAt(selectedRow, 10);
-            DisplayMerchantInfoPanel displayMerchantInfoPanel = new DisplayMerchantInfoPanel(userProcessContainer, seller, userAccount, system);
-            userProcessContainer.add("DisplayMerchantInfoPanel", displayMerchantInfoPanel);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            DisplayMerchantInfoPanel displayMerchantInfoPanel = new DisplayMerchantInfoPanel(userPrcCont, seller, usrAccount, system);
+            userPrcCont.add("DisplayMerchantInfoPanel", displayMerchantInfoPanel);
+            CardLayout layout = (CardLayout) userPrcCont.getLayout();
+            layout.next(userPrcCont);
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
         }
@@ -394,13 +394,13 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
         if (count == 1) {
             String assetID = (String) tblhouse.getValueAt(selectedRow, 0);
             Asset asset = assetDirectory.fetchAsset(assetID);
-            //Buyer buyer = buyerDirectory.searchBuyer(userAccount.getEmployee().getName());
+            //Buyer buyer = buyerDirectory.searchBuyer(usrAccount.getEmployee().getName());
 
             
-            RecruitallServicesPanel recruitallServicesPanel = new RecruitallServicesPanel(userProcessContainer, organisation, network, enterprise, asset, system, userAccount);
-            userProcessContainer.add("RecruitallServicesPanel", recruitallServicesPanel);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            RecruitallServicesPanel recruitallServicesPanel = new RecruitallServicesPanel(userPrcCont, organisation, network, enterprise, asset, system, usrAccount);
+            userPrcCont.add("RecruitallServicesPanel", recruitallServicesPanel);
+            CardLayout layout = (CardLayout) userPrcCont.getLayout();
+            layout.next(userPrcCont);
 
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");

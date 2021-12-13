@@ -27,19 +27,19 @@ public class ControlLoanJob extends javax.swing.JPanel {
     /**
      * Creates new form ControlLoanJob
      */
-    private JPanel userProcessContainer;
+    private JPanel userPrcCont;
     private EcoSystem system;
-    private UserAccount userAccount;
+    private UserAccount usrAccount;
     private AssetDirectory assetDirectory;
     private Enterprise enterprise;
     private Network network;
     private Organisation organisation;
     
-    public ControlLoanJob(JPanel userProcess, UserAccount userAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
+    public ControlLoanJob(JPanel userProcess, UserAccount usrAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
         initComponents();
-        this.userProcessContainer = userProcess;
+        this.userPrcCont = userProcess;
         this.system = system;
-        this.userAccount = userAccount;
+        this.usrAccount = usrAccount;
         this.enterprise = enterprise;
         this.network = network;
         this.organisation = organisation;
@@ -48,14 +48,14 @@ public class ControlLoanJob extends javax.swing.JPanel {
     }
     
     public void populateReqTable() {
-        DefaultTableModel model = (DefaultTableModel) houseTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) tbllhouse.getModel();
         model.setRowCount(0);
         for (Network n : system.getNwkCatalog()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.MaintenanceProvider) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof MoneyContractorEmployeeRequest) {
-                            if (userAccount.getUserName().equals(((MoneyContractorEmployeeRequest) workRequest).getCustomer().getUserName())) {
+                            if (usrAccount.getUserName().equals(((MoneyContractorEmployeeRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((MoneyContractorEmployeeRequest) workRequest);
                                 row[1] = ((MoneyContractorEmployeeRequest) workRequest).getCustomer().getName();
@@ -98,7 +98,7 @@ public class ControlLoanJob extends javax.swing.JPanel {
         getmessage = new javax.swing.JTextField();
         btnsendmessage = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        houseTable = new javax.swing.JTable();
+        tbllhouse = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(44, 68, 80));
@@ -169,7 +169,7 @@ public class ControlLoanJob extends javax.swing.JPanel {
             }
         });
 
-        houseTable.setModel(new javax.swing.table.DefaultTableModel(
+        tbllhouse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -185,7 +185,7 @@ public class ControlLoanJob extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(houseTable);
+        jScrollPane2.setViewportView(tbllhouse);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-bank-64 (1).png"))); // NOI18N
 
@@ -250,24 +250,24 @@ public class ControlLoanJob extends javax.swing.JPanel {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-         userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+         userPrcCont.remove(this);
+        CardLayout layout = (CardLayout) userPrcCont.getLayout();
+        layout.previous(userPrcCont);
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void btnsendmessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsendmessageActionPerformed
         // TODO add your handling code here:
-         int selectedRow = houseTable.getSelectedRow();
+         int selectedRow = tbllhouse.getSelectedRow();
         if (selectedRow >= 0) {
-            MoneyContractorEmployeeRequest mcer = (MoneyContractorEmployeeRequest) houseTable.getValueAt(selectedRow, 0);
+            MoneyContractorEmployeeRequest mcer = (MoneyContractorEmployeeRequest) tbllhouse.getValueAt(selectedRow, 0);
             String message = getmessage.getText();
             if (message.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                JOptionPane.showMessageDialog(null, "enter valid entry for quote and comments");
                 return;
             }
             mcer.setCustomerNote(message);
             populateReqTable();
-            JOptionPane.showMessageDialog(null, "Message Sent Successfully!");
+            JOptionPane.showMessageDialog(null, "Message Sent!");
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
         }
@@ -278,7 +278,6 @@ public class ControlLoanJob extends javax.swing.JPanel {
     private javax.swing.JButton btnback;
     private javax.swing.JButton btnsendmessage;
     private javax.swing.JTextField getmessage;
-    private javax.swing.JTable houseTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -288,5 +287,6 @@ public class ControlLoanJob extends javax.swing.JPanel {
     private javax.swing.JLabel lblloan;
     private javax.swing.JLabel lblmessage;
     private javax.swing.JLabel lbltitle;
+    private javax.swing.JTable tbllhouse;
     // End of variables declaration//GEN-END:variables
 }

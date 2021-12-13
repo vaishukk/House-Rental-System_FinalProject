@@ -20,28 +20,28 @@ public class ControlCustomerPanel extends javax.swing.JPanel {
     /**
      * Creates new form ControlCustomerJob
      */
-    private JPanel userProcessContainer;
+    private JPanel userPrcCont;
     private EcoSystem system;
-    private UserAccount userAccount;
+    private UserAccount usrAccount;
     private AssetDirectory assetDirectory;
     
-    public ControlCustomerPanel(JPanel userProcess, EcoSystem system, UserAccount userAccount) {
+    public ControlCustomerPanel(JPanel userProcess, EcoSystem system, UserAccount usrAccount) {
         initComponents();
-        this.userProcessContainer = userProcess;
+        this.userPrcCont = userProcess;
         this.system = system;
-        this.userAccount = userAccount;
+        this.usrAccount = usrAccount;
         this.assetDirectory = (system.getAssetDirectory() == null) ? new AssetDirectory() : system.getAssetDirectory();
         populateReqTable();
     }
     
     public void populateReqTable() {
-        getname.setText(userAccount.getName());
-        getcity.setText(userAccount.getCity());
-        getzip.setText(userAccount.getZip());
-        getaddress.setText(userAccount.getAddress());
-        getmaidid.setText(userAccount.getMailId());
-        getcontact.setText(userAccount.getContactnumber());
-        getstate.setText(userAccount.getState());
+        getname.setText(usrAccount.getName());
+        getcity.setText(usrAccount.getCity());
+        getzip.setText(usrAccount.getZip());
+        getaddress.setText(usrAccount.getAddress());
+        getmaidid.setText(usrAccount.getMailId());
+        getcontact.setText(usrAccount.getContactnumber());
+        getstate.setText(usrAccount.getState());
     }
 
     /**
@@ -276,28 +276,28 @@ public class ControlCustomerPanel extends javax.swing.JPanel {
          if (system.isVoid(getname.getText()) || system.isVoid(getcity.getText())
                 || system.isVoid(getzip.getText()) || system.isVoid(getaddress.getText())
                 || system.isVoid(getmaidid.getText()) || system.isVoid(getcontact.getText()) || system.isVoid(getstate.getText())) {
-            JOptionPane.showMessageDialog(null, "Please enter all fields!");
+            JOptionPane.showMessageDialog(null, "Enter all fields!");
             return;
         } else if(!system.isInt(getzip.getText()) || getzip.getText().length() != 5){
-            JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
+            JOptionPane.showMessageDialog(null, "Enter valid 5 digit zipcode!");
             return;
         }else if(!system.verifyContactFormat(getcontact.getText())){
             return;
         }else if(!system.verifyMailFormat(getmaidid.getText())){
             return;
-        }else if(!system.verifySameMail(getmaidid.getText(), userAccount.getUserName())){
+        }else if(!system.verifySameMail(getmaidid.getText(), usrAccount.getUserName())){
             return;
-        }else if(!system.verifySameContact(getcontact.getText(), userAccount.getUserName())){
+        }else if(!system.verifySameContact(getcontact.getText(), usrAccount.getUserName())){
             return;
         }
-        userAccount.setName(getname.getText());
-        userAccount.setCity(getcity.getText());
-        userAccount.setZip(getzip.getText());
-        userAccount.setAddress(getaddress.getText());
-        userAccount.setMailId(getmaidid.getText());
-        userAccount.setContactnumber(getcontact.getText());
-        userAccount.setState(getstate.getText());
-        JOptionPane.showMessageDialog(null, "Profile Updated Successfully!");
+        usrAccount.setName(getname.getText());
+        usrAccount.setCity(getcity.getText());
+        usrAccount.setZip(getzip.getText());
+        usrAccount.setAddress(getaddress.getText());
+        usrAccount.setMailId(getmaidid.getText());
+        usrAccount.setContactnumber(getcontact.getText());
+        usrAccount.setState(getstate.getText());
+        JOptionPane.showMessageDialog(null, "Profile Updated!");
     }//GEN-LAST:event_btnSaveActionPerformed
 
 

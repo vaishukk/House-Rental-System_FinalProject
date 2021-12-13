@@ -23,9 +23,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControlRepairServicesJob extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel userProcCont;
     private EcoSystem system;
-    private UserAccount userAccount;
+    private UserAccount usrAccount;
     private Enterprise enterprise;
     private Network network;
     private Organisation organisation;
@@ -33,11 +33,11 @@ public class ControlRepairServicesJob extends javax.swing.JPanel {
     /**
      * Creates new form ControlRepairServicesJob
      */
-    public ControlRepairServicesJob(JPanel userProcess, UserAccount userAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
+    public ControlRepairServicesJob(JPanel userProcess, UserAccount usrAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
         initComponents();
-        this.userProcessContainer = userProcess;
+        this.userProcCont = userProcess;
         this.system = system;
-        this.userAccount = userAccount;
+        this.usrAccount = usrAccount;
         this.enterprise = enterprise;
         this.network = network;
         this.organisation = organisation;
@@ -52,7 +52,7 @@ public class ControlRepairServicesJob extends javax.swing.JPanel {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.MaintenanceProvider) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof RepairServiceRequest) {
-                            if (userAccount.getUserName().equals(((RepairServiceRequest) workRequest).getCustomer().getUserName())) {
+                            if (usrAccount.getUserName().equals(((RepairServiceRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((RepairServiceRequest) workRequest);
                                 row[1] = ((RepairServiceRequest) workRequest).getRepairservice().getName();
@@ -252,9 +252,9 @@ public class ControlRepairServicesJob extends javax.swing.JPanel {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        userProcCont.remove(this);
+        CardLayout layout = (CardLayout) userProcCont.getLayout();
+        layout.previous(userProcCont);
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void btnsendmessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsendmessageActionPerformed
