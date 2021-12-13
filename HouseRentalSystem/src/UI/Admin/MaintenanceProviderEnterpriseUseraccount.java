@@ -39,8 +39,8 @@ public class MaintenanceProviderEnterpriseUseraccount extends javax.swing.JPanel
     
     public void populateOrganisationbox() {
         organizationbox.removeAllItems();
-        for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
-            organizationbox.addItem(org);
+        for (Organisation organisatn : enterprise.getOrganisationDirectory().getOrganisationList()) {
+            organizationbox.addItem(organisatn);
         }
     }
 
@@ -49,11 +49,11 @@ public class MaintenanceProviderEnterpriseUseraccount extends javax.swing.JPanel
 
         model.setRowCount(0);
 
-        for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
-            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+        for (Organisation organisatn : enterprise.getOrganisationDirectory().getOrganisationList()) {
+            for (UserAccount usrAcc : organisatn.getUserAccountDirectory().getUserAccountList()) {
                 Object row[] = new Object[2];
-                row[0] = ua;
-                row[1] = ua.getRole();
+                row[0] = usrAcc;
+                row[1] = usrAcc.getRole();
                 ((DefaultTableModel) tblUserDetails.getModel()).addRow(row);
             }
         }
@@ -62,12 +62,12 @@ public class MaintenanceProviderEnterpriseUseraccount extends javax.swing.JPanel
     public void populateEmployeebox(Organisation organisation) {
         employeebox.removeAllItems();
 
-        for (Employee employee : organisation.getEmployeeDirectory().getEmpList()) {
-            employeebox.addItem(employee);
+        for (Employee emp : organisation.getEmployeeDirectory().getEmpList()) {
+            employeebox.addItem(emp);
         }
     }
 
-    private void popRolebox(Organisation organisation) {
+    private void populateRolebox(Organisation organisation) {
         rolebox.removeAllItems();
         for (Role role : organisation.getCorrespondingRole()) {
             rolebox.addItem(role);
@@ -383,10 +383,10 @@ public class MaintenanceProviderEnterpriseUseraccount extends javax.swing.JPanel
 
     private void organizationboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationboxActionPerformed
 
-        Organisation org = (Organisation) organizationbox.getSelectedItem();
-        if (org != null) {
-            populateEmployeebox(org);
-            popRolebox(org);
+        Organisation organisatn = (Organisation) organizationbox.getSelectedItem();
+        if (organisatn != null) {
+            populateEmployeebox(organisatn);
+            populateRolebox(organisatn);
         }
     }//GEN-LAST:event_organizationboxActionPerformed
 
@@ -400,10 +400,10 @@ public class MaintenanceProviderEnterpriseUseraccount extends javax.swing.JPanel
 
     private void addusersbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addusersbtnActionPerformed
 
-        String username = getusername.getText();
+        String userName = getusername.getText();
         String password = getpassword.getText();
 
-        if ("".equals(username) || "".equals(password) || organizationbox.getSelectedItem() == null
+        if ("".equals(userName) || "".equals(password) || organizationbox.getSelectedItem() == null
                 || employeebox.getSelectedItem() == null || rolebox.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null, "Please enter all required fields!");
             return;
@@ -411,13 +411,13 @@ public class MaintenanceProviderEnterpriseUseraccount extends javax.swing.JPanel
         if (!ecosystem.verifyPassFormat(password)) {
             return;
         }
-        if (!ecosystem.verifySameUser(username)) {
+        if (!ecosystem.verifySameUser(userName)) {
             return;
         }
-        Organisation org = (Organisation) organizationbox.getSelectedItem();
-        Employee employee = (Employee) employeebox.getSelectedItem();
+        Organisation organisatn = (Organisation) organizationbox.getSelectedItem();
+        Employee emp = (Employee) employeebox.getSelectedItem();
         Role role = (Role) rolebox.getSelectedItem();
-        org.getUserAccountDirectory().generateUserAcc(username, password, employee, role);
+        organisatn.getUserAccountDirectory().generateUserAcc(userName, password, emp, role);
         populateTable();
         getusername.setText("");
         getpassword.setText("");

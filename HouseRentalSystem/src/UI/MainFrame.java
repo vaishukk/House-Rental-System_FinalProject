@@ -72,7 +72,7 @@ public class MainFrame extends javax.swing.JFrame {
         leftPanel = new javax.swing.JPanel();
         btnlogoff = new javax.swing.JLabel();
         lblwelcome = new javax.swing.JLabel();
-        btnBackLabel = new javax.swing.JLabel();
+        btngoback = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
         loginJPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -85,9 +85,9 @@ public class MainFrame extends javax.swing.JFrame {
         getusername = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         getpassword = new javax.swing.JPasswordField();
-        loginButton = new javax.swing.JLabel();
-        cancelButton = new javax.swing.JLabel();
-        btnRegister = new javax.swing.JLabel();
+        btnlogin = new javax.swing.JLabel();
+        btncancel = new javax.swing.JLabel();
+        btnregister = new javax.swing.JLabel();
         loginButton1 = new javax.swing.JLabel();
         loginButton2 = new javax.swing.JLabel();
 
@@ -113,14 +113,14 @@ public class MainFrame extends javax.swing.JFrame {
         lblwelcome.setForeground(new java.awt.Color(255, 255, 255));
         leftPanel.add(lblwelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 770, 60));
 
-        btnBackLabel.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        btnBackLabel.setText("BACK");
-        btnBackLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        btngoback.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btngoback.setText("BACK");
+        btngoback.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnBackLabelMousePressed(evt);
+                btngobackMousePressed(evt);
             }
         });
-        leftPanel.add(btnBackLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, 60, 30));
+        leftPanel.add(btngoback, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, 60, 30));
 
         getContentPane().add(leftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 50));
 
@@ -262,39 +262,39 @@ public class MainFrame extends javax.swing.JFrame {
 
         loginJPanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(586, 310, 418, -1));
 
-        loginButton.setBackground(new java.awt.Color(255, 229, 180));
-        loginButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        loginButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-employee-64 (2).png"))); // NOI18N
-        loginButton.setText("USERNAME");
-        loginButton.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
-        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnlogin.setBackground(new java.awt.Color(255, 229, 180));
+        btnlogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnlogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-employee-64 (2).png"))); // NOI18N
+        btnlogin.setText("USERNAME");
+        btnlogin.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        btnlogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                loginButtonMousePressed(evt);
+                btnloginMousePressed(evt);
             }
         });
-        loginJPanel.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 205, 54));
+        loginJPanel.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 205, 54));
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        cancelButton.setText("CANCEL");
-        cancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        btncancel.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btncancel.setText("CANCEL");
+        btncancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                cancelButtonMousePressed(evt);
+                btncancelMousePressed(evt);
             }
         });
-        loginJPanel.add(cancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 10, 68, 35));
+        loginJPanel.add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 10, 68, 35));
 
-        btnRegister.setBackground(new java.awt.Color(255, 255, 255));
-        btnRegister.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRegister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnRegister.setText("REGISTER");
-        btnRegister.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
-        btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnregister.setBackground(new java.awt.Color(255, 255, 255));
+        btnregister.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnregister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnregister.setText("REGISTER");
+        btnregister.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        btnregister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnRegisterMousePressed(evt);
+                btnregisterMousePressed(evt);
             }
         });
-        loginJPanel.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(647, 411, 304, 33));
+        loginJPanel.add(btnregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(647, 411, 304, 33));
 
         loginButton1.setBackground(new java.awt.Color(255, 229, 180));
         loginButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -334,14 +334,14 @@ public class MainFrame extends javax.swing.JFrame {
         leftPanel.setVisible(false);
     }//GEN-LAST:event_btnlogoffMousePressed
 
-    private void btnBackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackLabelMousePressed
+    private void btngobackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btngobackMousePressed
         // TODO add your handling code here:
         container.removeAll();
         dB4OUtil.storeSystem(system);
         loginJPanel.setVisible(true);
         container.setVisible(false);
         leftPanel.setVisible(false);
-    }//GEN-LAST:event_btnBackLabelMousePressed
+    }//GEN-LAST:event_btngobackMousePressed
 
     private void getusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getusernameActionPerformed
         // TODO add your handling code here:
@@ -351,7 +351,7 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_getpasswordActionPerformed
 
-    private void loginButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMousePressed
+    private void btnloginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnloginMousePressed
         // TODO add your handling code here:
         String userName = getusername.getText();
         char[] passwordCharArray = getpassword.getPassword();
@@ -403,22 +403,22 @@ public class MainFrame extends javax.swing.JFrame {
                 container.setVisible(true);
                 leftPanel.setVisible(true);
                 btnlogoff.setVisible(true);
-                btnBackLabel.setVisible(false);
+                btngoback.setVisible(false);
                 getusername.setText("");
                 getpassword.setText("");
                 changePanel1(userAccount);
             }
         }
            
-    }//GEN-LAST:event_loginButtonMousePressed
+    }//GEN-LAST:event_btnloginMousePressed
 
-    private void cancelButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelButtonMousePressed
+    private void btncancelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelMousePressed
         // TODO add your handling code here:
         dB4OUtil.storeSystem(system);
         System.exit(0);
-    }//GEN-LAST:event_cancelButtonMousePressed
+    }//GEN-LAST:event_btncancelMousePressed
 
-    private void btnRegisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMousePressed
+    private void btnregisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnregisterMousePressed
         // TODO add your handling code here:
         UserSignUpForm panel = new UserSignUpForm(container, system);
         lblwelcome.setText("Welcome to House Rental!");
@@ -426,13 +426,13 @@ public class MainFrame extends javax.swing.JFrame {
         container.setVisible(true);
         leftPanel.setVisible(true);
         btnlogoff.setVisible(false);
-        btnBackLabel.setVisible(true);
+        btngoback.setVisible(true);
         getusername.setText("");
         getpassword.setText("");
         container.add("workArea", panel);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
-    }//GEN-LAST:event_btnRegisterMousePressed
+    }//GEN-LAST:event_btnregisterMousePressed
 
     private void loginButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButton1MousePressed
         // TODO add your handling code here:
@@ -486,7 +486,7 @@ public class MainFrame extends javax.swing.JFrame {
                 container.setVisible(true);
                 leftPanel.setVisible(true);
                 btnlogoff.setVisible(true);
-                btnBackLabel.setVisible(false);
+                btngoback.setVisible(false);
                 getusername.setText("");
                 getpassword.setText("");
                 changePanel1(userAccount);
@@ -536,10 +536,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addimageicon;
-    private javax.swing.JLabel btnBackLabel;
-    private javax.swing.JLabel btnRegister;
+    private javax.swing.JLabel btncancel;
+    private javax.swing.JLabel btngoback;
+    private javax.swing.JLabel btnlogin;
     private javax.swing.JLabel btnlogoff;
-    private javax.swing.JLabel cancelButton;
+    private javax.swing.JLabel btnregister;
     private javax.swing.JPanel container;
     private javax.swing.JPasswordField getpassword;
     private javax.swing.JTextField getusername;
@@ -552,7 +553,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbltagline;
     private javax.swing.JLabel lblwelcome;
     private javax.swing.JPanel leftPanel;
-    private javax.swing.JLabel loginButton;
     private javax.swing.JLabel loginButton1;
     private javax.swing.JLabel loginButton2;
     private javax.swing.JPanel loginJPanel;

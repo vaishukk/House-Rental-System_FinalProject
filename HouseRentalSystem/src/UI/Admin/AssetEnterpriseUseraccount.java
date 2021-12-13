@@ -24,14 +24,14 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
     /**
      * Creates new form AssetEnterpriseUseraccount
      */
-    private final JPanel userProcessContainer;
+    private final JPanel userPrcCont;
     private final Enterprise enterprise;
     private final EcoSystem ecosystem;
     Organisation organisation;
     
-    public AssetEnterpriseUseraccount(JPanel userProcessContainer, Enterprise enterprise, EcoSystem system, Organisation organisation) {
+    public AssetEnterpriseUseraccount(JPanel userPrcCont, Enterprise enterprise, EcoSystem system, Organisation organisation) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.userPrcCont = userPrcCont;
         this.enterprise = enterprise;
         this.ecosystem = system;
         this.organisation = organisation;
@@ -53,7 +53,7 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUserDetails = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        lblmaintitle = new javax.swing.JLabel();
         lblicon1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lblorganization = new javax.swing.JLabel();
@@ -111,8 +111,8 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel8.setText("HOUSE RENTAL SYSTEM");
+        lblmaintitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblmaintitle.setText("HOUSE RENTAL SYSTEM");
 
         lblicon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeicon.png"))); // NOI18N
 
@@ -124,7 +124,7 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
                 .addGap(19, 19, 19)
                 .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
+                .addComponent(lblmaintitle)
                 .addContainerGap(669, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -132,7 +132,7 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblmaintitle, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblicon1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -339,23 +339,23 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
 
     private void btnaddusersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddusersActionPerformed
 
-        String username = getusername.getText();
+        String userName = getusername.getText();
         String password = getpassword.getText();
-        if ("".equals(username) || "".equals(password) || organizationbox.getSelectedItem() == null
+        if ("".equals(userName) || "".equals(password) || organizationbox.getSelectedItem() == null
                 || employeebox.getSelectedItem() == null || rolebox.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(null, "Please enter all required  fields!");
+            JOptionPane.showMessageDialog(null, "Entering all required  fields is mandatory!");
             return;
         }
         if (!ecosystem.verifyPassFormat(password)) {
             return;
         }
-        if (!ecosystem.verifySameUser(username)) {
+        if (!ecosystem.verifySameUser(userName)) {
             return;
         }
-        Organisation org = (Organisation) organizationbox.getSelectedItem();
-        Employee employee = (Employee) employeebox.getSelectedItem();
+        Organisation orgnstn = (Organisation) organizationbox.getSelectedItem();
+        Employee emp = (Employee) employeebox.getSelectedItem();
         Role role = (Role) rolebox.getSelectedItem();
-        org.getUserAccountDirectory().generateUserAcc(username, password, employee, role);
+        orgnstn.getUserAccountDirectory().generateUserAcc(userName, password, emp, role);
         populateTable();
         getusername.setText("");
         getpassword.setText("");
@@ -364,9 +364,9 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
 
     public void populateOrganizationBox() {
         organizationbox.removeAllItems();
-        for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
-            if (org.getType() != Organisation.Type.Customer) {
-                organizationbox.addItem(org);
+        for (Organisation orgnsatn : enterprise.getOrganisationDirectory().getOrganisationList()) {
+            if (orgnsatn.getType() != Organisation.Type.Customer) {
+                organizationbox.addItem(orgnsatn);
             }
         }
     }
@@ -376,12 +376,12 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
 
         model.setRowCount(0);
 
-        for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
-            if (org.getType() != Organisation.Type.Customer) {
-                for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+        for (Organisation orgnsatn : enterprise.getOrganisationDirectory().getOrganisationList()) {
+            if (orgnsatn.getType() != Organisation.Type.Customer) {
+                for (UserAccount usrAcc : orgnsatn.getUserAccountDirectory().getUserAccountList()) {
                     Object row[] = new Object[2];
-                    row[0] = ua;
-                    row[1] = ua.getRole();
+                    row[0] = usrAcc;
+                    row[1] = usrAcc.getRole();
                     ((DefaultTableModel) tblUserDetails.getModel()).addRow(row);
                 }
             }
@@ -391,8 +391,8 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
     public void populateEmployeeBox(Organisation organisation) {
         employeebox.removeAllItems();
 
-        for (Employee employee : organisation.getEmployeeDirectory().getEmpList()) {
-            employeebox.addItem(employee);
+        for (Employee emp : organisation.getEmployeeDirectory().getEmpList()) {
+            employeebox.addItem(emp);
         }
     }
 
@@ -409,7 +409,6 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
     private javax.swing.JPasswordField getpassword;
     private javax.swing.JTextField getusername;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -419,6 +418,7 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
     private javax.swing.JLabel lblemployee;
     private javax.swing.JLabel lblicon;
     private javax.swing.JLabel lblicon1;
+    private javax.swing.JLabel lblmaintitle;
     private javax.swing.JLabel lblorganization;
     private javax.swing.JLabel lblpassword;
     private javax.swing.JLabel lblrole;

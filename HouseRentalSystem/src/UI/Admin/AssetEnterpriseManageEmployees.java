@@ -23,13 +23,14 @@ public class AssetEnterpriseManageEmployees extends javax.swing.JPanel {
     /**
      * Creates new form AssetEnterpriseManageEmployees
      */
-    private final JPanel userProcessContainer;
+    private final JPanel userPrcCont;
     private final OrganisationDirectory organisationDirectory;
     private Enterprise enterprise;
     private EcoSystem system;
-    public AssetEnterpriseManageEmployees(JPanel userProcessContainer, OrganisationDirectory organisationDirectory) {
+    
+    public AssetEnterpriseManageEmployees(JPanel userPrcCont, OrganisationDirectory organisationDirectory) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.userPrcCont = userPrcCont;
         this.organisationDirectory = organisationDirectory;
         populateTable();
         populateorganizationbox();
@@ -52,10 +53,10 @@ public class AssetEnterpriseManageEmployees extends javax.swing.JPanel {
 
         for (Organisation organisation : organisationDirectory.getOrganisationList()) {
             if (organisation.getType() != Organisation.Type.Customer) {
-                for (Employee employee : organisation.getEmployeeDirectory().getEmpList()) {
+                for (Employee emp : organisation.getEmployeeDirectory().getEmpList()) {
                     Object[] row = new Object[model.getColumnCount()];
-                    row[0] = employee.getId();
-                    row[1] = employee.getName();
+                    row[0] = emp.getId();
+                    row[1] = emp.getName();
                     model.addRow(row);
                 }
             }
@@ -71,7 +72,6 @@ public class AssetEnterpriseManageEmployees extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         lblasset = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -88,17 +88,6 @@ public class AssetEnterpriseManageEmployees extends javax.swing.JPanel {
         btnaddemploye = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 871, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 612, Short.MAX_VALUE)
-        );
 
         jPanel2.setBackground(new java.awt.Color(44, 68, 80));
         jPanel2.setMinimumSize(new java.awt.Dimension(1058, 840));
@@ -273,20 +262,10 @@ public class AssetEnterpriseManageEmployees extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 984, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 56, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 57, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 848, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 118, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 118, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -303,7 +282,7 @@ if (!getname.getText().equals("")) {
             Organisation organisation = (Organisation) organizationbox.getSelectedItem();
             String name = getname.getText();
             organisation.getEmployeeDirectory().generateEmp(name);
-            JOptionPane.showMessageDialog(null, "Employee Added Successfully");
+            JOptionPane.showMessageDialog(null, "Hurray!! Employee Added");
             populateTable();
             getname.setText("");
         } else {
@@ -317,7 +296,6 @@ if (!getname.getText().equals("")) {
     private javax.swing.JTextField getname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;

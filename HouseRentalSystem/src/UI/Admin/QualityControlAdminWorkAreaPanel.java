@@ -18,20 +18,20 @@ import javax.swing.JPanel;
  * @author sanik
  */
 public class QualityControlAdminWorkAreaPanel extends javax.swing.JPanel {
-    JPanel userProcessContainer;
+    JPanel usrPrcCont;
     Enterprise enterprise;
     EcoSystem system;
     Network network;
-    UserAccount account;
+    UserAccount usrAcc;
     Organisation organisation;
 
     /**
      * Creates new form QualityControlAdminWorkAreaPanel
      */
-    public QualityControlAdminWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
+    public QualityControlAdminWorkAreaPanel(JPanel usrPrcCont, UserAccount usrAcc, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.account = account;
+        this.usrPrcCont = usrPrcCont;
+        this.usrAcc = usrAcc;
         this.system = business;
         this.network = network;
         this.enterprise = enterprise;
@@ -61,9 +61,9 @@ public class QualityControlAdminWorkAreaPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) rightpanel.getLayout();
         layout.next(rightpanel);
     }
-    private void manageRequests(){
+    private void manageDemands(){
         
-        QualityControlEnterpriseWorkRequest qualityControlEnterpriseWorkRequest = new QualityControlEnterpriseWorkRequest(rightpanel, account, enterprise, network, system);
+        QualityControlEnterpriseWorkRequest qualityControlEnterpriseWorkRequest = new QualityControlEnterpriseWorkRequest(rightpanel, usrAcc, enterprise, network, system);
         rightpanel.add("QualityControlEnterpriseWorkRequest", qualityControlEnterpriseWorkRequest);
         CardLayout layout = (CardLayout) rightpanel.getLayout();
         layout.next(rightpanel);
@@ -346,7 +346,7 @@ public class QualityControlAdminWorkAreaPanel extends javax.swing.JPanel {
 
     private void managedemandspanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managedemandspanelMousePressed
         // TODO add your handling code here:
-        manageRequests();
+        manageDemands();
     }//GEN-LAST:event_managedemandspanelMousePressed
 
 

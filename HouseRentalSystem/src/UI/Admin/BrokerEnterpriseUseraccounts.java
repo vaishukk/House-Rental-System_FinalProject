@@ -30,13 +30,14 @@ public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
     private final Enterprise enterprise;
     private final EcoSystem ecosystem;
     Organisation organisation;
+    
     public BrokerEnterpriseUseraccounts(Enterprise enterprise, EcoSystem system, Organisation organisation) {
         initComponents();
         this.enterprise = enterprise;
         this.ecosystem = system;
         this.organisation = organisation;
         populateorganizationbox();
-        populateData();
+        populateTable();
     }
     
      public void populateorganizationbox() {
@@ -46,7 +47,7 @@ public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
         }
     }
 
-    public void populateData() {
+    public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) userdtltbl.getModel();
 
         model.setRowCount(0);
@@ -328,18 +329,18 @@ public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
     }//GEN-LAST:event_employeeboxActionPerformed
 
     private void organizationboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationboxActionPerformed
-         Organisation org = (Organisation) organizationbox.getSelectedItem();
-        if (org != null) {
-            populateEmployeeComboBox(org);
-            popRoleComboBox(org);
+         Organisation organisatn = (Organisation) organizationbox.getSelectedItem();
+        if (organisatn != null) {
+            populateEmployeeComboBox(organisatn);
+            popRoleComboBox(organisatn);
         }
     }//GEN-LAST:event_organizationboxActionPerformed
 
     public void populateEmployeeComboBox(Organisation organisation) {
         employeebox.removeAllItems();
 
-        for (Employee employee : organisation.getEmployeeDirectory().getEmpList()) {
-            employeebox.addItem(employee);
+        for (Employee emp : organisation.getEmployeeDirectory().getEmpList()) {
+            employeebox.addItem(emp);
         }
     }
 
@@ -351,9 +352,9 @@ public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
     }
     
     private void btnaddusersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddusersActionPerformed
-        String username = getusername.getText();
+        String userName = getusername.getText();
         String password = getpassword.getText();
-        if ("".equals(username) || "".equals(password)|| organizationbox.getSelectedItem() == null
+        if ("".equals(userName) || "".equals(password)|| organizationbox.getSelectedItem() == null
                 || employeebox.getSelectedItem() == null || rolebox.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null, "Please enter all required fields!");
             return;
@@ -361,17 +362,17 @@ public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
         if (!ecosystem.verifyPassFormat(password)) {
             return;
         }
-        if (!ecosystem.verifySameUser(username)) {
+        if (!ecosystem.verifySameUser(userName)) {
             return;
         }
-        Organisation org = (Organisation) organizationbox.getSelectedItem();
-        Employee employee = (Employee) employeebox.getSelectedItem();
+        Organisation organisatn = (Organisation) organizationbox.getSelectedItem();
+        Employee emp = (Employee) employeebox.getSelectedItem();
         Role role = (Role) rolebox.getSelectedItem();
-        org.getUserAccountDirectory().generateUserAcc(username, password, employee, role);
-        populateData();
+        organisatn.getUserAccountDirectory().generateUserAcc(userName, password, emp, role);
+        populateTable();
         getusername.setText("");
         getpassword.setText("");
-        JOptionPane.showMessageDialog(null, "User created successfully");
+        JOptionPane.showMessageDialog(null, "User created ");
        
     }//GEN-LAST:event_btnaddusersActionPerformed
 

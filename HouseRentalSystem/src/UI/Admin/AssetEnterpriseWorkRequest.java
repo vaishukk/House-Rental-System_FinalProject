@@ -70,7 +70,6 @@ public class AssetEnterpriseWorkRequest extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         lbltitle = new javax.swing.JLabel();
@@ -226,44 +225,19 @@ public class AssetEnterpriseWorkRequest extends javax.swing.JPanel {
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1340, 320));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1093, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1093, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1264, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 85, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 86, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1093, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 171, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 755, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 109, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 110, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 235, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -272,11 +246,11 @@ public class AssetEnterpriseWorkRequest extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             RegistrationRequest request = (RegistrationRequest) assetenterprisetable.getValueAt(selectedRow, 0);
-            request.setAvail("Rejected");
-            JOptionPane.showMessageDialog(null, "User request has been removed successfully");
+            request.setAvail("Not Accepted");
+            JOptionPane.showMessageDialog(null, "User request has been removed");
             populateTable();
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a request to process.");
+            JOptionPane.showMessageDialog(null, "Select a request to process.");
             return;
         }
     }//GEN-LAST:event_btndeclineActionPerformed
@@ -297,13 +271,13 @@ int selectedRow = assetenterprisetable.getSelectedRow();
                 case Constructor:{
                     Organisation org = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
                     Employee emp = org.getEmployeeDirectory().generateEmp(request.getName());
-                    UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new ConstructorRole());
+                    UserAccount userAcc = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new ConstructorRole());
                         break;
                     }
                 case Merchant:{
                     Organisation org = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
                     Employee emp = org.getEmployeeDirectory().generateEmp(request.getName());
-                    UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new MerchantRole());
+                    UserAccount userAcc = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new MerchantRole());
                         break;
                     }
                 default:
@@ -311,10 +285,10 @@ int selectedRow = assetenterprisetable.getSelectedRow();
             }
 
             request.setAvail("Completed");
-            JOptionPane.showMessageDialog(null, "User account has been activated successfully");
+            JOptionPane.showMessageDialog(null, "User account activated successfully");
             populateTable();
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a request to process.");
+            JOptionPane.showMessageDialog(null, "Select a request to process.");
             return;
         }
     }//GEN-LAST:event_btnallowActionPerformed
@@ -325,7 +299,6 @@ int selectedRow = assetenterprisetable.getSelectedRow();
     private javax.swing.JButton btnallow;
     private javax.swing.JButton btndecline;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;

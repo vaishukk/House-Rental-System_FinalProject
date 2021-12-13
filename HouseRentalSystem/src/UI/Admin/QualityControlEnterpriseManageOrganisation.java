@@ -25,15 +25,15 @@ public class QualityControlEnterpriseManageOrganisation extends javax.swing.JPan
      * Creates new form QualityControlEnterpriseManageOrganisation
      */
     private OrganisationDirectory directory;
-    private JPanel userProcessContainer;
+    private JPanel usrPrcCont;
     private Enterprise enterprise;
     private Network network;
     private EcoSystem system;
     private int index = -1;
     
-    public QualityControlEnterpriseManageOrganisation(JPanel userProcessContainer, OrganisationDirectory directory, Enterprise enterprise, Network network, EcoSystem system) {
+    public QualityControlEnterpriseManageOrganisation(JPanel usrPrcCont, OrganisationDirectory directory, Enterprise enterprise, Network network, EcoSystem system) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.usrPrcCont = usrPrcCont;
         this.directory = directory;
         this.enterprise = enterprise;
         this.network = network;
