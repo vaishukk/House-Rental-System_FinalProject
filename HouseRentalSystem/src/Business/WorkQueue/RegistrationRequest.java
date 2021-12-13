@@ -18,12 +18,12 @@ public class RegistrationRequest extends WorkRequest{
     private Enterprise enterprise;
     private Organisation.Type orgType;
     private String name;
-    private String orgName;
+    private String organisationName;
     private String userName;
     private String userPassword;
-    private String userEmailId;
+    private String userMailId;
     private String userCity;
-    private String userContact;
+    private String userContactNo;
 
     public Network getNetwork() {
         return network;
@@ -57,12 +57,12 @@ public class RegistrationRequest extends WorkRequest{
         this.name = name;
     }
 
-    public String getOrgName() {
-        return orgName;
+    public String getOrganisationName() {
+        return organisationName;
     }
 
-    public void setOrgName(String orgName) {
-        this.orgName = orgName;
+    public void setOrganisationName(String organisationName) {
+        this.organisationName = organisationName;
     }
 
     public String getUserName() {
@@ -81,12 +81,12 @@ public class RegistrationRequest extends WorkRequest{
         this.userPassword = userPassword;
     }
 
-    public String getUserEmailId() {
-        return userEmailId;
+    public String getUserMailId() {
+        return userMailId;
     }
 
-    public void setUserEmailId(String userEmailId) {
-        this.userEmailId = userEmailId;
+    public void setUserMailId(String userMailId) {
+        this.userMailId = userMailId;
     }
 
     public String getUserCity() {
@@ -97,12 +97,12 @@ public class RegistrationRequest extends WorkRequest{
         this.userCity = userCity;
     }
 
-    public String getUserContact() {
-        return userContact;
+    public String getUserContactNo() {
+        return userContactNo;
     }
 
-    public void setUserContact(String userContact) {
-        this.userContact = userContact;
+    public void setUserContactNo(String userContactNo) {
+        this.userContactNo = userContactNo;
     }
     
     

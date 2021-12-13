@@ -19,10 +19,10 @@ public class ConstructorOrganisation extends Organisation{
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new ConstructorRole());
-        return roles;
+    public ArrayList<Role> getCorrespondingRole() {
+        ArrayList<Role> rolesList = new ArrayList();
+        rolesList.add(new ConstructorRole());
+        return rolesList;
     }
        @Override
     public Type getType() {

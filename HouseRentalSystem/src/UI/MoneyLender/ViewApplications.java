@@ -50,7 +50,7 @@ public class ViewApplications extends javax.swing.JPanel {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                     if (workRequest instanceof MoneyContractorEmployeeRequest) {
-                        if (((MoneyContractorEmployeeRequest) workRequest).getMoneycontractoremp()== null || ((MoneyContractorEmployeeRequest) workRequest).getMoneycontractoremp().getUsername().equals(useraccount.getUsername())) {
+                        if (((MoneyContractorEmployeeRequest) workRequest).getMoneycontractoremp()== null || ((MoneyContractorEmployeeRequest) workRequest).getMoneycontractoremp().getUserName().equals(useraccount.getUserName())) {
                             Object[] row = new Object[model.getColumnCount()];
                             row[0] = workRequest;
                             row[1] = ((MoneyContractorEmployeeRequest) workRequest).getCustomer();
@@ -59,7 +59,7 @@ public class ViewApplications extends javax.swing.JPanel {
                             row[4] = ((MoneyContractorEmployeeRequest) workRequest).getAsset().getCity();
                             row[5] = ((MoneyContractorEmployeeRequest) workRequest).getAsset().getState();
                             row[6] = ((MoneyContractorEmployeeRequest) workRequest).getAsset().getZip();
-                            row[7] = ((MoneyContractorEmployeeRequest) workRequest).getStatus();
+                            row[7] = ((MoneyContractorEmployeeRequest) workRequest).getAvail();
                             row[8] = ((MoneyContractorEmployeeRequest) workRequest).getCustomerNote();
                             row[9] = ((MoneyContractorEmployeeRequest) workRequest).getExaminerNote();
                             row[10] = ((MoneyContractorEmployeeRequest) workRequest).getDiscount();
@@ -296,11 +296,11 @@ public class ViewApplications extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Discount");
                 return;
             }
-            if (!"In Progress".equals(checkRequest.getStatus())) {
-                checkRequest.setStatus("In Progress");
+            if (!"In Progress".equals(checkRequest.getAvail())) {
+                checkRequest.setAvail("In Progress");
                 checkRequest.setMoneycontractoremp(useraccount);
                 checkRequest.setDiscount(discount);
-                useraccount.setStatus("Occupied");
+                useraccount.setAvail("Occupied");
                 JOptionPane.showMessageDialog(null, "Job Taken Successfully!");
                 populateRequestTable();
             } else {
@@ -365,8 +365,8 @@ public class ViewApplications extends javax.swing.JPanel {
                 return;
             }
             MoneyContractorEmployeeRequest checkRequest = (MoneyContractorEmployeeRequest) tblapplications.getValueAt(selectedRow, 0);
-            if (!"In Progress".equals(checkRequest.getStatus())) {
-                checkRequest.setStatus("Rejected");
+            if (!"In Progress".equals(checkRequest.getAvail())) {
+                checkRequest.setAvail("Rejected");
                 JOptionPane.showMessageDialog(null, "Job Rejected Successfully!");
                 populateRequestTable();
             } else {

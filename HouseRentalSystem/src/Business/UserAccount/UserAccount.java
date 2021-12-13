@@ -16,10 +16,10 @@ import Business.WorkQueue.WorkQueue;
  * @author Kiran
  */
 public class UserAccount {
-    private String username;
+    private String userName;
     private String password;
     private String name;
-    private String status;
+    private String avail;
     public Employee employee;
     private Role role;
     private WorkQueue workQueue;
@@ -30,9 +30,9 @@ public class UserAccount {
     private String City;
     private String State;
     private String cost;
-    private String NationId;
-    private String IdDoc;
-    private boolean isApproved;
+    private String proofId;
+    private String documentId;
+    private boolean isAccepted;
     private Enterprise userEnterpriseList;
     private Organisation userOrganisationList;
     
@@ -42,12 +42,12 @@ public class UserAccount {
     
     
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -66,12 +66,12 @@ public class UserAccount {
         this.name = name;
     }
 
-    public String getStatus() {
-        return status;
+    public String getAvail() {
+        return avail;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAvail(String avail) {
+        this.avail = avail;
     }
 
     public Employee getEmployee() {
@@ -154,28 +154,28 @@ public class UserAccount {
         this.cost = cost;
     }
 
-    public String getNationId() {
-        return NationId;
+    public String getProofId() {
+        return proofId;
     }
 
-    public void setNationId(String NationId) {
-        this.NationId = NationId;
+    public void setProofId(String proofId) {
+        this.proofId = proofId;
     }
 
-    public String getIdDoc() {
-        return IdDoc;
+    public String getDocumentId() {
+        return documentId;
     }
 
-    public void setIdDoc(String IdDoc) {
-        this.IdDoc = IdDoc;
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
     }
 
-    public boolean isIsApproved() {
-        return isApproved;
+    public boolean isIsAccepted() {
+        return isAccepted;
     }
 
-    public void setIsApproved(boolean isApproved) {
-        this.isApproved = isApproved;
+    public void setIsAccepted(boolean isAccepted) {
+        this.isAccepted = isAccepted;
     }
 
     public Enterprise getUserEnterpriseList() {

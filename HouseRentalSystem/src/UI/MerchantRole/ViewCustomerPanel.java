@@ -54,9 +54,9 @@ public class ViewCustomerPanel extends javax.swing.JPanel {
             getmailid.setText(buyer.getMailId());
             return _item;
         }).forEachOrdered((_item) -> {
-            getstateid.setText(buyer.getNationId());
+            getstateid.setText(buyer.getProofId());
         }); //File file=buyer.get
-        String imgIcon = buyer.getIdDoc();
+        String imgIcon = buyer.getDocumentId();
         houseimg.setIcon(ResizeImage(imgIcon));
     }
     

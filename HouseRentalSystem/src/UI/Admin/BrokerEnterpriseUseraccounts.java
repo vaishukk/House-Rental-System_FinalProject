@@ -345,7 +345,7 @@ public class BrokerEnterpriseUseraccounts extends javax.swing.JPanel {
 
     private void popRoleComboBox(Organisation organisation) {
         rolebox.removeAllItems();
-        for (Role role : organisation.getSupportedRole()) {
+        for (Role role : organisation.getCorrespondingRole()) {
             rolebox.addItem(role);
         }
     }

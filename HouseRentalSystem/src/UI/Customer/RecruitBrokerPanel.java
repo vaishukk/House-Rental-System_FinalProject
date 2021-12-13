@@ -63,7 +63,7 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
                             row[1] = ua;
                             row[2] = ua.getCity();
                             row[3] = ua.getState();
-                            row[4] = ua.getStatus();
+                            row[4] = ua.getAvail();
                             row[5] = ua.getContactnumber();
                             row[6] = ua.getCost();
                             row[7] = org.getName();
@@ -238,7 +238,7 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
                 if (message.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Comment note!");
                     return;
-                } else if (!brokerAcc.getStatus().equals("Available")) {
+                } else if (!brokerAcc.getAvail().equals("Available")) {
                     JOptionPane.showMessageDialog(null, "Sorry! This Agent is already Occupied");
                     return;
                 }
@@ -246,14 +246,14 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                                if (brokerAcc.getUsername().equals(ua.getUsername())) {
+                                if (brokerAcc.getUserName().equals(ua.getUserName())) {
 
                                     BrokerRequest ar = new BrokerRequest();
                                     ar.setRequestID();
                                     ar.setCustomer(userAccount);
                                     ar.setBroker(brokerAcc);
                                     ar.setMerchant(asset.getMerchant());
-                                    ar.setStatus("Pending");
+                                    ar.setAvail("Pending");
                                     ar.setCustomerNote(message);
                                     ar.setAsset(asset);
                                     ar.setOrgType(org.getType());

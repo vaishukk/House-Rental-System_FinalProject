@@ -16,13 +16,13 @@ public abstract class WorkRequest {
     private String message;
     private UserAccount sender;
     private UserAccount receiver;
-    private String status;
-    private Date request_Date;
+    private String avail;
+    private Date date_req;
     private Date resolve_Date;
     private String quote;
     
     public WorkRequest() {
-        request_Date = new Date();
+        date_req = new Date();
     }
 
     public String getMessage() {
@@ -49,20 +49,20 @@ public abstract class WorkRequest {
         this.receiver = receiver;
     }
 
-    public String getStatus() {
-        return status;
+    public String getAvail() {
+        return avail;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAvail(String status) {
+        this.avail = status;
     }
 
-    public Date getRequest_Date() {
-        return request_Date;
+    public Date getDate_req() {
+        return date_req;
     }
 
-    public void setRequest_Date(Date request_Date) {
-        this.request_Date = request_Date;
+    public void setDate_req(Date date_req) {
+        this.date_req = date_req;
     }
 
     public Date getResolve_Date() {

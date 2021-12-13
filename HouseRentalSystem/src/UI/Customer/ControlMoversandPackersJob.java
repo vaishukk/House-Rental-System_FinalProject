@@ -55,7 +55,7 @@ public class ControlMoversandPackersJob extends javax.swing.JPanel {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.MaintenanceProvider) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof MoversRequest) {
-                            if (userAccount.getUsername().equals(((MoversRequest) workRequest).getCustomer().getUsername())) {
+                            if (userAccount.getUserName().equals(((MoversRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((MoversRequest) workRequest);
                                 row[1] = ((MoversRequest) workRequest).getMovpac().getName();
@@ -64,7 +64,7 @@ public class ControlMoversandPackersJob extends javax.swing.JPanel {
                                 row[4] = ((MoversRequest) workRequest).getAsset().getCity();
                                 row[5] = ((MoversRequest) workRequest).getAsset().getState();
                                 row[6] = ((MoversRequest) workRequest).getAsset().getZip();
-                                row[7] = ((MoversRequest) workRequest).getStatus();
+                                row[7] = ((MoversRequest) workRequest).getAvail();
                                 row[8] = ((MoversRequest) workRequest).getCustomerNote();
                                 row[9] = ((MoversRequest) workRequest).getExaminerNote();
                                 row[10] = ((MoversRequest) workRequest).getMovpac().getCost();

@@ -55,7 +55,7 @@ public class ControlLoanJob extends javax.swing.JPanel {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.MaintenanceProvider) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof MoneyContractorEmployeeRequest) {
-                            if (userAccount.getUsername().equals(((MoneyContractorEmployeeRequest) workRequest).getCustomer().getUsername())) {
+                            if (userAccount.getUserName().equals(((MoneyContractorEmployeeRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((MoneyContractorEmployeeRequest) workRequest);
                                 row[1] = ((MoneyContractorEmployeeRequest) workRequest).getCustomer().getName();
@@ -64,7 +64,7 @@ public class ControlLoanJob extends javax.swing.JPanel {
                                 row[4] = ((MoneyContractorEmployeeRequest) workRequest).getAsset().getCity();
                                 row[5] = ((MoneyContractorEmployeeRequest) workRequest).getAsset().getState();
                                 row[6] = ((MoneyContractorEmployeeRequest) workRequest).getAsset().getZip();
-                                row[7] = ((MoneyContractorEmployeeRequest) workRequest).getStatus();
+                                row[7] = ((MoneyContractorEmployeeRequest) workRequest).getAvail();
                                 row[8] = ((MoneyContractorEmployeeRequest) workRequest).getCustomerNote();
                                 row[9] = ((MoneyContractorEmployeeRequest) workRequest).getExaminerNote();
                                 row[10] = ((MoneyContractorEmployeeRequest) workRequest).getDiscount();

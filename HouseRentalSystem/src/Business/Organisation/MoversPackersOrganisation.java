@@ -20,10 +20,10 @@ public class MoversPackersOrganisation extends Organisation{
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new MovpacRole());
-        return roles;
+    public ArrayList<Role> getCorrespondingRole() {
+        ArrayList<Role> rolesList = new ArrayList();
+        rolesList.add(new MovpacRole());
+        return rolesList;
     }
        @Override
     public Type getType() {

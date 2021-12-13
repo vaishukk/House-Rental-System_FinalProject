@@ -20,10 +20,10 @@ public class MerchantOrganisation extends Organisation{
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new MerchantRole());
-        return roles;
+    public ArrayList<Role> getCorrespondingRole() {
+        ArrayList<Role> rolesList = new ArrayList();
+        rolesList.add(new MerchantRole());
+        return rolesList;
     }
        @Override
     public Type getType() {

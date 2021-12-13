@@ -20,10 +20,10 @@ public class BrokerOrganisation extends Organisation{
     }
     
   @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new BrokerRole());
-        return roles;
+    public ArrayList<Role> getCorrespondingRole() {
+        ArrayList<Role> rolesList = new ArrayList();
+        rolesList.add(new BrokerRole());
+        return rolesList;
     }
        @Override
     public Type getType() {

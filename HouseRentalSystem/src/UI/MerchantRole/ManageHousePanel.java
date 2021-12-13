@@ -47,7 +47,7 @@ public class ManageHousePanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) housingtable.getModel();
         dtm.setRowCount(0);
         for (Asset asset : assetDirectory.getAssetList()) {
-            if (asset.getMerchant().getUsername().equals(useraccount.getUsername())) {
+            if (asset.getMerchant().getUserName().equals(useraccount.getUserName())) {
                 Object[] row = new Object[11];
                 row[0] = asset;
                 row[1] = asset.getAssetName();
@@ -57,8 +57,8 @@ public class ManageHousePanel extends javax.swing.JPanel {
                 row[5] = asset.getZip();
                 row[6] = asset.getBedroom();
                 row[7] = asset.getBaths();
-                row[8] = asset.getPrice();
-                row[9] = asset.getStatus();
+                row[8] = asset.getCost();
+                row[9] = asset.getAvail();
                 row[10]= asset.getCustomer();
                 dtm.addRow(row);
             }
@@ -582,9 +582,9 @@ public class ManageHousePanel extends javax.swing.JPanel {
             int bhkget = Integer.parseInt(getnoofbhk.getText());
             asset.setBedroom(bhkget);
             asset.setBaths(Double.parseDouble(getnoofrestrooms.getText()));
-            asset.setPrice(Double.parseDouble(getprice.getText()));
+            asset.setCost(Double.parseDouble(getprice.getText()));
             String statusget = String.valueOf(availcomboBox.getSelectedItem());
-            asset.setStatus(statusget);
+            asset.setAvail(statusget);
             asset.setMerchant(useraccount);
             system.setAssetDirectory(assetDirectory);
             JOptionPane.showMessageDialog(null, "House details Updated!");

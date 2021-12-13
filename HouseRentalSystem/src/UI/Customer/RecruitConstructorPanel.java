@@ -62,7 +62,7 @@ public class RecruitConstructorPanel extends javax.swing.JPanel {
                             row[1] = ua;
                             row[2] = ua.getCity();
                             row[3] = ua.getState();
-                            row[4] = ua.getStatus();
+                            row[4] = ua.getAvail();
                             row[5] = ua.getContactnumber();
                             row[6] = ua.getCost();
                             row[7] = org.getType();
@@ -255,7 +255,7 @@ public class RecruitConstructorPanel extends javax.swing.JPanel {
                 if (message.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Comment note!");
                     return;
-                } else if (!constructorAcc.getStatus().equals("Available")) {
+                } else if (!constructorAcc.getAvail().equals("Available")) {
                     JOptionPane.showMessageDialog(null, "Sorry! This Builder is already Occupied");
                     return;
                 }
@@ -263,13 +263,13 @@ public class RecruitConstructorPanel extends javax.swing.JPanel {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                                if (constructorAcc.getUsername().equals(ua.getUsername())) {
+                                if (constructorAcc.getUserName().equals(ua.getUserName())) {
                                     ConstructorRequest constructor = new ConstructorRequest();
                                     constructor.setRequestID();
                                     constructor.setCustomer(userAccount);
                                     constructor.setConstructor(constructorAcc);
                                     constructor.setMerchant(asset.getMerchant());
-                                    constructor.setStatus("Pending");
+                                    constructor.setAvail("Pending");
                                     constructor.setCustomerNote(message);
                                     constructor.setAsset(asset);
                                     constructor.setOrgType(org.getType());

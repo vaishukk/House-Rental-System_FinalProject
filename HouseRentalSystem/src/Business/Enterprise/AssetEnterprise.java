@@ -21,7 +21,7 @@ public class AssetEnterprise extends Enterprise{
     }
 
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Role> getCorrespondingRole() {
         roles = new ArrayList<Role>();
         roles.add(new ConstructorRole());
         roles.add(new AssetManagerRole());

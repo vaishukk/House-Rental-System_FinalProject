@@ -13,16 +13,16 @@ import java.util.ArrayList;
  *
  * @author Kiran
  */
-public class PhotoVideoOrganisation extends Organisation{
-    public PhotoVideoOrganisation(String name) {
+public class CameraManOrganisation extends Organisation{
+    public CameraManOrganisation(String name) {
         super(name);
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new CameraManRole());
-        return roles;
+    public ArrayList<Role> getCorrespondingRole() {
+        ArrayList<Role> rolesList = new ArrayList();
+        rolesList.add(new CameraManRole());
+        return rolesList;
     }
        @Override
     public Type getType() {

@@ -28,8 +28,8 @@ public class BrokerRequest extends WorkRequest{
     private Asset asset;
     private String examinerNote;
     private String customerNote;
-    private String status;
-    private String requestedDate;
+    private String avail;
+    private String dateReq;
     int min = 100;
     int max = 999;
 
@@ -122,20 +122,20 @@ public class BrokerRequest extends WorkRequest{
         this.customerNote = customerNote;
     }
 
-    public String getStatus() {
-        return status;
+    public String getAvail() {
+        return avail;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAvail(String avail) {
+        this.avail = avail;
     }
 
-    public String getRequestedDate() {
-        return requestedDate;
+    public String getDateReq() {
+        return dateReq;
     }
 
-    public void setRequestedDate(String requestedDate) {
-        this.requestedDate = requestedDate;
+    public void setDateReq(String dateReq) {
+        this.dateReq = dateReq;
     }
 
     public int getMin() {

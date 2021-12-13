@@ -54,7 +54,7 @@ public class ControlExaminerJob extends javax.swing.JPanel {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.QualityControl) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof ExamineRequest) {
-                            if (userAccount.getUsername().equals(((ExamineRequest) workRequest).getCustomer().getUsername())) {
+                            if (userAccount.getUserName().equals(((ExamineRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((ExamineRequest) workRequest);
                                 row[1] = ((ExamineRequest) workRequest).getExaminer().getName();
@@ -63,7 +63,7 @@ public class ControlExaminerJob extends javax.swing.JPanel {
                                 row[4] = ((ExamineRequest) workRequest).getAsset().getCity();
                                 row[5] = ((ExamineRequest) workRequest).getAsset().getState();
                                 row[6] = ((ExamineRequest) workRequest).getAsset().getZip();
-                                row[7] = ((ExamineRequest) workRequest).getStatus();
+                                row[7] = ((ExamineRequest) workRequest).getAvail();
                                 row[8] = ((ExamineRequest) workRequest).getCustomerNote();
                                 row[9] = ((ExamineRequest) workRequest).getExaminerNote();
                                 row[10] = ((ExamineRequest) workRequest).getExaminer().getCost();

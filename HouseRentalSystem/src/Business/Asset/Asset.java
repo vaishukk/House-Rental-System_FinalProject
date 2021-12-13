@@ -21,8 +21,8 @@ public class Asset {
     private String city;
     private String state;
     private String zip;
-    private String status;
-    private double price;
+    private String avail;
+    private double cost;
     private int bedroom;
     private double baths;
     private UserAccount merchant;
@@ -90,20 +90,20 @@ public class Asset {
         this.zip = zip;
     }
 
-    public String getStatus() {
-        return status;
+    public String getAvail() {
+        return avail;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAvail(String avail) {
+        this.avail = avail;
     }
 
-    public double getPrice() {
-        return price;
+    public double getCost() {
+        return cost;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 
     public int getBedroom() {

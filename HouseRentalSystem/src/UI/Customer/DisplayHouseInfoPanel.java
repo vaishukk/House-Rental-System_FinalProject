@@ -59,7 +59,7 @@ public class DisplayHouseInfoPanel extends javax.swing.JPanel {
         getaddress.setText(asset.getAddress());
         getzip.setText(asset.getZip());
         getstate.setText(asset.getState());
-        getrate.setText(Double.toString(asset.getPrice()));
+        getrate.setText(Double.toString(asset.getCost()));
         getbedrooms.setText(Integer.toString(asset.getBedroom()));
         getbaths.setText(Double.toString(asset.getBaths()));
         String imgIcon = asset.getHomeImg();

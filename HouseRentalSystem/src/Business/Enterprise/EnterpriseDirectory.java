@@ -26,7 +26,7 @@ public class EnterpriseDirectory {
         enterpriseList = new ArrayList<Enterprise>();
     }
     
-    //Create New Enterprise
+    
     public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type) {
         Enterprise enterprise = null;
         if (null != type) {

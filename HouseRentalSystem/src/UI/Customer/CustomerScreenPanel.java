@@ -71,8 +71,8 @@ public class CustomerScreenPanel extends javax.swing.JPanel {
             row[5] = asset.getZip();
             row[6] = asset.getBedroom();
             row[7] = asset.getBaths();
-            row[8] = asset.getPrice();
-            row[9] = asset.getStatus();
+            row[8] = asset.getCost();
+            row[9] = asset.getAvail();
             row[10] = asset.getMerchant();
             row[11] = asset.getMerchant().getName();
             model.addRow(row);

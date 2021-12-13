@@ -20,10 +20,10 @@ public class MoneyContractorOrganisation extends Organisation{
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new MoneyContractorRole());
-        return roles;
+    public ArrayList<Role> getCorrespondingRole() {
+        ArrayList<Role> rolesList = new ArrayList();
+        rolesList.add(new MoneyContractorRole());
+        return rolesList;
     }
        @Override
     public Type getType() {

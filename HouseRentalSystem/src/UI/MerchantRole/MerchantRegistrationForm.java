@@ -355,13 +355,13 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
         }else if(!system.isInt(getzipcode.getText()) || getzipcode.getText().length() != 5){
             JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
             return;
-        }else if(!system.checkValidPhoneFormat(getcontactnumber.getText())){
+        }else if(!system.verifyContactFormat(getcontactnumber.getText())){
             return;
-        }else if(!system.checkValidEmailFormat(getmailid.getText())){
+        }else if(!system.verifyMailFormat(getmailid.getText())){
             return;
-        }else if(!system.checkIfEmailIsUnique(getmailid.getText(), useraccount.getUsername())){
+        }else if(!system.verifySameMail(getmailid.getText(), useraccount.getUserName())){
             return;
-        }else if(!system.checkIfPhoneIsUnique(getcontactnumber.getText(), useraccount.getUsername())){
+        }else if(!system.verifySameContact(getcontactnumber.getText(), useraccount.getUserName())){
             return;
         } else if (!system.isInt(getzipcode.getText()) || getzipcode.getText().length() != 5) {
             JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
@@ -372,8 +372,8 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
             useraccount.setMailId(mailId);
             useraccount.setAddress(address);
             useraccount.setZip(zipcode);
-            useraccount.setNationId(nationalId);
-            useraccount.setIdDoc(idDoc);
+            useraccount.setProofId(nationalId);
+            useraccount.setDocumentId(idDoc);
             ArrayList<UserAccount> registeredCust = asset.getRegisteredCustomer();
             registeredCust.add(useraccount);
             asset.setRegisteredCustomer(registeredCust);
@@ -385,7 +385,7 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
                             mce.setRequestID();
                             mce.setCustomer(useraccount);
                             mce.setMerchant(asset.getMerchant());
-                            mce.setStatus("Pending");
+                            mce.setAvail("Pending");
                             mce.setAsset(asset);
                             e.getWorkQueue().getWrkReqList().add(mce);
                             JOptionPane.showMessageDialog(null, "Request Sent Successfully!");

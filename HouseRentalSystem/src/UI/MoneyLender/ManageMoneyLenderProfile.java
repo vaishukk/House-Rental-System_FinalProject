@@ -274,21 +274,21 @@ public class ManageMoneyLenderProfile extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        if(system.isNull(getname.getText()) || system.isNull(getcity.getText())
-           || system.isNull(getzip.getText()) || system.isNull(getaddress.getText())
-           || system.isNull(getmailid.getText()) || system.isNull(getcontact.getText()) || system.isNull(getstate.getText())){
+        if(system.isVoid(getname.getText()) || system.isVoid(getcity.getText())
+           || system.isVoid(getzip.getText()) || system.isVoid(getaddress.getText())
+           || system.isVoid(getmailid.getText()) || system.isVoid(getcontact.getText()) || system.isVoid(getstate.getText())){
             JOptionPane.showMessageDialog(null, "Please enter all fields!");
             return;
         }else if(!system.isInt(getzip.getText()) || getzip.getText().length() != 5){
             JOptionPane.showMessageDialog(null, "Please enter valid 5 digit zipcode!");
             return;
-        }else if(!system.checkValidPhoneFormat(getcontact.getText())){
+        }else if(!system.verifyContactFormat(getcontact.getText())){
             return;
-        }else if(!system.checkValidEmailFormat(getmailid.getText())){
+        }else if(!system.verifyMailFormat(getmailid.getText())){
             return;
-        }else if(!system.checkIfEmailIsUnique(getmailid.getText(), userAccount.getUsername())){
+        }else if(!system.verifySameMail(getmailid.getText(), userAccount.getUserName())){
             return;
-        }else if(!system.checkIfPhoneIsUnique(getcontact.getText(), userAccount.getUsername())){
+        }else if(!system.verifySameContact(getcontact.getText(), userAccount.getUserName())){
             return;
         }
         userAccount.setName(getname.getText());

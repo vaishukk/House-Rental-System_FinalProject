@@ -10,17 +10,17 @@ package Business.MoneyContractor;
  * @author Kiran
  */
 public class MoneyContractorEmployee {
-    private String moneyContractorEmployeeNo;
+    private String moneyContractorEmployeeId;
     private String moneyContractorEmployeeName;
-    private String moneyContractorEmployeePhone;
-    private String moneyContractorEmployeeEmail;
+    private String moneyContractorEmployeeContactNo;
+    private String moneyContractorEmployeeMail;
 
-    public String getMoneyContractorEmployeeNo() {
-        return moneyContractorEmployeeNo;
+    public String getMoneyContractorEmployeeId() {
+        return moneyContractorEmployeeId;
     }
 
-    public void setMoneyContractorEmployeeNo(String moneyContractorEmployeeNo) {
-        this.moneyContractorEmployeeNo = moneyContractorEmployeeNo;
+    public void setMoneyContractorEmployeeId(String moneyContractorEmployeeId) {
+        this.moneyContractorEmployeeId = moneyContractorEmployeeId;
     }
 
     public String getMoneyContractorEmployeeName() {
@@ -31,20 +31,20 @@ public class MoneyContractorEmployee {
         this.moneyContractorEmployeeName = moneyContractorEmployeeName;
     }
 
-    public String getMoneyContractorEmployeePhone() {
-        return moneyContractorEmployeePhone;
+    public String getMoneyContractorEmployeeContactNo() {
+        return moneyContractorEmployeeContactNo;
     }
 
-    public void setMoneyContractorEmployeePhone(String moneyContractorEmployeePhone) {
-        this.moneyContractorEmployeePhone = moneyContractorEmployeePhone;
+    public void setMoneyContractorEmployeeContactNo(String moneyContractorEmployeeContactNo) {
+        this.moneyContractorEmployeeContactNo = moneyContractorEmployeeContactNo;
     }
 
-    public String getMoneyContractorEmployeeEmail() {
-        return moneyContractorEmployeeEmail;
+    public String getMoneyContractorEmployeeMail() {
+        return moneyContractorEmployeeMail;
     }
 
-    public void setMoneyContractorEmployeeEmail(String moneyContractorEmployeeEmail) {
-        this.moneyContractorEmployeeEmail = moneyContractorEmployeeEmail;
+    public void setMoneyContractorEmployeeMail(String moneyContractorEmployeeMail) {
+        this.moneyContractorEmployeeMail = moneyContractorEmployeeMail;
     }
     
     

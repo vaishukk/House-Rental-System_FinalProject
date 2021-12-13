@@ -26,8 +26,6 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
-import javax.activation.*;
-import java.awt.*;
 import javax.mail.PasswordAuthentication;
 
 /**
@@ -72,8 +70,8 @@ public class EcoSystem extends Organisation{
         return business;
     }
     
-     public static void setInstance(EcoSystem system) {
-        business = system;
+     public static void setInstance(EcoSystem esystem) {
+        business = esystem;
     }
      
     public Network generateAndAppendNwk() {
@@ -118,10 +116,10 @@ public class EcoSystem extends Organisation{
         return true;
     }
     
-    public Boolean verifyPassFormat(String password) {
+    public Boolean verifyPassFormat(String pass) {
         Pattern patt;
         patt = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$");
-        Matcher matcher = patt.matcher(password);
+        Matcher matcher = patt.matcher(pass);
         boolean bool = matcher.matches();
         if (!bool) {
             JOptionPane.showMessageDialog(null, "Invalid password!\nPassword must contain at least one digit [0-9].\n"
@@ -137,16 +135,16 @@ public class EcoSystem extends Organisation{
     
     public boolean verifySameUser(String user_Name) {
         boolean flag = true;
-        for (Network n : business.getNwkCatalog()) {
-            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
-                for (UserAccount u : e.getUserAccountDirectory().getUserAccountList()) {
-                    if (u.getUsername().toLowerCase().equals(user_Name.toLowerCase())) {
+        for (Network nwk : business.getNwkCatalog()) {
+            for (Enterprise ent : nwk.getEnterpriseDirectory().getEnterpriseList()) {
+                for (UserAccount usrAcc : ent.getUserAccountDirectory().getUserAccountList()) {
+                    if (usrAcc.getUserName().toLowerCase().equals(user_Name.toLowerCase())) {
                         flag = false;
                     }
                 }
-                for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
-                    for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
-                        if (u.getUsername().toLowerCase().equals(user_Name.toLowerCase())) {
+                for (Organisation org : ent.getOrganisationDirectory().getOrganisationList()) {
+                    for (UserAccount usrAcc : org.getUserAccountDirectory().getUserAccountList()) {
+                        if (usrAcc.getUserName().toLowerCase().equals(user_Name.toLowerCase())) {
                             flag = false;
                         }
                     }
@@ -164,13 +162,13 @@ public class EcoSystem extends Organisation{
         }
     }
     
-    public Boolean checkValidEmailFormat(String email) {
+    public Boolean verifyMailFormat(String mail) {
         Pattern pattern;
         Matcher matcher;
         String EMAIL_PATTERN
                 = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
         pattern = Pattern.compile(EMAIL_PATTERN);
-        matcher = pattern.matcher(email);
+        matcher = pattern.matcher(mail);
         if (matcher.matches()) {
             return true;
         } else {
@@ -179,12 +177,12 @@ public class EcoSystem extends Organisation{
         }
     }
     
-    public Boolean checkValidPhoneFormat(String phoneNo) {
+    public Boolean verifyContactFormat(String contactNo) {
         Pattern pattern;
         Matcher matcher;
         String PHONE_PATTERN = "^[0-9]{10}$";
         pattern = Pattern.compile(PHONE_PATTERN);
-        matcher = pattern.matcher(phoneNo);
+        matcher = pattern.matcher(contactNo);
         if (matcher.matches()) {
             return true;
         } else {
@@ -193,45 +191,45 @@ public class EcoSystem extends Organisation{
         }
     }
     
-    public boolean isNull(String strNum) {
-        if (strNum.trim().isEmpty()) {
+    public boolean isVoid(String stringNum) {
+        if (stringNum.trim().isEmpty()) {
             return true;
         } else {
             return false;
         }
     }
     
-    public boolean isDouble(String strNum) {
-        if (strNum == null) {
+    public boolean isDouble(String stringNum) {
+        if (stringNum == null) {
             return false;
         }
         try {
-            double d = Double.parseDouble(strNum);
-        } catch (NumberFormatException nfe) {
+            double dbl = Double.parseDouble(stringNum);
+        } catch (NumberFormatException numFormatExp) {
             return false;
         }
         return true;
     }
     
-     public boolean isInt(String strNum) {
-        if (strNum == null) {
+     public boolean isInt(String stringNum) {
+        if (stringNum == null) {
             return false;
         }
         try {
-            int d = Integer.parseInt(strNum);
-        } catch (NumberFormatException nfe) {
+            int d = Integer.parseInt(stringNum);
+        } catch (NumberFormatException numFormatExp) {
             return false;
         }
         return true;
     }
      
-     public boolean checkIfEmailIsUnique(String email, String username) {
+     public boolean verifySameMail(String mail, String usrName) {
         for (Network n : business.getNwkCatalog()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
                     for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
                         if (u.getMailId() != null) {
-                            if (u.getMailId().toLowerCase().equals(email.toLowerCase()) && !u.getUsername().equals(username)) {
+                            if (u.getMailId().toLowerCase().equals(mail.toLowerCase()) && !u.getUserName().equals(usrName)) {
                                 JOptionPane.showMessageDialog(null, "Sorry! This Email Address already exists in our system", "Error!", JOptionPane.ERROR_MESSAGE);
                                 return false;
                             }
@@ -243,13 +241,13 @@ public class EcoSystem extends Organisation{
         return true;
     }
      
-      public boolean checkIfPhoneIsUnique(String phone, String username) {
-        for (Network n : business.getNwkCatalog()) {
-            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
-                for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
-                    for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
-                        if (u.getContactnumber() != null) {
-                            if (u.getContactnumber().equals(phone) && !u.getUsername().equals(username)) {
+      public boolean verifySameContact(String contactNo, String usrName) {
+        for (Network nwk : business.getNwkCatalog()) {
+            for (Enterprise ent : nwk.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organisation org : ent.getOrganisationDirectory().getOrganisationList()) {
+                    for (UserAccount usrAcc : org.getUserAccountDirectory().getUserAccountList()) {
+                        if (usrAcc.getContactnumber() != null) {
+                            if (usrAcc.getContactnumber().equals(contactNo) && !usrAcc.getUserName().equals(usrName)) {
                                 JOptionPane.showMessageDialog(null, "Sorry! This Contact Number already exists in our system", "Error!", JOptionPane.ERROR_MESSAGE);
                                 return false;
                             }
@@ -262,10 +260,10 @@ public class EcoSystem extends Organisation{
     }
       
       @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roleList = new ArrayList<Role>();
-        roleList.add(new SysAdminRole());
-        return roleList;
+    public ArrayList<Role> getCorrespondingRole() {
+        ArrayList<Role> rolesList = new ArrayList<Role>();
+        rolesList.add(new SysAdminRole());
+        return rolesList;
     }
 
     
@@ -298,13 +296,10 @@ public class EcoSystem extends Organisation{
         message.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
         message.setSubject("New User Registration");
         message.setText(body);
-        //Transport transport = session.getTransport("smtp");
-        //transport.connect(host, from, pass);
         Transport.send(message);
-        //transport.close();
-        System.out.println("Sent message successfully....");
+        System.out.println("Sent email successfully....");
     } catch (MessagingException mex) {
-        JOptionPane.showMessageDialog(null, "Invalid Email Address");
+        JOptionPane.showMessageDialog(null, "Not a valid Mail Address");
         mex.printStackTrace();
     }
 }    
