@@ -52,7 +52,7 @@ public class RecruitExaminerPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblhouse.getModel();
         model.setRowCount(0);
 
-        for (Network n : system.getNetworkList()) {
+        for (Network n : system.getNwkCatalog()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
@@ -177,7 +177,7 @@ public class RecruitExaminerPanel extends javax.swing.JPanel {
                 .addGap(90, 90, 90))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1280, 270));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1340, 270));
 
         btnrepairservices.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnrepairservices.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-online-jobs-application-available-on-a-smartphone-24.png"))); // NOI18N
@@ -232,27 +232,17 @@ public class RecruitExaminerPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1280, 70));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1340, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1278, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1342, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 615, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -271,7 +261,7 @@ public class RecruitExaminerPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Sorry! This Inspector is already Occupied");
                     return;
                 }
-                for (Network n : system.getNetworkList()) {
+                for (Network n : system.getNwkCatalog()) {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {

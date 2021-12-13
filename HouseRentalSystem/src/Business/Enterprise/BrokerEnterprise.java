@@ -5,6 +5,7 @@
  */
 package Business.Enterprise;
 
+import Business.Role.BrokerRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -17,10 +18,10 @@ public class BrokerEnterprise extends Enterprise{
         super(name, Enterprise.EnterpriseType.Broker);
     }
 
-    //@Override
+    @Override
     public ArrayList<Role> getSupportedRole() {
-//        roles = new ArrayList<Role>();
-//        roles.add(new AgentRole());
+        roles = new ArrayList<Role>();
+        roles.add(new BrokerRole());
         return roles;
     }
     

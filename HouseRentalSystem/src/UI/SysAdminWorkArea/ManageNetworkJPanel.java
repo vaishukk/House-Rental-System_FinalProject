@@ -31,7 +31,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) networktable.getModel();
 
         model.setRowCount(0);
-        for (Network network : system.getNetworkList()) {
+        for (Network network : system.getNwkCatalog()) {
             Object[] row = new Object[1];
             row[0] = network.getName();
             model.addRow(row);
@@ -202,7 +202,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                     .addComponent(lblnetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         jPanel5.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1080, 300));
@@ -231,8 +231,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please Enter Network Name!");
             return;
         }
-        if (system.checkUniqueNetwork(name)) {
-            Network network = system.createAndAddNetwork();
+        if (system.verifySameNwk(name)) {
+            Network network = system.generateAndAppendNwk();
             network.setName(name);
             JOptionPane.showMessageDialog(null, "Network Created Successfully");
             getstatename.setText("");

@@ -16,12 +16,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="909" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="1243" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="648" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="754" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -107,7 +107,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="-10" y="-10" width="920" height="-1"/>
+              <AbsoluteConstraints x="-10" y="-10" width="1260" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -119,9 +119,7 @@
                       <Component id="lblicon1" min="-2" pref="71" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lbltitle" min="-2" pref="402" max="-2" attributes="0"/>
-                      <EmptySpace pref="349" max="32767" attributes="0"/>
-                      <Component id="btnlogout" min="-2" pref="72" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="763" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -130,8 +128,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnlogout" alignment="1" pref="49" max="32767" attributes="0"/>
-                          <Component id="lblicon1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblicon1" alignment="0" pref="49" max="32767" attributes="0"/>
                           <Component id="lbltitle" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -147,16 +144,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="HOUSE RENTAL SYSTEM"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnlogout">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnlogoutActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblicon1">
               <Properties>
@@ -175,7 +162,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="60" width="910" height="250"/>
+              <AbsoluteConstraints x="0" y="60" width="1250" height="250"/>
             </Constraint>
           </Constraints>
 
@@ -217,7 +204,7 @@
                               <Component id="btnaddemployee" min="-2" pref="202" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="357" max="32767" attributes="0"/>
+                      <EmptySpace pref="698" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

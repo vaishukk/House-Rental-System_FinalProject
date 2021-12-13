@@ -346,16 +346,16 @@ public class AssetEnterpriseUseraccount extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please enter all required  fields!");
             return;
         }
-        if (!ecosystem.checkValidPasswordFormat(password)) {
+        if (!ecosystem.verifyPassFormat(password)) {
             return;
         }
-        if (!ecosystem.checkIfUserIsUnique(username)) {
+        if (!ecosystem.verifySameUser(username)) {
             return;
         }
         Organisation org = (Organisation) organizationbox.getSelectedItem();
         Employee employee = (Employee) employeebox.getSelectedItem();
         Role role = (Role) rolebox.getSelectedItem();
-        org.getUserAccountDirectory().createUserAccount(username, password, employee, role);
+        org.getUserAccountDirectory().generateUserAcc(username, password, employee, role);
         populateTable();
         getusername.setText("");
         getpassword.setText("");

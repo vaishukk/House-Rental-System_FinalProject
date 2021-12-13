@@ -5,6 +5,8 @@
  */
 package Business.Enterprise;
 
+import Business.Role.CameraManRole;
+import Business.Role.ExaminerRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -18,12 +20,12 @@ public class QualityControlEnterprise extends Enterprise{
         super(name, Enterprise.EnterpriseType.QualityControl);
     }
 
-    //@Override
+    @Override
 
     public ArrayList<Role> getSupportedRole() {
         roles = new ArrayList<Role>();
-//        roles.add(new PhotovideoRole());
-//        roles.add(new SupervisorRole());
+        roles.add(new CameraManRole());
+        roles.add(new ExaminerRole());
         return roles;
     }
     

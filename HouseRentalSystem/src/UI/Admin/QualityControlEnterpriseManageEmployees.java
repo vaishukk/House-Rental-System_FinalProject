@@ -68,7 +68,6 @@ public class QualityControlEnterpriseManageEmployees extends javax.swing.JPanel 
         tblorganization = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         lbltitle = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
         lblicon1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblemployee = new javax.swing.JLabel();
@@ -129,13 +128,6 @@ public class QualityControlEnterpriseManageEmployees extends javax.swing.JPanel 
         lbltitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltitle.setText("HOUSE RENTAL SYSTEM");
 
-        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
-            }
-        });
-
         lblicon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeicon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -147,22 +139,19 @@ public class QualityControlEnterpriseManageEmployees extends javax.swing.JPanel 
                 .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
-                .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(763, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnlogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(lblicon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblicon1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 920, -1));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 1260, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -230,7 +219,7 @@ public class QualityControlEnterpriseManageEmployees extends javax.swing.JPanel 
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(292, 292, 292)
                         .addComponent(btnaddemployee, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(357, Short.MAX_VALUE))
+                .addContainerGap(698, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +244,7 @@ public class QualityControlEnterpriseManageEmployees extends javax.swing.JPanel 
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 910, 250));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1250, 250));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-employee-64.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, -1, -1));
@@ -264,11 +253,11 @@ public class QualityControlEnterpriseManageEmployees extends javax.swing.JPanel 
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 909, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1243, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 754, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -280,7 +269,7 @@ public class QualityControlEnterpriseManageEmployees extends javax.swing.JPanel 
        if (!getname.getText().equals("")) {
             Organisation organisation = (Organisation) organizationbox.getSelectedItem();
             String name = getname.getText();
-            organisation.getEmployeeDirectory().createEmployee(name);
+            organisation.getEmployeeDirectory().generateEmp(name);
             JOptionPane.showMessageDialog(null, "Employee Added Successfully");
             populateTable();
             getname.setText("");
@@ -289,14 +278,9 @@ public class QualityControlEnterpriseManageEmployees extends javax.swing.JPanel 
         }
     }//GEN-LAST:event_btnaddemployeeActionPerformed
 
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnlogoutActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaddemployee;
-    private javax.swing.JButton btnlogout;
     private javax.swing.JTextField getname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

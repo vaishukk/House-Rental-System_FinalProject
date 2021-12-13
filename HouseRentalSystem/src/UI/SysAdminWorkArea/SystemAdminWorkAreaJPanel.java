@@ -38,7 +38,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     
     public void populateTree(){
         DefaultTreeModel model=(DefaultTreeModel)jTree1.getModel();
-        ArrayList<Network> networkList=ecosystem.getNetworkList();
+        ArrayList<Network> networkList=ecosystem.getNwkCatalog();
         ArrayList<Enterprise> enterpriseList;
         ArrayList<Organisation> organisationList;
         

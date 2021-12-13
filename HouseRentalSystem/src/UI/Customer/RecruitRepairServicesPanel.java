@@ -52,7 +52,7 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblhouse.getModel();
         model.setRowCount(0);
         
-        for (Network n : system.getNetworkList()) {
+        for (Network n : system.getNwkCatalog()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
@@ -91,7 +91,6 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
         tblhouse = new javax.swing.JTable();
         lblmessae = new javax.swing.JLabel();
         getmessage = new javax.swing.JTextField();
-        btnBack1 = new javax.swing.JButton();
         lblrepair = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnrepairservices = new javax.swing.JButton();
@@ -130,12 +129,6 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
 
         getmessage.setForeground(new java.awt.Color(41, 50, 80));
 
-        btnBack1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack1ActionPerformed(evt);
-            }
-        });
-
         lblrepair.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblrepair.setText("REPAIR SERVICES LIST");
         lblrepair.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -152,9 +145,7 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
                         .addGap(307, 307, 307)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(lblrepair)
-                        .addGap(328, 328, 328)
-                        .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblrepair))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -163,7 +154,7 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
                         .addComponent(lblmessae)
                         .addGap(18, 18, 18)
                         .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(387, 387, 387))
+                .addGap(428, 428, 428))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,9 +162,7 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblrepair, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblrepair, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
@@ -248,27 +237,15 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1278, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1278, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 615, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBack1ActionPerformed
 
     private void btnrepairservicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrepairservicesActionPerformed
 
@@ -285,7 +262,7 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Sorry! This Electrician is already Occupied");
                     return;
                 }
-                for (Network n : system.getNetworkList()) {
+                for (Network n : system.getNwkCatalog()) {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
@@ -340,7 +317,6 @@ public class RecruitRepairServicesPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack1;
     private javax.swing.JButton btnback;
     private javax.swing.JButton btnrepairservices;
     private javax.swing.JTextField getmessage;

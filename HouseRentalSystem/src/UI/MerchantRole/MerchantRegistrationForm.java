@@ -77,6 +77,7 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
         lbltitle = new javax.swing.JLabel();
+        btnprevious = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblsubtitle = new javax.swing.JLabel();
         lblname = new javax.swing.JLabel();
@@ -89,7 +90,6 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
         getaddress = new javax.swing.JTextField();
         lblzip = new javax.swing.JLabel();
         getzipcode = new javax.swing.JTextField();
-        btnprevious = new javax.swing.JButton();
         lblProfID = new javax.swing.JLabel();
         getidproof = new javax.swing.JTextField();
         btnidproofuppload = new javax.swing.JButton();
@@ -138,6 +138,14 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
         lbltitle.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         lbltitle.setText("HOUSE RENTALS");
 
+        btnprevious.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnprevious.setText("BACK");
+        btnprevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpreviousActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -147,16 +155,21 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
                 .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(632, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 378, Short.MAX_VALUE)
+                .addComponent(btnprevious)
+                .addGap(191, 191, 191))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
                     .addComponent(lbltitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
@@ -192,14 +205,6 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
 
         getzipcode.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        btnprevious.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        btnprevious.setText("BACK");
-        btnprevious.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpreviousActionPerformed(evt);
-            }
-        });
-
         lblProfID.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblProfID.setText("ID Proof:");
 
@@ -222,9 +227,7 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(362, 362, 362)
-                        .addComponent(lblsubtitle)
-                        .addGap(192, 192, 192)
-                        .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblsubtitle))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(294, 294, 294)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,9 +258,7 @@ public class MerchantRegistrationForm extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblsubtitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnprevious, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblsubtitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblname)

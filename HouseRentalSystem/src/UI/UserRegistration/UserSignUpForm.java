@@ -40,7 +40,7 @@ public class UserSignUpForm extends javax.swing.JPanel {
     
     public void populateNetworkComboBox() {
         getstate.removeAllItems();
-        for (Network network : system.getNetworkList()) {
+        for (Network network : system.getNwkCatalog()) {
             getstate.addItem(network);
         }
     }
@@ -113,7 +113,7 @@ public class UserSignUpForm extends javax.swing.JPanel {
                 .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1002, Short.MAX_VALUE))
+                .addContainerGap(1239, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,17 +125,17 @@ public class UserSignUpForm extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1490, 70));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1730, 70));
 
         lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblsubtitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblsubtitle.setText("SIGN UP FORM");
         lblsubtitle.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        lablorganizationname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lablorganizationname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lablorganizationname.setText("Organization");
 
-        organizationbox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        organizationbox.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         organizationbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 organizationboxActionPerformed(evt);
@@ -147,10 +147,10 @@ public class UserSignUpForm extends javax.swing.JPanel {
             }
         });
 
-        lblname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblname.setText("Name");
 
-        getname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getnameActionPerformed(evt);
@@ -165,10 +165,10 @@ public class UserSignUpForm extends javax.swing.JPanel {
             }
         });
 
-        lblusername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblusername.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblusername.setText("Username");
 
-        getusername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getusername.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getusername.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 getusernameKeyReleased(evt);
@@ -178,16 +178,16 @@ public class UserSignUpForm extends javax.swing.JPanel {
             }
         });
 
-        lblpassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblpassword.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblpassword.setText("Password");
 
-        getpassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getpassword.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getpassword.setForeground(new java.awt.Color(25, 56, 82));
 
-        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblmailid.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblmailid.setText("Email Id");
 
-        getmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getmail.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getmail.setForeground(new java.awt.Color(25, 56, 82));
         getmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -198,10 +198,10 @@ public class UserSignUpForm extends javax.swing.JPanel {
             }
         });
 
-        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblstate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblstate.setText("State");
 
-        getstate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getstate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getstate.setForeground(new java.awt.Color(25, 56, 82));
         getstate.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -219,10 +219,10 @@ public class UserSignUpForm extends javax.swing.JPanel {
             }
         });
 
-        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbladdress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lbladdress.setText("Address");
 
-        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getaddress.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getaddress.setForeground(new java.awt.Color(25, 56, 82));
         getaddress.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -230,10 +230,10 @@ public class UserSignUpForm extends javax.swing.JPanel {
             }
         });
 
-        lblPhone.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblPhone.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblPhone.setText("Contact Information");
 
-        getcontactdetails.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getcontactdetails.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getcontactdetails.setForeground(new java.awt.Color(25, 56, 82));
         getcontactdetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -292,9 +292,9 @@ public class UserSignUpForm extends javax.swing.JPanel {
                             .addComponent(getstate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(getcontactdetails, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(357, 357, 357)
+                        .addGap(414, 414, 414)
                         .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(693, Short.MAX_VALUE))
+                .addContainerGap(953, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,7 +313,7 @@ public class UserSignUpForm extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblusername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(getusername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(getpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -321,50 +321,40 @@ public class UserSignUpForm extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblmailid, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(getmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbladdress)
                     .addComponent(getaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                        .addGap(0, 0, 0)
                         .addComponent(lblstate, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(getstate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(lblPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(getcontactdetails, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(75, 75, 75)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1490, 720));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1730, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1487, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1742, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 905, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1078, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -443,10 +433,10 @@ public class UserSignUpForm extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "All of the above the fields are required for registration!!", "Error!", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (!system.checkValidPasswordFormat(password)) {
+        if (!system.verifyPassFormat(password)) {
             return;
         }
-        if (!system.checkIfUserIsUnique(username)) {
+        if (!system.verifySameUser(username)) {
             return;
         }
         if (!this.system.checkValidEmailFormat(emailAddress)) {
@@ -456,7 +446,7 @@ public class UserSignUpForm extends javax.swing.JPanel {
             return;
         }
 
-        for (Network n : system.getNetworkList()) {
+        for (Network n : system.getNwkCatalog()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
                     for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
@@ -470,7 +460,7 @@ public class UserSignUpForm extends javax.swing.JPanel {
                 }
             }
         }
-        for (Network n : system.getNetworkList()) {
+        for (Network n : system.getNwkCatalog()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
                     for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
@@ -489,8 +479,8 @@ public class UserSignUpForm extends javax.swing.JPanel {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Asset) {
                     Organisation org = enterprise.getOrganisationDirectory().createOrganisation(type, name);
-                    Employee emp = org.getEmployeeDirectory().createEmployee(name);
-                    UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(username, password, emp, new CustomerRole());
+                    Employee emp = org.getEmployeeDirectory().generateEmp(name);
+                    UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(username, password, emp, new CustomerRole());
                     ua1.setMailId(emailAddress);
                     ua1.setContactnumber(phone);
                     ua1.setCity(city);

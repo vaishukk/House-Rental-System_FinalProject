@@ -53,7 +53,7 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblhouse.getModel();
         model.setRowCount(0);
 
-        for (Network n : system.getNetworkList()) {
+        for (Network n : system.getNwkCatalog()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
@@ -146,14 +146,14 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(lblbrokers))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(lblmessae)
-                        .addGap(121, 121, 121)
-                        .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 821, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 821, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(399, Short.MAX_VALUE))
+                        .addGap(86, 86, 86)
+                        .addComponent(lblmessae)
+                        .addGap(44, 44, 44)
+                        .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(435, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,16 +164,16 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(lblbrokers, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(22, 22, 22)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblmessae))
-                .addGap(12, 12, 12))
+                    .addComponent(lblmessae)
+                    .addComponent(getmessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1280, 270));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1280, 270));
 
         btnbrokers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnbrokers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-online-jobs-application-available-on-a-smartphone-24.png"))); // NOI18N
@@ -184,7 +184,7 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
                 btnbrokersActionPerformed(evt);
             }
         });
-        add(btnbrokers, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, -1, -1));
+        add(btnbrokers, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -206,25 +206,25 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(1138, 1138, 1138)
-                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblicon1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbltitle))
+                .addComponent(lbltitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 684, Short.MAX_VALUE)
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblicon1)
                     .addComponent(lbltitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
-        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 60));
+        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbrokersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbrokersActionPerformed
@@ -242,7 +242,7 @@ public class RecruitBrokerPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Sorry! This Agent is already Occupied");
                     return;
                 }
-                for (Network n : system.getNetworkList()) {
+                for (Network n : system.getNwkCatalog()) {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organisation org : e.getOrganisationDirectory().getOrganisationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
