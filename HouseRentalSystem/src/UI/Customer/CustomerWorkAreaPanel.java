@@ -22,7 +22,7 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
     /**
      * Creates new form CustomerWorkAreaPanel
      */
-    JPanel userProcessContainer;
+    JPanel userProcCont;
     Enterprise enterprise;
     EcoSystem system;
     Network network;
@@ -31,8 +31,8 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
 
      public CustomerWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
-        //this.userProcessContainer = userProcessContainer;
-        this.userProcessContainer = userProcessContainer;
+        //this.userProcCont = userProcCont;
+        this.userProcCont = userProcessContainer;
         this.account = account;
         this.system = business;
         this.network = network;
@@ -57,7 +57,7 @@ public class CustomerWorkAreaPanel extends javax.swing.JPanel {
     }
     
     private void manageProfile() {
-        ControlCustomerPanel controlCustomerPanel = new ControlCustomerPanel(userProcessContainer, system, account);
+        ControlCustomerPanel controlCustomerPanel = new ControlCustomerPanel(userProcCont, system, account);
         rightWorkAreaPanel.add("ControlCustomerPanel", controlCustomerPanel);
         CardLayout layout = (CardLayout) rightWorkAreaPanel.getLayout();
         layout.next(rightWorkAreaPanel);

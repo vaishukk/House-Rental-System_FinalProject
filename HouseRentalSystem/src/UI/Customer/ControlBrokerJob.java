@@ -29,19 +29,19 @@ public class ControlBrokerJob extends javax.swing.JPanel {
     /**
      * Creates new form ControlBrokerJob
      */
-     private JPanel userProcessContainer;
+     private JPanel userPrcCont;
     private EcoSystem system;
-    private UserAccount userAccount;
+    private UserAccount usrAccount;
     private AssetDirectory assetDirectory;
     private Enterprise enterprise;
     private Network network;
     private Organisation organisation;
-    public ControlBrokerJob(JPanel userProcess, UserAccount userAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
+    public ControlBrokerJob(JPanel userProcess, UserAccount usrAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
         initComponents();
         initComponents();
-        this.userProcessContainer = userProcess;
+        this.userPrcCont = userProcess;
         this.system = system;
-        this.userAccount = userAccount;
+        this.usrAccount = usrAccount;
         this.enterprise = enterprise;
         this.network = network;
         this.organisation = organisation;
@@ -58,7 +58,7 @@ public class ControlBrokerJob extends javax.swing.JPanel {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.Broker) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof BrokerRequest) {
-                            if (userAccount.getUserName().equals(((BrokerRequest) workRequest).getCustomer().getUserName())) {
+                            if (usrAccount.getUserName().equals(((BrokerRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((BrokerRequest) workRequest);
                                 row[1] = ((BrokerRequest) workRequest).getBroker().getName();
@@ -286,12 +286,12 @@ public class ControlBrokerJob extends javax.swing.JPanel {
             BrokerRequest br = (BrokerRequest) tblbroker.getValueAt(selectedRow, 0);
             String message = getmessage.getText();
             if (message.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                JOptionPane.showMessageDialog(null, "Please enter valid entry for quote and feedback");
                 return;
             }
             br.setCustomerNote(message);
             populateReqTable();
-            JOptionPane.showMessageDialog(null, "Message Sent Successfully!");
+            JOptionPane.showMessageDialog(null, "Message Sent !");
 
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
@@ -311,7 +311,7 @@ public class ControlBrokerJob extends javax.swing.JPanel {
             if (br instanceof BrokerRequest) {
                 ArrayList<String> assetList = br.getAssetList();
                 if (assetList.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Sorry there are no house suggestions yet!");
+                    JOptionPane.showMessageDialog(null, " no house suggestions available yet!");
                     return;
                 }
                 for (String assetID : assetList) {
@@ -341,9 +341,9 @@ public class ControlBrokerJob extends javax.swing.JPanel {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        userPrcCont.remove(this);
+        CardLayout layout = (CardLayout) userPrcCont.getLayout();
+        layout.previous(userPrcCont);
     }//GEN-LAST:event_btnbackActionPerformed
 
 

@@ -27,20 +27,20 @@ public class ControlCameraManJob extends javax.swing.JPanel {
     /**
      * Creates new form ControlCameraManJob
      */
-    private JPanel userProcessContainer;
+    private JPanel userPrcCont;
     private EcoSystem system;
-    private UserAccount userAccount;
+    private UserAccount usrAccount;
     private AssetDirectory assetDirectory;
     private Enterprise enterprise;
     private Network network;
     private Organisation organisation;
 
     
-    public ControlCameraManJob(JPanel userProcess, UserAccount userAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
+    public ControlCameraManJob(JPanel userProcess, UserAccount usrAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
         initComponents();
-        this.userProcessContainer = userProcess;
+        this.userPrcCont = userProcess;
         this.system = system;
-        this.userAccount = userAccount;
+        this.usrAccount = usrAccount;
         this.enterprise = enterprise;
         this.network = network;
         this.organisation = organisation;
@@ -56,7 +56,7 @@ public class ControlCameraManJob extends javax.swing.JPanel {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.QualityControl) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof CameraManRequest) {
-                            if (userAccount.getUserName().equals(((CameraManRequest) workRequest).getCustomer().getUserName())) {
+                            if (usrAccount.getUserName().equals(((CameraManRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((CameraManRequest) workRequest);
                                 row[1] = ((CameraManRequest) workRequest).getCameraman().getName();
@@ -254,9 +254,9 @@ public class ControlCameraManJob extends javax.swing.JPanel {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        userPrcCont.remove(this);
+        CardLayout layout = (CardLayout) userPrcCont.getLayout();
+        layout.previous(userPrcCont);
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void btnsendmessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsendmessageActionPerformed
@@ -267,12 +267,12 @@ public class ControlCameraManJob extends javax.swing.JPanel {
             CameraManRequest br = (CameraManRequest) tblphoto.getValueAt(selectedRow, 0);
             String message = getmessage.getText();
             if (message.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                JOptionPane.showMessageDialog(null, " enter valid entry for quote and comments");
                 return;
             }
             br.setCustomerNote(message);
             populateReqTable();
-            JOptionPane.showMessageDialog(null, "Message Sent Successfully!");
+            JOptionPane.showMessageDialog(null, "Message Sent!");
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
         }

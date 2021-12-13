@@ -26,18 +26,18 @@ public class ControlManagerJob extends javax.swing.JPanel {
     /**
      * Creates new form ControlManagerJob
      */
-    private JPanel userProcessContainer;
+    private JPanel userPrcCont;
     private EcoSystem system;
-    private UserAccount userAccount;
+    private UserAccount usrAccount;
     private Enterprise enterprise;
     private Network network;
     private Organisation organisation;
     
-    public ControlManagerJob(JPanel userProcess, UserAccount userAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
+    public ControlManagerJob(JPanel userProcess, UserAccount usrAccount, EcoSystem system, Enterprise enterprise, Network network, Organisation organisation) {
         initComponents();
-        this.userProcessContainer = userProcess;
+        this.userPrcCont = userProcess;
         this.system = system;
-        this.userAccount = userAccount;
+        this.usrAccount = usrAccount;
         this.enterprise = enterprise;
         this.network = network;
         this.organisation = organisation;
@@ -52,7 +52,7 @@ public class ControlManagerJob extends javax.swing.JPanel {
                 if (e.getEnterpriseType() == Enterprise.EnterpriseType.Asset) {
                     for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                         if (workRequest instanceof ControlRequest) {
-                            if (userAccount.getUserName().equals(((ControlRequest) workRequest).getCustomer().getUserName())) {
+                            if (usrAccount.getUserName().equals(((ControlRequest) workRequest).getCustomer().getUserName())) {
                                 Object[] row = new Object[model.getColumnCount()];
                                 row[0] = ((ControlRequest) workRequest);
                                 row[1] = ((ControlRequest) workRequest).getControl().getName();
@@ -248,9 +248,9 @@ public class ControlManagerJob extends javax.swing.JPanel {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        userPrcCont.remove(this);
+        CardLayout layout = (CardLayout) userPrcCont.getLayout();
+        layout.previous(userPrcCont);
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void btnsendmessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsendmessageActionPerformed
@@ -261,12 +261,12 @@ public class ControlManagerJob extends javax.swing.JPanel {
             ControlRequest cr = (ControlRequest) tblmanager.getValueAt(selectedRow, 0);
             String message = getmessage.getText();
             if (message.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
+                JOptionPane.showMessageDialog(null, "enter valid entry for quote and comments");
                 return;
             }
             cr.setCustomerNote(message);
             populateReqTable();
-            JOptionPane.showMessageDialog(null, "Message Sent Successfully!");
+            JOptionPane.showMessageDialog(null, "Message Sent !");
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
         }

@@ -23,11 +23,11 @@ import javax.swing.JPanel;
  */
 public class DisplayHouseInfoPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel userPrcCont;
     private AssetDirectory assetDirectory;
     private Asset asset;
     private EcoSystem system;
-    private UserAccount userAccount;
+    private UserAccount usrAccount;
     private Enterprise enterprise;
     private Network network;
     private Organisation organisation;
@@ -37,16 +37,16 @@ public class DisplayHouseInfoPanel extends javax.swing.JPanel {
      * @param property
      * @param propertyDirectory
      * @param system
-     * @param userAccount
+     * @param usrAccount
      */
     
     
-    public DisplayHouseInfoPanel(JPanel userProcessContainer, Asset asset, AssetDirectory assetDirectory, EcoSystem system, UserAccount userAccount) {
+    public DisplayHouseInfoPanel(JPanel userProcessContainer, Asset asset, AssetDirectory assetDirectory, EcoSystem system, UserAccount usrAccount) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.userPrcCont = userProcessContainer;
         this.asset = asset;
         this.assetDirectory = assetDirectory;
-        this.userAccount = userAccount;
+        this.usrAccount = usrAccount;
         this.system = system;
 
         populateReqTable();
@@ -268,9 +268,9 @@ public class DisplayHouseInfoPanel extends javax.swing.JPanel {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        userPrcCont.remove(this);
+        CardLayout layout = (CardLayout) userPrcCont.getLayout();
+        layout.previous(userPrcCont);
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void getbedroomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getbedroomsActionPerformed
