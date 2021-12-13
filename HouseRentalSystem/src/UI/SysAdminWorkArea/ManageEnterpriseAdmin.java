@@ -93,7 +93,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(enterpriseTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 660, 90));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 660, 90));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -111,7 +111,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
                 .addComponent(lblmainicon, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(722, Short.MAX_VALUE))
+                .addContainerGap(829, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,7 +123,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 70));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1320, 70));
 
         lblsubtitle.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblsubtitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -218,7 +218,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(265, 265, 265)
                         .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(505, Short.MAX_VALUE))
+                .addContainerGap(605, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +250,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1210, 320));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1310, 320));
 
         lblsubsubtitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblsubsubtitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -262,21 +262,13 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1210, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1320, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 856, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 145, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -293,7 +285,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) enterpriseTable.getModel();
 
         model.setRowCount(0);
-        for (Network network : system.getNetworkList()) {
+        for (Network network : system.getNwkCatalog()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 for (UserAccount userAccount : enterprise.getUserAccountDirectory().getUserAccountList()) {
                     Object[] row = new Object[3];
@@ -311,7 +303,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
         networkbox.removeAllItems();
         networkbox.removeAllItems();
 
-        for (Network network : system.getNetworkList()) {
+        for (Network network : system.getNwkCatalog()) {
             networkbox.addItem(network);
         }
     }
@@ -337,28 +329,28 @@ public class ManageEnterpriseAdmin extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please enter all fields", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if (!system.checkValidPasswordFormat(password)) {
+        if (!system.verifyPassFormat(password)) {
             return;
         }
-        if (!system.checkIfUserIsUnique(username)) {
+        if (!system.verifySameUser(username)) {
             return;
         }
 
-        Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
+        Employee employee = enterprise.getEmployeeDirectory().generateEmp(name);
         UserAccount account = null;
         if (null != enterprise.getEnterpriseType()) {
             switch (enterprise.getEnterpriseType()) {
                 case MaintenanceProvider:
-                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new MaintenanceProviderAdmin());
+                    account = enterprise.getUserAccountDirectory().generateUserAcc(username, password, employee, new MaintenanceProviderAdmin());
                     break;
                 case Asset:
-                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new AssetAdmin());
+                    account = enterprise.getUserAccountDirectory().generateUserAcc(username, password, employee, new AssetAdmin());
                     break;
                 case QualityControl:
-                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new QualityControlAdmin());
+                    account = enterprise.getUserAccountDirectory().generateUserAcc(username, password, employee, new QualityControlAdmin());
                     break;
                 case Broker:
-                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new BrokerAdmin());
+                    account = enterprise.getUserAccountDirectory().generateUserAcc(username, password, employee, new BrokerAdmin());
                     break;
                 default:
                     break;

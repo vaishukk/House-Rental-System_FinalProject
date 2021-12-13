@@ -5,6 +5,9 @@
  */
 package Business.Enterprise;
 
+import Business.Role.MoneyContractorRole;
+import Business.Role.MovpacRole;
+import Business.Role.RepairRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -18,15 +21,13 @@ public class MaintenanceProviderEnterprise extends Enterprise {
         super(name, Enterprise.EnterpriseType.MaintenanceProvider);
     }
 
-    //@Override
+    @Override
 
     public ArrayList<Role> getSupportedRole() {
         roles = new ArrayList<Role>();
-//        roles.add(new CleaningRole());
-//        roles.add(new ElectricianRole());
-//        roles.add(new PlumbingRole());
-//        roles.add(new PackersMoversRole());
-//        roles.add(new GovermentEmployeeRole());
+        roles.add(new RepairRole());
+        roles.add(new MovpacRole());
+        roles.add(new MoneyContractorRole());
         return roles;
     }
     

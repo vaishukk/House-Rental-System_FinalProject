@@ -290,20 +290,20 @@ int selectedRow = assetenterprisetable.getSelectedRow();
             if (null != request.getOrgType()) switch (request.getOrgType()) {
                 case AssetManager:{
                     Organisation org = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
-                    Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                    UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new AssetManagerRole());
+                    Employee emp = org.getEmployeeDirectory().generateEmp(request.getName());
+                    UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new AssetManagerRole());
                         break;
                     }
                 case Constructor:{
                     Organisation org = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
-                    Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                    UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new ConstructorRole());
+                    Employee emp = org.getEmployeeDirectory().generateEmp(request.getName());
+                    UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new ConstructorRole());
                         break;
                     }
                 case Merchant:{
                     Organisation org = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
-                    Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                    UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new MerchantRole());
+                    Employee emp = org.getEmployeeDirectory().generateEmp(request.getName());
+                    UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new MerchantRole());
                         break;
                     }
                 default:

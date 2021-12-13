@@ -277,7 +277,7 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
          if (!getname.getText().equals("")) {
             Organisation organisation = (Organisation) organizationbbox.getSelectedItem();
             String name = getname.getText();
-            organisation.getEmployeeDirectory().createEmployee(name);
+            organisation.getEmployeeDirectory().generateEmp(name);
             JOptionPane.showMessageDialog(null, "Employee Added Successfully");
             populateTable();
             getname.setText("");

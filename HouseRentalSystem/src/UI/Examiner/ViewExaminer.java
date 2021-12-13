@@ -5,6 +5,7 @@
  */
 package UI.Examiner;
 
+
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
@@ -32,6 +33,7 @@ public class ViewExaminer extends javax.swing.JPanel {
     private UserAccount useraccount;
     private Enterprise enterprise;
     
+    
     public ViewExaminer(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -39,12 +41,13 @@ public class ViewExaminer extends javax.swing.JPanel {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         populateRequestTable();
+        
     }
-
+    
     public void populateRequestTable() {
         DefaultTableModel model = (DefaultTableModel) tblexaminer.getModel();
         model.setRowCount(0);
-        for (Network n : system.getNetworkList()) {
+        for (Network n : system.getNwkCatalog()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
                     if (workRequest instanceof ExamineRequest) {
@@ -70,6 +73,9 @@ public class ViewExaminer extends javax.swing.JPanel {
         }
     }
 
+    
+        
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,7 +85,6 @@ public class ViewExaminer extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         lblicon = new javax.swing.JLabel();
@@ -115,7 +120,7 @@ public class ViewExaminer extends javax.swing.JPanel {
                 .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltitle)
-                .addContainerGap(731, Short.MAX_VALUE))
+                .addContainerGap(824, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +132,7 @@ public class ViewExaminer extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 80));
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 80));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -221,14 +226,6 @@ public class ViewExaminer extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(442, Short.MAX_VALUE)
-                .addComponent(lblservice, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(447, 447, 447))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 949, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(161, 161, 161)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,25 +235,34 @@ public class ViewExaminer extends javax.swing.JPanel {
                         .addGap(209, 209, 209)
                         .addComponent(btnfinish, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(177, 177, 177)
-                        .addComponent(btndecline))
+                        .addComponent(btndecline))))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 949, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(282, 282, 282)
+                .addComponent(lblservice, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(lblestimate, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(getamount, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(109, 109, 109)
+                .addComponent(lblcomments)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblestimate, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(getamount, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(184, 184, 184)
-                        .addComponent(lblcomments)
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnViewBuyerDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(getfeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(245, 245, 245)
+                        .addComponent(btnViewBuyerDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(getfeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblservice)
                 .addGap(31, 31, 31)
+                .addComponent(lblservice)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -276,61 +282,29 @@ public class ViewExaminer extends javax.swing.JPanel {
                 .addGap(85, 85, 85))
         );
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1200, 380));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1197, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 617, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1300, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1197, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 617, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewBuyerDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewBuyerDetailsActionPerformed
         // TODO add your handling code here:
-
         int selectedRow = tblexaminer.getSelectedRow();
 
         int count = tblexaminer.getSelectedRowCount();
         if (count == 1) {
             if (selectedRow >= 0) {
-                UserAccount customerAcc = (UserAccount) tblexaminer.getValueAt(selectedRow, 1);
-                DisplayCustomerInfoPanel displayCustomerInfoPanel = new DisplayCustomerInfoPanel(userProcessContainer, customerAcc, useraccount, system);
+                UserAccount buyerAcc = (UserAccount) tblexaminer.getValueAt(selectedRow, 1);
+                DisplayCustomerInfoPanel displayCustomerInfoPanel = new DisplayCustomerInfoPanel(userProcessContainer, buyerAcc, useraccount, system);
                 userProcessContainer.add("DisplayCustomerInfoPanel", displayCustomerInfoPanel);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
@@ -340,6 +314,7 @@ public class ViewExaminer extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
+        
     }//GEN-LAST:event_btnViewBuyerDetailsActionPerformed
 
     private void btnViewSellerDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewSellerDetailsActionPerformed
@@ -350,8 +325,8 @@ public class ViewExaminer extends javax.swing.JPanel {
         int count = tblexaminer.getSelectedRowCount();
         if (count == 1) {
             if (selectedRow >= 0) {
-                UserAccount merchantAcc = (UserAccount) tblexaminer.getValueAt(selectedRow, 2);
-                DisplayMerchantInfoPanel displayMerchantInfoPanel = new DisplayMerchantInfoPanel(userProcessContainer, merchantAcc, useraccount, system);
+                UserAccount sellerAcc = (UserAccount) tblexaminer.getValueAt(selectedRow, 2);
+                DisplayMerchantInfoPanel displayMerchantInfoPanel = new DisplayMerchantInfoPanel(userProcessContainer, sellerAcc, useraccount, system);
                 userProcessContainer.add("DisplayMerchantInfoPanel", displayMerchantInfoPanel);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
@@ -361,6 +336,7 @@ public class ViewExaminer extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
+        
     }//GEN-LAST:event_btnViewSellerDetailsActionPerformed
 
     private void getamountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getamountActionPerformed
@@ -368,19 +344,18 @@ public class ViewExaminer extends javax.swing.JPanel {
     }//GEN-LAST:event_getamountActionPerformed
 
     private void btnacceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacceptActionPerformed
-
-        int selectedRow = tblexaminer.getSelectedRow();
+ int selectedRow = tblexaminer.getSelectedRow();
         if (selectedRow >= 0) {
-            ExamineRequest checkRequest = (ExamineRequest) tblexaminer.getValueAt(selectedRow, 0);
+            ExamineRequest inspectRequest = (ExamineRequest) tblexaminer.getValueAt(selectedRow, 0);
             try {
                 Double quote = Double.parseDouble(getamount.getText());
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for Quote");
                 return;
             }
-            if (!"In Progress".equals(checkRequest.getStatus())) {
-                checkRequest.setStatus("In Progress");
-                checkRequest.setQuote(getamount.getText());
+            if (!"In Progress".equals(inspectRequest.getStatus())) {
+                inspectRequest.setStatus("In Progress");
+                inspectRequest.setQuote(getamount.getText());
                 useraccount.setStatus("Occupied");
                 JOptionPane.showMessageDialog(null, "Job Taken Successfully!");
                 populateRequestTable();
@@ -390,22 +365,23 @@ public class ViewExaminer extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
         }
+        
     }//GEN-LAST:event_btnacceptActionPerformed
 
     private void btnfinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfinishActionPerformed
         // TODO add your handling code here:
 
-        int selectedRow = tblexaminer.getSelectedRow();
+         int selectedRow = tblexaminer.getSelectedRow();
         if (selectedRow >= 0) {
-            ExamineRequest checkRequest = (ExamineRequest) tblexaminer.getValueAt(selectedRow, 0);
+            ExamineRequest inspectRequest = (ExamineRequest) tblexaminer.getValueAt(selectedRow, 0);
             String feedback = getfeedback.getText();
             if (feedback.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
                 return;
             }
-            if (!"Completed".equals(checkRequest.getStatus())) {
-                checkRequest.setStatus("Completed");
-                checkRequest.setExaminerNote(feedback);
+            if (!"Completed".equals(inspectRequest.getStatus())) {
+                inspectRequest.setStatus("Completed");
+                inspectRequest.setExaminerNote(feedback);
                 JOptionPane.showMessageDialog(null, "Job is set to completed!");
                 int dialogButton = JOptionPane.YES_NO_OPTION;
                 int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
@@ -419,21 +395,22 @@ public class ViewExaminer extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
         }
+        
     }//GEN-LAST:event_btnfinishActionPerformed
 
     private void btndeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeclineActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblexaminer.getSelectedRow();
         if (selectedRow >= 0) {
-            ExamineRequest checkRequest = (ExamineRequest) tblexaminer.getValueAt(selectedRow, 0);
+            ExamineRequest inspectRequest = (ExamineRequest) tblexaminer.getValueAt(selectedRow, 0);
             String feedback = getfeedback.getText();
             if (feedback.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
                 return;
             }
-            if (!"Completed".equals(checkRequest.getStatus()) && !"In Progress".equals(checkRequest.getStatus())) {
-                checkRequest.setStatus("Rejected");
-                checkRequest.setExaminerNote(feedback);
+            if (!"Completed".equals(inspectRequest.getStatus()) && !"In Progress".equals(inspectRequest.getStatus())) {
+                inspectRequest.setStatus("Rejected");
+                inspectRequest.setExaminerNote(feedback);
                 JOptionPane.showMessageDialog(null, "Job is set to rejected!");
                 int dialogButton = JOptionPane.YES_NO_OPTION;
                 int dialogResult = JOptionPane.showConfirmDialog(this, "Would you like to set your status to Available?", "Warning", dialogButton);
@@ -442,7 +419,7 @@ public class ViewExaminer extends javax.swing.JPanel {
                 }
                 populateRequestTable();
             } else {
-                JOptionPane.showMessageDialog(null, "Job is already " + checkRequest.getStatus());
+                JOptionPane.showMessageDialog(null, "Job is already " + inspectRequest.getStatus());
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
@@ -459,7 +436,6 @@ public class ViewExaminer extends javax.swing.JPanel {
     private javax.swing.JButton btnfinish;
     private javax.swing.JTextField getamount;
     private javax.swing.JTextField getfeedback;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;

@@ -13,7 +13,7 @@ import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.Organisation.OrganisationDirectory;
 import Business.Role.Role;
-import Business.Role.SystemAdminRole;
+import Business.Role.SysAdminRole;
 import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -39,13 +39,12 @@ public class EcoSystem extends Organisation{
     private OrganisationDirectory organisationDirectory;
     private EnterpriseDirectory enterpriseDirectory;
     private MoneyContractorEmployeeDirectory moneyContractorEmployeeDirectory;
-    private AssetDirectory AssetDirectory;
-    
-    private ArrayList<Network> networkList;
+    private AssetDirectory AssetDirectory;    
+    private ArrayList<Network> nwkCatalog;
 
     private EcoSystem() {
         super(null);
-        networkList = new ArrayList<Network>();
+        nwkCatalog = new ArrayList<Network>();
         enterpriseDirectory = new EnterpriseDirectory();
     }
 
@@ -77,18 +76,18 @@ public class EcoSystem extends Organisation{
         business = system;
     }
      
-    public Network createAndAddNetwork() {
+    public Network generateAndAppendNwk() {
         Network network = new Network();
-        networkList.add(network);
+        nwkCatalog.add(network);
         return network;
     }
     
-    public ArrayList<Network> getNetworkList() {
-        return networkList;
+    public ArrayList<Network> getNwkCatalog() {
+        return nwkCatalog;
     }
 
-    public void setNetworkList(ArrayList<Network> networkList) {
-        this.networkList = networkList;
+    public void setNwkCatalog(ArrayList<Network> nwkCatalog) {
+        this.nwkCatalog = nwkCatalog;
     }
 
     public EnterpriseDirectory getEnterpriseDirectory() {
@@ -99,19 +98,19 @@ public class EcoSystem extends Organisation{
         this.enterpriseDirectory = enterpriseDirectory;
     }
     
-    public boolean checkUniqueNetwork(String networkName) {
-        for (Network n : business.getNetworkList()) {
-            if (n.getName().toLowerCase().equals(networkName.toLowerCase())) {
+    public boolean verifySameNwk(String nwkName) {
+        for (Network nwk : business.getNwkCatalog()) {
+            if (nwk.getName().toLowerCase().equals(nwkName.toLowerCase())) {
                 return false;
             }
         }
         return true;
     }
     
-    public boolean checkIfEnterpriseIsUnique(String entName) {
-        for (Network n : business.getNetworkList()) {
-            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
-                if (e.getName().toLowerCase().equals(entName.toLowerCase())) {
+    public boolean veriftEntSame(String enterpriseName) {
+        for (Network nwk : business.getNwkCatalog()) {
+            for (Enterprise ent : nwk.getEnterpriseDirectory().getEnterpriseList()) {
+                if (ent.getName().toLowerCase().equals(enterpriseName.toLowerCase())) {
                     return false;
                 }
             }
@@ -119,13 +118,13 @@ public class EcoSystem extends Organisation{
         return true;
     }
     
-    public Boolean checkValidPasswordFormat(String password) {
-        Pattern p1;
-        p1 = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$");
-        Matcher m1 = p1.matcher(password);
-        boolean b1 = m1.matches();
-        if (!b1) {
-            JOptionPane.showMessageDialog(null, "Please enter valid password  format!\nPassword must contain at least one digit [0-9].\n"
+    public Boolean verifyPassFormat(String password) {
+        Pattern patt;
+        patt = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$");
+        Matcher matcher = patt.matcher(password);
+        boolean bool = matcher.matches();
+        if (!bool) {
+            JOptionPane.showMessageDialog(null, "Invalid password!\nPassword must contain at least one digit [0-9].\n"
                     + "Password must contain at least one lowercase Latin character [a-z].\n"
                     + "Password must contain at least one uppercase Latin character [A-Z].\n"
                     + "Password must contain at least one special character like ! @ # & ( ).\n"
@@ -136,29 +135,29 @@ public class EcoSystem extends Organisation{
         }
     }
     
-    public boolean checkIfUserIsUnique(String userName) {
+    public boolean verifySameUser(String user_Name) {
         boolean flag = true;
-        for (Network n : business.getNetworkList()) {
+        for (Network n : business.getNwkCatalog()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (UserAccount u : e.getUserAccountDirectory().getUserAccountList()) {
-                    if (u.getUsername().toLowerCase().equals(userName.toLowerCase())) {
+                    if (u.getUsername().toLowerCase().equals(user_Name.toLowerCase())) {
                         flag = false;
                     }
                 }
                 for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
                     for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
-                        if (u.getUsername().toLowerCase().equals(userName.toLowerCase())) {
+                        if (u.getUsername().toLowerCase().equals(user_Name.toLowerCase())) {
                             flag = false;
                         }
                     }
                 }
             }
         }
-        if ("admin".equals(userName.toLowerCase())) {
+        if ("admin".equals(user_Name.toLowerCase())) {
             flag = false;
         }
         if (!flag) {
-            JOptionPane.showMessageDialog(null, "Sorry! " + userName + " already exists in the system!", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sorry! " + user_Name + " already exists in the system!", "Warning", JOptionPane.WARNING_MESSAGE);
             return false;
         } else {
             return true;
@@ -227,7 +226,7 @@ public class EcoSystem extends Organisation{
     }
      
      public boolean checkIfEmailIsUnique(String email, String username) {
-        for (Network n : business.getNetworkList()) {
+        for (Network n : business.getNwkCatalog()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
                     for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
@@ -245,7 +244,7 @@ public class EcoSystem extends Organisation{
     }
      
       public boolean checkIfPhoneIsUnique(String phone, String username) {
-        for (Network n : business.getNetworkList()) {
+        for (Network n : business.getNwkCatalog()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organisation o : e.getOrganisationDirectory().getOrganisationList()) {
                     for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
@@ -265,7 +264,7 @@ public class EcoSystem extends Organisation{
       @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roleList = new ArrayList<Role>();
-        roleList.add(new SystemAdminRole());
+        roleList.add(new SysAdminRole());
         return roleList;
     }
 

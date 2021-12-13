@@ -28,7 +28,9 @@ public class ExaminerWorkAreaPanel extends javax.swing.JPanel {
     Network network;
     UserAccount account;
     Organisation organisation;
+    
     public ExaminerWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
+        initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.system = business;
@@ -39,17 +41,17 @@ public class ExaminerWorkAreaPanel extends javax.swing.JPanel {
     }
 
     private void manageJobs() {
-        ViewExaminer viewExaminer = new ViewExaminer(rightworkareapanel, enterprise, account, system);
-        rightworkareapanel.add("ViewExaminer", viewExaminer);
-        CardLayout layout = (CardLayout) rightworkareapanel.getLayout();
-        layout.next(rightworkareapanel);
+        ViewExaminer viewExaminer = new ViewExaminer(rightSystemAdminPanel, enterprise, account, system);
+        rightSystemAdminPanel.add("ViewExaminer", viewExaminer);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
     }
 
     private void manageProfile() {
-        ExaminerProfile examinerProfile = new ExaminerProfile(rightworkareapanel, enterprise, account, system);
-        rightworkareapanel.add("ExaminerProfile", examinerProfile);
-        CardLayout layout = (CardLayout) rightworkareapanel.getLayout();
-        layout.next(rightworkareapanel);
+        ExaminerProfile examinerProfile = new ExaminerProfile(rightSystemAdminPanel, enterprise, account, system);
+        rightSystemAdminPanel.add("ExaminerProfile", examinerProfile);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
     }
 
     /**
@@ -72,7 +74,7 @@ public class ExaminerWorkAreaPanel extends javax.swing.JPanel {
         lbljobs = new javax.swing.JLabel();
         lblexaminer = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        rightworkareapanel = new javax.swing.JPanel();
+        rightSystemAdminPanel = new javax.swing.JPanel();
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -116,7 +118,7 @@ public class ExaminerWorkAreaPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 7, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         manageprofilepanelLayout.setVerticalGroup(
             manageprofilepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,9 +185,9 @@ public class ExaminerWorkAreaPanel extends javax.swing.JPanel {
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         leftworkareapanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 280, 20));
 
-        rightworkareapanel.setBackground(new java.awt.Color(241, 241, 242));
-        rightworkareapanel.setPreferredSize(new java.awt.Dimension(1058, 840));
-        rightworkareapanel.setLayout(new java.awt.CardLayout());
+        rightSystemAdminPanel.setBackground(new java.awt.Color(241, 241, 242));
+        rightSystemAdminPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
+        rightSystemAdminPanel.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout workareapanelLayout = new javax.swing.GroupLayout(workareapanel);
         workareapanel.setLayout(workareapanelLayout);
@@ -195,11 +197,11 @@ public class ExaminerWorkAreaPanel extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(leftworkareapanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(rightworkareapanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(rightSystemAdminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         workareapanelLayout.setVerticalGroup(
             workareapanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rightworkareapanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rightSystemAdminPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(workareapanelLayout.createSequentialGroup()
                 .addComponent(leftworkareapanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -211,26 +213,24 @@ public class ExaminerWorkAreaPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1338, Short.MAX_VALUE)
+            .addGap(0, 1368, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 15, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 846, Short.MAX_VALUE)
+            .addGap(0, 853, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 846, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 837, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 16, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblprofileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblprofileMousePressed
-       manageProfile();
+      manageProfile();
     }//GEN-LAST:event_lblprofileMousePressed
 
     private void manageprofilepanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageprofilepanelMousePressed
@@ -259,7 +259,7 @@ public class ExaminerWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel leftworkareapanel;
     private javax.swing.JPanel managejobpanel;
     private javax.swing.JPanel manageprofilepanel;
-    private javax.swing.JPanel rightworkareapanel;
+    private javax.swing.JPanel rightSystemAdminPanel;
     private javax.swing.JPanel workareapanel;
     // End of variables declaration//GEN-END:variables
 }

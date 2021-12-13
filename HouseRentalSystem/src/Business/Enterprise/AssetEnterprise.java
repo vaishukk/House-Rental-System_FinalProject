@@ -5,6 +5,9 @@
  */
 package Business.Enterprise;
 
+import Business.Role.AssetManagerRole;
+import Business.Role.ConstructorRole;
+import Business.Role.MerchantRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -17,12 +20,12 @@ public class AssetEnterprise extends Enterprise{
         super(name, Enterprise.EnterpriseType.Asset);
     }
 
-    //@Override
+    @Override
     public ArrayList<Role> getSupportedRole() {
         roles = new ArrayList<Role>();
-//        roles.add(new BuilderRole());
-//        roles.add(new AssetManagerRole());
-//        roles.add(new MerchantRole());
+        roles.add(new ConstructorRole());
+        roles.add(new AssetManagerRole());
+        roles.add(new MerchantRole());
         return roles;
     }
     
