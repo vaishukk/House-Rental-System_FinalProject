@@ -25,7 +25,7 @@ public class BrokerEnterpriseManageOrganizations extends javax.swing.JPanel {
     public BrokerEnterpriseManageOrganizations(OrganisationDirectory directory) {
         initComponents();
          this.directory = directory;
-        volPopulate();
+        PopulatTable();
         populateOrganizationTypeComboBox();
     }
     
@@ -35,7 +35,7 @@ public class BrokerEnterpriseManageOrganizations extends javax.swing.JPanel {
 
     }
 
-    public void volPopulate() {
+    public void PopulatTable() {
         DefaultTableModel model = (DefaultTableModel) tblOrganization.getModel();
 
         model.setRowCount(0);
@@ -257,7 +257,7 @@ public class BrokerEnterpriseManageOrganizations extends javax.swing.JPanel {
             Organisation organisation = directory.createOrganisation(type, getorganization.getText());
             JOptionPane.showMessageDialog(null, "Organization Successfully Created");
             getorganization.setText("");
-            volPopulate();
+            PopulatTable();
         }
         
     }//GEN-LAST:event_btnaddorganizationActionPerformed

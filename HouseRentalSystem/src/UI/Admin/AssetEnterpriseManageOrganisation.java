@@ -20,16 +20,16 @@ public class AssetEnterpriseManageOrganisation extends javax.swing.JPanel {
     /**
      * Creates new form AssetEnterpriseManageOrganisation
      */
-    private final OrganisationDirectory directory;
+    private final OrganisationDirectory orgdirectory;
     
-    public AssetEnterpriseManageOrganisation(OrganisationDirectory directory) {
+    public AssetEnterpriseManageOrganisation(OrganisationDirectory orgdirectory) {
         initComponents();
-        this.directory = directory;
+        this.orgdirectory = orgdirectory;
         PopulateTable();
-        populatetblorganization();
+        populatetblorganisation();
     }
 
-    private void populatetblorganization() {
+    private void populatetblorganisation() {
         typebox.removeAllItems();
         typebox.addItem(Organisation.Type.AssetManager);
         typebox.addItem(Organisation.Type.Constructor);
@@ -41,7 +41,7 @@ public class AssetEnterpriseManageOrganisation extends javax.swing.JPanel {
 
         model.setRowCount(0);
 
-        for (Organisation organisation : directory.getOrganisationList()) {
+        for (Organisation organisation : orgdirectory.getOrganisationList()) {
             {
                 if (organisation.getType() != Organisation.Type.Customer) {
                     Object[] row = new Object[2];
@@ -269,7 +269,7 @@ public class AssetEnterpriseManageOrganisation extends javax.swing.JPanel {
         if ("".equals(getname.getText())) {
             JOptionPane.showMessageDialog(null, "Enter organization name!");
         } else {
-            Organisation organisation = directory.createOrganisation(type, getname.getText());
+            Organisation organisation = orgdirectory.createOrganisation(type, getname.getText());
             JOptionPane.showMessageDialog(null, "Organization Successfully Created");
             getname.setText("");
             PopulateTable();

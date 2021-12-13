@@ -28,7 +28,7 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
     private final EcoSystem ecosystem;
     Organisation organisation;
     
-    public QualityControlEnterpriseUseraccount(JPanel userProcessContainer, Enterprise enterprise, EcoSystem system, Organisation organisation) {
+    public QualityControlEnterpriseUseraccount(JPanel usrPrcCont, Enterprise enterprise, EcoSystem system, Organisation organisation) {
         initComponents();
         this.enterprise = enterprise;
         this.ecosystem = system;
@@ -49,7 +49,7 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         lblquality = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tblUserDetails2 = new javax.swing.JTable();
+        tbluserinformation = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         lbltitle = new javax.swing.JLabel();
         lblicon1 = new javax.swing.JLabel();
@@ -82,9 +82,9 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
 
         jScrollPane3.setForeground(new java.awt.Color(0, 102, 255));
 
-        tblUserDetails2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        tblUserDetails2.setForeground(new java.awt.Color(25, 56, 82));
-        tblUserDetails2.setModel(new javax.swing.table.DefaultTableModel(
+        tbluserinformation.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        tbluserinformation.setForeground(new java.awt.Color(25, 56, 82));
+        tbluserinformation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -107,8 +107,8 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblUserDetails2.setSelectionBackground(new java.awt.Color(56, 90, 174));
-        jScrollPane3.setViewportView(tblUserDetails2);
+        tbluserinformation.setSelectionBackground(new java.awt.Color(56, 90, 174));
+        jScrollPane3.setViewportView(tbluserinformation);
 
         jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 630, 110));
 
@@ -315,9 +315,9 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
 
     private void btnaddusersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddusersActionPerformed
         // TODO add your handling code here:
-        String username = getusername.getText();
+        String userName = getusername.getText();
         String password = getpassword.getText();
-        if ("".equals(username) || "".equals(password) || organizationbox.getSelectedItem() == null
+        if ("".equals(userName) || "".equals(password) || organizationbox.getSelectedItem() == null
                 || employeebox.getSelectedItem() == null || rolebox.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null, "Please enter all required fields!");
             return;
@@ -325,13 +325,13 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
         if (!ecosystem.verifyPassFormat(password)) {
             return;
         }
-        if (!ecosystem.verifySameUser(username)) {
+        if (!ecosystem.verifySameUser(userName)) {
             return;
         }
         Organisation org = (Organisation) organizationbox.getSelectedItem();
         Employee employee = (Employee) employeebox.getSelectedItem();
         Role role = (Role) rolebox.getSelectedItem();
-        org.getUserAccountDirectory().generateUserAcc(username, password, employee, role);
+        org.getUserAccountDirectory().generateUserAcc(userName, password, employee, role);
         populateTable();
         getusername.setText("");
         getpassword.setText("");
@@ -346,16 +346,16 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
     }
 
     public void populateTable() {
-        DefaultTableModel model = (DefaultTableModel) tblUserDetails2.getModel();
+        DefaultTableModel model = (DefaultTableModel) tbluserinformation.getModel();
 
         model.setRowCount(0);
 
         for (Organisation org : enterprise.getOrganisationDirectory().getOrganisationList()) {
-            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+            for (UserAccount userAcc : org.getUserAccountDirectory().getUserAccountList()) {
                 Object row[] = new Object[2];
-                row[0] = ua;
-                row[1] = ua.getRole();
-                ((DefaultTableModel) tblUserDetails2.getModel()).addRow(row);
+                row[0] = userAcc;
+                row[1] = userAcc.getRole();
+                ((DefaultTableModel) tbluserinformation.getModel()).addRow(row);
             }
         }
     }
@@ -398,6 +398,6 @@ public class QualityControlEnterpriseUseraccount extends javax.swing.JPanel {
     private javax.swing.JLabel lblusers;
     private javax.swing.JComboBox organizationbox;
     private javax.swing.JComboBox rolebox;
-    private javax.swing.JTable tblUserDetails2;
+    private javax.swing.JTable tbluserinformation;
     // End of variables declaration//GEN-END:variables
 }

@@ -74,7 +74,7 @@ public class BrokerEnterpriseWorkRequest extends javax.swing.JPanel {
         lblbroker = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblworkrequest = new javax.swing.JTable();
-        btnReject = new javax.swing.JButton();
+        btndecline = new javax.swing.JButton();
         btnallow = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -152,15 +152,15 @@ public class BrokerEnterpriseWorkRequest extends javax.swing.JPanel {
         tblworkrequest.setSelectionBackground(new java.awt.Color(56, 90, 174));
         jScrollPane1.setViewportView(tblworkrequest);
 
-        btnReject.setBackground(new java.awt.Color(255, 255, 255));
-        btnReject.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnReject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-cross-mark-48.png"))); // NOI18N
-        btnReject.setText("DECLINE");
-        btnReject.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnReject.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnReject.addActionListener(new java.awt.event.ActionListener() {
+        btndecline.setBackground(new java.awt.Color(255, 255, 255));
+        btndecline.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btndecline.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-cross-mark-48.png"))); // NOI18N
+        btndecline.setText("DECLINE");
+        btndecline.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btndecline.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btndecline.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRejectActionPerformed(evt);
+                btndeclineActionPerformed(evt);
             }
         });
 
@@ -190,7 +190,7 @@ public class BrokerEnterpriseWorkRequest extends javax.swing.JPanel {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(btnallow)
                                 .addGap(113, 113, 113)
-                                .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btndecline, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(106, 106, 106))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,7 +215,7 @@ public class BrokerEnterpriseWorkRequest extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnallow)
-                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btndecline, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27))
         );
 
@@ -245,41 +245,41 @@ public class BrokerEnterpriseWorkRequest extends javax.swing.JPanel {
             RegistrationRequest request = (RegistrationRequest) tblworkrequest.getValueAt(selectedRow, 0);
 
             if (request.getOrgType() == Organisation.Type.Broker) {
-                Organisation org = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
-                Employee emp = org.getEmployeeDirectory().generateEmp(request.getName());
-                UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new BrokerRole());
+                Organisation organisatn = organisationDirectory.createOrganisation(request.getOrgType(), request.getName());
+                Employee emp = organisatn.getEmployeeDirectory().generateEmp(request.getName());
+                UserAccount usrAcc = organisatn.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new BrokerRole());
             }
 
             request.setAvail("Completed");
-            JOptionPane.showMessageDialog(null, "User account has been activated successfully");
+            JOptionPane.showMessageDialog(null, "User account activated successfully");
             populateTable();
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a request to process.");
+            JOptionPane.showMessageDialog(null, "select a request to process.");
             return;
         }
         
     }//GEN-LAST:event_btnallowActionPerformed
 
-    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+    private void btndeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeclineActionPerformed
 
         int selectedRow = tblworkrequest.getSelectedRow();
 
         if (selectedRow >= 0) {
             RegistrationRequest request = (RegistrationRequest) tblworkrequest.getValueAt(selectedRow, 0);
             request.setAvail("Rejected");
-            JOptionPane.showMessageDialog(null, "User request has been removed successfully");
+            JOptionPane.showMessageDialog(null, "User request removed successfully");
             populateTable();
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a request to process.");
+            JOptionPane.showMessageDialog(null, "select a request to process.");
             return;
         }
        
-    }//GEN-LAST:event_btnRejectActionPerformed
+    }//GEN-LAST:event_btndeclineActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnReject;
     private javax.swing.JButton btnallow;
+    private javax.swing.JButton btndecline;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

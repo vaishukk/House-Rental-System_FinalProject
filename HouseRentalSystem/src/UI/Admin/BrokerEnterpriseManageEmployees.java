@@ -21,6 +21,7 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
      * Creates new form BrokerEnterpriseManageEmployees
      */
      private final OrganisationDirectory orgdirectory;
+     
     public BrokerEnterpriseManageEmployees(OrganisationDirectory orgdirectory) {
         initComponents();
         this.orgdirectory = orgdirectory;
@@ -42,10 +43,10 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for (Organisation organisation : orgdirectory.getOrganisationList()) {
-            for (Employee employee : organisation.getEmployeeDirectory().getEmpList()) {
+            for (Employee emp : organisation.getEmployeeDirectory().getEmpList()) {
                 Object[] row = new Object[model.getColumnCount()];
-                row[0] = employee.getId();
-                row[1] = employee.getName();
+                row[0] = emp.getId();
+                row[1] = emp.getName();
                 model.addRow(row);
             }
         }
@@ -278,7 +279,7 @@ public class BrokerEnterpriseManageEmployees extends javax.swing.JPanel {
             Organisation organisation = (Organisation) organizationbbox.getSelectedItem();
             String name = getname.getText();
             organisation.getEmployeeDirectory().generateEmp(name);
-            JOptionPane.showMessageDialog(null, "Employee Added Successfully");
+            JOptionPane.showMessageDialog(null, "Employee Added");
             populateTable();
             getname.setText("");
         } else {

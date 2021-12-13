@@ -23,7 +23,7 @@ public class QualityControlEnterpriseManageEmployees extends javax.swing.JPanel 
      */
     private OrganisationDirectory organisationDirectory;
     
-    public QualityControlEnterpriseManageEmployees(JPanel userProcessContainer, OrganisationDirectory organisationDirectory) {
+    public QualityControlEnterpriseManageEmployees(JPanel usrPrcCont, OrganisationDirectory organisationDirectory) {
         initComponents();
         this.organisationDirectory = organisationDirectory;
         populateTable();

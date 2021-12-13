@@ -26,12 +26,13 @@ public class MaintenanceProviderAdminWorkAreaPanel extends javax.swing.JPanel {
     Enterprise enterprise;
     EcoSystem system;
     Network network;
-    UserAccount account;
+    UserAccount usrAccount;
     Organisation organisation;
-    public MaintenanceProviderAdminWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
+    
+    public MaintenanceProviderAdminWorkAreaPanel(JPanel userProcessContainer, UserAccount usrAccount, Organisation organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.account = account;
+        this.usrAccount = usrAccount;
         this.system = business;
         this.network = network;
         this.enterprise = enterprise;
@@ -61,9 +62,9 @@ public class MaintenanceProviderAdminWorkAreaPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
     }
-    private void manageRequests(){
+    private void manageDemands(){
        
-        MaintenanceProviderEnterpriseWorkRequest maintenanceProviderEnterpriseWorkRequest = new MaintenanceProviderEnterpriseWorkRequest(rightSystemAdminPanel, account, enterprise, network, system);
+        MaintenanceProviderEnterpriseWorkRequest maintenanceProviderEnterpriseWorkRequest = new MaintenanceProviderEnterpriseWorkRequest(rightSystemAdminPanel, usrAccount, enterprise, network, system);
         rightSystemAdminPanel.add("MaintenanceProviderEnterpriseWorkRequest", maintenanceProviderEnterpriseWorkRequest);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
@@ -402,7 +403,7 @@ public class MaintenanceProviderAdminWorkAreaPanel extends javax.swing.JPanel {
 
     private void managedemandsPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managedemandsPanelMousePressed
         // TODO add your handling code here:
-         manageRequests();
+         manageDemands();
     }//GEN-LAST:event_managedemandsPanelMousePressed
 
 

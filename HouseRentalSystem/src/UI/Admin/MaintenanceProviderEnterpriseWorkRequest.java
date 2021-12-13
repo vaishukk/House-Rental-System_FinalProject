@@ -35,14 +35,15 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
      */
      private JPanel userProcessContainer;
     private EcoSystem business;
-    private UserAccount userAccount;
+    private UserAccount usrAccount;
     private Enterprise enterprise;
     private Network network;
     private OrganisationDirectory organizationDirectory;
-    public MaintenanceProviderEnterpriseWorkRequest(JPanel userProcessContainer, UserAccount account, Enterprise enterprise, Network network, EcoSystem system) {
+    
+    public MaintenanceProviderEnterpriseWorkRequest(JPanel userProcessContainer, UserAccount usrAccount, Enterprise enterprise, Network network, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.userAccount = account;
+        this.usrAccount = usrAccount;
         this.enterprise = enterprise;
         this.network = network;
         this.business = business;
@@ -81,8 +82,6 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         lbltitle = new javax.swing.JLabel();
@@ -94,38 +93,6 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
         btndecline = new javax.swing.JButton();
         btnallow = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1078, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1078, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
 
         jPanel3.setBackground(new java.awt.Color(44, 68, 80));
         jPanel3.setMinimumSize(new java.awt.Dimension(1058, 840));
@@ -274,21 +241,11 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1078, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 93, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 93, Short.MAX_VALUE)))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1264, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 717, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 90, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 91, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -317,31 +274,31 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
             if (request.getOrgType() == Organisation.Type.CameraMan) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().generateEmp(request.getName());
-                UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new CameraManRole());
+                UserAccount usrAcc = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new CameraManRole());
             }else if (request.getOrgType() == Organisation.Type.Examiner) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().generateEmp(request.getName());
-                UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new ExaminerRole());
+                UserAccount usrAcc = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new ExaminerRole());
             }             
             else if (request.getOrgType() == Organisation.Type.Repair) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().generateEmp(request.getName());
-                UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new RepairRole());
+                UserAccount usrAcc = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new RepairRole());
             } 
              else if (request.getOrgType() == Organisation.Type.MoversPackers) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().generateEmp(request.getName());
-                UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new MovpacRole());
+                UserAccount usrAcc = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new MovpacRole());
             } 
              else if (request.getOrgType() == Organisation.Type.Customer) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().generateEmp(request.getName());
-                UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new CustomerRole());
+                UserAccount usrAcc = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new CustomerRole());
             } 
              else if (request.getOrgType() == Organisation.Type.Constructor) {
                 Organisation org = organizationDirectory.createOrganisation(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().generateEmp(request.getName());
-                UserAccount ua1 = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new ConstructorRole());
+                UserAccount usrAcc = org.getUserAccountDirectory().generateUserAcc(request.getUserName(), request.getUserPassword(), emp, new ConstructorRole());
             } 
             request.setAvail("Completed");
             JOptionPane.showMessageDialog(null, "User account has been activated successfully");
@@ -357,8 +314,6 @@ public class MaintenanceProviderEnterpriseWorkRequest extends javax.swing.JPanel
     private javax.swing.JButton btnallow;
     private javax.swing.JButton btndecline;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;

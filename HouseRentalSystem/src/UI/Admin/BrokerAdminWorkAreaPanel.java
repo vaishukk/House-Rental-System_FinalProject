@@ -18,26 +18,26 @@ import javax.swing.JPanel;
  * @author sanik
  */
 public class BrokerAdminWorkAreaPanel extends javax.swing.JPanel {
-    JPanel userProcessContainer;
+    JPanel userPrcCont;
     Enterprise enterprise;
     EcoSystem system;
     Network network;
-    UserAccount account;
+    UserAccount usrAccount;
     Organisation Organisation;
 
     /**
      * Creates new form BrokerEnterpriseAdminWork
-     * @param userProcessContainer
-     * @param account
+     * @param userPrcCont
+     * @param usrAccount
      * @param Organisation
      * @param enterprise
      * @param business
      * @param network
      */
-    public BrokerAdminWorkAreaPanel(JPanel userProcessContainer, UserAccount account, Organisation Organisation, Enterprise enterprise, Network network, EcoSystem business) {
+    public BrokerAdminWorkAreaPanel(JPanel userPrcCont, UserAccount usrAccount, Organisation Organisation, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
-         this.userProcessContainer = userProcessContainer;
-        this.account = account;
+         this.userPrcCont = userPrcCont;
+        this.usrAccount = usrAccount;
         this.system = business;
         this.network = network;
         this.enterprise = enterprise;
@@ -65,7 +65,7 @@ public class BrokerAdminWorkAreaPanel extends javax.swing.JPanel {
         layout.next(rightPanel);
     }
 
-    private void manageRequests() {
+    private void manageDemands() {
         BrokerEnterpriseWorkRequest brokerEnterpriseWorkRequest = new BrokerEnterpriseWorkRequest(enterprise);
         rightPanel.add("BrokerEnterpriseWorkRequest", brokerEnterpriseWorkRequest);
         CardLayout layout = (CardLayout) rightPanel.getLayout();
@@ -352,7 +352,7 @@ public class BrokerAdminWorkAreaPanel extends javax.swing.JPanel {
 
     private void managedemandspanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managedemandspanelMousePressed
         // TODO add your handling code here:
-        manageRequests();
+        manageDemands();
     }//GEN-LAST:event_managedemandspanelMousePressed
 
 
