@@ -54,7 +54,7 @@ public class DisplayHouseInfoPanel extends javax.swing.JPanel {
     }
     
     private void populateReqTable() {
-        getbedrooms.setText(asset.getAssetName());
+        getname1.setText(asset.getAssetName());
         getcity.setText(asset.getCity());
         getaddress.setText(asset.getAddress());
         getzip.setText(asset.getZip());
