@@ -12,7 +12,8 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organisation.Organisation;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.HandlerRequest;
+import Business.WorkQueue.ControlRequest;
+//import Business.WorkQueue.HandlerRequest;
 import Business.WorkQueue.WorkRequest;
 import UI.Customer.DisplayCustomerInfoPanel;
 import UI.Customer.DisplayMerchantInfoPanel;
@@ -80,19 +81,19 @@ public class ViewOppurtunitiesPanel extends javax.swing.JPanel {
         for (Network n : system.getNwkCatalog()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (WorkRequest workRequest : e.getWorkQueue().getWrkReqList()) {
-                    if (workRequest instanceof HandlerRequest) {
-                        if (((HandlerRequest) workRequest).getHandler().getUserName().equals(useraccount.getUserName())) {
+                    if (workRequest instanceof ControlRequest) {
+                        if (((ControlRequest) workRequest).getControl().getUserName().equals(useraccount.getUserName())) {
                             Object[] row = new Object[model.getColumnCount()];
                             row[0] = workRequest;
-                            row[1] = ((HandlerRequest) workRequest).getCustomer();
-                            row[2] = ((HandlerRequest) workRequest).getMerchant();
-                            row[3] = ((HandlerRequest) workRequest).getAsset().getAddress();
-                            row[4] = ((HandlerRequest) workRequest).getAsset().getCity();
-                            row[5] = ((HandlerRequest) workRequest).getAsset().getState();
-                            row[6] = ((HandlerRequest) workRequest).getAsset().getZip();
-                            row[7] = ((HandlerRequest) workRequest).getAvail();
-                            row[8] = ((HandlerRequest) workRequest).getCustomerNote();
-                            row[9] = ((HandlerRequest) workRequest).getExaminerNote();
+                            row[1] = ((ControlRequest) workRequest).getCustomer();
+                            row[2] = ((ControlRequest) workRequest).getMerchant();
+                            row[3] = ((ControlRequest) workRequest).getAsset().getAddress();
+                            row[4] = ((ControlRequest) workRequest).getAsset().getCity();
+                            row[5] = ((ControlRequest) workRequest).getAsset().getState();
+                            row[6] = ((ControlRequest) workRequest).getAsset().getZip();
+                            row[7] = ((ControlRequest) workRequest).getAvail();
+                            row[8] = ((ControlRequest) workRequest).getCustomerNote();
+                            row[9] = ((ControlRequest) workRequest).getExaminerNote();
                             model.addRow(row);
                         }
                     }
@@ -359,12 +360,13 @@ public class ViewOppurtunitiesPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblquote, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(getquote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(getcomments, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblcomments)))
+                        .addComponent(lblcomments))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblquote, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(getquote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(67, 67, 67))
         );
 
@@ -390,7 +392,7 @@ public class ViewOppurtunitiesPanel extends javax.swing.JPanel {
     private void btnselectjobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnselectjobActionPerformed
        int selectedRow = housingtable.getSelectedRow();
         if (selectedRow >= 0) {
-            HandlerRequest checkRequest = (HandlerRequest) housingtable.getValueAt(selectedRow, 0);
+            ControlRequest checkRequest = (ControlRequest) housingtable.getValueAt(selectedRow, 0);
             try {
                 Double quote = Double.parseDouble(getquote.getText());
             } catch (NumberFormatException ex) {
@@ -415,7 +417,7 @@ public class ViewOppurtunitiesPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
        int selectedRow = housingtable.getSelectedRow();
         if (selectedRow >= 0) {
-            HandlerRequest checkRequest = (HandlerRequest) housingtable.getValueAt(selectedRow, 0);
+            ControlRequest checkRequest = (ControlRequest) housingtable.getValueAt(selectedRow, 0);
             String comments = getcomments.getText();
             if (comments.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");
@@ -505,7 +507,7 @@ public class ViewOppurtunitiesPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = housingtable.getSelectedRow();
         if (selectedRow >= 0) {
-            HandlerRequest checkRequest = (HandlerRequest) housingtable.getValueAt(selectedRow, 0);
+            ControlRequest checkRequest = (ControlRequest) housingtable.getValueAt(selectedRow, 0);
             String comment = getcomments.getText();
             if (comment.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please enter valid & non empty value for feedback");

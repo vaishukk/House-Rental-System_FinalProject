@@ -123,8 +123,8 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="427" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblstateid" min="-2" max="-2" attributes="0"/>
                           <Component id="lblselhouse" min="-2" max="-2" attributes="0"/>
@@ -136,13 +136,13 @@
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="lblsubtitle" min="-2" pref="197" max="-2" attributes="0"/>
-                              <EmptySpace min="94" pref="570" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="536" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="getchosenhouse" pref="354" max="32767" attributes="0"/>
+                                  <Component id="getchosenhouse" max="32767" attributes="0"/>
                                   <Component id="getname" max="32767" attributes="0"/>
                                   <Component id="getcontact" alignment="0" max="32767" attributes="0"/>
                                   <Component id="getmailid" alignment="0" max="32767" attributes="0"/>
@@ -152,20 +152,20 @@
                               </Group>
                               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                               <Component id="houseimg" min="-2" pref="329" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="370" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblsubtitle" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="19" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblname" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="getname" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -203,7 +203,7 @@
                           </Group>
                           <Component id="houseimg" alignment="1" min="-2" pref="276" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
